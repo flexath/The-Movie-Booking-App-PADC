@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.activities.LocationScreenActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPickRegionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/dm_sans"
+            android:text="@string/lbl_pick_region_location_screen"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_regular_2x"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:id="@+id/flSearchBar"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPickRegionLabel"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="@dimen/margin_xlarge"
+            android:background="@drawable/et_search_location_background">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/flag_transparent"
+                android:drawableStart="@drawable/ic_baseline_search_green_18dp"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/inter"
+                android:gravity="center_vertical|start"
+                android:hint="@string/lbl_search_your_location_location_screen"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="16dp"
+                android:scrollbarAlwaysDrawHorizontalTrack="true"
+                android:scrollbarSize="1dp"
+                android:scrollbarStyle="insideOverlay"
+                android:scrollbars="horizontal"
+                android:textColor="#9E9E9E"
+                android:textSize="@dimen/text_regular"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btnLocation"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/flSearchBar"
+            android:layout_alignBottom="@+id/flSearchBar"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/flSearchBar"
+            android:background="@drawable/btn_location_background">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center"
+                android:elevation="@dimen/margin_medium"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/navigation" />
+
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBuildings"
+            android:layout_width="91dp"
+            android:layout_height="52dp"
+            android:layout_below="@+id/btnLocation"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="30dp"
+            android:elevation="@dimen/margin_medium"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/buildings" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCitiesLabel"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/ivBuildings"
+            android:background="#3B3B3B"
+            android:fontFamily="@font/inter"
+            android:gravity="center_vertical"
+            android:paddingStart="22dp"
+            android:text="Cities"
+            android:textColor="#F2F2F2"
+            android:textSize="15sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCitiesLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvCitiesLabel"
+            tools:listitem="@layout/view_holder_cities_list" />
+
+    </RelativeLayout>
+
+</ScrollView>

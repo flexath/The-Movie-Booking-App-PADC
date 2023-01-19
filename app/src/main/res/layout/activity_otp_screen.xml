@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.activities.OtpScreenActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="49dp"
+        android:background="@color/colorPrimary">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnOtpScreenBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="34dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            app:srcCompat="@drawable/ic_baseline_chevron_left_grey_24dp" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/colOtpScreenLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnOtpScreenBack"
+            android:layout_centerHorizontal="true">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivOtpScreenLogo"
+                android:layout_width="@dimen/width_logo"
+                android:layout_height="@dimen/height_logo"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/splash_logo" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/margin_medium_2"
+                android:scaleType="centerCrop"
+                app:layout_anchor="@id/ivOtpScreenLogo"
+                app:layout_anchorGravity="center"
+                app:srcCompat="@drawable/ic_baseline_local_movies_color_accent_20dp" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSentOtpCodeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/colOtpScreenLogo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/dm_sans"
+            android:text="@string/lbl_we_ve_sent_otp_code_otp_screen"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_small_2x" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSentOtpDetailsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSentOtpCodeLabel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/dm_sans"
+            android:gravity="center"
+            android:text="@string/lbl_otp_details_otp_screen"
+            android:textColor="@color/colorSecondaryText2"
+            android:textSize="@dimen/text_regular" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEnterOtpCodeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSentOtpDetailsLabel"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="@dimen/margin_medium_3_2x"
+            android:fontFamily="@font/dm_sans"
+            android:gravity="center"
+            android:text="@string/lbl_enter_otp_code_otp_screen"
+            android:textColor="@color/colorSecondaryText2"
+            android:textSize="@dimen/text_regular" />
+
+        <com.chaos.view.PinView
+            android:id="@+id/otpPinCode"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvEnterOtpCodeLabel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:cursorVisible="true"
+            android:fontFamily="@font/dm_sans"
+            android:inputType="number"
+            android:itemBackground="@color/white"
+            android:textColor="#4A4A4B"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:cursorColor="#4A4A4B"
+            app:cursorWidth="2dp"
+            app:hideLineWhenFilled="true"
+            app:itemCount="6"
+            app:itemHeight="50dp"
+            app:itemRadius="4dp"
+            app:itemSpacing="8dp"
+            app:itemWidth="50dp"
+            app:lineColor="@color/white"
+            app:lineWidth="1dp"
+            app:viewType="rectangle" />
+
+        <LinearLayout
+            android:id="@+id/tvResendCodeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/otpPinCode"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="@string/lbl_don_t_receive_otp_otp_screen"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_regular" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="@string/lbl_resend_code_otp_screen"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_regular_2x" />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirmOtp"
+            android:layout_width="348dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvResendCodeLabel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/colorAccent"
+            android:fontFamily="@font/inter"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/lbl_confirm_otp_otp_screen"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_regular_2x"
+            android:textStyle="normal" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnConfirmOtp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="94dp"
+            android:fontFamily="@font/dm_sans"
+            android:gravity="center"
+            android:text="@string/by_clicking_login_screen"
+            android:textColor="#4A4A4B"
+            android:textSize="@dimen/text_small" />
+
+    </RelativeLayout>
+
+</ScrollView>

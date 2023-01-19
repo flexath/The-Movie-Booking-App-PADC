@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.activities.LogoScreenActivity">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/colLogoScreenLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="275dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLogoScreenLogo"
+            android:layout_width="@dimen/width_logo"
+            android:layout_height="@dimen/height_logo"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/splash_logo" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/margin_medium_2"
+            android:scaleType="centerCrop"
+            app:layout_anchor="@id/ivLogoScreenLogo"
+            app:layout_anchorGravity="center"
+            app:srcCompat="@drawable/ic_baseline_local_movies_color_accent_20dp" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <LinearLayout
+        android:id="@+id/llLogoName"
+        android:layout_width="@dimen/width_logo_txt"
+        android:layout_height="@dimen/height_logo_txt"
+        android:layout_below="@+id/colLogoScreenLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:letterSpacing="-0.02"
+            android:text="@string/logo_c_letter"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_regular_3x"
+            app:fontFamily="@font/inter_bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.02"
+            android:text="@string/logo_cinema_txt"
+            android:textColor="@color/colorSecondaryText3"
+            android:textSize="@dimen/text_regular_3x"
+            app:fontFamily="@font/inter_thin" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="56dp"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="@dimen/width_dot_logo_screen"
+            android:layout_height="@dimen/height_dot_logo_screen"
+            android:layout_marginEnd="@dimen/margin_medium_3"
+            android:background="@drawable/logo_dots_green" />
+
+        <View
+            android:layout_width="@dimen/width_dot_logo_screen"
+            android:layout_height="@dimen/height_dot_logo_screen"
+            android:layout_marginEnd="@dimen/margin_medium_3"
+            android:background="@drawable/logo_dots_no_green" />
+
+        <View
+            android:layout_width="@dimen/width_dot_logo_screen"
+            android:layout_height="@dimen/height_dot_logo_screen"
+            android:layout_marginEnd="@dimen/margin_medium_3"
+            android:background="@drawable/logo_dots_no_green" />
+
+        <View
+            android:layout_width="@dimen/width_dot_logo_screen"
+            android:layout_height="@dimen/height_dot_logo_screen"
+            android:background="@drawable/logo_dots_no_green" />
+
+    </LinearLayout>
+
+</RelativeLayout>

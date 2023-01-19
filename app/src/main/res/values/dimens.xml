@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin_card_medium">6dp</dimen>
+    <dimen name="margin_medium">8dp</dimen>
+    <dimen name="margin_medium_2">16dp</dimen>
+    <dimen name="margin_card_medium_2">12dp</dimen>
+    <dimen name="margin_medium_3">20dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_xlarge">32dp</dimen>
+    <dimen name="margin_xxlarge">48dp</dimen>
+
+    <dimen name="margin_small_n">4dp</dimen>
+    <dimen name="margin_card_medium_n">6dp</dimen>
+    <dimen name="margin_medium_n">8dp</dimen>
+    <dimen name="margin_card_medium_2_n">12dp</dimen>
+    <dimen name="margin_medium_2_n">16dp</dimen>
+    <dimen name="margin_medium_3_n">18dp</dimen>
+    <dimen name="margin_large_n">24dp</dimen>
+    <dimen name="margin_xlarge_n">32dp</dimen>
+
+    <dimen name="text_smaller">10sp</dimen>
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_regular">14sp</dimen>
+    <dimen name="text_regular_2x">16sp</dimen>
+    <dimen name="text_regular_3x">20sp</dimen>
+    <dimen name="text_heading_1x">24sp</dimen>
+    <dimen name="text_heading_2x">32sp</dimen>
+    <dimen name="text_big">40sp</dimen>
+    <dimen name="text_big_2x">60sp</dimen>
+    <dimen name="text_big_3x">80sp</dimen>
+    <dimen name="width_logo">124dp</dimen>
+    <dimen name="height_logo">150dp</dimen>
+    <dimen name="width_logo_txt">88dp</dimen>
+    <dimen name="height_logo_txt">24dp</dimen>
+
+    <dimen name="text_small_2x">22sp</dimen>                // custom dimens begin
+    <dimen name="margin_small_smaller">2dp</dimen>
+    <dimen name="width_dot_logo_screen">10dp</dimen>
+    <dimen name="height_dot_logo_screen">10dp</dimen>
+    <dimen name="margin_medium_3_4x">80dp</dimen>
+    <dimen name="margin_medium_3_2x">60dp</dimen>
+    <dimen name="width_navigation_icon">16dp</dimen>
+    <dimen name="height_navigation_icon">16dp</dimen>
+</resources>

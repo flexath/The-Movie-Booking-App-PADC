@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.activities.LoginScreenActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:paddingBottom="49dp">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/colLoginLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLoginLogo"
+                android:layout_width="@dimen/width_logo"
+                android:layout_height="@dimen/height_logo"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/splash_logo" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/margin_medium_2"
+                android:scaleType="centerCrop"
+                app:layout_anchor="@id/ivLoginLogo"
+                app:layout_anchorGravity="center"
+                app:srcCompat="@drawable/ic_baseline_local_movies_color_accent_20dp" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvVerifyPhoneNumberLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/colLoginLogo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/dm_sans"
+            android:gravity="center"
+            android:text="@string/lbl_verify_your_phone_number_login_screen"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_small_2x" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSixDigitLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvVerifyPhoneNumberLabel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/dm_sans"
+            android:gravity="center"
+            android:text="@string/lbl_verify_6_digit_txt_login_screen"
+            android:textColor="@color/colorSecondaryText2"
+            android:textSize="@dimen/text_regular" />
+
+        <RelativeLayout
+            android:id="@+id/rlCountryCode"
+            android:layout_width="347dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSixDigitLabel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_medium_3_4x">
+
+            <LinearLayout
+                android:id="@+id/linearLayoutCountryCode"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCountryCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:gravity="center"
+                    android:letterSpacing="-0.03"
+                    android:text="@string/country_code_login_screen"
+                    android:textColor="@color/colorSecondaryText2"
+                    android:textSize="@dimen/text_small" />
+
+                <com.hbb20.CountryCodePicker
+                    android:layout_width="76dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:gravity="center|start"
+                    app:ccpDialog_background="@color/colorPrimary"
+                    app:ccpDialog_showCloseIcon="true"
+                    app:ccpDialog_textColor="@color/white"
+                    app:ccp_arrowColor="@color/colorPrimaryLight"
+                    app:ccp_arrowSize="30dp"
+                    app:ccp_autoDetectCountry="true"
+                    app:ccp_contentColor="@color/white"
+                    app:ccp_defaultNameCode="+95"
+                    app:ccp_internationalFormattingOnly="true"
+                    app:ccp_padding="@dimen/margin_small"
+                    app:ccp_rememberLastSelection="true"
+                    app:ccp_showArrow="true"
+                    app:ccp_showFlag="false"
+                    app:ccp_showFullName="false"
+                    app:ccp_showNameCode="false"
+                    app:ccp_showPhoneCode="true"
+                    app:ccp_textGravity="LEFT"
+                    app:ccp_textSize="16sp" />
+
+                <!--            <androidx.appcompat.widget.AppCompatSpinner-->
+                <!--                android:id="@+id/spinnerCountryCode"-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_marginStart="8dp"-->
+                <!--                android:layout_marginTop="2dp"-->
+                <!--                app:layout_constraintStart_toStartOf="parent"-->
+                <!--                app:layout_constraintTop_toBottomOf="@+id/tvCountryCode"-->
+                <!--                android:textAlignment="viewStart"-->
+                <!--                android:spinnerMode="dropdown"-->
+                <!--                style="@style/Widget.AppCompat.Spinner.Underlined"-->
+                <!--                android:entries="@array/country_code"/>-->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1.5dp"
+                    android:background="@color/white" />
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etMobileNumber"
+                android:layout_width="251dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:cursorVisible="true"
+                android:gravity="bottom"
+                android:hint="@string/lbl_mobile_number_login_screen"
+                android:textColorHint="@color/colorSecondaryText2"
+                app:boxBackgroundColor="@color/colorPrimary"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeErrorColor="@color/colorPrimary"
+                app:boxStrokeWidth="1dp"
+                app:errorContentDescription="Aung Thiha"
+                app:hintTextColor="@color/colorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|start"
+                    android:inputType="phone"
+                    android:textColor="@color/white"
+                    android:textCursorDrawable="@color/white"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:id="@+id/outlineMobileNumber"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignStart="@+id/etMobileNumber"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlVerifyPhoneNumber"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:layout_below="@+id/rlCountryCode"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/btn_verify_phone_number_rounded_corner"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_verify_your_phone_number_login_screen"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvOrLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlVerifyPhoneNumber"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/inter"
+            android:text="@string/lbl_or"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:id="@+id/rlVerifyGoogleAccount"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:layout_below="@+id/tvOrLabel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/btn_continue_with_google_rounded_corner"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="13dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/google_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="115dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/inter"
+                android:text="@string/btn_continue_with_google_login_screen"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlVerifyGoogleAccount"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="94dp"
+            android:gravity="center"
+            android:text="@string/by_clicking_login_screen"
+            android:textColor="#4A4A4B"
+            android:textSize="@dimen/text_small" />
+
+    </RelativeLayout>
+
+</ScrollView>

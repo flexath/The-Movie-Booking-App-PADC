@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">The Movie Booking App</string>
+    <string name="logo_cinema_txt">cinema</string>
+    <string name="logo_c_letter">C</string>
+    <string name="lbl_verify_your_phone_number_login_screen">Verify Your Phone Number</string>
+    <string name="lbl_verify_6_digit_txt_login_screen">We will send 6-digit sms code\nto verify your phone number</string>
+    <string name="by_clicking_login_screen"><![CDATA[By clicking, I accept the Terms & Conditions & Privacy Policy]]></string>
+    <string name="country_code_login_screen">Country Code</string>
+    <string name="lbl_mobile_number_login_screen">Mobile Number</string>
+    <string name="lbl_or">Or</string>
+    <string name="btn_continue_with_google_login_screen">Continue With Google</string>
+    <string name="lbl_enter_otp_code_otp_screen">Enter OTP Code</string>
+    <string name="lbl_otp_details_otp_screen">Please enter 6-digit OTP code\nthat sent to your phone number.</string>
+    <string name="lbl_we_ve_sent_otp_code_otp_screen">We\'ve sent OTP Code</string>
+    <string name="lbl_confirm_otp_otp_screen">Confirm OTP</string>
+    <string name="lbl_resend_code_otp_screen">\u0020Resend Code</string>
+    <string name="lbl_don_t_receive_otp_otp_screen">Don’t receive OTP?</string>
+    <string name="lbl_pick_region_location_screen">Pick Region</string>
+    <string name="lbl_search_your_location_location_screen">Search Your Location</string>
+    <string name="lbl_search_app_bar_icon">Search</string>
+    <string name="lbl_notifications_app_bar_icon">Notifications</string>
+    <string name="lbl_scan_app_bar_icon">Scan</string>
+    <string name="lbl_movies_bottom_icon">Movies</string>
+    <string name="lbl_cinema_bottom_icon">Cinema</string>
+    <string name="lbl_ticket_bottom_icon">Ticket</string>
+    <string name="lbl_profile_bottom_icon">Profile</string>
+</resources>

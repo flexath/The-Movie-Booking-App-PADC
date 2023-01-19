@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarAppbarHome"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_navigation_icon"
+                android:layout_height="@dimen/height_navigation_icon"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="38dp"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/navigation_white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCityNameExtraHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:letterSpacing="-0.02"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_regular_2x"
+                android:textStyle="bold|italic" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+</RelativeLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/movieIconBottomNavigation"
+        android:title="@string/lbl_movies_bottom_icon"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_baseline_smart_display_grey_25dp"/>
+
+    <item
+        android:id="@+id/cinemaIconBottomNavigation"
+        android:title="@string/lbl_cinema_bottom_icon"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/cinema"/>
+
+    <item
+        android:id="@+id/ticketIconBottomNavigation"
+        android:title="@string/lbl_ticket_bottom_icon"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/tickets"/>
+
+    <item
+        android:id="@+id/profileIconBottomNavigation"
+        android:title="@string/lbl_profile_bottom_icon"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/profile"/>
+</menu>

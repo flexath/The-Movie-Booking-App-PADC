@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="RoundedAlertDialog" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="colorSurface">@android:color/darker_gray</item>
+        <item name="shapeAppearanceOverlay">@style/DialogRoundedCorner</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogCustomTitle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/AlertDialogCustomPositiveButton</item>
+    </style>
+
+    <style name="DialogRoundedCorner">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">22dp</item>
+    </style>
+
+    <style name="AlertDialogCustomTitle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorAlertDialogText</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/dm_sans</item>
+    </style>
+
+    <style name="AlertDialogCustomPositiveButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorAlertDialogText</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/dm_sans</item>
+    </style>
+</resources>
