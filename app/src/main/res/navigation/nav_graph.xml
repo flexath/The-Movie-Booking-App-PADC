@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/moviesHomeFragment">
 
+    <fragment
+        android:id="@+id/moviesHomeFragment"
+        android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesHomeFragment"
+        android:label="fragment_movies_home"
+        tools:layout="@layout/fragment_movies_home" />
+    <fragment
+        android:id="@+id/cinemaHomeFragment"
+        android:name="com.flexath.themoviebookingapp.ui.fragments.cinema.CinemaHomeFragment"
+        android:label="fragment_cinema_home"
+        tools:layout="@layout/fragment_cinema_home" />
+    <fragment
+        android:id="@+id/ticketsHomeFragment"
+        android:name="com.flexath.themoviebookingapp.ui.fragments.tickets.TicketsHomeFragment"
+        android:label="fragment_tickets_home"
+        tools:layout="@layout/fragment_tickets_home" />
+    <fragment
+        android:id="@+id/profileHomeFragment"
+        android:name="com.flexath.themoviebookingapp.ui.fragments.profile.ProfileHomeFragment"
+        android:label="fragment_profile_home"
+        tools:layout="@layout/fragment_profile_home" />
 </navigation>

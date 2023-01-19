@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/poster_whole_movie_home_background">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcPoster"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="16dp"
+        android:layout_height="220dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPosterMoviesHome"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/blackwidow_poster" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/poster_movie_home_background" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitleMoviesHome"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mcPoster"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:fontFamily="@font/inter"
+        android:text="Black Widow"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_small"
+        app:fontFamily="@font/inter" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivImdbLogoMovieHome"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/tvTitleMoviesHome"
+        android:layout_alignBottom="@+id/tvTitleMoviesHome"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/margin_xlarge"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/imdb" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvRatingMoviesHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivImdbLogoMovieHome"
+        android:layout_alignBottom="@+id/ivImdbLogoMovieHome"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/margin_card_medium_2"
+        android:fontFamily="@font/inter"
+        android:text="7.1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_small"
+        android:textStyle="bold|italic"
+        app:fontFamily="@font/inter" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/tvTitleMoviesHome"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="22dp"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUAMoviesHomeLabel"
+            android:layout_width="21dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:text="U/A"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_small"
+            app:fontFamily="@font/inter" />
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/white_dot" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2D, 3D, 3D IMAX, DBOX 3D"
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:fontFamily="@font/inter"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

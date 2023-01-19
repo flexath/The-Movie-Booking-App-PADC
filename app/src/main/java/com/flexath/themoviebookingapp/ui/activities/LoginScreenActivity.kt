@@ -42,6 +42,12 @@ class LoginScreenActivity : AppCompatActivity() {
                 outlineMobileNumber.visibility = View.INVISIBLE
             }
         }
+
+        rlVerifyGoogleAccount.setOnClickListener {
+            Intent(Intent.ACTION_VIEW).also {
+                startActivity(it)
+            }
+        }
     }
 
     private fun isValidatedMobileNumber() : Boolean {

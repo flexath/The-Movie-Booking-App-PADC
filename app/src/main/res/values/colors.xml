@@ -19,4 +19,6 @@
     <color name="colorSecondaryText3">#666666</color>
 
     <color name="colorAlertDialogText">#FF4949</color>
+    <color name="colorTabLayout">#3B3B3B</color>
+    <color name="colorTabLayoutText">#555555</color>
 </resources>

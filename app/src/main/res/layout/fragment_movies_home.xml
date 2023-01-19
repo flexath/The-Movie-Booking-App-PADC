@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.fragments.movies.MoviesHomeFragment">
+
+    <include
+        android:id="@+id/appBarHome"
+        layout="@layout/layout_app_bar_home" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollViewHome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appBarHome"
+        android:layout_marginTop="@dimen/margin_card_medium_1_n"
+        android:background="@color/colorPrimary">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/margin_medium_4_n"
+            android:layout_marginEnd="@dimen/margin_medium_4_n"
+            android:background="@color/colorPrimary">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/flBannerHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="@dimen/margin_medium_2"
+                app:cardElevation="@dimen/margin_medium_2"
+                app:cardPreventCornerOverlap="true">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPagerBannerMoviesHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:clipToPadding="false"
+                    android:elevation="@dimen/margin_medium" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
+                android:id="@+id/dotsIndicatorHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/flBannerHome"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="17dp"
+                android:elevation="@dimen/margin_medium"
+                app:dotsClickable="true"
+                app:dotsColor="@color/colorAccent"
+                app:dotsCornerRadius="4dp"
+                app:dotsSize="8dp"
+                app:dotsSpacing="8dp"
+                app:dotsStrokeColor="@color/colorDots"
+                app:dotsStrokeWidth="1dp"
+                app:stiffness="300" />
+
+            <FrameLayout
+                android:id="@+id/flTabLayout"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/dotsIndicatorHome"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/tab_layout_movie_home_background"
+                android:layout_height="55dp">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayoutMoviesHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    app:tabRippleColor="@color/colorAccent"
+                    app:tabBackground="@drawable/tab_selected_movie_home_background"
+                    android:background="@drawable/tab_layout_movie_home_background"
+                    app:tabIndicator="@null"
+                    app:tabTextAppearance="@style/TabLayoutTextStyle"
+                    app:tabSelectedTextColor="@color/colorTabLayoutText"
+                    app:tabTextColor="@color/colorSecondaryText2"/>
+
+            </FrameLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerTabLayoutMoviesHome"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="17dp"
+                android:layout_below="@+id/flTabLayout"
+                android:layout_marginTop="30dp" />
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

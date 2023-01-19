@@ -13,12 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_graph"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNvgViewHome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNvgViewHome"/>
-
+        app:navGraph="@navigation/nav_graph" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNvgViewHome"
@@ -27,9 +26,11 @@
         android:background="@color/colorPrimary"
         app:itemBackground="@android:color/transparent"
         app:itemIconSize="30dp"
-        app:itemIconTint="@color/colorPrimaryLight"
+        app:itemIconTint="@drawable/bottom_navigation_icon_color"
+        app:itemPaddingBottom="@dimen/margin_medium_3"
         app:itemRippleColor="@color/colorAccent"
-        app:itemTextColor="@color/colorSecondaryText2"
+        app:itemTextAppearanceInactive="@color/colorPrimaryLight"
+        app:itemTextColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

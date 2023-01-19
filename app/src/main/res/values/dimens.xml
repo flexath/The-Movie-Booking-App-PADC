@@ -42,4 +42,6 @@
     <dimen name="margin_medium_3_2x">60dp</dimen>
     <dimen name="width_navigation_icon">16dp</dimen>
     <dimen name="height_navigation_icon">16dp</dimen>
+    <dimen name="margin_medium_4_n">22dp</dimen>
+    <dimen name="margin_card_medium_1_n">10dp</dimen>
 </resources>
