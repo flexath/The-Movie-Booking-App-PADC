@@ -26,4 +26,9 @@
     <string name="lbl_profile_bottom_icon">Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lbl_movie_description">In the 1970s, young Gru tries to join a group of supervillains called the Vicious 6 after they oust their leader -- the legendary fighter Wild Knuckles. When the interview turns disastrous, Gru and his Minions go on the run with the Vicious 6 hot on their tails. Luckily, he finds an unlikely source for guidance -- Wild Knuckles himself -- and soon discovers that even bad guys need a little help from their friends.</string>
+    <string name="lbl_cast_movie_details">Cast</string>
+    <string name="lbl_story_line_movie_details">Story Line</string>
+    <string name="lbl_play_button_fab">play button</string>
+    <string name="lbl_btn_booking">Booking</string>
 </resources>

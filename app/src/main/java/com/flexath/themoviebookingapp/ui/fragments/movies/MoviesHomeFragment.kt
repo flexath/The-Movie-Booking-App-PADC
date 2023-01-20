@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.ui.activities.MainActivity
@@ -14,6 +14,7 @@ import com.flexath.themoviebookingapp.ui.adapters.BannerHomeAdapter
 import com.flexath.themoviebookingapp.ui.adapters.MoviesHomeViewPagerAdapter
 import com.flexath.themoviebookingapp.ui.dummy.MoviesData
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_home.*
 import kotlinx.android.synthetic.main.layout_app_bar_home.*
 
@@ -30,6 +31,7 @@ class MoviesHomeFragment : Fragment(), MenuProvider {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.VISIBLE
 
         setUpActionBar()            // For Action Bar of Home Screen
         setUpBannerHome()           // For Banner Section of Home Screen

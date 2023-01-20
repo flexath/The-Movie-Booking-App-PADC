@@ -6,11 +6,35 @@
     android:layout_margin="10dp"
     android:background="@drawable/poster_whole_movie_home_background">
 
+    <RelativeLayout
+        android:id="@+id/rlDateMovieHome"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="9dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/movie_date_movie_home_background"
+        android:elevation="@dimen/margin_small">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDateMovieHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/colorTabLayoutText"
+            android:text="10th AUG"
+            android:fontFamily="@font/dm_sans"
+            android:textSize="11sp"/>
+
+    </RelativeLayout>
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/mcPoster"
         android:layout_width="match_parent"
-        app:cardCornerRadius="16dp"
-        android:layout_height="220dp">
+        android:layout_height="220dp"
+        app:cardCornerRadius="16dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivPosterMoviesHome"
@@ -68,20 +92,21 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tvTitleMoviesHome"
         android:layout_marginStart="7dp"
         android:layout_marginTop="13dp"
         android:layout_marginBottom="22dp"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvUAMoviesHomeLabel"
+            android:id="@+id/tvCensorUAMovieHome"
             android:layout_width="21dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/inter"
             android:layout_marginEnd="@dimen/margin_medium"
+            android:fontFamily="@font/inter"
             android:text="U/A"
+            android:layout_gravity="center_vertical"
             android:textColor="@color/white"
             android:textSize="@dimen/text_small"
             app:fontFamily="@font/inter" />
@@ -89,18 +114,20 @@
         <View
             android:layout_width="5dp"
             android:layout_height="5dp"
-            android:layout_marginEnd="10dp"
             android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/white_dot" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFilmTypeMovieHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2D, 3D, 3D IMAX, DBOX 3D"
-            android:textSize="10sp"
-            android:textColor="@color/white"
             android:layout_marginEnd="@dimen/margin_small"
-            android:fontFamily="@font/inter"/>
+            android:fontFamily="@font/inter"
+            android:gravity="top"
+            android:text="2D, 3D, 3D IMAX, DBOX 3D"
+            android:textColor="@color/white"
+            android:textSize="11sp" />
 
     </LinearLayout>
 
