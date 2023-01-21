@@ -2,13 +2,15 @@ package com.flexath.themoviebookingapp.ui.fragments.movies
 
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.MediaController
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.ui.adapters.DetailsMoviesCastAdapter
@@ -19,6 +21,7 @@ class MoviesDetailsHomeFragment : Fragment() {
 
     private lateinit var mCastAdapter:DetailsMoviesCastAdapter
     private var isTrailerVideoPlaying:Boolean = false
+    private val args:MoviesDetailsHomeFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_movies_details_home, container, false)
@@ -28,13 +31,32 @@ class MoviesDetailsHomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.INVISIBLE
 
+        btnListenersMoviesDetailsScreen()     // Button Listeners Methods
+
+        setUpCastRecyclerView()              // For Cast
+        playOrPauseTrailer()                 // For Trailer Playing or Not
+        isNowShowingOrIsComingSoon()         // Now Showing or Coming Soon
+    }
+
+    private fun btnListenersMoviesDetailsScreen(){
         btnBackMoviesDetails.setOnClickListener {
             (activity as AppCompatActivity).onBackPressed()
         }
 
-        setUpCastRecyclerView()
-        playOrPauseTrailer()
+        btnBookingButtonMoviesDetails.setOnClickListener {
+            val action = MoviesDetailsHomeFragmentDirections.actionMoviesDetailsHomeToChooseCinema()
+            it.findNavController().navigate(action)
+        }
+    }
 
+    private fun isNowShowingOrIsComingSoon(){
+        if(!args.nowShowingOrComingSoonArg){                                    // For Now Showing
+            rlReleasingDateMoviesDetails.visibility = View.GONE
+            btnBookingButtonMoviesDetails.visibility = View.VISIBLE
+        }else{                                                                  // For Coming Soon
+            rlReleasingDateMoviesDetails.visibility = View.VISIBLE
+            btnBookingButtonMoviesDetails.visibility = View.GONE
+        }
     }
 
     private fun playOrPauseTrailer(){

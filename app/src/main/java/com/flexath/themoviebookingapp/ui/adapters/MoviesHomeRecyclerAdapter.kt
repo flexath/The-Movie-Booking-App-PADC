@@ -15,7 +15,7 @@ class MoviesHomeRecyclerAdapter(private val tabLayoutMoviesHomeFragment: TabLayo
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesHomeViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.view_holder_movies_home_list, parent, false)
-        return MoviesHomeViewHolder(view)
+        return MoviesHomeViewHolder(view,tabLayoutMoviesHomeFragment)
     }
 
     override fun onBindViewHolder(holder: MoviesHomeViewHolder, position: Int) {

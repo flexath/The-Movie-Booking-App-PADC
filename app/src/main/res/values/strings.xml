@@ -31,4 +31,6 @@
     <string name="lbl_story_line_movie_details">Story Line</string>
     <string name="lbl_play_button_fab">play button</string>
     <string name="lbl_btn_booking">Booking</string>
+    <string name="lbl_notify_as_soon_as_movies_details">Get notify as soon as movie\nbooking opens up in your city!</string>
+    <string name="lbl_set_notification_txt">Set Notification</string>
 </resources>

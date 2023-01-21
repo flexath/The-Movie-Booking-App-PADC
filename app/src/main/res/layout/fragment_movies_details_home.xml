@@ -215,132 +215,201 @@
             </RelativeLayout>
 
             <LinearLayout
-                android:id="@+id/llTimeMoviesDetails"
+                android:id="@+id/llViewsGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rlInfoMovieDetails"
                 android:layout_marginTop="34dp"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/llCensorRatingMovieDetails"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/llTimeMoviesDetails"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="34dp"
-                    android:background="@drawable/details_times_background"
-                    android:orientation="vertical">
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvCensorRatingMovieDetailsLabel"
+                    <LinearLayout
+                        android:id="@+id/llCensorRatingMovieDetails"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/inter"
-                        android:text="Censor Rating"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:layout_marginEnd="34dp"
+                        android:background="@drawable/details_times_background"
+                        android:orientation="vertical">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvCensorRatingMovieDetails"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvCensorRatingMovieDetailsLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/inter"
+                            android:text="Censor Rating"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvCensorRatingMovieDetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/inter"
+                            android:text="U/A"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llReleaseDateMovieDetails"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/inter"
-                        android:text="U/A"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:layout_marginEnd="34dp"
+                        android:background="@drawable/details_times_background"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvReleaseDateMovieDetailsLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/inter"
+                            android:text="Release Date"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvReleaseDateMovieDetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/inter"
+                            android:text="May 8th, 2022"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llDurationMovieDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/details_times_background"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvDurationMovieDetailsLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/inter"
+                            android:text="Duration"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvDurationMovieDetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/inter"
+                            android:text="2hr 15min"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/llReleaseDateMovieDetails"
+                <RelativeLayout
+                    android:id="@+id/rlReleasingDateMoviesDetails"
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/releasing_date_box_background">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvReleasingDateMoviesDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="@font/inter_bold"
+                        android:text="Releasing in 5 Days"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvNotifyAsSoonAsMoviesDetailsLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvReleasingDateMoviesDetails"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="@string/lbl_notify_as_soon_as_movies_details"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvNotifyAsSoonAsMoviesDetailsLabel"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="18dp"
+                        android:fontFamily="@font/inter_medium"
+                        android:paddingTop="9dp"
+                        android:paddingBottom="9dp"
+                        android:text="@string/lbl_set_notification_txt"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:backgroundTint="@color/colorAccent"
+                        app:icon="@drawable/ic_baseline_notifications_active_black_18dp"
+                        app:iconGravity="start"
+                        app:iconSize="18dp"
+                        app:iconTint="@color/black"
+                        app:rippleColor="@color/white" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/width_chat_svg"
+                        android:layout_height="@dimen/height_chat_svg"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/chat_svg_image" />
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvStoryLineMoviesDetailsLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="34dp"
-                    android:background="@drawable/details_times_background"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvReleaseDateMovieDetailsLabel"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/inter"
-                        android:text="Release Date"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvReleaseDateMovieDetails"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/inter"
-                        android:text="May 8th, 2022"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/llDurationMovieDetails"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/details_times_background"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvDurationMovieDetailsLabel"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/inter"
-                        android:text="Duration"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvDurationMovieDetails"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/inter"
-                        android:text="2hr 15min"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
+                    android:layout_marginStart="17dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/inter"
+                    android:text="@string/lbl_story_line_movie_details"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvStoryLineMoviesDetailsLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/llTimeMoviesDetails"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="30dp"
-                android:fontFamily="@font/inter"
-                android:text="@string/lbl_story_line_movie_details"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvDescriptionMoviesDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvStoryLineMoviesDetailsLabel"
+                android:layout_below="@+id/llViewsGroup"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="10dp"
@@ -385,18 +454,19 @@
         android:layout_marginBottom="66dp">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBookingButtonMoviesDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_bold"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="@string/lbl_btn_booking"
-            app:rippleColor="@color/white"
             android:textAllCaps="false"
             android:textColor="#09060C"
             android:textSize="16sp"
             app:backgroundTint="@color/colorAccent"
-            app:cornerRadius="@dimen/margin_medium" />
+            app:cornerRadius="@dimen/margin_medium"
+            app:rippleColor="@color/white" />
 
     </RelativeLayout>
 
