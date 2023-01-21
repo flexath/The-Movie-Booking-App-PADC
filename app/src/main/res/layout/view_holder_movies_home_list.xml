@@ -50,7 +50,6 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitleMoviesHome"
         android:layout_width="80dp"
@@ -96,7 +95,7 @@
         android:layout_below="@+id/tvTitleMoviesHome"
         android:layout_marginStart="7dp"
         android:layout_marginTop="13dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="13dp"
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatTextView

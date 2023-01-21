@@ -45,7 +45,11 @@
     <dimen name="margin_medium_4_n">22dp</dimen>
     <dimen name="margin_card_medium_1_n">10dp</dimen>
     <dimen name="width_detail_poster">140dp</dimen>
-    <dimen name="height_detail_poster">175dp</dimen>
+    <dimen name="height_detail_poster">180dp</dimen>
     <dimen name="width_chat_svg">140dp</dimen>
     <dimen name="height_chat_svg">140dp</dimen>
+    <dimen name="width_btn_back_movies_details">24dp</dimen>
+    <dimen name="width_btn_share_movies_details">24dp</dimen>
+    <dimen name="height_btn_share_movies_details">24dp</dimen>
+    <dimen name="height_btn_back_movies_details">24dp</dimen>
 </resources>

@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.MediaController
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
@@ -63,11 +62,11 @@ class MoviesDetailsHomeFragment : Fragment() {
         btnPlayMoviesDetails.setOnClickListener {
             setUpMovieTrailerVideo()
             if(!isTrailerVideoPlaying){
-                btnPlayMoviesDetails.setImageDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.ic_baseline_pause_white_22dp))
+                btnPlayMoviesDetails.setImageResource(R.drawable.ic_baseline_pause_white_22dp)
                 vvVideoMovieDetails.start()
                 isTrailerVideoPlaying = true
             }else{
-                btnPlayMoviesDetails.setImageDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.ic_baseline_play_arrow_white_22dp))
+                btnPlayMoviesDetails.setImageResource(R.drawable.ic_baseline_play_arrow_white_22dp)
                 vvVideoMovieDetails.pause()
                 isTrailerVideoPlaying = false
             }
@@ -78,7 +77,7 @@ class MoviesDetailsHomeFragment : Fragment() {
         val mediaController = MediaController(requireContext())
         mediaController.setAnchorView(vvVideoMovieDetails)
 
-        val videoUri = Uri.parse("android.resource://com.flexath.themoviebookingapp/${R.raw.black_widow_video}")
+        val videoUri = Uri.parse("android.resource://com.flexath.themoviebookingapp/${R.raw.black_widow_trailer}")
         vvVideoMovieDetails.setMediaController(mediaController)
         vvVideoMovieDetails.setVideoURI(videoUri)
         vvVideoMovieDetails.requestFocus()

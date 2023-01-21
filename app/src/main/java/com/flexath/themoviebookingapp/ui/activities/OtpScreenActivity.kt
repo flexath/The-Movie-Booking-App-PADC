@@ -42,7 +42,6 @@ class OtpScreenActivity : AppCompatActivity() {
             if (isValidatedOtpCode()) {
                 Toast.makeText(this,"Logic successful", Toast.LENGTH_SHORT).show()
                 startActivity(LocationScreenActivity.newIntentFromLocationScreen(this))
-                finish()
             } else {
                 setUpInvalidationMessage()
             }
