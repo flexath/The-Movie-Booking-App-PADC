@@ -1,14 +1,13 @@
 package com.flexath.themoviebookingapp.ui.fragments.movies
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.flexath.themoviebookingapp.R
-import com.flexath.themoviebookingapp.ui.adapters.MoviesHomeRecyclerAdapter
+import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesHomeRecyclerAdapter
 import kotlinx.android.synthetic.main.fragment_tab_layout_movies_home.*
 
 class TabLayoutMoviesHomeFragment : Fragment() {
@@ -45,5 +44,6 @@ class TabLayoutMoviesHomeFragment : Fragment() {
         mMoviesHomeAdapter = MoviesHomeRecyclerAdapter(this)
         rvMoviesHome.adapter = mMoviesHomeAdapter
         rvMoviesHome.layoutManager = GridLayoutManager(requireContext(), 2)
+        mMoviesHomeAdapter.notifyDataSetChanged()
     }
 }

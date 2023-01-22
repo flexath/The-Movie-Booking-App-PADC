@@ -37,7 +37,7 @@
                     android:layout_height="@dimen/height_btn_share_movies_details"
                     android:layout_gravity="end"
                     android:layout_marginTop="@dimen/margin_card_medium_2"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginEnd="@dimen/margin_large"
                     android:elevation="@dimen/margin_medium_3"
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/ic_baseline_share_white_24dp" />
@@ -75,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/flVideoView"
-                android:layout_marginStart="17dp"
+                android:layout_marginStart="@dimen/margin_17dp"
                 android:layout_marginTop="-22dp"
                 android:elevation="@dimen/margin_medium"
                 app:cardCornerRadius="@dimen/margin_card_medium_1_n"
@@ -96,18 +96,18 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/flVideoView"
                 android:layout_marginStart="181dp"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="@dimen/margin_medium_2">
 
                 <LinearLayout
                     android:id="@+id/llTitleMovieDetails"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvTitleMovieDetails"
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/width_movie_title"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:fontFamily="@font/inter"
@@ -117,8 +117,8 @@
                         android:textStyle="bold" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="44dp"
-                        android:layout_height="28dp"
+                        android:layout_width="@dimen/width_imdb_logo"
+                        android:layout_height="@dimen/height_imdb_logo"
                         android:gravity="center_vertical"
                         app:srcCompat="@drawable/imdb" />
 
@@ -130,7 +130,7 @@
                         android:gravity="bottom"
                         android:text="7.1"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/text_regular_2x"
                         android:textStyle="bold|italic" />
 
                 </LinearLayout>
@@ -140,55 +140,55 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/llTitleMovieDetails"
-                    android:layout_marginTop="17dp"
+                    android:layout_marginTop="@dimen/margin_17dp"
                     android:fontFamily="@font/inter"
                     android:text="2D, 3D, 3D IMAX, 3D DBOX"
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/text_regular"
                     android:textStyle="bold" />
 
                 <com.google.android.material.chip.ChipGroup
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tvFilmTypeMovieDetails"
-                    android:layout_marginTop="18dp">
+                    android:layout_marginTop="@dimen/margin_medium_3_n">
 
                     <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="@dimen/height_chip"
                         android:backgroundTint="@color/colorAccent"
                         android:elevation="@dimen/margin_medium_2"
                         android:fontFamily="@font/inter"
                         android:text="Action"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/text_small" />
 
                     <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="@dimen/height_chip"
                         android:backgroundTint="@color/colorAccent"
                         android:fontFamily="@font/inter"
                         android:text="Adventure"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/text_small" />
 
                     <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="@dimen/height_chip"
                         android:backgroundTint="@color/colorAccent"
                         android:fontFamily="@font/inter"
                         android:text="Drama"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/text_small" />
 
                     <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="@dimen/height_chip"
                         android:backgroundTint="@color/colorAccent"
                         android:fontFamily="@font/inter"
                         android:text="Animation"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/text_small" />
 
                 </com.google.android.material.chip.ChipGroup>
 
@@ -199,7 +199,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rlInfoMovieDetails"
-                android:layout_marginTop="34dp"
+                android:layout_marginTop="@dimen/margin_34dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -213,7 +213,7 @@
                         android:id="@+id/llCensorRatingMovieDetails"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="34dp"
+                        android:layout_marginEnd="@dimen/margin_34dp"
                         android:background="@drawable/details_times_background"
                         android:orientation="vertical">
 
@@ -223,9 +223,9 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:fontFamily="@font/inter"
-                            android:text="Censor Rating"
+                            android:text="@string/lbl_censor_rating"
                             android:textColor="@color/white"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/text_small"
                             android:textStyle="bold" />
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -233,11 +233,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="@dimen/margin_10dp"
                             android:fontFamily="@font/inter"
                             android:text="U/A"
                             android:textColor="@color/white"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/text_regular"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -256,9 +256,9 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:fontFamily="@font/inter"
-                            android:text="Release Date"
+                            android:text="@string/lbl_release_date_details"
                             android:textColor="@color/white"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/text_small"
                             android:textStyle="bold" />
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -266,11 +266,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="@dimen/margin_10dp"
                             android:fontFamily="@font/inter"
                             android:text="May 8th, 2022"
                             android:textColor="@color/white"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/text_regular"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -288,9 +288,9 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:fontFamily="@font/inter"
-                            android:text="Duration"
+                            android:text="@string/lbl_duration_details"
                             android:textColor="@color/white"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/text_small"
                             android:textStyle="bold" />
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -298,11 +298,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="@dimen/margin_10dp"
                             android:fontFamily="@font/inter"
                             android:text="2hr 15min"
                             android:textColor="@color/white"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/text_regular"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -314,50 +314,50 @@
                     android:layout_width="370dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="@dimen/margin_top_30"
                     android:background="@drawable/releasing_date_box_background">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvReleasingDateMoviesDetails"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginTop="18dp"
+                        android:layout_marginStart="@dimen/margin_card_medium_2"
+                        android:layout_marginTop="@dimen/margin_medium_3_n"
                         android:fontFamily="@font/inter_bold"
                         android:text="Releasing in 5 Days"
                         android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/text_regular_2x" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvNotifyAsSoonAsMoviesDetailsLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tvReleasingDateMoviesDetails"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginTop="18dp"
+                        android:layout_marginStart="@dimen/margin_card_medium_2"
+                        android:layout_marginTop="@dimen/margin_medium_3_n"
                         android:fontFamily="@font/inter_semibold"
                         android:text="@string/lbl_notify_as_soon_as_movies_details"
                         android:textColor="@color/white"
-                        android:textSize="14sp" />
+                        android:textSize="@dimen/text_regular" />
 
                     <com.google.android.material.button.MaterialButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tvNotifyAsSoonAsMoviesDetailsLabel"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="18dp"
+                        android:layout_marginStart="@dimen/margin_card_medium_2"
+                        android:layout_marginTop="@dimen/margin_medium_3"
+                        android:layout_marginBottom="@dimen/margin_medium_3_n"
                         android:fontFamily="@font/inter_medium"
-                        android:paddingTop="9dp"
-                        android:paddingBottom="9dp"
+                        android:paddingTop="@dimen/padding_9dp"
+                        android:paddingBottom="@dimen/padding_9dp"
                         android:text="@string/lbl_set_notification_txt"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/text_regular"
                         app:backgroundTint="@color/colorAccent"
                         app:icon="@drawable/ic_baseline_notifications_active_black_18dp"
                         app:iconGravity="start"
-                        app:iconSize="18dp"
+                        app:iconSize="@dimen/size_icon_notification"
                         app:iconTint="@color/black"
                         app:rippleColor="@color/colorPrimary" />
 
@@ -375,12 +375,12 @@
                     android:id="@+id/tvStoryLineMoviesDetailsLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="17dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="@dimen/margin_17dp"
+                    android:layout_marginTop="@dimen/margin_top_30"
                     android:fontFamily="@font/inter"
                     android:text="@string/lbl_story_line_movie_details"
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/text_regular"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -391,13 +391,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/llViewsGroup"
                 android:layout_centerHorizontal="true"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="17dp"
+                android:layout_marginStart="@dimen/margin_17dp"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:layout_marginEnd="@dimen/margin_17dp"
                 android:fontFamily="@font/inter"
                 android:text="@string/lbl_movie_description"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="@dimen/text_regular" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvCastMoviesDetailsLabel"

@@ -1,18 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     tools:context=".ui.fragments.movies.ChooseCinemaFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <include
+        android:id="@+id/appBarMoviesCinema"
+        layout="@layout/layout_app_bar_home_cinema" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/appBarMoviesCinema"
+        android:background="@color/colorPrimaryDark" />
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="40sp"
-        android:textColor="@color/white"
-        android:gravity="center"
-        android:text="Choose Cinema and TIme Fragment" />
+        android:layout_below="@+id/appBarMoviesCinema">
 
-</FrameLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/margin_medium_3"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvDatesCardsMoviesCinema"
+                android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/margin_10dp"
+                android:background="@color/colorPrimary"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/llFilmTypesMoviesCinema"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rvDatesCardsMoviesCinema"
+                android:layout_marginTop="@dimen/margin_top_30"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    style="@style/PaddingFilmTypes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/margin_medium_4_n"
+                    android:background="@drawable/film_types_border_background">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_2d"
+                        android:textAppearance="@style/TextInterWhiteBold16sp" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    style="@style/PaddingFilmTypes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/margin_medium_4_n"
+                    android:background="@drawable/film_types_border_background">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_3d"
+                        android:textAppearance="@style/TextInterWhiteBold16sp" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    style="@style/PaddingFilmTypes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/margin_medium_4_n"
+                    android:background="@drawable/film_types_border_background">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_3d_imax"
+                        android:textAppearance="@style/TextInterWhiteBold16sp" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    style="@style/PaddingFilmTypes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/film_types_border_background">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_3d_dbox"
+                        android:textAppearance="@style/TextInterWhiteBold16sp" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llFilmTypesMoviesCinema"
+                android:layout_marginTop="@dimen/margin_top_30"
+                android:background="@color/colorSeatBackground"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/margin_card_medium_2"
+                android:paddingBottom="@dimen/margin_card_medium_2">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/width_dot"
+                        android:layout_height="@dimen/height_dot"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/margin_10dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/dot_green" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:fontFamily="@font/inter_medium"
+                        android:text="@string/lbl_available"
+                        android:textColor="@color/colorGreen" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/margin_medium_4_n_2x"
+                    android:layout_marginEnd="@dimen/margin_medium_4_n_2x"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/width_dot"
+                        android:layout_height="@dimen/height_dot"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/margin_10dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/dot_orange" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:fontFamily="@font/inter_medium"
+                        android:text="@string/lbl_filling_fast"
+                        android:textColor="@color/colorOrange" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/width_dot"
+                        android:layout_height="@dimen/height_dot"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/margin_10dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/dot_purple" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:fontFamily="@font/inter_medium"
+                        android:text="@string/lbl_almost_full"
+                        android:textColor="@color/colorPurple" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

@@ -33,4 +33,14 @@
     <string name="lbl_btn_booking">Booking</string>
     <string name="lbl_notify_as_soon_as_movies_details">Get notify as soon as movie\nbooking opens up in your city!</string>
     <string name="lbl_set_notification_txt">Set Notification</string>
+    <string name="lbl_2d">2D</string>
+    <string name="lbl_3d">3D</string>
+    <string name="lbl_3d_imax">3D IMAX</string>
+    <string name="lbl_3d_dbox">3D DBOX</string>
+    <string name="lbl_available">Available</string>
+    <string name="lbl_filling_fast">Filling Fast</string>
+    <string name="lbl_almost_full">Almost Full</string>
+    <string name="lbl_censor_rating">Censor Rating</string>
+    <string name="lbl_release_date_details">Release Date</string>
+    <string name="lbl_duration_details">Duration</string>
 </resources>

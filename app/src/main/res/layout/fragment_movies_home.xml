@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 app:cardBackgroundColor="@color/colorPrimary"
+                android:clipToPadding="false"
                 app:cardCornerRadius="@dimen/margin_medium_2"
                 app:cardElevation="@dimen/margin_medium_2"
                 app:cardPreventCornerOverlap="true">
@@ -40,7 +41,6 @@
                     android:id="@+id/viewPagerBannerMoviesHome"
                     android:layout_width="match_parent"
                     android:layout_height="170dp"
-                    android:clipToPadding="false"
                     android:elevation="@dimen/margin_medium" />
 
             </com.google.android.material.card.MaterialCardView>

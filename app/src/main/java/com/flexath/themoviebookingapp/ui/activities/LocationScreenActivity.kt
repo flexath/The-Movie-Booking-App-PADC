@@ -4,19 +4,16 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
-import com.flexath.themoviebookingapp.ui.adapters.CitiesAdapter
+import com.flexath.themoviebookingapp.ui.adapters.movies.CitiesAdapter
 import com.flexath.themoviebookingapp.ui.delegates.CitiesViewHolderDelegate
 import com.flexath.themoviebookingapp.ui.dummy.CitiesData
 import kotlinx.android.synthetic.main.activity_location_screen.*
-import kotlinx.android.synthetic.main.activity_location_screen.view.*
-import kotlinx.android.synthetic.main.view_holder_cities_list.view.*
 
 class LocationScreenActivity : AppCompatActivity(),CitiesViewHolderDelegate {
 
-    private lateinit var mCitiesAdapter:CitiesAdapter
+    private lateinit var mCitiesAdapter: CitiesAdapter
 
     companion object{
         fun newIntentFromLocationScreen(context: Context) : Intent {

@@ -12,13 +12,13 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
-import com.flexath.themoviebookingapp.ui.adapters.DetailsMoviesCastAdapter
+import com.flexath.themoviebookingapp.ui.adapters.movies.CastDetailsMoviesAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_details_home.*
 
 class MoviesDetailsHomeFragment : Fragment() {
 
-    private lateinit var mCastAdapter:DetailsMoviesCastAdapter
+    private lateinit var mCastAdapter: CastDetailsMoviesAdapter
     private var isTrailerVideoPlaying:Boolean = false
     private val args:MoviesDetailsHomeFragmentArgs by navArgs()
 
@@ -84,8 +84,9 @@ class MoviesDetailsHomeFragment : Fragment() {
     }
 
     private fun setUpCastRecyclerView() {
-        mCastAdapter = DetailsMoviesCastAdapter()
+        mCastAdapter = CastDetailsMoviesAdapter()
         rvCastMoviesDetails.adapter = mCastAdapter
         rvCastMoviesDetails.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        mCastAdapter.notifyDataSetChanged()
     }
 }

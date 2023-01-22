@@ -1,4 +1,4 @@
-package com.flexath.themoviebookingapp.ui.adapters
+package com.flexath.themoviebookingapp.ui.adapters.movies
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

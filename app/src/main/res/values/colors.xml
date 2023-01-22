@@ -21,4 +21,10 @@
     <color name="colorAlertDialogText">#FF4949</color>
     <color name="colorTabLayout">#3B3B3B</color>
     <color name="colorTabLayoutText">#555555</color>
+    <color name="colorFilmTypeBackgroundColor">#555555</color>
+    <color name="colorSeatBackground">#222222</color>
+    <color name="colorDateCardGrey">#D7D7D7</color>
+    <color name="colorOrange">#FF7A00</color>
+    <color name="colorGreen">#00FFA3</color>
+    <color name="colorPurple">#FF00B8</color>
 </resources>
