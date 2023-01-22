@@ -55,7 +55,7 @@
     <dimen name="height_btn_back_movies_details">24dp</dimen>
     <dimen name="width_back_arrow_cinema">24dp</dimen>
     <dimen name="height_back_arrow_cinema">24dp</dimen>
-    <dimen name="margin_top_30">30dp</dimen>
+    <dimen name="margin_30dp">30dp</dimen>
     <dimen name="width_dot">8dp</dimen>
     <dimen name="height_dot">8dp</dimen>
     <dimen name="margin_10dp">10dp</dimen>
@@ -67,4 +67,10 @@
     <dimen name="margin_34dp">34dp</dimen>
     <dimen name="padding_9dp">9dp</dimen>
     <dimen name="size_icon_notification">18dp</dimen>
+    <dimen name="margin_15dp">15dp</dimen>
+    <dimen name="margin_21dp">21dp</dimen>
+    <dimen name="width_stuff_icon">17dp</dimen>
+    <dimen name="margin_25dp">25dp</dimen>
+    <dimen name="margin_5dp">5dp</dimen>
+
 </resources>

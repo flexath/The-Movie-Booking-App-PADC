@@ -2,16 +2,12 @@ package com.flexath.themoviebookingapp.ui.activities
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log.i
-import android.view.View
-import android.widget.RelativeLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.flexath.themoviebookingapp.R
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.view_holder_movies_home_list.*
 
 class MainActivity : AppCompatActivity() {
 

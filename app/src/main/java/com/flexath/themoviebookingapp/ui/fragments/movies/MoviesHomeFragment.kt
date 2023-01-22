@@ -16,7 +16,7 @@ import com.flexath.themoviebookingapp.ui.dummy.MoviesData
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_home.*
-import kotlinx.android.synthetic.main.layout_app_bar_home.*
+import kotlinx.android.synthetic.main.layout_app_bar_movies_home.*
 
 class MoviesHomeFragment : Fragment(), MenuProvider {
 

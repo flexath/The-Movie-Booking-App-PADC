@@ -32,9 +32,9 @@
         tools:layout="@layout/fragment_profile_home" />
     <fragment
         android:id="@+id/moviesDetailsHomeFragment"
-        android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesDetailsHomeFragment"
+        android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesDetailsFragment"
         android:label="fragment_movies_details_home"
-        tools:layout="@layout/fragment_movies_details_home">
+        tools:layout="@layout/fragment_movies_details">
 
         <argument
             android:name="now_showing_or_coming_soon_arg"
@@ -47,7 +47,16 @@
     </fragment>
     <fragment
         android:id="@+id/chooseCinemaFragment"
-        android:name="com.flexath.themoviebookingapp.ui.fragments.movies.ChooseCinemaFragment"
+        android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesCinemaFragment"
         android:label="fragment_choose_cinema"
-        tools:layout="@layout/fragment_choose_cinema" />
+        tools:layout="@layout/fragment_movies_cinema" >
+        <action
+            android:id="@+id/action_chooseCinema_to_moviesSeat"
+            app:destination="@id/moviesSeatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moviesSeatFragment"
+        android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesSeatFragment"
+        android:label="fragment_movies_seat"
+        tools:layout="@layout/fragment_movies_seat" />
 </navigation>

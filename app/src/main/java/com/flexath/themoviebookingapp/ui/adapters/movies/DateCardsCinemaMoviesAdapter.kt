@@ -8,7 +8,7 @@ import com.flexath.themoviebookingapp.ui.viewholders.DateCardsMoviesCinemaViewHo
 
 class DateCardsCinemaMoviesAdapter : RecyclerView.Adapter<DateCardsMoviesCinemaViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DateCardsMoviesCinemaViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_holder_date_cards_movies_cinema_list,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_holder_movies_cinema_date_cards_list,parent,false)
         return DateCardsMoviesCinemaViewHolder(view)
     }
 

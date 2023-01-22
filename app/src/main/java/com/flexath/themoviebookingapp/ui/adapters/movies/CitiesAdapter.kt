@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.ui.delegates.CitiesViewHolderDelegate
-import kotlinx.android.synthetic.main.view_holder_cities_list.view.*
+import kotlinx.android.synthetic.main.view_holder_location_cities_list.view.*
 
 class CitiesAdapter(
     private val citiesList: ArrayList<String>,
@@ -15,7 +15,7 @@ class CitiesAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CitiesViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.view_holder_cities_list, parent, false)
+            .inflate(R.layout.view_holder_location_cities_list, parent, false)
         return CitiesViewHolder(view, delegateCities)
     }
 

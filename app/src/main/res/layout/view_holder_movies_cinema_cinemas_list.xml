@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:paddingStart="@dimen/margin_large"
+    android:paddingTop="@dimen/margin_15dp"
+    android:paddingEnd="@dimen/margin_large">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvCinemaNameMoviesCinema"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:text="JCGV : Junction City"
+        android:textAppearance="@style/TextInterWhiteSemiBold16sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="@font/inter_medium"
+        android:text="@string/lbl_see_details"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/text_regular" />
+
+    <LinearLayout
+        android:id="@+id/llCinemaStuffs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvCinemaNameMoviesCinema"
+        android:layout_marginTop="@dimen/margin_21dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/width_stuff_icon"
+            android:layout_height="@dimen/width_stuff_icon"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/icon_parking" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_card_medium"
+            android:fontFamily="@font/inter_medium"
+            android:text="@string/lbl_parking"
+            android:textColor="@color/colorCinemaStuff"
+            android:textSize="@dimen/text_regular" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/width_stuff_icon"
+            android:layout_height="@dimen/width_stuff_icon"
+            android:layout_marginStart="@dimen/margin_17dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/icon_food" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_card_medium"
+            android:fontFamily="@font/inter_medium"
+            android:text="@string/lbl_online_food"
+            android:textColor="@color/colorCinemaStuff"
+            android:textSize="@dimen/text_regular" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/width_stuff_icon"
+            android:layout_height="@dimen/width_stuff_icon"
+            android:layout_marginStart="@dimen/margin_17dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/icon_wheel_chair" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_card_medium"
+            android:fontFamily="@font/inter_medium"
+            android:text="@string/lbl_wheel_chair"
+            android:textColor="@color/colorCinemaStuff"
+            android:textSize="@dimen/text_regular" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCinemaTimesMoviesCinema"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/llCinemaStuffs"
+        android:paddingBottom="@dimen/margin_25dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rvCinemaTimesMoviesCinema"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/llLongPressMoviesCinema"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingBottom="@dimen/margin_30dp"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_stuff_icon"
+                android:layout_height="@dimen/width_stuff_icon"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/ic_baseline_info_grey_16dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_card_medium"
+                android:fontFamily="@font/inter_semibold"
+                android:text="@string/lbl_long_press_on_show_timing"
+                android:textColor="@color/colorCinemaStuff"
+                android:textSize="@dimen/text_regular" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

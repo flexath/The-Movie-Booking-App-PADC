@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/appBarHome"
-        layout="@layout/layout_app_bar_home" />
+        layout="@layout/layout_app_bar_movies_home" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollViewHome"

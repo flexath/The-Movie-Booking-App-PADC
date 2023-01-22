@@ -43,4 +43,9 @@
     <string name="lbl_censor_rating">Censor Rating</string>
     <string name="lbl_release_date_details">Release Date</string>
     <string name="lbl_duration_details">Duration</string>
+    <string name="lbl_see_details"><u>See Details</u></string>
+    <string name="lbl_parking">Parking</string>
+    <string name="lbl_online_food">Online Food</string>
+    <string name="lbl_wheel_chair">Wheel Chair</string>
+    <string name="lbl_long_press_on_show_timing">Long press on show timing to see seat class!</string>
 </resources>

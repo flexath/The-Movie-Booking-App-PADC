@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".ui.fragments.movies.MoviesDetailsHomeFragment">
+    tools:context=".ui.fragments.movies.MoviesDetailsFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -314,7 +314,7 @@
                     android:layout_width="370dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/margin_top_30"
+                    android:layout_marginTop="@dimen/margin_30dp"
                     android:background="@drawable/releasing_date_box_background">
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -376,7 +376,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_17dp"
-                    android:layout_marginTop="@dimen/margin_top_30"
+                    android:layout_marginTop="@dimen/margin_30dp"
                     android:fontFamily="@font/inter"
                     android:text="@string/lbl_story_line_movie_details"
                     android:textColor="@color/white"
@@ -421,7 +421,7 @@
                 android:layout_marginEnd="17dp"
                 android:layout_marginBottom="50dp"
                 android:clipToPadding="false"
-                tools:listitem="@layout/view_holder_cast_movies_details_list" />
+                tools:listitem="@layout/view_holder_movies_details_cast_list" />
 
         </RelativeLayout>
 

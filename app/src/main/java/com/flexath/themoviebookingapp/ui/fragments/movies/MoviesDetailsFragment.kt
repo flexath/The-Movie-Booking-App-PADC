@@ -14,16 +14,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.ui.adapters.movies.CastDetailsMoviesAdapter
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_movies_details_home.*
+import kotlinx.android.synthetic.main.fragment_movies_details.*
 
-class MoviesDetailsHomeFragment : Fragment() {
+class MoviesDetailsFragment : Fragment() {
 
     private lateinit var mCastAdapter: CastDetailsMoviesAdapter
     private var isTrailerVideoPlaying:Boolean = false
-    private val args:MoviesDetailsHomeFragmentArgs by navArgs()
+    private val args:MoviesDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_movies_details_home, container, false)
+        return inflater.inflate(R.layout.fragment_movies_details, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,7 +43,7 @@ class MoviesDetailsHomeFragment : Fragment() {
         }
 
         btnBookingButtonMoviesDetails.setOnClickListener {
-            val action = MoviesDetailsHomeFragmentDirections.actionMoviesDetailsHomeToChooseCinema()
+            val action = MoviesDetailsFragmentDirections.actionMoviesDetailsHomeToChooseCinema()
             it.findNavController().navigate(action)
         }
     }

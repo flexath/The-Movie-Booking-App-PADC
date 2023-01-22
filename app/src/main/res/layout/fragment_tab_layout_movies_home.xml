@@ -13,6 +13,6 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="50dp"
         tools:itemCount="2"
-        tools:listitem="@layout/view_holder_movies_home_list" />
+        tools:listitem="@layout/view_holder_movies_home_movies_list" />
 
 </LinearLayout>

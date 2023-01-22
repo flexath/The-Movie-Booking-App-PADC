@@ -8,7 +8,7 @@ import com.flexath.themoviebookingapp.ui.viewholders.CastMoviesDetailsViewHolder
 
 class CastDetailsMoviesAdapter : RecyclerView.Adapter<CastMoviesDetailsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CastMoviesDetailsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_holder_cast_movies_details_list,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_holder_movies_details_cast_list,parent,false)
         return CastMoviesDetailsViewHolder(view)
     }
 

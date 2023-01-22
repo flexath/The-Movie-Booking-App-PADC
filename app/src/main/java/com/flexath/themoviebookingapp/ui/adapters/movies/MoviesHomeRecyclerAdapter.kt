@@ -8,13 +8,13 @@ import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.ui.fragments.movies.TabLayoutMoviesHomeFragment
 import com.flexath.themoviebookingapp.ui.fragments.movies.TabLayoutMoviesHomeFragment.Companion.CINEMA_TIME_EXTRA_KEY
 import com.flexath.themoviebookingapp.ui.viewholders.MoviesHomeViewHolder
-import kotlinx.android.synthetic.main.view_holder_movies_home_list.view.*
+import kotlinx.android.synthetic.main.view_holder_movies_home_movies_list.view.*
 
 class MoviesHomeRecyclerAdapter(private val tabLayoutMoviesHomeFragment: TabLayoutMoviesHomeFragment) :
     RecyclerView.Adapter<MoviesHomeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesHomeViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.view_holder_movies_home_list, parent, false)
+            .inflate(R.layout.view_holder_movies_home_movies_list, parent, false)
         return MoviesHomeViewHolder(view,tabLayoutMoviesHomeFragment)
     }
 
