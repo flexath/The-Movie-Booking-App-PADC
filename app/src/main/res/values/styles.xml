@@ -26,12 +26,19 @@
         <item name="android:textStyle">bold</item>
         <item name="fontFamily">@font/dm_sans</item>
     </style>
-
+    
+    <!--    Tab Layout Styles-->
     <style name="TabLayoutTextStyle">
         <item name="textAllCaps">false</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">16sp</item>
         <item name="fontFamily">@font/dm_sans</item>
+    </style>
+    <style name="TabLayoutFoodStyle">
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">@dimen/text_regular_2x</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <style name="CollapsingToolBarLayoutTitleText">
@@ -42,7 +49,7 @@
     </style>
 
 
-    // Text Styles
+    <!--    // Text Styles-->
     <style name="TextInterWhiteBold16sp">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/white</item>
@@ -61,7 +68,7 @@
         <item name="fontFamily">@font/inter_semibold</item>
     </style>
 
-    // Paddings
+    <!--    // Paddings-->
     <style name="PaddingFilmTypes">
         <item name="android:paddingTop">5dp</item>
         <item name="android:paddingBottom">5dp</item>

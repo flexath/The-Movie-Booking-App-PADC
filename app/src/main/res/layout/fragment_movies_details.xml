@@ -103,6 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/margin_medium_3"
                     android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -404,12 +405,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvDescriptionMoviesDetails"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginStart="@dimen/margin_17dp"
+                android:layout_marginTop="@dimen/margin_30dp"
                 android:fontFamily="@font/inter"
                 android:text="@string/lbl_cast_movie_details"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="@dimen/text_regular"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -417,9 +418,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvCastMoviesDetailsLabel"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="17dp"
-                android:layout_marginBottom="50dp"
+                android:layout_marginTop="@dimen/margin_30dp"
+                android:layout_marginEnd="@dimen/margin_17dp"
+                android:layout_marginBottom="@dimen/margin_50dp"
                 android:clipToPadding="false"
                 tools:listitem="@layout/view_holder_movies_details_cast_list" />
 
@@ -429,10 +430,10 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/btnBookingButtonMoviesDetails"
-        android:layout_width="239dp"
-        android:layout_height="49dp"
+        android:layout_width="@dimen/width_booking_button"
+        android:layout_height="@dimen/height_booking_button"
         android:layout_gravity="bottom|center"
-        android:layout_marginBottom="66dp"
+        android:layout_marginBottom="@dimen/margin_66dp"
         app:srcCompat="@drawable/booking_button" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

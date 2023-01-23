@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.fragments.movies.MoviesFoodFragment">
+
+    <include
+        android:id="@+id/appBarMoviesFood"
+        layout="@layout/layout_app_bar_movies_food" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayoutMoviesFood"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appBarMoviesFood"
+        android:backgroundTint="@color/colorPrimary"
+        app:tabTextAppearance="@style/TabLayoutFoodStyle"
+        app:tabBackground="@color/colorPrimary"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabIndicatorFullWidth="true"
+        app:tabIndicatorGravity="bottom"
+        app:tabMode="scrollable"
+        app:tabRippleColor="@color/colorAccent"
+        app:tabTextColor="@color/white" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerTabLayoutMoviesFood"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tabLayoutMoviesFood" />
+
+</RelativeLayout>

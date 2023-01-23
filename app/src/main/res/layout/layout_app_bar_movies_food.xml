@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/colorPrimary">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnBackMoviesFood"
+        android:layout_width="@dimen/width_back_arrow_cinema"
+        android:layout_height="@dimen/height_back_arrow_cinema"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="22dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/back_arrow" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvGrabABiteMoviesFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="86dp"
+        android:fontFamily="@font/dm_sans_bold"
+        android:gravity="center"
+        android:text="@string/lbl_grab_a_bite"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_small_2x" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnSearchMoviesFood"
+        android:layout_width="@dimen/width_back_arrow_cinema"
+        android:layout_height="@dimen/height_back_arrow_cinema"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="100dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_baseline_search_white_24dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnSkipButtonMoviesFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="@dimen/margin_medium_3"
+        android:fontFamily="@font/inter_semibold"
+        android:gravity="center"
+        android:text="@string/lbl_skip"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_regular_3x" />
+
+
+
+
+</FrameLayout>

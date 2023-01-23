@@ -30,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvCinemaNameMoviesCinema"
+        android:layout_marginBottom="@dimen/margin_10dp"
         android:layout_marginTop="@dimen/margin_21dp"
         android:orientation="horizontal">
 
@@ -86,42 +87,36 @@
         android:id="@+id/rvCinemaTimesMoviesCinema"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_10dp"
         android:layout_below="@+id/llCinemaStuffs"
-        android:paddingBottom="@dimen/margin_25dp" />
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="@dimen/margin_25dp"
+        android:visibility="gone" />
 
     <LinearLayout
+        android:id="@+id/llLongPressMoviesCinema"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rvCinemaTimesMoviesCinema"
-        android:orientation="vertical">
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/margin_30dp"
+        android:visibility="gone">
 
-        <LinearLayout
-            android:id="@+id/llLongPressMoviesCinema"
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/width_stuff_icon"
+            android:layout_height="@dimen/width_stuff_icon"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_baseline_info_grey_16dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:paddingBottom="@dimen/margin_30dp"
-            android:visibility="gone"
-            android:orientation="horizontal">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="@dimen/width_stuff_icon"
-                android:layout_height="@dimen/width_stuff_icon"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_baseline_info_grey_16dp" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_card_medium"
-                android:fontFamily="@font/inter_semibold"
-                android:text="@string/lbl_long_press_on_show_timing"
-                android:textColor="@color/colorCinemaStuff"
-                android:textSize="@dimen/text_regular" />
-
-        </LinearLayout>
+            android:layout_marginStart="@dimen/margin_card_medium"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/lbl_long_press_on_show_timing"
+            android:textColor="@color/colorCinemaStuff"
+            android:textSize="@dimen/text_regular" />
 
     </LinearLayout>
 

@@ -48,4 +48,8 @@
     <string name="lbl_online_food">Online Food</string>
     <string name="lbl_wheel_chair">Wheel Chair</string>
     <string name="lbl_long_press_on_show_timing">Long press on show timing to see seat class!</string>
+    <string name="lbl_your_selection">Your Selection</string>
+    <string name="lbl_taken">Taken</string>
+    <string name="lbl_grab_a_bite">Grab a bite!</string>
+    <string name="lbl_skip">SKIP</string>
 </resources>

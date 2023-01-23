@@ -1,17 +1,230 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     tools:context=".ui.fragments.movies.MoviesSeatFragment">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
 
-</RelativeLayout>
+        <include
+            android:id="@+id/appBarMoviesSeat"
+            layout="@layout/layout_app_bar_movies_seat" />
+
+        <FrameLayout
+            android:id="@+id/flCinemaScreenMoviesSeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appBarMoviesSeat"
+            android:layout_marginStart="@dimen/margin_medium_4_n"
+            android:layout_marginTop="@dimen/margin_minus_25dp"
+            android:layout_marginEnd="@dimen/margin_medium_4_n">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ellipse_screen" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_screen_text"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="@dimen/margin_25dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/text_screen" />
+
+        </FrameLayout>
+
+        <ScrollView
+            android:id="@+id/svSeatsMoviesSeat"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_below="@+id/flCinemaScreenMoviesSeat">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/llSeatAvailableMoviesSeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/svSeatsMoviesSeat"
+            android:background="@color/colorSeatBackground"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/margin_large"
+            android:paddingTop="@dimen/margin_10dp"
+            android:paddingEnd="@dimen/margin_large"
+            android:paddingBottom="@dimen/margin_10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/width_dot"
+                    android:layout_height="@dimen/height_dot"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/margin_10dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/white_dot" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:fontFamily="@font/inter_semibold"
+                    android:textSize="@dimen/text_regular"
+                    android:text="@string/lbl_available"
+                    android:textColor="@color/colorPrimaryLight" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/margin_45dp"
+                android:layout_marginEnd="@dimen/margin_45dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/width_dot"
+                    android:layout_height="@dimen/height_dot"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/margin_10dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/grey_dot" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:fontFamily="@font/inter_semibold"
+                    android:textSize="@dimen/text_regular"
+                    android:text="@string/lbl_taken"
+                    android:textColor="@color/colorPrimaryLight" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/width_dot"
+                    android:layout_height="@dimen/height_dot"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/margin_10dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/accent_dot" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="@string/lbl_your_selection"
+                    android:textSize="@dimen/text_regular"
+                    android:textColor="@color/colorPrimaryLight" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSeekBarMoviesSeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llSeatAvailableMoviesSeat"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                app:srcCompat="@drawable/ic_baseline_add_grey_24dp" />
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:layout_width="@dimen/width_seek_bar"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:max="250"
+                android:progress="100"
+                android:progressBackgroundTint="@color/colorPrimaryLight"
+                android:progressTint="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_minus_button"
+                android:layout_height="@dimen/width_minus_button"
+                android:layout_gravity="center_vertical"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/minus"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llSeekBarMoviesSeat"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/margin_45dp"
+            android:layout_marginStart="@dimen/margin_28dp"
+            android:layout_marginTop="@dimen/margin_45dp"
+            android:layout_marginEnd="@dimen/margin_28dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="@dimen/width_140dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvNumberOfTicketsMoviesSeat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="2 Tickets"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_ticket" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTicketPriceMoviesSeat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="17000KS"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/text_regular_3x" />
+
+            </LinearLayout>
+            
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnBuyButtonMoviesSeat"
+                android:layout_width="@dimen/width_buy_button"
+                android:layout_height="@dimen/height_buy_button"
+                android:layout_alignParentEnd="true"
+                app:srcCompat="@drawable/buy_button"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

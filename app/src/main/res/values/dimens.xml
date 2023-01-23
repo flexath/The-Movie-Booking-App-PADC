@@ -29,11 +29,12 @@
     <dimen name="text_big">40sp</dimen>
     <dimen name="text_big_2x">60sp</dimen>
     <dimen name="text_big_3x">80sp</dimen>
+
+
     <dimen name="width_logo">124dp</dimen>
     <dimen name="height_logo">150dp</dimen>
     <dimen name="width_logo_txt">88dp</dimen>
     <dimen name="height_logo_txt">24dp</dimen>
-
     <dimen name="text_small_2x">22sp</dimen>                // custom dimens begin
     <dimen name="margin_small_smaller">2dp</dimen>
     <dimen name="width_dot_logo_screen">10dp</dimen>
@@ -62,7 +63,7 @@
     <dimen name="margin_17dp">17dp</dimen>
     <dimen name="width_imdb_logo">44dp</dimen>
     <dimen name="height_imdb_logo">28dp</dimen>
-    <dimen name="width_movie_title">150dp</dimen>
+    <dimen name="width_movie_title">130dp</dimen>
     <dimen name="height_chip">40dp</dimen>
     <dimen name="margin_34dp">34dp</dimen>
     <dimen name="padding_9dp">9dp</dimen>
@@ -72,5 +73,21 @@
     <dimen name="width_stuff_icon">17dp</dimen>
     <dimen name="margin_25dp">25dp</dimen>
     <dimen name="margin_5dp">5dp</dimen>
+    <dimen name="margin_minus_25dp">-25dp</dimen>
+    <dimen name="width_screen_text">80dp</dimen>
+    <dimen name="margin_xlarge_2">62dp</dimen>
+    <dimen name="width_seek_bar">250dp</dimen>
+    <dimen name="width_minus_button">18dp</dimen>
+    <dimen name="height_minus_button">18dp</dimen>
+    <dimen name="margin_45dp">45dp</dimen>
+    <dimen name="margin_28dp">28dp</dimen>
+    <dimen name="text_ticket">18sp</dimen>
+    <dimen name="width_140dp">140dp</dimen>
+    <dimen name="width_buy_button">225dp</dimen>
+    <dimen name="height_buy_button">50dp</dimen>
+    <dimen name="margin_50dp">50dp</dimen>
+    <dimen name="width_booking_button">239dp</dimen>
+    <dimen name="height_booking_button">50dp</dimen>
+    <dimen name="margin_66dp">66dp</dimen>
 
 </resources>

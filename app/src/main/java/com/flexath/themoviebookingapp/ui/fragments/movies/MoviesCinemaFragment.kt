@@ -1,7 +1,6 @@
 package com.flexath.themoviebookingapp.ui.fragments.movies
 
 import android.os.Bundle
-import android.service.autofill.Validators.or
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.ui.adapters.movies.CinemasCinemaMoviesAdapter
 import com.flexath.themoviebookingapp.ui.adapters.movies.DateCardsCinemaMoviesAdapter
@@ -47,10 +45,9 @@ class MoviesCinemaFragment : Fragment() {
         rvCinemasMoviesCinema.adapter = mCinemasAdapter
         val linearLayoutManager = LinearLayoutManager(requireContext())
         rvCinemasMoviesCinema.layoutManager = linearLayoutManager
-        mCinemasAdapter.notifyDataSetChanged()
 
-//        val divider = DividerItemDecoration(requireContext(),linearLayoutManager.orientation)
-//        divider.setDrawable(ContextCompat.getDrawable(requireActivity(),R.drawable.item_cinema_separator)!!)
-//        rvCinemasMoviesCinema.addItemDecoration(divider)
+        val divider = DividerItemDecoration((activity as AppCompatActivity).applicationContext, linearLayoutManager.orientation)
+        rvCinemasMoviesCinema.addItemDecoration(divider)
+        mCinemasAdapter.notifyDataSetChanged()
     }
 }

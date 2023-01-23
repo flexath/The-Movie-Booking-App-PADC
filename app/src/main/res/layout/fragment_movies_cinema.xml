@@ -13,7 +13,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="0.7dp"
         android:layout_below="@+id/appBarMoviesCinema"
         android:background="@color/colorPrimaryDark" />
 
@@ -109,7 +109,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/llSeatAvailable"
+                android:id="@+id/llSeatAvailableMoviesCinema"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/llFilmTypesMoviesCinema"
@@ -200,7 +200,7 @@
                 android:id="@+id/rvCinemasMoviesCinema"
                 android:layout_width="match_parent"
                 tools:listitem="@layout/view_holder_movies_cinema_cinemas_list"
-                android:layout_below="@+id/llSeatAvailable"
+                android:layout_below="@+id/llSeatAvailableMoviesCinema"
                 android:layout_height="match_parent"/>
 
         </RelativeLayout>
