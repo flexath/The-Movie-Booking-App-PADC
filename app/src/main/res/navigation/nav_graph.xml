@@ -37,7 +37,7 @@
         tools:layout="@layout/fragment_movies_details">
 
         <argument
-            android:name="now_showing_or_coming_soon_arg"
+            android:name="arg_now_showing_or_coming_soon"
             app:argType="boolean"
             android:defaultValue="false" />
         <action
@@ -76,5 +76,14 @@
         android:id="@+id/moviesTicketCheckoutFragment"
         android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesTicketCheckoutFragment"
         android:label="fragment_movies_ticket_checkout"
-        tools:layout="@layout/fragment_movies_ticket_checkout" />
+        tools:layout="@layout/fragment_movies_ticket_checkout" >
+        <action
+            android:id="@+id/action_moviesTicketCheckout_to_moviesTicketConfirmation"
+            app:destination="@id/moviesTicketConfirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moviesTicketConfirmationFragment"
+        android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesTicketConfirmationFragment"
+        android:label="fragment_movies_ticket_confirmation"
+        tools:layout="@layout/fragment_movies_ticket_confirmation" />
 </navigation>

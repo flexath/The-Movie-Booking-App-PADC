@@ -28,4 +28,5 @@
     <color name="colorGreen">#00FFA3</color>
     <color name="colorPurple">#FF00B8</color>
     <color name="colorCinemaStuff">#AAAAAA</color>
+    <color name="colorGrey">#AAAAAA</color>
 </resources>

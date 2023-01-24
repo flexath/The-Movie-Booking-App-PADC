@@ -6,6 +6,7 @@
     <dimen name="margin_medium_2">16dp</dimen>
     <dimen name="margin_card_medium_2">12dp</dimen>
     <dimen name="margin_medium_3">20dp</dimen>
+    <dimen name="margin_medium_4_n">22dp</dimen>
     <dimen name="margin_large">24dp</dimen>
     <dimen name="margin_xlarge">32dp</dimen>
     <dimen name="margin_xxlarge">48dp</dimen>
@@ -43,7 +44,7 @@
     <dimen name="margin_medium_3_2x">60dp</dimen>
     <dimen name="width_navigation_icon">16dp</dimen>
     <dimen name="height_navigation_icon">16dp</dimen>
-    <dimen name="margin_medium_4_n">22dp</dimen>
+
     <dimen name="margin_medium_4_n_2x">46dp</dimen>
     <dimen name="margin_card_medium_1_n">10dp</dimen>
     <dimen name="width_detail_poster">140dp</dimen>
@@ -106,5 +107,21 @@
     <dimen name="text_smaller_smaller">8sp</dimen>
     <dimen name="width_food_count_drink_text">16dp</dimen>
     <dimen name="height_food_count_drink_text">16dp</dimen>
+    <dimen name="height_continue_button">50dp</dimen>
+    <dimen name="width_continue_button">239dp</dimen>
+    <dimen name="text_18sp">18sp</dimen>
+    <dimen name="width_checkout_icon">20dp</dimen>
+    <dimen name="height_checkout_icon">20dp</dimen>
+    <dimen name="width_calendar">105dp</dimen>
+    <dimen name="width_clock">50dp</dimen>
+    <dimen name="width_location">110dp</dimen>
+    <dimen name="width_up_arrow_white">10dp</dimen>
+    <dimen name="height_up_arrow_white">10dp</dimen>
+    <dimen name="height_horizontal_line">0.5dp</dimen>
+    <dimen name="width_circle_black">40dp</dimen>
+    <dimen name="height_circle_black">40dp</dimen>
+    <dimen name="width_ticket_cancellation">191dp</dimen>
+    <dimen name="height_ticket_cancellation">28dp</dimen>
+    <dimen name="margin_36dp">36dp</dimen>
 
 </resources>

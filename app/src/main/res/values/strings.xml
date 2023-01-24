@@ -52,4 +52,10 @@
     <string name="lbl_taken">Taken</string>
     <string name="lbl_grab_a_bite">Grab a bite!</string>
     <string name="lbl_skip">SKIP</string>
+    <string name="lbl_checkout">Checkout</string>
+    <string name="lbl_food_and_beverage">Food and Beverage</string>
+    <string name="lbl_convenience_fee">Convenience Fee</string>
+    <string name="lbl_total">Total</string>
+    <string name="lbl_m_ticket">M-Ticket(</string>
+    <string name="lbl_closed_bracket">)</string>
 </resources>

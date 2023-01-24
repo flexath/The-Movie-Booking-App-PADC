@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingBottom="@dimen/margin_medium_2"
+    android:weightSum="2">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="@dimen/margin_small"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/width_checkout_icon"
+            android:layout_height="@dimen/width_checkout_icon"
+            android:layout_marginEnd="@dimen/margin_medium"
+            app:srcCompat="@drawable/cross_icon"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dm_sans_bold"
+            android:text="Potato Chips (Qt. 1)"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="@dimen/text_regular"/>
+
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_weight="1"
+        android:text="1000Ks"
+        android:fontFamily="@font/dm_sans_bold"
+        android:gravity="end"
+        android:textColor="@color/colorPrimaryLight"
+        android:textSize="@dimen/text_regular" />
+
+</LinearLayout>

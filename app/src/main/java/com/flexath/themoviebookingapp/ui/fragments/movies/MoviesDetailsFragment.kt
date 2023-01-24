@@ -12,13 +12,13 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
-import com.flexath.themoviebookingapp.ui.adapters.movies.CastDetailsMoviesAdapter
+import com.flexath.themoviebookingapp.ui.adapters.movies.CastMoviesDetailsAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_details.*
 
 class MoviesDetailsFragment : Fragment() {
 
-    private lateinit var mCastAdapter: CastDetailsMoviesAdapter
+    private lateinit var mCastAdapter: CastMoviesDetailsAdapter
     private var isTrailerVideoPlaying:Boolean = false
     private val args:MoviesDetailsFragmentArgs by navArgs()
 
@@ -45,11 +45,12 @@ class MoviesDetailsFragment : Fragment() {
         btnBookingButtonMoviesDetails.setOnClickListener {
             val action = MoviesDetailsFragmentDirections.actionMoviesDetailsHomeToChooseCinema()
             it.findNavController().navigate(action)
+
         }
     }
 
     private fun isNowShowingOrIsComingSoon(){
-        if(!args.nowShowingOrComingSoonArg){                                    // For Now Showing
+        if(!args.argNowShowingOrComingSoon){                                    // For Now Showing
             rlReleasingDateMoviesDetails.visibility = View.GONE
             btnBookingButtonMoviesDetails.visibility = View.VISIBLE
         }else{                                                                  // For Coming Soon
@@ -84,7 +85,7 @@ class MoviesDetailsFragment : Fragment() {
     }
 
     private fun setUpCastRecyclerView() {
-        mCastAdapter = CastDetailsMoviesAdapter()
+        mCastAdapter = CastMoviesDetailsAdapter()
         rvCastMoviesDetails.adapter = mCastAdapter
         rvCastMoviesDetails.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         mCastAdapter.notifyDataSetChanged()

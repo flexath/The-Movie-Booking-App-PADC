@@ -5,21 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
-import com.flexath.themoviebookingapp.ui.adapters.movies.CinemasCinemaMoviesAdapter
-import com.flexath.themoviebookingapp.ui.adapters.movies.DateCardsCinemaMoviesAdapter
+import com.flexath.themoviebookingapp.ui.adapters.movies.CinemasMoviesCinemaAdapter
+import com.flexath.themoviebookingapp.ui.adapters.movies.DateCardMoviesCinemaAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_cinema.*
 
 
 class MoviesCinemaFragment : Fragment() {
 
-    private lateinit var mDateCardsAdapter:DateCardsCinemaMoviesAdapter
-    private lateinit var mCinemasAdapter: CinemasCinemaMoviesAdapter
+    private lateinit var mDateCardsAdapter:DateCardMoviesCinemaAdapter
+    private lateinit var mCinemasAdapter: CinemasMoviesCinemaAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_movies_cinema, container, false)
@@ -34,14 +33,14 @@ class MoviesCinemaFragment : Fragment() {
     }
 
     private fun setUpDateCardsRecyclerView() {
-        mDateCardsAdapter = DateCardsCinemaMoviesAdapter()
+        mDateCardsAdapter = DateCardMoviesCinemaAdapter()
         rvDatesCardsMoviesCinema.adapter = mDateCardsAdapter
         rvDatesCardsMoviesCinema.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         mDateCardsAdapter.notifyDataSetChanged()
     }
 
     private fun setUpCinemasRecyclerView() {
-        mCinemasAdapter = CinemasCinemaMoviesAdapter()
+        mCinemasAdapter = CinemasMoviesCinemaAdapter()
         rvCinemasMoviesCinema.adapter = mCinemasAdapter
         val linearLayoutManager = LinearLayoutManager(requireContext())
         rvCinemasMoviesCinema.layoutManager = linearLayoutManager

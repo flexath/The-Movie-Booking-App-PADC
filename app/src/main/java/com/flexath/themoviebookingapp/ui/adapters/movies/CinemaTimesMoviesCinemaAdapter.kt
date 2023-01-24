@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.ui.viewholders.CinemaTimesMoviesCinemaViewHolder
 
-class CinemaTimesCinemaMoviesAdapter : RecyclerView.Adapter<CinemaTimesMoviesCinemaViewHolder>() {
+class CinemaTimesMoviesCinemaAdapter : RecyclerView.Adapter<CinemaTimesMoviesCinemaViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CinemaTimesMoviesCinemaViewHolder {
         val view =  LayoutInflater.from(parent.context).inflate(R.layout.view_holder_movies_cinema_cinema_times_list,parent,false)
         return CinemaTimesMoviesCinemaViewHolder(view)

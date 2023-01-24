@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.ui.activities.MainActivity
-import com.flexath.themoviebookingapp.ui.adapters.movies.BannerHomeAdapter
+import com.flexath.themoviebookingapp.ui.adapters.movies.BannerMoviesHomeAdapter
 import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesHomeViewPagerAdapter
 import com.flexath.themoviebookingapp.ui.dummy.MoviesData
 import com.google.android.material.tabs.TabLayoutMediator
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.layout_app_bar_movies_home.*
 
 class MoviesHomeFragment : Fragment(), MenuProvider {
 
-    private lateinit var mBannerHomeAdapter: BannerHomeAdapter
+    private lateinit var mBannerHomeAdapter: BannerMoviesHomeAdapter
     private lateinit var mMoviesHomeAdapter: MoviesHomeViewPagerAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -52,7 +52,7 @@ class MoviesHomeFragment : Fragment(), MenuProvider {
 
 
     private fun setUpBannerHome() {
-        mBannerHomeAdapter = BannerHomeAdapter(MoviesData().advertisementImages)
+        mBannerHomeAdapter = BannerMoviesHomeAdapter(MoviesData().advertisementImages)
         viewPagerBannerMoviesHome.adapter = mBannerHomeAdapter
         dotsIndicatorHome.attachTo(viewPagerBannerMoviesHome)
         mBannerHomeAdapter.notifyDataSetChanged()

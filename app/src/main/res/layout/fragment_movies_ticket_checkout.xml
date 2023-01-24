@@ -1,18 +1,481 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     tools:context=".ui.fragments.movies.MoviesTicketCheckoutFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/white"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
 
-</RelativeLayout>
+        <include
+            android:id="@+id/appBarMoviesTicketCheckout"
+            layout="@layout/layout_app_bar_movies_ticket_checkout" />
+
+        <RelativeLayout
+            android:id="@+id/rlCheckoutDetailsMoviesTicketCheckout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appBarMoviesTicketCheckout"
+            android:layout_marginStart="@dimen/margin_medium_4_n"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_marginEnd="@dimen/margin_medium_4_n"
+            android:background="@drawable/ticket_checkout_details_background"
+            android:paddingTop="@dimen/margin_medium_3"
+            android:paddingBottom="@dimen/margin_medium_3">
+
+            <LinearLayout
+                android:id="@+id/llMovieTitleMoviesTicketCheckout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/margin_large"
+                android:paddingEnd="@dimen/margin_large">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:fontFamily="@font/dm_sans_bold"
+                    android:text="Black Widow"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:fontFamily="@font/dm_sans"
+                    android:text="(3D)"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_regular_2x" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dm_sans"
+                    android:text="(U/A)"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_regular_2x" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llCinemaNameMoviesTicketCheckout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llMovieTitleMoviesTicketCheckout"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/margin_large"
+                android:paddingEnd="@dimen/margin_large">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:fontFamily="@font/dm_sans"
+                    android:text="JCGV: Junction City"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/text_18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:fontFamily="@font/dm_sans"
+                    android:text="(Screen 2)"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/text_regular_2x" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llTimesMoviesTicketCheckout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llCinemaNameMoviesTicketCheckout"
+                android:layout_marginTop="@dimen/margin_30dp"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/margin_large"
+                android:paddingEnd="@dimen/margin_large"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/width_checkout_icon"
+                        android:layout_height="@dimen/height_checkout_icon"
+                        android:layout_gravity="center_horizontal"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/ic_baseline_calendar_month_accent_24dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:fontFamily="@font/dm_sans"
+                        android:gravity="center"
+                        android:text="Sat,28 Jan,2022"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_regular" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_30dp"
+                    android:layout_marginEnd="@dimen/margin_30dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/width_checkout_icon"
+                        android:layout_height="@dimen/height_checkout_icon"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/ic_baseline_access_time_accent_24dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:fontFamily="@font/dm_sans"
+                        android:gravity="center"
+                        android:text="3:30PM"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_regular" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/width_checkout_icon"
+                        android:layout_height="@dimen/height_checkout_icon"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/ic_baseline_location_on_accent_24dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:fontFamily="@font/dm_sans"
+                        android:gravity="center"
+                        android:text="Q5H3+JPP, Corner of, Bogyoke Lann, Yangon"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_regular" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMTicketMoviesTicketCheckout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/llTimesMoviesTicketCheckout"
+                android:layout_marginTop="@dimen/margin_medium_3"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/margin_large"
+                android:paddingEnd="@dimen/margin_large">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dm_sans_bold"
+                    android:text="@string/lbl_m_ticket"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/text_regular" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dm_sans_bold"
+                    android:text="2"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/text_regular" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dm_sans_bold"
+                    android:text="@string/lbl_closed_bracket"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/text_regular" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llCollectionMoviesTicketCheckout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:layout_below="@+id/llMTicketMoviesTicketCheckout"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/llTicketNameMoviesTicketCheckout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/margin_large"
+                    android:paddingEnd="@dimen/margin_large"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/dm_sans_bold"
+                        android:gravity="start"
+                        android:text="Gold-G8,G7"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_regular_2x" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/dm_sans_bold"
+                        android:gravity="end"
+                        android:text="20000Ks"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_regular_2x" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llFoodMoviesTicketCheckout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@+id/llTicketNameMoviesTicketCheckout"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:paddingStart="@dimen/margin_large"
+                    android:paddingEnd="@dimen/margin_large">
+
+                    <View
+                        android:id="@+id/vHorizontalLineOneMoviesTicketCheckout"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_horizontal_line"
+                        android:background="@color/colorPrimaryLight" />
+
+                    <LinearLayout
+                        android:id="@+id/llFoodAndBeverageMoviesTicketCheckout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium_3"
+                        android:orientation="horizontal"
+                        android:weightSum="6">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="@dimen/width_checkout_icon"
+                                android:layout_height="@dimen/height_checkout_icon"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/drink_icon_white" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_5dp"
+                                android:layout_marginEnd="@dimen/margin_10dp"
+                                android:fontFamily="@font/dm_sans_bold"
+                                android:text="@string/lbl_food_and_beverage"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_18sp" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/btnFoodAndBeverageMoviesTicketCheckout"
+                                android:layout_width="@dimen/width_checkout_icon"
+                                android:layout_height="@dimen/height_checkout_icon"
+                                android:layout_gravity="center_vertical"
+                                app:srcCompat="@drawable/ic_baseline_keyboard_arrow_down_white_24dp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/dm_sans_bold"
+                            android:gravity="end"
+                            android:text="2000Ks"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_regular_2x" />
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvFoodOrderedListMoviesTicketCheckout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_25dp"/>
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/flHorizontalDashLineMoviesTicketCheckout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-20dp"
+                    android:layout_below="@+id/llFoodMoviesTicketCheckout"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginEnd="-20dp">
+
+                    <View
+                        android:layout_width="@dimen/width_circle_black"
+                        android:layout_height="@dimen/height_circle_black"
+                        android:layout_gravity="start"
+                        android:background="@drawable/circle_black_background" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/margin_xxlarge"
+                        android:layout_marginEnd="@dimen/margin_xxlarge"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/horizontal_bar_dash" />
+
+                    <View
+                        android:layout_width="@dimen/width_circle_black"
+                        android:layout_height="@dimen/height_circle_black"
+                        android:layout_gravity="end"
+                        android:background="@drawable/circle_black_background" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlConvenienceFeeMoviesTicketCheckout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llCollectionMoviesTicketCheckout"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/margin_large"
+                android:paddingEnd="@dimen/margin_large">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_5dp"
+                        android:layout_marginEnd="@dimen/margin_10dp"
+                        android:fontFamily="@font/dm_sans_medium"
+                        android:text="@string/lbl_convenience_fee"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_regular_2x" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/width_checkout_icon"
+                        android:layout_height="@dimen/height_checkout_icon"
+                        android:layout_gravity="center_vertical"
+                        app:srcCompat="@drawable/ic_baseline_keyboard_arrow_down_white_24dp" />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/dm_sans_medium"
+                    android:text="500Ks"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_regular_2x" />
+
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnTicketCancellationMoviesTicketCheckout"
+                android:layout_width="@dimen/width_ticket_cancellation"
+                android:layout_height="@dimen/height_ticket_cancellation"
+                android:layout_below="@+id/rlConvenienceFeeMoviesTicketCheckout"
+                android:layout_marginTop="@dimen/margin_medium_3"
+                android:paddingStart="@dimen/margin_large"
+                app:srcCompat="@drawable/ticket_cancelation_button" />
+
+            <View
+                android:id="@+id/vHorizontalLineTwoMoviesTicketCheckout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_horizontal_line"
+                android:layout_below="@+id/btnTicketCancellationMoviesTicketCheckout"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:background="@color/colorPrimaryLight" />
+
+            <RelativeLayout
+                android:id="@+id/llTicketTotalPriceMoviesTicketCheckout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vHorizontalLineTwoMoviesTicketCheckout"
+                android:layout_marginTop="@dimen/margin_medium_3"
+                android:paddingStart="@dimen/margin_large"
+                android:paddingEnd="@dimen/margin_large">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/inter_bold"
+                    android:gravity="start"
+                    android:text="@string/lbl_total"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/text_18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/inter_bold"
+                    android:gravity="end"
+                    android:text="22500Ks"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/text_18sp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnContinueMoviesTicketCheckout"
+            android:layout_width="@dimen/width_continue_button"
+            android:layout_height="@dimen/height_continue_button"
+            android:layout_below="@+id/rlCheckoutDetailsMoviesTicketCheckout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_36dp"
+            app:srcCompat="@drawable/continue_button" />
+
+    </RelativeLayout>
+
+</ScrollView>

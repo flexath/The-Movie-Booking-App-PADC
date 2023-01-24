@@ -14,7 +14,7 @@ class MoviesHomeViewHolder(
     init {
         this.itemView.setOnClickListener {
             val action = MoviesHomeFragmentDirections.actionMoviesHomeToMoviesDetailsHome()
-            action.nowShowingOrComingSoonArg = tabLayoutMoviesHomeInstance.getMovieDateBundle()?.getBoolean(CINEMA_TIME_EXTRA_KEY) == true
+            action.argNowShowingOrComingSoon = tabLayoutMoviesHomeInstance.getMovieDateBundle()?.getBoolean(CINEMA_TIME_EXTRA_KEY) == true
             it.findNavController().navigate(action)
         }
     }

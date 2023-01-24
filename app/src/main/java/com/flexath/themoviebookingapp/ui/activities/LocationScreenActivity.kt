@@ -6,14 +6,14 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
-import com.flexath.themoviebookingapp.ui.adapters.movies.CitiesAdapter
+import com.flexath.themoviebookingapp.ui.adapters.movies.CitiesLocationAdapter
 import com.flexath.themoviebookingapp.ui.delegates.CitiesViewHolderDelegate
 import com.flexath.themoviebookingapp.ui.dummy.CitiesData
 import kotlinx.android.synthetic.main.activity_location_screen.*
 
 class LocationScreenActivity : AppCompatActivity(),CitiesViewHolderDelegate {
 
-    private lateinit var mCitiesAdapter: CitiesAdapter
+    private lateinit var mCitiesAdapter: CitiesLocationAdapter
 
     companion object{
         fun newIntentFromLocationScreen(context: Context) : Intent {
@@ -29,7 +29,7 @@ class LocationScreenActivity : AppCompatActivity(),CitiesViewHolderDelegate {
     }
 
     private fun setUpCitiesRecyclerView() {
-        mCitiesAdapter = CitiesAdapter(CitiesData.citiesList,this)
+        mCitiesAdapter = CitiesLocationAdapter(CitiesData.citiesList,this)
         rvCitiesLocation.adapter = mCitiesAdapter
         rvCitiesLocation.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         rvCitiesLocation.setHasFixedSize(true)
