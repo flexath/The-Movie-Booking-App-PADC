@@ -67,5 +67,14 @@
         android:id="@+id/moviesFoodFragment"
         android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesFoodFragment"
         android:label="fragment_movies_food"
-        tools:layout="@layout/fragment_movies_food" />
+        tools:layout="@layout/fragment_movies_food" >
+        <action
+            android:id="@+id/action_moviesFood_to_moviesTicketCheckout"
+            app:destination="@id/moviesTicketCheckoutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moviesTicketCheckoutFragment"
+        android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesTicketCheckoutFragment"
+        android:label="fragment_movies_ticket_checkout"
+        tools:layout="@layout/fragment_movies_ticket_checkout" />
 </navigation>

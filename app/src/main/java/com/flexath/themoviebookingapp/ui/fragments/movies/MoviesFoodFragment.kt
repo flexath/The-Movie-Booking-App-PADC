@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesFoodViewPagerAdapter
 import com.flexath.themoviebookingapp.ui.generaldata.FoodFactory
@@ -23,7 +24,17 @@ class MoviesFoodFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpFoodTabLayout()
+        setUpFoodTabLayout()                // For Food Types Tab
+        setUpListeners()
+    }
+
+    private fun setUpListeners() {
+        // Order Button for Check Out Screen
+        btnFoodOrderPurchaseMoviesFood.setOnClickListener {
+            val action = MoviesFoodFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
+            it.findNavController().navigate(action)
+        }
+
     }
 
     private fun setUpFoodTabLayout() {

@@ -89,5 +89,22 @@
     <dimen name="width_booking_button">239dp</dimen>
     <dimen name="height_booking_button">50dp</dimen>
     <dimen name="margin_66dp">66dp</dimen>
+    <dimen name="width_food">170dp</dimen>
+    <dimen name="height_food">220dp</dimen>
+    <dimen name="width_food_image">104dp</dimen>
+    <dimen name="height_food_image">104dp</dimen>
+    <dimen name="width_add_button">150dp</dimen>
+    <dimen name="height_add_button">27dp</dimen>
+    <dimen name="margin_11dp">11dp</dimen>
+    <dimen name="width_number_of_food">24dp</dimen>
+    <dimen name="height_number_of_food">24dp</dimen>
+    <dimen name="margin_19dp">19dp</dimen>
+    <dimen name="width_right_arrow">18dp</dimen>
+    <dimen name="height_right_arrow">18dp</dimen>
+    <dimen name="width_drink_image">26dp</dimen>
+    <dimen name="height_drink_image">26dp</dimen>
+    <dimen name="text_smaller_smaller">8sp</dimen>
+    <dimen name="width_food_count_drink_text">16dp</dimen>
+    <dimen name="height_food_count_drink_text">16dp</dimen>
 
 </resources>

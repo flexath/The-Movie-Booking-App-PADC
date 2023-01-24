@@ -4,13 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".ui.fragments.movies.TabLayoutMoviesFoodFragment">
+    tools:context=".ui.fragments.movies.MoviesTicketCheckoutFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFoodMoviesFood"
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/margin_10dp"
-        tools:listitem="@layout/view_holder_movies_food_foods_list"/>
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:text="@string/hello_blank_fragment" />
 
 </RelativeLayout>

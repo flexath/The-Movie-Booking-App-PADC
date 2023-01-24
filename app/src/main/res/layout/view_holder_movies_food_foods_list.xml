@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/foodItemListMoviesFood"
+    android:layout_width="@dimen/width_food"
+    android:layout_height="@dimen/height_food"
+    android:layout_margin="@dimen/margin_10dp"
+    android:background="@drawable/food_background">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivFoodImageMoviesFood"
+        android:layout_width="@dimen/width_food_image"
+        android:layout_height="@dimen/height_food_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_card_medium_2"
+        android:elevation="@dimen/margin_small"
+        app:srcCompat="@drawable/potato_chip" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvFoodNameMoviesFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivFoodImageMoviesFood"
+        android:layout_marginStart="@dimen/margin_10dp"
+        android:layout_marginTop="@dimen/margin_medium_3"
+        android:elevation="@dimen/margin_small"
+        android:fontFamily="@font/inter_semibold"
+        android:text="Potato Chip"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_small" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvFoodPriceMoviesFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvFoodNameMoviesFood"
+        android:layout_marginStart="@dimen/margin_10dp"
+        android:layout_marginTop="@dimen/margin_5dp"
+        android:elevation="@dimen/margin_small"
+        android:fontFamily="@font/inter_semibold"
+        android:text="1000KS"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/text_small" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnAddMoviesFood"
+        android:layout_width="@dimen/width_add_button"
+        android:layout_height="@dimen/height_add_button"
+        android:layout_below="@+id/tvFoodPriceMoviesFood"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:elevation="@dimen/margin_small"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        app:srcCompat="@drawable/add_button" />
+
+    <LinearLayout
+        android:id="@+id/llFoodAddMinusMoviesFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvFoodPriceMoviesFood"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:layout_marginEnd="@dimen/margin_10dp"
+        android:elevation="@dimen/margin_small"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnPlusMoviesFood"
+            android:layout_width="@dimen/width_number_of_food"
+            android:layout_height="@dimen/height_number_of_food"
+            android:layout_gravity="bottom"
+            android:elevation="@dimen/margin_small"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/add_food_button" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFoodCountMoviesFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginStart="@dimen/margin_15dp"
+            android:layout_marginEnd="@dimen/margin_15dp"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="top"
+            android:text="1"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_regular_2x" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnMinusMoviesFood"
+            android:layout_width="@dimen/width_number_of_food"
+            android:layout_height="@dimen/height_number_of_food"
+            android:layout_gravity="center_vertical"
+            android:elevation="@dimen/margin_small"
+            app:srcCompat="@drawable/minus_food_button" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
