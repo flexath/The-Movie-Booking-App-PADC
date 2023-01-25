@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/margin_medium_2"
+    android:weightSum="3">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/inter_semibold"
+        android:gravity="start"
+        android:text="Large Cola"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_regular" />
+
+    <LinearLayout
+        android:id="@+id/llFoodAddMinusBottomSheetDialogMoviesFood"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:elevation="@dimen/margin_small"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnPlusBottomSheetDialogMoviesFood"
+            android:layout_width="@dimen/width_number_of_food"
+            android:layout_height="@dimen/height_number_of_food"
+            android:layout_gravity="bottom"
+            android:elevation="@dimen/margin_small"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/add_food_button" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFoodCountBottomSheetDialogMoviesFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginStart="@dimen/margin_15dp"
+            android:layout_marginEnd="@dimen/margin_15dp"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="top"
+            android:text="1"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_regular_2x" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnMinusBottomSheetDialogMoviesFood"
+            android:layout_width="@dimen/width_number_of_food"
+            android:layout_height="@dimen/height_number_of_food"
+            android:layout_gravity="center_vertical"
+            android:elevation="@dimen/margin_small"
+            app:srcCompat="@drawable/minus_food_button" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/inter_bold"
+        android:gravity="end"
+        android:text="1000Ks"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_regular_2x" />
+
+</LinearLayout>

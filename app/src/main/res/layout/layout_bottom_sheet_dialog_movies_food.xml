@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/bottom_sheet_dialog_food_background"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFoodBottomSheetDialogMoviesFood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/margin_medium_4_n"
+            android:paddingTop="@dimen/margin_xlarge"
+            android:paddingEnd="@dimen/margin_medium_4_n"
+            tools:itemCount="3"
+            tools:listitem="@layout/view_holder_movies_food_dialog_food_list" />
+
+        <include
+            android:id="@+id/btnFoodOrderPurchaseBottomDialogMoviesFood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginStart="@dimen/margin_medium_4_n"
+            android:layout_marginEnd="@dimen/margin_medium_4_n"
+            android:layout_marginBottom="@dimen/margin_50dp"
+            layout="@layout/layout_button_movies_food"/>
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

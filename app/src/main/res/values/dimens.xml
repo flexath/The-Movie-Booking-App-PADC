@@ -128,5 +128,7 @@
     <dimen name="margin_75dp">75dp</dimen>
     <dimen name="margin_40dp">40dp</dimen>
     <dimen name="width_close_button">40dp</dimen>
+    <dimen name="margin_120dp">120dp</dimen>
+    <dimen name="margin_95dp">95dp</dimen>
 
 </resources>
