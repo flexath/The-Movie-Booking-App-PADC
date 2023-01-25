@@ -10,8 +10,10 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.ui.adapters.movies.OrderedFoodMoviesTicketCheckoutAdapter
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.fragment_movies_ticket_checkout.*
 import kotlinx.android.synthetic.main.fragment_movies_ticket_checkout.view.*
+import kotlinx.android.synthetic.main.layout_bottom_sheet_dialog_movies_checkout.*
 
 class MoviesTicketCheckoutFragment : Fragment() {
 
@@ -35,6 +37,18 @@ class MoviesTicketCheckoutFragment : Fragment() {
         btnContinueMoviesTicketCheckout.setOnClickListener {
             val action = MoviesTicketCheckoutFragmentDirections.actionMoviesTicketCheckoutToMoviesTicketConfirmation()
             it.findNavController().navigate(action)
+        }
+
+        btnTicketCancellationMoviesTicketCheckout.setOnClickListener {
+            val bottomDialog = BottomSheetDialog(requireActivity())
+            val dialogView = layoutInflater.inflate(R.layout.layout_bottom_sheet_dialog_movies_checkout,null,false)
+            bottomDialog.setContentView(dialogView)
+            bottomDialog.setCancelable(true)
+            bottomDialog.show()
+
+            bottomDialog.btnCloseButtonBottomSheetDialog.setOnClickListener {
+                bottomDialog.dismiss()
+            }
         }
     }
 

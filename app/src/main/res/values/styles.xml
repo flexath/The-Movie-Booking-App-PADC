@@ -75,4 +75,15 @@
         <item name="android:paddingStart">13dp</item>
         <item name="android:paddingEnd">13dp</item>
     </style>
+
+<!--    Bottom Sheet Dialog Style-->
+<!--    <style name="CancellationBottomSheetDialog" parent="Theme.Design.BottomSheetDialog">-->
+<!--        <item name="bottomSheetStyle">@style/ModalBottomDialogBackground</item>-->
+<!--        <item name="background">@color/colorPrimary</item>-->
+<!--    </style>-->
+
+<!--    <style name="ModalBottomDialogBackground" parent="Widget.Design.BottomSheet.Modal">-->
+<!--        <item name="background">@drawable/bottom_sheet_dialog_background</item>-->
+<!--    </style>-->
+
 </resources>

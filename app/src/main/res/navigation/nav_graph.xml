@@ -85,5 +85,9 @@
         android:id="@+id/moviesTicketConfirmationFragment"
         android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesTicketConfirmationFragment"
         android:label="fragment_movies_ticket_confirmation"
-        tools:layout="@layout/fragment_movies_ticket_confirmation" />
+        tools:layout="@layout/fragment_movies_ticket_confirmation" >
+        <action
+            android:id="@+id/action_moviesTicketConfirmation_to_moviesHome"
+            app:destination="@id/moviesHomeFragment" />
+    </fragment>
 </navigation>

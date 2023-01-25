@@ -11,6 +11,7 @@ import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesFoodViewPagerAdap
 import com.flexath.themoviebookingapp.ui.generaldata.FoodFactory
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_movies_food.*
+import kotlinx.android.synthetic.main.layout_app_bar_movies_food.*
 
 class MoviesFoodFragment : Fragment() {
 
@@ -31,6 +32,11 @@ class MoviesFoodFragment : Fragment() {
     private fun setUpListeners() {
         // Order Button for Check Out Screen
         btnFoodOrderPurchaseMoviesFood.setOnClickListener {
+            val action = MoviesFoodFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
+            it.findNavController().navigate(action)
+        }
+
+        btnSkipButtonMoviesFood.setOnClickListener {
             val action = MoviesFoodFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
             it.findNavController().navigate(action)
         }

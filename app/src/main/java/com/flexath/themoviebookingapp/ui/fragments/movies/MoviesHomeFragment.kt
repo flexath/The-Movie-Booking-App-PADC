@@ -29,6 +29,10 @@ class MoviesHomeFragment : Fragment(), MenuProvider {
         return inflater.inflate(R.layout.fragment_movies_home, container, false)
     }
 
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.VISIBLE

@@ -58,4 +58,13 @@
     <string name="lbl_total">Total</string>
     <string name="lbl_m_ticket">M-Ticket(</string>
     <string name="lbl_closed_bracket">)</string>
+    <string name="lbl_ticket_confirmation">Ticket Confirmation</string>
+    <string name="lbl_tpin">TPIN :</string>
+    <string name="lbl_ticket_cancellation_policy">Ticket Cancellation Policy</string>
+    <string name="lbl_100_refund_on_f_amp_b"><![CDATA[100% Refund on F&B]]></string>
+    <string name="lbl_up_to_75_refund_for_tickets">Up to 75% Refund for Tickets</string>
+    <string name="lbl_75_refund_until_2_hours_before_show_nstart_time">-75% refund until 2 hours before show\nstart time</string>
+    <string name="lbl_50_refund_between_2_hours_and_20_nminutes_before_show_start_time">-50% refund between 2 hours and 20\nminutes before show start time</string>
+    <string name="lbl_1_refund_not_available_for_convenience_fees_vouchers_gift_cards_taxes_etc">1. Refund not available for Convenience\nfees,Vouchers, Gift Cards, Taxes etc.</string>
+    <string name="lbl_2_no_cancellation_within_20minute_of_show_start_time">2. No cancellation within 20minute of show\nstart time.</string>
 </resources>

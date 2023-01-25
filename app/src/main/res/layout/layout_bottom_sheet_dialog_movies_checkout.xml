@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/margin_medium_3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_sheet_dialog_background"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/margin_medium_4_n"
+        android:paddingTop="@dimen/margin_medium_4_n"
+        android:paddingEnd="@dimen/margin_medium_4_n"
+        android:paddingBottom="@dimen/margin_xlarge">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/lbl_ticket_cancellation_policy"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_regular" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:drawableStart="@drawable/white_drink_refund"
+            android:drawablePadding="@dimen/margin_10dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/lbl_100_refund_on_f_amp_b"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_regular_2x" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_25dp"
+            android:drawableStart="@drawable/ion_ticket"
+            android:drawablePadding="@dimen/margin_10dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/lbl_up_to_75_refund_for_tickets"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_regular_2x" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_30dp"
+            android:layout_marginTop="@dimen/margin_large"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/lbl_75_refund_until_2_hours_before_show_nstart_time"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="@dimen/text_regular" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_30dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/lbl_50_refund_between_2_hours_and_20_nminutes_before_show_start_time"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="@dimen/text_regular" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_40dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/lbl_1_refund_not_available_for_convenience_fees_vouchers_gift_cards_taxes_etc"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_regular" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_3"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/lbl_2_no_cancellation_within_20minute_of_show_start_time"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_regular" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnCloseButtonBottomSheetDialog"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/width_close_button"
+            android:layout_marginTop="@dimen/margin_xlarge"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/close_button" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

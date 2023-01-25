@@ -123,5 +123,10 @@
     <dimen name="width_ticket_cancellation">191dp</dimen>
     <dimen name="height_ticket_cancellation">28dp</dimen>
     <dimen name="margin_36dp">36dp</dimen>
+    <dimen name="width_poster">96dp</dimen>
+    <dimen name="height_poster">120dp</dimen>
+    <dimen name="margin_75dp">75dp</dimen>
+    <dimen name="margin_40dp">40dp</dimen>
+    <dimen name="width_close_button">40dp</dimen>
 
 </resources>
