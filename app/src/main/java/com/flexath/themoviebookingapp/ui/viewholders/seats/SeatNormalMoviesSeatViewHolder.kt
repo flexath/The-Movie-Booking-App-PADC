@@ -41,7 +41,7 @@ class SeatNormalMoviesSeatViewHolder(itemView: View) : SeatBaseMoviesSeatViewHol
     }
 
     private fun setUpNormalSeatTitle() {
-        val normalLabel = "Normal"
+        val normalLabel = "Normal (4500ks)"
         itemView.tvSeatTypeTitleMoviesSeat.text = normalLabel
     }
 

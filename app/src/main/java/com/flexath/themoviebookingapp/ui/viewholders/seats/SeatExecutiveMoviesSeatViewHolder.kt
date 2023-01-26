@@ -41,7 +41,7 @@ class SeatExecutiveMoviesSeatViewHolder(itemView: View) : SeatBaseMoviesSeatView
     }
 
     private fun setUpExecutiveSeatTitle() {
-        val executiveLabel = "Executive"
+        val executiveLabel = "Executive (6500ks)"
         itemView.tvSeatTypeTitleMoviesSeat.text = executiveLabel
     }
 

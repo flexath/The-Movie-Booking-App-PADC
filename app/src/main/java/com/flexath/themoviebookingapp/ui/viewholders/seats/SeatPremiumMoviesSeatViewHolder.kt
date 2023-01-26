@@ -42,7 +42,7 @@ class SeatPremiumMoviesSeatViewHolder(itemView: View) : SeatBaseMoviesSeatViewHo
     }
 
     private fun setUpPremiumSeatTitle() {
-        val premiumLabel = "Premium"
+        val premiumLabel = "Premium (8500ks)"
         itemView.tvSeatTypeTitleMoviesSeat.text = premiumLabel
     }
 
