@@ -49,6 +49,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSeatsMoviesSeat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/view_holder_movies_seat_seats_list" />
+
+                <include
+                    layout="@layout/layout_gold_seat_movies_seat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rvSeatsMoviesSeat"
+                    android:layout_centerHorizontal="true" />
 
             </RelativeLayout>
 
@@ -86,9 +99,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:fontFamily="@font/inter_semibold"
-                    android:textSize="@dimen/text_regular"
                     android:text="@string/lbl_available"
-                    android:textColor="@color/colorPrimaryLight" />
+                    android:textColor="@color/colorPrimaryLight"
+                    android:textSize="@dimen/text_regular" />
 
             </LinearLayout>
 
@@ -113,9 +126,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:fontFamily="@font/inter_semibold"
-                    android:textSize="@dimen/text_regular"
                     android:text="@string/lbl_taken"
-                    android:textColor="@color/colorPrimaryLight" />
+                    android:textColor="@color/colorPrimaryLight"
+                    android:textSize="@dimen/text_regular" />
 
             </LinearLayout>
 
@@ -139,8 +152,8 @@
                     android:layout_gravity="top"
                     android:fontFamily="@font/inter_medium"
                     android:text="@string/lbl_your_selection"
-                    android:textSize="@dimen/text_regular"
-                    android:textColor="@color/colorPrimaryLight" />
+                    android:textColor="@color/colorPrimaryLight"
+                    android:textSize="@dimen/text_regular" />
 
             </LinearLayout>
 
@@ -175,7 +188,7 @@
                 android:layout_height="@dimen/width_minus_button"
                 android:layout_gravity="center_vertical"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/minus"/>
+                app:srcCompat="@drawable/minus" />
 
         </LinearLayout>
 
@@ -184,10 +197,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/llSeekBarMoviesSeat"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/margin_45dp"
             android:layout_marginStart="@dimen/margin_28dp"
             android:layout_marginTop="@dimen/margin_45dp"
             android:layout_marginEnd="@dimen/margin_28dp"
+            android:layout_marginBottom="@dimen/margin_45dp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -215,13 +228,13 @@
                     android:textSize="@dimen/text_regular_3x" />
 
             </LinearLayout>
-            
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/btnBuyButtonMoviesSeat"
                 android:layout_width="@dimen/width_buy_button"
                 android:layout_height="@dimen/height_buy_button"
                 android:layout_alignParentEnd="true"
-                app:srcCompat="@drawable/buy_button"/>
+                app:srcCompat="@drawable/buy_button" />
 
         </RelativeLayout>
 

@@ -130,5 +130,10 @@
     <dimen name="width_close_button">40dp</dimen>
     <dimen name="margin_120dp">120dp</dimen>
     <dimen name="margin_95dp">95dp</dimen>
+    <dimen name="width_seat">30dp</dimen>
+    <dimen name="height_seat">30dp</dimen>
+    <dimen name="margin_7dp">7dp</dimen>
+    <dimen name="width_couple_seat">48dp</dimen>
+    <dimen name="height_couple_seat">48dp</dimen>
 
 </resources>

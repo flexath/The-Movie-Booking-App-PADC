@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSeatFirstRowMoviesSeat"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height_seat"
+        android:fontFamily="@font/inter_medium"
+        android:gravity="center_vertical"
+        android:text="@string/lbl_a"
+        android:textColor="@color/colorSeatType"
+        android:textSize="@dimen/text_small" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSeatSecondRowMoviesSeat"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height_seat"
+        android:fontFamily="@font/inter_medium"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:gravity="center_vertical"
+        android:text="@string/lbl_b"
+        android:textColor="@color/colorSeatType"
+        android:textSize="@dimen/text_small" />
+
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="@dimen/height_seat"-->
+<!--        android:layout_marginTop="57dp"-->
+<!--        android:fontFamily="@font/inter_medium"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:text="@string/lbl_c"-->
+<!--        android:textColor="@color/colorSeatType"-->
+<!--        android:textSize="@dimen/text_small" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="@dimen/height_seat"-->
+<!--        android:fontFamily="@font/inter_medium"-->
+<!--        android:layout_marginTop="@dimen/margin_10dp"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:text="@string/lbl_d"-->
+<!--        android:textColor="@color/colorSeatType"-->
+<!--        android:textSize="@dimen/text_small" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="@dimen/height_seat"-->
+<!--        android:layout_marginTop="57dp"-->
+<!--        android:fontFamily="@font/inter_medium"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:text="@string/lbl_e"-->
+<!--        android:textColor="@color/colorSeatType"-->
+<!--        android:textSize="@dimen/text_small" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="@dimen/height_seat"-->
+<!--        android:fontFamily="@font/inter_medium"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:text="@string/lbl_f"-->
+<!--        android:layout_marginTop="@dimen/margin_10dp"-->
+<!--        android:textColor="@color/colorSeatType"-->
+<!--        android:textSize="@dimen/text_small" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="@dimen/height_seat"-->
+<!--        android:layout_marginTop="57dp"-->
+<!--        android:fontFamily="@font/inter_medium"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:text="@string/lbl_g"-->
+<!--        android:textColor="@color/colorSeatType"-->
+<!--        android:textSize="@dimen/text_small" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="@dimen/height_seat"-->
+<!--        android:fontFamily="@font/inter_medium"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:text="@string/lbl_h"-->
+<!--        android:layout_marginTop="@dimen/margin_10dp"-->
+<!--        android:textColor="@color/colorSeatType"-->
+<!--        android:textSize="@dimen/text_small" />-->
+
+</LinearLayout>

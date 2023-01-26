@@ -29,4 +29,5 @@
     <color name="colorPurple">#FF00B8</color>
     <color name="colorCinemaStuff">#AAAAAA</color>
     <color name="colorGrey">#AAAAAA</color>
+    <color name="colorSeatType">#444444</color>
 </resources>

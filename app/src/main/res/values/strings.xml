@@ -67,4 +67,16 @@
     <string name="lbl_50_refund_between_2_hours_and_20_nminutes_before_show_start_time">-50% refund between 2 hours and 20\nminutes before show start time</string>
     <string name="lbl_1_refund_not_available_for_convenience_fees_vouchers_gift_cards_taxes_etc">1. Refund not available for Convenience\nfees,Vouchers, Gift Cards, Taxes etc.</string>
     <string name="lbl_2_no_cancellation_within_20minute_of_show_start_time">2. No cancellation within 20minute of show\nstart time.</string>
+    <string name="lbl_h">H</string>
+    <string name="lbl_g">G</string>
+    <string name="lbl_f">F</string>
+    <string name="lbl_e">E</string>
+    <string name="lbl_d">D</string>
+    <string name="lbl_c">C</string>
+    <string name="lbl_b">B</string>
+    <string name="lbl_a">A</string>
+
+    <string name="lbl_normal_seat">Normal</string>
+    <string name="lbl_execitive_seat">Executive</string>
+    <string name="lbl_premium_seat">Premium</string>
 </resources>

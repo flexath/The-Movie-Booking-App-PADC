@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:paddingBottom="@dimen/margin_medium_3">
+
+    <TextView
+        android:id="@+id/tvGoldSeatTitleMoviesSeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/dm_sans"
+        android:text="Gold (10000ks)"
+        android:textColor="@color/colorPrimaryLight"
+        android:textSize="@dimen/text_regular_2x" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvGoldSeatTitleMoviesSeat"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/margin_7dp"
+        android:layout_marginTop="@dimen/margin_15dp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_couple_seat"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center_vertical"
+            android:text="@string/lbl_g"
+            android:textColor="@color/colorSeatType"
+            android:textSize="@dimen/text_small" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_couple_seat"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="top"
+            android:text="@string/lbl_h"
+            android:textColor="@color/colorSeatType"
+            android:textSize="@dimen/text_small" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvGoldSeatTitleMoviesSeat"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_15dp"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rlOneGoldSeatTypeMoviesSeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivCoupleChairMoviesSeat1"
+                android:layout_width="@dimen/width_couple_seat"
+                android:layout_height="@dimen/height_couple_seat"
+                android:layout_alignParentStart="true"
+                app:srcCompat="@drawable/chair_available_couple" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivGoldChairMoviesSeat1"
+                    android:layout_width="@dimen/width_seat"
+                    android:layout_height="@dimen/height_seat"
+                    app:srcCompat="@drawable/chair_available" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivGoldChairMoviesSeat2"
+                    android:layout_width="@dimen/width_seat"
+                    android:layout_height="@dimen/height_seat"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    app:srcCompat="@drawable/chair_available" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivGoldChairMoviesSeat3"
+                    android:layout_width="@dimen/width_seat"
+                    android:layout_height="@dimen/height_seat"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    app:srcCompat="@drawable/chair_available" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivGoldChairMoviesSeat4"
+                    android:layout_width="@dimen/width_seat"
+                    android:layout_height="@dimen/height_seat"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    app:srcCompat="@drawable/chair_available" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivGoldChairMoviesSeat5"
+                    android:layout_width="@dimen/width_seat"
+                    android:layout_height="@dimen/height_seat"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    app:srcCompat="@drawable/chair_available" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivCoupleChairMoviesSeat2"
+                android:layout_width="@dimen/width_couple_seat"
+                android:layout_height="@dimen/height_couple_seat"
+                android:layout_alignParentEnd="true"
+                app:srcCompat="@drawable/chair_available_couple" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlTwoGoldSeatTypeMoviesSeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivCoupleChairMoviesSeat3"
+                android:layout_width="@dimen/width_couple_seat"
+                android:layout_height="@dimen/height_couple_seat"
+                android:layout_alignParentStart="true"
+                app:srcCompat="@drawable/chair_available_couple" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivGoldChairMoviesSeat6"
+                    android:layout_width="@dimen/width_seat"
+                    android:layout_height="@dimen/height_seat"
+                    app:srcCompat="@drawable/chair_available" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivGoldChairMoviesSeat7"
+                    android:layout_width="@dimen/width_seat"
+                    android:layout_height="@dimen/height_seat"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    app:srcCompat="@drawable/chair_available" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivGoldChairMoviesSeat8"
+                    android:layout_width="@dimen/width_seat"
+                    android:layout_height="@dimen/height_seat"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    app:srcCompat="@drawable/chair_available" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivGoldChairMoviesSeat9"
+                    android:layout_width="@dimen/width_seat"
+                    android:layout_height="@dimen/height_seat"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    app:srcCompat="@drawable/chair_available" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivGoldChairMoviesSeat10"
+                    android:layout_width="@dimen/width_seat"
+                    android:layout_height="@dimen/height_seat"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    app:srcCompat="@drawable/chair_available" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivCoupleChairMoviesSeat4"
+                android:layout_width="@dimen/width_couple_seat"
+                android:layout_height="@dimen/height_couple_seat"
+                android:layout_alignParentEnd="true"
+                app:srcCompat="@drawable/chair_available_couple" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvGoldSeatTitleMoviesSeat"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/margin_15dp"
+        android:layout_marginEnd="@dimen/margin_7dp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_couple_seat"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center_vertical"
+            android:text="@string/lbl_g"
+            android:textColor="@color/colorSeatType"
+            android:textSize="@dimen/text_small" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_couple_seat"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="top"
+            android:text="@string/lbl_h"
+            android:textColor="@color/colorSeatType"
+            android:textSize="@dimen/text_small" />
+
+    </LinearLayout>
+
+</RelativeLayout>
