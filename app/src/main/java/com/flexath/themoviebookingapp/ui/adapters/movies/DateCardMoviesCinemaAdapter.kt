@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.flexath.themoviebookingapp.R
-import com.flexath.themoviebookingapp.ui.viewholders.DateCardMoviesCinemaViewHolder
+import com.flexath.themoviebookingapp.ui.viewholders.movies.DateCardMoviesCinemaViewHolder
 
 class DateCardMoviesCinemaAdapter : RecyclerView.Adapter<DateCardMoviesCinemaViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DateCardMoviesCinemaViewHolder {

@@ -135,5 +135,10 @@
     <dimen name="margin_7dp">7dp</dimen>
     <dimen name="width_couple_seat">48dp</dimen>
     <dimen name="height_couple_seat">48dp</dimen>
+    <dimen name="width_profile_blur_background">220dp</dimen>
+    <dimen name="text_17sp">17sp</dimen>
+    <dimen name="margin_42dp">42dp</dimen>
+    <dimen name="margin_27dp">27dp</dimen>
+    <dimen name="margin_38dp">38dp</dimen>
 
 </resources>

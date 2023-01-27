@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.flexath.themoviebookingapp.R
-import com.flexath.themoviebookingapp.ui.viewholders.seats.SeatBaseMoviesSeatViewHolder
-import com.flexath.themoviebookingapp.ui.viewholders.seats.SeatExecutiveMoviesSeatViewHolder
-import com.flexath.themoviebookingapp.ui.viewholders.seats.SeatNormalMoviesSeatViewHolder
-import com.flexath.themoviebookingapp.ui.viewholders.seats.SeatPremiumMoviesSeatViewHolder
+import com.flexath.themoviebookingapp.ui.viewholders.movies.seats.SeatBaseMoviesSeatViewHolder
+import com.flexath.themoviebookingapp.ui.viewholders.movies.seats.SeatExecutiveMoviesSeatViewHolder
+import com.flexath.themoviebookingapp.ui.viewholders.movies.seats.SeatNormalMoviesSeatViewHolder
+import com.flexath.themoviebookingapp.ui.viewholders.movies.seats.SeatPremiumMoviesSeatViewHolder
 
 class SeatsMoviesSeatAdapter : RecyclerView.Adapter<SeatBaseMoviesSeatViewHolder>() {
 

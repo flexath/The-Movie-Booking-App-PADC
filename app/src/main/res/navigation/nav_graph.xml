@@ -29,7 +29,11 @@
         android:id="@+id/profileHomeFragment"
         android:name="com.flexath.themoviebookingapp.ui.fragments.profile.ProfileHomeFragment"
         android:label="fragment_profile_home"
-        tools:layout="@layout/fragment_profile_home" />
+        tools:layout="@layout/fragment_profile_home" >
+        <action
+            android:id="@+id/action_profileHome_to_profilePayment"
+            app:destination="@id/profilePaymentFragment" />
+    </fragment>
     <fragment
         android:id="@+id/moviesDetailsHomeFragment"
         android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesDetailsFragment"
@@ -90,4 +94,9 @@
             android:id="@+id/action_moviesTicketConfirmation_to_moviesHome"
             app:destination="@id/moviesHomeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profilePaymentFragment"
+        android:name="com.flexath.themoviebookingapp.ui.fragments.profile.ProfilePaymentFragment"
+        android:label="fragment_profile_payment"
+        tools:layout="@layout/fragment_profile_payment" />
 </navigation>

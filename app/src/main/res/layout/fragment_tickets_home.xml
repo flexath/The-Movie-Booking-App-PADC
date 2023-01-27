@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:paddingBottom="@dimen/margin_45dp"
     tools:context=".ui.fragments.tickets.TicketsHomeFragment">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:text="Tickets Home Fragment" />
+        android:layout_height="wrap_content">
 
-</RelativeLayout>
+        <include
+            android:id="@+id/appBarTicketHome"
+            layout="@layout/layout_app_bar_ticket" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTicketHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appBarTicketHome"
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:layout_marginBottom="@dimen/margin_30dp"
+            tools:itemCount="2"
+            tools:listitem="@layout/layout_ticket_confirmation_details" />
+
+    </RelativeLayout>
+
+
+</androidx.core.widget.NestedScrollView>

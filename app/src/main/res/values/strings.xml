@@ -79,4 +79,14 @@
     <string name="lbl_normal_seat">Normal</string>
     <string name="lbl_execitive_seat">Executive</string>
     <string name="lbl_premium_seat">Premium</string>
+    <string name="lbl_purchase_history">Purchase History</string>
+    <string name="lbl_offer">Offer</string>
+    <string name="lbl_gift_card">Gift Card</string>
+    <string name="lbl_location">Location</string>
+    <string name="lbl_payment">Payment</string>
+    <string name="lbl_help_and_support">Help and Support</string>
+    <string name="lbl_logout">Logout</string>
+    <string name="lbl_enter_your_name">Enter your name</string>
+    <string name="lbl_choose_your_payment_type">Choose your payment type</string>
+    <string name="lbl_your_ticket">Your Ticket</string>
 </resources>

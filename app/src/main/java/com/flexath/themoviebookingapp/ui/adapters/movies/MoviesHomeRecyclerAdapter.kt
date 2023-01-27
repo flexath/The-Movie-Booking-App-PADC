@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.ui.fragments.movies.TabLayoutMoviesHomeFragment
 import com.flexath.themoviebookingapp.ui.fragments.movies.TabLayoutMoviesHomeFragment.Companion.CINEMA_TIME_EXTRA_KEY
-import com.flexath.themoviebookingapp.ui.viewholders.MoviesHomeViewHolder
+import com.flexath.themoviebookingapp.ui.viewholders.movies.MoviesHomeViewHolder
 import kotlinx.android.synthetic.main.view_holder_movies_home_movies_list.view.*
 
 class MoviesHomeRecyclerAdapter(private val tabLayoutMoviesHomeFragment: TabLayoutMoviesHomeFragment) :

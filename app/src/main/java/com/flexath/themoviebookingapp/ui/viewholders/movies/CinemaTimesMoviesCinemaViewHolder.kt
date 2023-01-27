@@ -1,4 +1,4 @@
-package com.flexath.themoviebookingapp.ui.viewholders
+package com.flexath.themoviebookingapp.ui.viewholders.movies
 
 import android.view.View
 import android.widget.Toast

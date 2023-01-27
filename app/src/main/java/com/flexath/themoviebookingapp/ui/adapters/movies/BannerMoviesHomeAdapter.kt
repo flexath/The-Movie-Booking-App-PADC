@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.flexath.themoviebookingapp.R
-import com.flexath.themoviebookingapp.ui.viewholders.BannerHomeVIewHolder
+import com.flexath.themoviebookingapp.ui.viewholders.movies.BannerHomeVIewHolder
 import kotlinx.android.synthetic.main.view_holder_movies_home_banner_list.view.*
 
 class BannerMoviesHomeAdapter(private val bannerImageList:ArrayList<Int>) : RecyclerView.Adapter<BannerHomeVIewHolder>() {

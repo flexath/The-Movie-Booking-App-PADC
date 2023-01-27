@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.flexath.themoviebookingapp.R
-import com.flexath.themoviebookingapp.ui.viewholders.OrderedFoodMoviesTicketCheckoutViewHolder
+import com.flexath.themoviebookingapp.ui.viewholders.movies.OrderedFoodMoviesTicketCheckoutViewHolder
 
 class OrderedFoodMoviesTicketCheckoutAdapter : RecyclerView.Adapter<OrderedFoodMoviesTicketCheckoutViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderedFoodMoviesTicketCheckoutViewHolder {

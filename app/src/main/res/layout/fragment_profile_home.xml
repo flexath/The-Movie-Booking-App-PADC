@@ -1,17 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     tools:context=".ui.fragments.profile.ProfileHomeFragment">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:text="Profile Home Fragment" />
+        android:layout_height="wrap_content">
 
-</RelativeLayout>
+        <FrameLayout
+            android:id="@+id/flProfile"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/width_profile_blur_background">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/profile_blur_background" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="@dimen/margin_30dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/button_login_profile" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_30dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/profile_image" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/flProfile"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/margin_card_medium"
+            android:paddingStart="@dimen/margin_medium_4_n"
+            android:paddingEnd="@dimen/margin_medium_4_n">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnPurchaseHistoryProfileHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                android:background="@color/colorPrimary"
+                android:drawableStart="@drawable/icon_purchase_history"
+                android:drawableEnd="@drawable/right_big_arrow"
+                android:drawablePadding="@dimen/margin_10dp"
+                android:fontFamily="@font/inter_semibold"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/margin_large"
+                android:paddingBottom="@dimen/margin_large"
+                android:text="@string/lbl_purchase_history"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1AFFFFFF" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnOfferProfileHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                android:background="@color/colorPrimary"
+                android:drawableStart="@drawable/icon_offer"
+                android:drawableEnd="@drawable/right_big_arrow"
+                android:drawablePadding="@dimen/margin_10dp"
+                android:fontFamily="@font/inter_semibold"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/margin_large"
+                android:paddingBottom="@dimen/margin_large"
+                android:text="@string/lbl_offer"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1AFFFFFF" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnGiftCardProfileHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                android:background="@color/colorPrimary"
+                android:drawableStart="@drawable/icon_gift_card"
+                android:drawableEnd="@drawable/right_big_arrow"
+                android:drawablePadding="@dimen/margin_10dp"
+                android:fontFamily="@font/inter_semibold"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/margin_large"
+                android:paddingBottom="@dimen/margin_large"
+                android:text="@string/lbl_gift_card"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1AFFFFFF" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnLocationProfileHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                android:background="@color/colorPrimary"
+                android:drawableStart="@drawable/icon_location_profile"
+                android:drawableEnd="@drawable/right_big_arrow"
+                android:drawablePadding="@dimen/margin_10dp"
+                android:fontFamily="@font/inter_semibold"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/margin_large"
+                android:paddingBottom="@dimen/margin_large"
+                android:text="@string/lbl_location"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1AFFFFFF" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnPaymentProfileHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                android:background="@color/colorPrimary"
+                android:drawableStart="@drawable/icon_payment"
+                android:drawableEnd="@drawable/right_big_arrow"
+                android:drawablePadding="@dimen/margin_10dp"
+                android:fontFamily="@font/inter_semibold"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/margin_large"
+                android:paddingBottom="@dimen/margin_large"
+                android:text="@string/lbl_payment"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1AFFFFFF" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnHelpAndSupportProfileHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                android:background="@color/colorPrimary"
+                android:drawableStart="@drawable/icon_help_and_support"
+                android:drawableEnd="@drawable/right_big_arrow"
+                android:drawablePadding="@dimen/margin_10dp"
+                android:fontFamily="@font/inter_semibold"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/margin_large"
+                android:paddingBottom="@dimen/margin_large"
+                android:text="@string/lbl_help_and_support"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1AFFFFFF" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnLogOutProfileHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                android:background="@color/colorPrimary"
+                android:drawableStart="@drawable/icon_log_out"
+                android:drawableEnd="@drawable/right_big_arrow"
+                android:drawablePadding="@dimen/margin_10dp"
+                android:fontFamily="@font/inter_semibold"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/margin_large"
+                android:paddingBottom="@dimen/margin_large"
+                android:text="@string/lbl_logout"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_17sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

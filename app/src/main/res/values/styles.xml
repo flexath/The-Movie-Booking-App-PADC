@@ -68,6 +68,16 @@
         <item name="fontFamily">@font/inter_semibold</item>
     </style>
 
+    <style name="PaymentEditTextStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:text">@color/white</item>
+        <item name="fontFamily">@font/dm_sans_bold</item>
+    </style>
+
+    <style name="PaymentTextInputLayoutOutLineStyle">
+        <item name="boxStrokeColor">@color/payment_edittext_outline_selector</item>
+    </style>
+
     <!--    // Paddings-->
     <style name="PaddingFilmTypes">
         <item name="android:paddingTop">5dp</item>
