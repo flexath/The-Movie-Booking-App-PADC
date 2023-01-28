@@ -140,5 +140,6 @@
     <dimen name="margin_42dp">42dp</dimen>
     <dimen name="margin_27dp">27dp</dimen>
     <dimen name="margin_38dp">38dp</dimen>
+    <dimen name="width_banner">170dp</dimen>
 
 </resources>

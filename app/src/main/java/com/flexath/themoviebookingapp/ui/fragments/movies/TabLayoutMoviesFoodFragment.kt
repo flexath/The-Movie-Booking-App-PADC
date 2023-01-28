@@ -22,7 +22,7 @@ class TabLayoutMoviesFoodFragment(foodIndex:Int) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpFoodRecyclerView()
+        //setUpFoodRecyclerView()
     }
 
     private fun setUpFoodRecyclerView() {

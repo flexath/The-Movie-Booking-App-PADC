@@ -22,6 +22,7 @@
             android:layout_below="@+id/appBarMoviesFood"
             android:backgroundTint="@color/colorPrimary"
             app:tabBackground="@color/colorPrimary"
+            app:tabGravity="center"
             app:tabIndicatorAnimationMode="elastic"
             app:tabIndicatorColor="@color/colorAccent"
             app:tabIndicatorFullWidth="false"
@@ -31,11 +32,19 @@
             app:tabTextAppearance="@style/TabLayoutFoodStyle"
             app:tabTextColor="@color/white" />
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPagerTabLayoutMoviesFood"
+        <!--        <androidx.viewpager2.widget.ViewPager2-->
+        <!--            android:id="@+id/viewPagerTabLayoutMoviesFood"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_below="@+id/tabLayoutMoviesFood" />-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFoodMoviesFood"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/tabLayoutMoviesFood" />
+            android:layout_below="@+id/tabLayoutMoviesFood"
+            android:padding="@dimen/margin_10dp"
+            tools:listitem="@layout/view_holder_movies_food_foods_list" />
 
     </RelativeLayout>
 

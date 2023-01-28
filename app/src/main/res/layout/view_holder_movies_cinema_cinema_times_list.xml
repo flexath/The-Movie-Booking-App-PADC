@@ -3,14 +3,13 @@
     android:id="@+id/itemCinemaTimes"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/margin_10dp"
-    android:layout_marginEnd="@dimen/margin_10dp"
+    android:layout_margin="@dimen/margin_10dp"
     android:background="@drawable/movies_show_times_background"
     android:gravity="center"
     android:orientation="vertical"
     android:paddingStart="@dimen/margin_15dp"
-    android:paddingTop="@dimen/margin_medium"
     android:paddingEnd="@dimen/margin_15dp"
+    android:paddingTop="@dimen/margin_medium"
     android:paddingBottom="@dimen/margin_medium">
 
     <androidx.appcompat.widget.AppCompatTextView

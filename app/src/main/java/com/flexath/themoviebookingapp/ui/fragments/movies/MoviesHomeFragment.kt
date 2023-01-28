@@ -1,5 +1,6 @@
 package com.flexath.themoviebookingapp.ui.fragments.movies
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -8,6 +9,9 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.CompositePageTransformer
+import androidx.viewpager2.widget.MarginPageTransformer
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.ui.activities.MainActivity
 import com.flexath.themoviebookingapp.ui.adapters.movies.BannerMoviesHomeAdapter
@@ -17,6 +21,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_home.*
 import kotlinx.android.synthetic.main.layout_app_bar_movies_home.*
+import java.lang.Math.abs
 
 class MoviesHomeFragment : Fragment(), MenuProvider {
 
@@ -27,10 +32,6 @@ class MoviesHomeFragment : Fragment(), MenuProvider {
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         return inflater.inflate(R.layout.fragment_movies_home, container, false)
-    }
-
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        super.onViewStateRestored(savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,12 +55,31 @@ class MoviesHomeFragment : Fragment(), MenuProvider {
         }.attach()
     }
 
+    private fun setUpBannerViewPagerPadding() {
+        viewPagerBannerMoviesHome.apply {
+            clipChildren = false  // No clipping the left and right items
+            clipToPadding = false  // Show the viewpager in full width without clipping the padding
+            offscreenPageLimit = 3  // Render the left and right items
+            (getChildAt(0) as RecyclerView).overScrollMode =
+                RecyclerView.OVER_SCROLL_NEVER // Remove the scroll effect
+        }
+    }
+
 
     private fun setUpBannerHome() {
+        setUpBannerViewPagerPadding()
         mBannerHomeAdapter = BannerMoviesHomeAdapter(MoviesData().advertisementImages)
         viewPagerBannerMoviesHome.adapter = mBannerHomeAdapter
         dotsIndicatorHome.attachTo(viewPagerBannerMoviesHome)
         mBannerHomeAdapter.notifyDataSetChanged()
+
+        val compositePageTransformer = CompositePageTransformer()
+        compositePageTransformer.addTransformer(MarginPageTransformer((10 * Resources.getSystem().displayMetrics.density).toInt()))
+        compositePageTransformer.addTransformer { page, position ->
+            val r = 1 - kotlin.math.abs(position)
+            page.scaleY = (0.80f + r * 0.20f)
+        }
+        viewPagerBannerMoviesHome.setPageTransformer(compositePageTransformer)
     }
 
     private fun setUpActionBar() {

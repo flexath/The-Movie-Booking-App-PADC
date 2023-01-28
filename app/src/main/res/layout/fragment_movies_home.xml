@@ -24,34 +24,23 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_medium_4_n"
-            android:layout_marginEnd="@dimen/margin_medium_4_n"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:background="@color/colorPrimary">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/flBannerHome"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerBannerMoviesHome"
+                android:layout_width="330dp"
                 android:layout_centerHorizontal="true"
-                app:cardBackgroundColor="@color/colorPrimary"
-                android:clipToPadding="false"
-                app:cardCornerRadius="@dimen/margin_medium_2"
-                app:cardElevation="@dimen/margin_medium_2"
-                app:cardPreventCornerOverlap="true">
-
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/viewPagerBannerMoviesHome"
-                    android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:elevation="@dimen/margin_medium" />
-
-            </com.google.android.material.card.MaterialCardView>
+                android:layout_gravity="center_horizontal"
+                android:layout_height="@dimen/width_banner"
+                android:elevation="@dimen/margin_medium" />
 
             <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
                 android:id="@+id/dotsIndicatorHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/flBannerHome"
+                android:layout_below="@+id/viewPagerBannerMoviesHome"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="17dp"
                 android:elevation="@dimen/margin_medium"
@@ -69,6 +58,8 @@
                 android:layout_width="match_parent"
                 android:layout_below="@+id/dotsIndicatorHome"
                 android:layout_marginTop="30dp"
+                android:layout_marginStart="@dimen/margin_medium_4_n"
+                android:layout_marginEnd="@dimen/margin_medium_4_n"
                 android:background="@drawable/tab_layout_movie_home_background"
                 android:layout_height="55dp">
 
@@ -92,6 +83,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingBottom="17dp"
+                android:layout_marginStart="@dimen/margin_medium_4_n"
+                android:layout_marginEnd="@dimen/margin_medium_4_n"
                 android:layout_below="@+id/flTabLayout"
                 android:layout_marginTop="30dp" />
 

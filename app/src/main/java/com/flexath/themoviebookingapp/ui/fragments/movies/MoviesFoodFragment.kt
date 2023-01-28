@@ -7,22 +7,26 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.ui.adapters.movies.BottomSheetDialogMoviesFoodAdapter
-import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesFoodViewPagerAdapter
+import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesFoodRecyclerAdapter
 import com.flexath.themoviebookingapp.ui.generaldata.FoodFactory
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.tabs.TabLayoutMediator
+import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_movies_food.*
 import kotlinx.android.synthetic.main.layout_app_bar_movies_food.*
 import kotlinx.android.synthetic.main.layout_bottom_sheet_dialog_movies_food.*
 import kotlinx.android.synthetic.main.layout_button_movies_food.*
 
+
 class MoviesFoodFragment : Fragment() {
 
-    private lateinit var mMoviesFoodAdapter:MoviesFoodViewPagerAdapter
-    private lateinit var mBottomSheetDialogAdapter:BottomSheetDialogMoviesFoodAdapter
+    //private lateinit var mMoviesFoodAdapter:MoviesFoodViewPagerAdapter
+    private lateinit var mBottomSheetDialogAdapter: BottomSheetDialogMoviesFoodAdapter
+    private lateinit var mFoodAdapter: MoviesFoodRecyclerAdapter
+
     private val foodList = FoodFactory()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -32,8 +36,43 @@ class MoviesFoodFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpFoodTabLayout()                // For Food Types Tab
+//        setUpFoodTabLayout()                // For Food Types Tab
+        setUpFoodRecyclerView()
+        setUpFoodTabLayoutListener()
         setUpListeners()
+    }
+
+    private fun setUpFoodRecyclerView() {
+        mFoodAdapter = MoviesFoodRecyclerAdapter()
+        rvFoodMoviesFood.adapter = mFoodAdapter
+        rvFoodMoviesFood.layoutManager = GridLayoutManager(requireContext(),2)
+    }
+
+    private fun setUpFoodTabLayoutTitle() {
+        foodList.foodTitleList.forEach {
+            tabLayoutMoviesFood.newTab().apply {
+                text = it
+                tabLayoutMoviesFood.addTab(this)
+            }
+        }
+    }
+
+    private fun setUpFoodTabLayoutListener() {
+        setUpFoodTabLayoutTitle()
+        tabLayoutMoviesFood.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                setUpFoodRecyclerView()
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+
+            }
+
+        })
     }
 
     private fun setUpListeners() {
@@ -83,20 +122,19 @@ class MoviesFoodFragment : Fragment() {
             bottomDialog.btnDownArrowMoviesFood.setOnClickListener {
                 bottomDialog.dismiss()
             }
-
         }
     }
 
-    private fun setUpFoodTabLayout() {
-        mMoviesFoodAdapter = MoviesFoodViewPagerAdapter(this,foodList)
-        viewPagerTabLayoutMoviesFood.adapter = mMoviesFoodAdapter
-
-        TabLayoutMediator(tabLayoutMoviesFood,viewPagerTabLayoutMoviesFood) { tab,position ->
-            for(i in foodList.foodTitleList.indices) {
-                if(position == i){
-                    tab.text = foodList.foodTitleList[i]
-                }
-            }
-        }.attach()
-    }
+//    private fun setUpFoodTabLayout() {
+//        mMoviesFoodAdapter = MoviesFoodViewPagerAdapter(this,foodList)
+//        viewPagerTabLayoutMoviesFood.adapter = mMoviesFoodAdapter
+//
+//        TabLayoutMediator(tabLayoutMoviesFood,viewPagerTabLayoutMoviesFood) { tab,position ->
+//            for(i in foodList.foodTitleList.indices) {
+//                if(position == i){
+//                    tab.text = foodList.foodTitleList[i]
+//                }
+//            }
+//        }.attach()
+//    }
 }
