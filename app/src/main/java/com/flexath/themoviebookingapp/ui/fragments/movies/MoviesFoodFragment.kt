@@ -40,11 +40,13 @@ class MoviesFoodFragment : Fragment() {
         // Order Button for Check Out Screen
         btnFoodOrderPurchaseMoviesFood.setOnClickListener {
             val action = MoviesFoodFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
+            action.argCheckoutOrCancel = "Checkout"
             it.findNavController().navigate(action)
         }
 
         btnSkipButtonMoviesFood.setOnClickListener {
             val action = MoviesFoodFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
+            action.argCheckoutOrCancel = "Checkout"
             it.findNavController().navigate(action)
         }
 
@@ -73,6 +75,7 @@ class MoviesFoodFragment : Fragment() {
 
             bottomDialog.btnFoodOrderPurchaseBottomDialogMoviesFood.setOnClickListener {
                 val action = MoviesFoodFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
+                action.argCheckoutOrCancel = "Checkout"
                 findNavController().navigate(action)
                 bottomDialog.dismiss()
             }

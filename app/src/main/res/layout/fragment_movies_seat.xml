@@ -200,8 +200,7 @@
             android:layout_marginStart="@dimen/margin_28dp"
             android:layout_marginTop="@dimen/margin_45dp"
             android:layout_marginEnd="@dimen/margin_28dp"
-            android:layout_marginBottom="@dimen/margin_45dp"
-            android:orientation="horizontal">
+            android:layout_marginBottom="@dimen/margin_45dp">
 
             <LinearLayout
                 android:layout_width="@dimen/width_140dp"

@@ -51,7 +51,7 @@ class SeatNormalMoviesSeatViewHolder(itemView: View) : SeatBaseMoviesSeatViewHol
                 itemView.ivChairMoviesSeat1.setImageResource(R.drawable.chair_available)
                 isSelectedSeat = false
             }else{
-                itemView.ivChairMoviesSeat1.setImageResource(R.drawable.chair_selected)
+                itemView.ivChairMoviesSeat1.setImageResource(R.drawable.selected_seat_button)
                 isSelectedSeat = true
             }
         }

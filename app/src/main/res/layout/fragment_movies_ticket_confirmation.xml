@@ -109,7 +109,6 @@
         android:id="@+id/ivBookingSuccessMoviesTicketConfirmation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
         android:layout_gravity="center"
         android:background="#E6000000">
 

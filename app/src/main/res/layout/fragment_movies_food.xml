@@ -39,14 +39,22 @@
 
     </RelativeLayout>
 
-    <include
-        android:id="@+id/btnFoodOrderPurchaseMoviesFood"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:layout_marginStart="@dimen/margin_medium_4_n"
-        android:layout_marginEnd="@dimen/margin_medium_4_n"
-        android:layout_marginBottom="@dimen/margin_50dp"
-        layout="@layout/layout_button_movies_food"/>
+        android:layout_height="130dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@color/colorPrimary">
+
+        <include
+            android:id="@+id/btnFoodOrderPurchaseMoviesFood"
+            layout="@layout/layout_button_movies_food"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginStart="@dimen/margin_medium_4_n"
+            android:layout_marginEnd="@dimen/margin_medium_4_n"
+            android:layout_marginBottom="@dimen/margin_50dp" />
+
+    </FrameLayout>
 
 </FrameLayout>

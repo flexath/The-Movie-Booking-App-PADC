@@ -24,7 +24,11 @@
         android:id="@+id/ticketsHomeFragment"
         android:name="com.flexath.themoviebookingapp.ui.fragments.tickets.TicketsHomeFragment"
         android:label="fragment_tickets_home"
-        tools:layout="@layout/fragment_tickets_home" />
+        tools:layout="@layout/fragment_tickets_home" >
+        <action
+            android:id="@+id/action_ticketsHome_to_moviesTicketCheckout"
+            app:destination="@id/moviesTicketCheckoutFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileHomeFragment"
         android:name="com.flexath.themoviebookingapp.ui.fragments.profile.ProfileHomeFragment"
@@ -84,6 +88,11 @@
         <action
             android:id="@+id/action_moviesTicketCheckout_to_moviesTicketConfirmation"
             app:destination="@id/moviesTicketConfirmationFragment" />
+        <argument
+            android:name="arg_checkout_or_cancel"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/moviesTicketConfirmationFragment"

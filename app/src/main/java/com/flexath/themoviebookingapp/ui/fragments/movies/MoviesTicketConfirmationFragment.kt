@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentContainer
 import androidx.fragment.app.FragmentContainerView
@@ -30,13 +31,13 @@ class MoviesTicketConfirmationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpListeners()
-
     }
 
     private fun setUpListeners() {
-        btnDoneMoviesTicketConfirmation.setOnClickListener {
-            ivBookingSuccessMoviesTicketConfirmation.visibility = View.VISIBLE
-        }
+        Handler(Looper.getMainLooper()).postDelayed(Runnable {
+            ivBookingSuccessMoviesTicketConfirmation.visibility = View.GONE
+            Toast.makeText(requireContext(),"Done!",Toast.LENGTH_SHORT).show()
+        },3000)
     }
 }
 

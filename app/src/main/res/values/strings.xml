@@ -89,4 +89,5 @@
     <string name="lbl_enter_your_name">Enter your name</string>
     <string name="lbl_choose_your_payment_type">Choose your payment type</string>
     <string name="lbl_your_ticket">Your Ticket</string>
+    <string name="lbl_refund_amount">Refund Amount</string>
 </resources>

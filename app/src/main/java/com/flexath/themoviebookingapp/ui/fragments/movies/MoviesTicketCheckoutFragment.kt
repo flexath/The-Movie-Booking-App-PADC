@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +22,8 @@ class MoviesTicketCheckoutFragment : Fragment() {
     private lateinit var mOrderedFoodAdapter: OrderedFoodMoviesTicketCheckoutAdapter
     private var isVisibleRecyclerView:Boolean = true
 
+    private val args:MoviesTicketCheckoutFragmentArgs by navArgs()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_movies_ticket_checkout, container, false)
     }
@@ -34,9 +38,22 @@ class MoviesTicketCheckoutFragment : Fragment() {
     }
 
     private fun setUpListeners() {
-        btnContinueMoviesTicketCheckout.setOnClickListener {
-            val action = MoviesTicketCheckoutFragmentDirections.actionMoviesTicketCheckoutToMoviesTicketConfirmation()
-            it.findNavController().navigate(action)
+
+        if(args.argCheckoutOrCancel == "Checkout"){
+            rlTicketCancellationMoviesCheckout.visibility = View.GONE
+            btnContinueMoviesTicketCheckout.visibility = View.VISIBLE
+
+            btnContinueMoviesTicketCheckout.setOnClickListener {
+                val action = MoviesTicketCheckoutFragmentDirections.actionMoviesTicketCheckoutToMoviesTicketConfirmation()
+                it.findNavController().navigate(action)
+            }
+        }else{
+            rlTicketCancellationMoviesCheckout.visibility = View.VISIBLE
+            btnContinueMoviesTicketCheckout.visibility = View.GONE
+
+            btnCancelButtonMoviesCancel.setOnClickListener {
+                Toast.makeText(requireContext(),"Ticket's cancelled",Toast.LENGTH_SHORT).show()
+            }
         }
 
         btnTicketCancellationMoviesTicketCheckout.setOnClickListener {
