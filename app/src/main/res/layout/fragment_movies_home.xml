@@ -30,7 +30,7 @@
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewPagerBannerMoviesHome"
-                android:layout_width="330dp"
+                android:layout_width="@dimen/width_banner_image"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="@dimen/width_banner"
