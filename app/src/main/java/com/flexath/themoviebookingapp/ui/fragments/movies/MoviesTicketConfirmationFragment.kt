@@ -3,23 +3,18 @@ package com.flexath.themoviebookingapp.ui.fragments.movies
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentContainer
-import androidx.fragment.app.FragmentContainerView
-import androidx.fragment.app.FragmentManager
-import androidx.navigation.findNavController
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.flexath.themoviebookingapp.R
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_ticket_confirmation.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.delay
-import kotlin.coroutines.coroutineContext
 
 class MoviesTicketConfirmationFragment : Fragment() {
 
@@ -35,26 +30,33 @@ class MoviesTicketConfirmationFragment : Fragment() {
 
     private fun setUpListeners() {
         Handler(Looper.getMainLooper()).postDelayed(Runnable {
-            ivBookingSuccessMoviesTicketConfirmation.visibility = View.GONE
-            Toast.makeText(requireContext(),"Done!",Toast.LENGTH_SHORT).show()
+            ivBookingSuccessMoviesTicketConfirmation?.visibility = View.INVISIBLE
+            if(ivBookingSuccessMoviesTicketConfirmation != null) {
+                Toast.makeText(requireContext(),"Done!",Toast.LENGTH_SHORT).show()
+            }
         },3000)
+
+        btnDoneMoviesTicketConfirmation.setOnClickListener {
+            val navController = Navigation.findNavController(it)
+            navController.popBackStack(R.id.moviesHomeFragment, true)
+            navController.navigate(R.id.moviesHomeFragment)
+        }
     }
 }
 
 
-//(activity as AppCompatActivity).supportFragmentManager
-//.beginTransaction()
-//.add(R.id.fragmentContainerView, MoviesDetailsFragment())
-//.add(R.id.fragmentContainerView, MoviesCinemaFragment())
-//.add(R.id.fragmentContainerView, MoviesSeatFragment())
-//.add(R.id.fragmentContainerView, MoviesFoodFragment())
-//.add(R.id.fragmentContainerView, MoviesTicketCheckoutFragment())
-//.add(R.id.fragmentContainerView, MoviesTicketConfirmationFragment())
-//.commit()
+//val activity = (activity as AppCompatActivity)
 //
-//(activity as AppCompatActivity).supportFragmentManager.apply {
-//    for (i in 1 until fragments.size) {
-//        beginTransaction().remove(fragments[i]).commit()
-//    }
-//    popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-//}
+//val fragmentManager = activity.supportFragmentManager
+//val fragments = fragmentManager.fragments
+
+//            val moviesHome = MoviesHomeFragment()
+//            val fragmentTransaction = fragmentManager.beginTransaction()
+//            fragmentTransaction.add(R.id.fragmentContainerView, moviesHome)
+//            fragmentTransaction.commit()
+//
+//            for (f in fragments) {
+//                if (f != moviesHome) {
+//                    fragmentManager.beginTransaction().remove(f).commit()
+//                }
+//            }

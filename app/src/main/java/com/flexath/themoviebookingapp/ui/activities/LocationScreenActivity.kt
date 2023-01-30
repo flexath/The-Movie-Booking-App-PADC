@@ -28,6 +28,11 @@ class LocationScreenActivity : AppCompatActivity(),CitiesViewHolderDelegate {
         setUpCitiesRecyclerView()
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        finish()
+    }
+
     private fun setUpCitiesRecyclerView() {
         mCitiesAdapter = CitiesLocationAdapter(CitiesData.citiesList,this)
         rvCitiesLocation.adapter = mCitiesAdapter

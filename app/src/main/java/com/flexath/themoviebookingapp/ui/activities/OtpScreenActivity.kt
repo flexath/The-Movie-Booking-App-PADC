@@ -34,6 +34,11 @@ class OtpScreenActivity : AppCompatActivity() {
 
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        finish()
+    }
+
     private fun onClickConfirmOtpButton() {
         btnConfirmOtp.setOnClickListener {
             val otpCode = otpPinCode.text.toString()

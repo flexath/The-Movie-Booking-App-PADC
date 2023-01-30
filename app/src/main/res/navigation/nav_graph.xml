@@ -35,8 +35,8 @@
         android:label="fragment_profile_home"
         tools:layout="@layout/fragment_profile_home" >
         <action
-            android:id="@+id/action_profileHome_to_profilePayment"
-            app:destination="@id/profilePaymentFragment" />
+            android:id="@+id/action_profileHomeFragment_to_loginScreenActivity"
+            app:destination="@id/loginScreenActivity" />
     </fragment>
     <fragment
         android:id="@+id/moviesDetailsHomeFragment"
@@ -61,6 +61,9 @@
         <action
             android:id="@+id/action_chooseCinema_to_moviesSeat"
             app:destination="@id/moviesSeatFragment" />
+        <action
+            android:id="@+id/action_chooseCinema_to_cinemaInfo"
+            app:destination="@id/cinemaInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/moviesSeatFragment"
@@ -85,27 +88,37 @@
         android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesTicketCheckoutFragment"
         android:label="fragment_movies_ticket_checkout"
         tools:layout="@layout/fragment_movies_ticket_checkout" >
-        <action
-            android:id="@+id/action_moviesTicketCheckout_to_moviesTicketConfirmation"
-            app:destination="@id/moviesTicketConfirmationFragment" />
         <argument
             android:name="arg_checkout_or_cancel"
             app:argType="string"
             app:nullable="true"
             android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_moviesTicketCheckout_to_profilePayment"
+            app:destination="@id/moviesPaymentFragment" />
     </fragment>
     <fragment
         android:id="@+id/moviesTicketConfirmationFragment"
         android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesTicketConfirmationFragment"
         android:label="fragment_movies_ticket_confirmation"
-        tools:layout="@layout/fragment_movies_ticket_confirmation" >
-        <action
-            android:id="@+id/action_moviesTicketConfirmation_to_moviesHome"
-            app:destination="@id/moviesHomeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_movies_ticket_confirmation" />
     <fragment
-        android:id="@+id/profilePaymentFragment"
-        android:name="com.flexath.themoviebookingapp.ui.fragments.profile.ProfilePaymentFragment"
+        android:id="@+id/moviesPaymentFragment"
+        android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesPaymentFragment"
         android:label="fragment_profile_payment"
-        tools:layout="@layout/fragment_profile_payment" />
+        tools:layout="@layout/fragment_movies_payment" >
+        <action
+            android:id="@+id/action_profilePayment_to_moviesTicketConfirmation"
+            app:destination="@id/moviesTicketConfirmationFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/loginScreenActivity"
+        android:name="com.flexath.themoviebookingapp.ui.activities.LoginScreenActivity"
+        android:label="activity_login_screen"
+        tools:layout="@layout/activity_login_screen" />
+    <fragment
+        android:id="@+id/cinemaInfoFragment"
+        android:name="com.flexath.themoviebookingapp.ui.fragments.cinema.CinemaInfoFragment"
+        android:label="fragment_cinema_info"
+        tools:layout="@layout/fragment_cinema_info" />
 </navigation>

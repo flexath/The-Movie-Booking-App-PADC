@@ -90,4 +90,8 @@
     <string name="lbl_choose_your_payment_type">Choose your payment type</string>
     <string name="lbl_your_ticket">Your Ticket</string>
     <string name="lbl_refund_amount">Refund Amount</string>
+    <string name="lbl_cinema_details">Cinema Details</string>
+    <string name="lbl_facilities">Facilities</string>
+    <string name="lbl_safety">Safety</string>
+    <string name="lbl_ticket_cancellation">Ticket Cancellation</string>
 </resources>

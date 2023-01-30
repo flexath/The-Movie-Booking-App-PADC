@@ -31,4 +31,6 @@
     <color name="colorGrey">#AAAAAA</color>
     <color name="colorSeatType">#444444</color>
     <color name="colorRefundAmount">#FF2E00</color>
+
+    <color name="color_safety_background">@color/colorAccent</color>
 </resources>

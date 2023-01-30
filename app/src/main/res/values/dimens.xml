@@ -25,6 +25,7 @@
     <dimen name="text_regular">14sp</dimen>
     <dimen name="text_regular_2x">16sp</dimen>
     <dimen name="text_regular_3x">20sp</dimen>
+    <dimen name="text_small_2x">22sp</dimen>
     <dimen name="text_heading_1x">24sp</dimen>
     <dimen name="text_heading_2x">32sp</dimen>
     <dimen name="text_big">40sp</dimen>
@@ -35,8 +36,7 @@
     <dimen name="width_logo">124dp</dimen>
     <dimen name="height_logo">150dp</dimen>
     <dimen name="width_logo_txt">88dp</dimen>
-    <dimen name="height_logo_txt">24dp</dimen>
-    <dimen name="text_small_2x">22sp</dimen>                // custom dimens begin
+    <dimen name="height_logo_txt">24dp</dimen>          // custom dimens begin
     <dimen name="margin_small_smaller">2dp</dimen>
     <dimen name="width_dot_logo_screen">10dp</dimen>
     <dimen name="height_dot_logo_screen">10dp</dimen>
@@ -142,5 +142,9 @@
     <dimen name="margin_38dp">38dp</dimen>
     <dimen name="width_banner">170dp</dimen>
     <dimen name="width_banner_image">330dp</dimen>
+    <dimen name="margin_130dp">130dp</dimen>
+    <dimen name="height_food_btn_background">130dp</dimen>
+    <dimen name="width_icon_facilities">16dp</dimen>
+    <dimen name="height_icon_facilities">16dp</dimen>
 
 </resources>

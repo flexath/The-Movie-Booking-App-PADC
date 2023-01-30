@@ -42,14 +42,16 @@ class MoviesTicketCheckoutFragment : Fragment() {
         if(args.argCheckoutOrCancel == "Checkout"){
             rlTicketCancellationMoviesCheckout.visibility = View.GONE
             btnContinueMoviesTicketCheckout.visibility = View.VISIBLE
+            btnTicketCancellationMoviesTicketCheckout.setImageResource(R.drawable.ticket_cancellation_button_policy)
 
             btnContinueMoviesTicketCheckout.setOnClickListener {
-                val action = MoviesTicketCheckoutFragmentDirections.actionMoviesTicketCheckoutToMoviesTicketConfirmation()
+                val action = MoviesTicketCheckoutFragmentDirections.actionMoviesTicketCheckoutToProfilePayment()
                 it.findNavController().navigate(action)
             }
         }else{
             rlTicketCancellationMoviesCheckout.visibility = View.VISIBLE
             btnContinueMoviesTicketCheckout.visibility = View.GONE
+            btnTicketCancellationMoviesTicketCheckout.setImageResource(R.drawable.ticket_cancellation_policy_button)
 
             btnCancelButtonMoviesCancel.setOnClickListener {
                 Toast.makeText(requireContext(),"Ticket's cancelled",Toast.LENGTH_SHORT).show()

@@ -13,6 +13,7 @@ import com.flexath.themoviebookingapp.ui.adapters.movies.CinemasMoviesCinemaAdap
 import com.flexath.themoviebookingapp.ui.adapters.movies.DateCardMoviesCinemaAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_cinema.*
+import kotlinx.android.synthetic.main.view_holder_movies_cinema_cinemas_list.*
 
 
 class MoviesCinemaFragment : Fragment() {

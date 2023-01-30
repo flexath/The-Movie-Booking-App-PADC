@@ -79,7 +79,7 @@ class MoviesDetailsFragment : Fragment() {
         mediaController.setAnchorView(vvVideoMovieDetails)
 
         val videoUri = Uri.parse("android.resource://com.flexath.themoviebookingapp/${R.raw.black_widow_trailer}")
-        vvVideoMovieDetails.setMediaController(mediaController)
+        vvVideoMovieDetails.setMediaController(null)
         vvVideoMovieDetails.setVideoURI(videoUri)
         vvVideoMovieDetails.requestFocus()
     }

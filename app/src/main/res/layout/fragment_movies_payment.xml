@@ -2,10 +2,11 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentMoviesPayment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".ui.fragments.profile.ProfilePaymentFragment">
+    tools:context=".ui.fragments.movies.MoviesPaymentFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -88,36 +89,43 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnUpiMethodProfilePayment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/button_upi"/>
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnGiftVoucherMethodProfilePayment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/button_gift_voucher"/>
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnQuickPayMethodProfilePayment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/button_quick_pay"/>
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnCreditMethodProfilePayment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/button_credit_card"/>
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnRedeemMethodProfilePayment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/button_redeem"/>
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnMobileWalletMethodProfilePayment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/button_mobile_wallet"/>
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnNetBankingMethodProfilePayment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/button_net_banking"/>

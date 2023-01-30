@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:gravity="center_vertical"
+    android:layout_height="?attr/actionBarSize">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnBackCinemaInfo"
+        android:layout_width="@dimen/width_back_arrow_cinema"
+        android:layout_height="@dimen/height_back_arrow_cinema"
+        android:layout_gravity="center_vertical|start"
+        android:layout_marginStart="22dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/back_arrow" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/lbl_cinema_details"
+        android:fontFamily="@font/dm_sans_bold"
+        android:textSize="@dimen/text_small_2x"
+        android:textColor="@color/white"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnStarCinemaInfo"
+        android:layout_width="@dimen/width_back_arrow_cinema"
+        android:layout_height="@dimen/height_back_arrow_cinema"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="22dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/button_star_black" />
+
+</FrameLayout>

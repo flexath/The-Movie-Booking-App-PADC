@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentMoviesFood"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
@@ -41,16 +42,17 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvFoodMoviesFood"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/tabLayoutMoviesFood"
             android:padding="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_130dp"
             tools:listitem="@layout/view_holder_movies_food_foods_list" />
 
     </RelativeLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="@dimen/height_food_btn_background"
         android:layout_gravity="bottom|center_horizontal"
         android:background="@color/colorPrimary">
 
