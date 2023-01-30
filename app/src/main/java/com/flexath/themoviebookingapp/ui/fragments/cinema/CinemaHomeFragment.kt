@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import com.flexath.themoviebookingapp.R
+import com.flexath.themoviebookingapp.ui.activities.MainActivity
+import kotlinx.android.synthetic.main.layout_app_bar_cinema_home.*
 
 class CinemaHomeFragment : Fragment() {
 
@@ -16,6 +19,10 @@ class CinemaHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setUpAppBarListeners()
+    }
 
+    private fun setUpAppBarListeners() {
+        tvCityNameCinemaHome.text = (activity as AppCompatActivity).intent.getStringExtra(MainActivity.CITY_NAME_EXTRA)
     }
 }

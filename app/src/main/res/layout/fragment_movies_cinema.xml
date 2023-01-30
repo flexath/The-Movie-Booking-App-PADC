@@ -25,15 +25,15 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/margin_medium_3"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_3">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvDatesCardsMoviesCinema"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_10dp"
-                android:background="@color/colorPrimary"
-                android:layout_height="wrap_content" />
+                android:background="@color/colorPrimary" />
 
             <LinearLayout
                 android:id="@+id/llFilmTypesMoviesCinema"
@@ -200,9 +200,9 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvCinemasMoviesCinema"
                 android:layout_width="match_parent"
-                tools:listitem="@layout/view_holder_movies_cinema_cinemas_list"
+                android:layout_height="match_parent"
                 android:layout_below="@+id/llSeatAvailableMoviesCinema"
-                android:layout_height="match_parent"/>
+                tools:listitem="@layout/view_holder_movies_cinema_cinemas_list" />
 
         </RelativeLayout>
 

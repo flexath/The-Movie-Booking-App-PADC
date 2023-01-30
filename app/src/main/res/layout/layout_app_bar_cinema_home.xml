@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/appBarMoviesHomeId"
+    android:id="@+id/appBarCinemaHomeId"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:background="@color/colorPrimary">
@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/navigation_white" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvCityNameMoviesHome"
+        android:id="@+id/tvCityNameCinemaHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_small_smaller"

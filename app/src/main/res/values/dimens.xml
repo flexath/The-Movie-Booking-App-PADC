@@ -146,5 +146,6 @@
     <dimen name="height_food_btn_background">130dp</dimen>
     <dimen name="width_icon_facilities">16dp</dimen>
     <dimen name="height_icon_facilities">16dp</dimen>
+    <dimen name="margin_62dp">62dp</dimen>
 
 </resources>

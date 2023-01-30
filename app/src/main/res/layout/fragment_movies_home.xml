@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragmentMoviesHome"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentMoviesHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
@@ -10,30 +10,30 @@
     tools:context=".ui.fragments.movies.MoviesHomeFragment">
 
     <include
-        android:id="@+id/appBarHome"
+        android:id="@+id/appBarMoviesHome"
         layout="@layout/layout_app_bar_movies_home" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollViewHome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/appBarHome"
+        android:layout_below="@+id/appBarMoviesHome"
         android:layout_marginTop="@dimen/margin_card_medium_1_n"
         android:background="@color/colorPrimary">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
             android:clipChildren="false"
-            android:clipToPadding="false"
-            android:background="@color/colorPrimary">
+            android:clipToPadding="false">
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewPagerBannerMoviesHome"
                 android:layout_width="@dimen/width_banner_image"
+                android:layout_height="@dimen/width_banner"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
-                android:layout_height="@dimen/width_banner"
                 android:elevation="@dimen/margin_medium" />
 
             <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/viewPagerBannerMoviesHome"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="17dp"
+                android:layout_marginTop="@dimen/margin_17dp"
                 android:elevation="@dimen/margin_medium"
                 app:dotsClickable="true"
                 app:dotsColor="@color/colorAccent"
@@ -56,25 +56,25 @@
             <FrameLayout
                 android:id="@+id/flTabLayout"
                 android:layout_width="match_parent"
+                android:layout_height="55dp"
                 android:layout_below="@+id/dotsIndicatorHome"
-                android:layout_marginTop="30dp"
                 android:layout_marginStart="@dimen/margin_medium_4_n"
+                android:layout_marginTop="@dimen/margin_30dp"
                 android:layout_marginEnd="@dimen/margin_medium_4_n"
-                android:background="@drawable/tab_layout_movie_home_background"
-                android:layout_height="55dp">
+                android:background="@drawable/tab_layout_movie_home_background">
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabLayoutMoviesHome"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
-                    app:tabRippleColor="@color/colorAccent"
-                    app:tabBackground="@drawable/tab_selected_movie_home_background"
                     android:background="@drawable/tab_layout_movie_home_background"
+                    app:tabBackground="@drawable/tab_selected_movie_home_background"
                     app:tabIndicator="@null"
-                    app:tabTextAppearance="@style/TabLayoutTextStyle"
+                    app:tabRippleColor="@color/colorAccent"
                     app:tabSelectedTextColor="@color/colorTabLayoutText"
-                    app:tabTextColor="@color/colorSecondaryText2"/>
+                    app:tabTextAppearance="@style/TabLayoutTextStyle"
+                    app:tabTextColor="@color/colorSecondaryText2" />
 
             </FrameLayout>
 
@@ -82,11 +82,11 @@
                 android:id="@+id/viewPagerTabLayoutMoviesHome"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingBottom="17dp"
-                android:layout_marginStart="@dimen/margin_medium_4_n"
-                android:layout_marginEnd="@dimen/margin_medium_4_n"
                 android:layout_below="@+id/flTabLayout"
-                android:layout_marginTop="30dp" />
+                android:layout_marginStart="@dimen/margin_medium_4_n"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="@dimen/margin_medium_4_n"
+                android:paddingBottom="17dp" />
 
         </RelativeLayout>
 

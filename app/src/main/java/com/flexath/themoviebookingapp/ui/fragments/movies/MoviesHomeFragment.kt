@@ -2,15 +2,11 @@ package com.flexath.themoviebookingapp.ui.fragments.movies
 
 import android.content.res.Resources
 import android.os.Bundle
-import android.view.*
-import android.widget.Toast
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.MenuHost
-import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -24,14 +20,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_home.*
 import kotlinx.android.synthetic.main.layout_app_bar_movies_home.*
 
-class MoviesHomeFragment : Fragment(), MenuProvider {
+class MoviesHomeFragment : Fragment() {
 
     private lateinit var mBannerHomeAdapter: BannerMoviesHomeAdapter
     private lateinit var mMoviesHomeAdapter: MoviesHomeViewPagerAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val menuHost: MenuHost = requireActivity()
-        menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         return inflater.inflate(R.layout.fragment_movies_home, container, false)
     }
 
@@ -39,7 +33,7 @@ class MoviesHomeFragment : Fragment(), MenuProvider {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.VISIBLE
 
-        setUpActionBar()            // For Action Bar of Home Screen
+        setUpAppBarListeners()
         setUpBannerHome()           // For Banner Section of Home Screen
         setUpViewPagerAdapter()     // For TabLayout Movies
     }
@@ -66,7 +60,6 @@ class MoviesHomeFragment : Fragment(), MenuProvider {
         }
     }
 
-
     private fun setUpBannerHome() {
         setUpBannerViewPagerPadding()
         mBannerHomeAdapter = BannerMoviesHomeAdapter(MoviesData().advertisementImages)
@@ -83,31 +76,7 @@ class MoviesHomeFragment : Fragment(), MenuProvider {
         viewPagerBannerMoviesHome.setPageTransformer(compositePageTransformer)
     }
 
-    private fun setUpActionBar() {
-        (activity as AppCompatActivity).setSupportActionBar(toolbarAppbarHome)
-        (activity as AppCompatActivity).supportActionBar?.title = null
-        tvCityNameExtraHome.text = (activity as AppCompatActivity).intent.getStringExtra(MainActivity.CITY_NAME_EXTRA)
-    }
-
-    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-        menuInflater.inflate(R.menu.app_bar_icons_menu, menu)
-    }
-
-    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        return when (menuItem.itemId) {
-            R.id.searchIconAppBar -> {
-                Toast.makeText(requireContext(), "Search's clicked", Toast.LENGTH_SHORT).show()
-                true
-            }
-            R.id.bellIconAppBar -> {
-                Toast.makeText(requireContext(), "Bell's clicked", Toast.LENGTH_SHORT).show()
-                true
-            }
-            R.id.scanIconAppBar -> {
-                Toast.makeText(requireContext(), "Search clicked", Toast.LENGTH_SHORT).show()
-                true
-            }
-            else -> false
-        }
+    private fun setUpAppBarListeners() {
+        tvCityNameMoviesHome.text = (activity as AppCompatActivity).intent.getStringExtra(MainActivity.CITY_NAME_EXTRA)
     }
 }
