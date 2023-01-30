@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimary"
+    android:paddingBottom="@dimen/margin_medium_3"
     tools:context=".ui.fragments.cinema.CinemaHomeFragment">
 
     <include
@@ -98,6 +99,11 @@
 
     </LinearLayout>
 
-
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/llSeatAvailableCinemaHome"
+        android:id="@+id/vpCinemaHome"
+        layout="@layout/view_pod_cinema_list"/>
 
 </RelativeLayout>

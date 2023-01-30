@@ -147,5 +147,9 @@
     <dimen name="width_icon_facilities">16dp</dimen>
     <dimen name="height_icon_facilities">16dp</dimen>
     <dimen name="margin_62dp">62dp</dimen>
+    <dimen name="margin_57dp">57dp</dimen>
+    <dimen name="margin_14dp">14dp</dimen>
+    <dimen name="width_filter_icon">20dp</dimen>
+    <dimen name="height_filter_icon">20dp</dimen>
 
 </resources>

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.ui.adapters.movies.OrderedFoodMoviesTicketCheckoutAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_ticket_checkout.*
 import kotlinx.android.synthetic.main.fragment_movies_ticket_checkout.view.*
 import kotlinx.android.synthetic.main.layout_bottom_sheet_dialog_movies_checkout.*
@@ -30,6 +31,7 @@ class MoviesTicketCheckoutFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.INVISIBLE
 
         setUpOrderedFoodListRecyclerView()              // For Ordered Food List
         hasItemInRecyclerView()                         // For visibility of Order Food List

@@ -94,4 +94,12 @@
     <string name="lbl_facilities">Facilities</string>
     <string name="lbl_safety">Safety</string>
     <string name="lbl_ticket_cancellation">Ticket Cancellation</string>
+    <string name="hint_search_the_cinema">search the cinema</string>
+    <string name="lbl_format">Format</string>
+    <string name="lbl_price_range">Price Range</string>
+    <string name="lbl_3500ks">3500Ks</string>
+    <string name="lbl_29500ks">29500Ks</string>
+    <string name="lbl_show_times">Show Times</string>
+    <string name="lbl_8am">8am</string>
+    <string name="lbl_12pm">12pm</string>
 </resources>

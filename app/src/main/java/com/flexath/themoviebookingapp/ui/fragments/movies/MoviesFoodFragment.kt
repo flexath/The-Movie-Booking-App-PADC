@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -15,6 +16,7 @@ import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesFoodRecyclerAdapt
 import com.flexath.themoviebookingapp.ui.generaldata.FoodFactory
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_food.*
 import kotlinx.android.synthetic.main.layout_app_bar_movies_food.*
 import kotlinx.android.synthetic.main.layout_bottom_sheet_dialog_movies_food.*
@@ -35,6 +37,7 @@ class MoviesFoodFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.INVISIBLE
 
 //        setUpFoodTabLayout()                // For Food Types Tab
         setUpFoodRecyclerView()

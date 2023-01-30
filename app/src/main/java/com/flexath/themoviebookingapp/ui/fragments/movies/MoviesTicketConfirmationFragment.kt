@@ -14,6 +14,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.flexath.themoviebookingapp.R
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_ticket_confirmation.*
 
 class MoviesTicketConfirmationFragment : Fragment() {
@@ -24,6 +25,7 @@ class MoviesTicketConfirmationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.INVISIBLE
 
         setUpListeners()
     }

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.fragments.cinema.CinemaSearchFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/appBarCinemaSearch"
+            layout="@layout/layout_app_bar_cinema_search" />
+
+        <LinearLayout
+            android:id="@+id/llFilterButtonsCinemaSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appBarCinemaSearch"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginStart="@dimen/margin_medium_4_n"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/margin_45dp"
+                android:drawableEnd="@drawable/ic_down_arrow_black"
+                android:fontFamily="@font/inter"
+                android:text="@string/lbl_facilities"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_regular"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="@dimen/margin_medium" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/margin_45dp"
+                android:drawableEnd="@drawable/ic_down_arrow_black"
+                android:fontFamily="@font/inter"
+                android:layout_marginStart="@dimen/margin_10dp"
+                android:text="@string/lbl_format"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_regular"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="@dimen/margin_medium" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPriceRangeLabelCinemaSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_semibold"
+            android:layout_below="@+id/llFilterButtonsCinemaSearch"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:layout_marginStart="@dimen/margin_medium_4_n"
+            android:textSize="@dimen/text_regular"
+            android:textColor="@color/white"
+            android:text="@string/lbl_price_range" />
+
+        <RelativeLayout
+            android:id="@+id/rlPriceRangeCinemaSearch"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/tvPriceRangeLabelCinemaSearch"
+            android:layout_marginTop="@dimen/margin_medium_3"
+            android:layout_marginStart="@dimen/margin_25dp"
+            android:layout_marginEnd="@dimen/margin_25dp"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:textSize="@dimen/text_regular"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/colorPrimaryLight"
+                android:text="@string/lbl_3500ks" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:textSize="@dimen/text_regular"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/colorPrimaryLight"
+                android:text="@string/lbl_29500ks" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/seekBarPriceRangeCinemaSearch"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@id/rlPriceRangeCinemaSearch"
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:layout_marginStart="@dimen/margin_36dp"
+            android:progressBackgroundTint="@color/colorPrimaryLight"
+            android:progressTint="@color/colorAccent"
+            android:progress="10"
+            android:max="100"
+            android:layout_marginEnd="@dimen/margin_36dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvShowTimesLabelCinemaSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_semibold"
+            android:layout_below="@+id/seekBarPriceRangeCinemaSearch"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:layout_marginStart="@dimen/margin_medium_4_n"
+            android:textSize="@dimen/text_regular"
+            android:textColor="@color/white"
+            android:text="@string/lbl_show_times" />
+
+        <RelativeLayout
+            android:id="@+id/rlShowTimesCinemaSearch"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/tvShowTimesLabelCinemaSearch"
+            android:layout_marginTop="@dimen/margin_medium_3"
+            android:layout_marginStart="@dimen/margin_25dp"
+            android:layout_marginEnd="@dimen/margin_25dp"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:textSize="@dimen/text_regular"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/colorPrimaryLight"
+                android:text="@string/lbl_8am" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:textSize="@dimen/text_regular"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/colorPrimaryLight"
+                android:text="@string/lbl_12pm" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/seekBarShowTimesCinemaSearch"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@id/rlShowTimesCinemaSearch"
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:layout_marginStart="@dimen/margin_36dp"
+            android:progressBackgroundTint="@color/colorPrimaryLight"
+            android:progressTint="@color/colorAccent"
+            android:progress="40"
+            android:max="100"
+            android:layout_marginEnd="@dimen/margin_36dp" />
+
+        <include
+            android:id="@+id/vpCinemaSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/margin_45dp"
+            android:layout_marginBottom="@dimen/margin_medium_3"
+            android:layout_below="@+id/seekBarShowTimesCinemaSearch"
+            layout="@layout/view_pod_cinema_list"/>
+
+    </RelativeLayout>
+
+</ScrollView>

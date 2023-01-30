@@ -197,12 +197,19 @@
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvCinemasMoviesCinema"
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/rvCinemasMoviesCinema"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_below="@+id/llSeatAvailableMoviesCinema"-->
+<!--                tools:listitem="@layout/view_holder_movies_cinema_cinemas_list" />-->
+
+            <include
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/llSeatAvailableMoviesCinema"
-                tools:listitem="@layout/view_holder_movies_cinema_cinemas_list" />
+                android:id="@+id/vpMoviesCinema"
+                layout="@layout/view_pod_cinema_list"/>
 
         </RelativeLayout>
 

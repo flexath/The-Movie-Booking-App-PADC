@@ -5,10 +5,11 @@ import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.flexath.themoviebookingapp.R
+import com.flexath.themoviebookingapp.ui.delegates.CinemaListViewHolderDelegate
 import com.flexath.themoviebookingapp.ui.fragments.movies.MoviesCinemaFragmentDirections
 import kotlinx.android.synthetic.main.view_holder_movies_cinema_cinema_times_list.view.*
 
-class CinemaTimesMoviesCinemaViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
+class CinemaTimesMoviesCinemaViewHolder(itemView: View,private val delegate: CinemaListViewHolderDelegate) : RecyclerView.ViewHolder(itemView) {
 
     private var isSelectedShowTime = false
 
@@ -32,8 +33,7 @@ class CinemaTimesMoviesCinemaViewHolder(private val itemView: View) : RecyclerVi
 
     private fun setUpOnLongClickListener(){
         itemView.setOnLongClickListener {
-            val action = MoviesCinemaFragmentDirections.actionChooseCinemaToMoviesSeat()
-            it.findNavController().navigate(action)
+            delegate.onClickCinemaTimes()
             true
         }
     }

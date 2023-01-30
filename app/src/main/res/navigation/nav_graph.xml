@@ -19,7 +19,17 @@
         android:id="@+id/cinemaHomeFragment"
         android:name="com.flexath.themoviebookingapp.ui.fragments.cinema.CinemaHomeFragment"
         android:label="fragment_cinema_home"
-        tools:layout="@layout/fragment_cinema_home" />
+        tools:layout="@layout/fragment_cinema_home" >
+        <action
+            android:id="@+id/action_cinemaHome_to_cinemaInfo"
+            app:destination="@id/cinemaInfoFragment" />
+        <action
+            android:id="@+id/action_cinemaHome_to_moviesSeat"
+            app:destination="@id/moviesSeatFragment" />
+        <action
+            android:id="@+id/action_cinemaHome_to_cinemaSearch"
+            app:destination="@id/cinemaSearchFragment" />
+    </fragment>
     <fragment
         android:id="@+id/ticketsHomeFragment"
         android:name="com.flexath.themoviebookingapp.ui.fragments.tickets.TicketsHomeFragment"
@@ -121,4 +131,16 @@
         android:name="com.flexath.themoviebookingapp.ui.fragments.cinema.CinemaInfoFragment"
         android:label="fragment_cinema_info"
         tools:layout="@layout/fragment_cinema_info" />
+    <fragment
+        android:id="@+id/cinemaSearchFragment"
+        android:name="com.flexath.themoviebookingapp.ui.fragments.cinema.CinemaSearchFragment"
+        android:label="fragment_cinema_search"
+        tools:layout="@layout/fragment_cinema_search" >
+        <action
+            android:id="@+id/action_cinemaSearch_to_moviesSeat"
+            app:destination="@id/moviesSeatFragment" />
+        <action
+            android:id="@+id/action_cinemaSearch_to_cinemaInfo"
+            app:destination="@id/cinemaInfoFragment" />
+    </fragment>
 </navigation>

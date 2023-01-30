@@ -1,14 +1,13 @@
 package com.flexath.themoviebookingapp.ui.viewholders.movies
 
 import android.view.View
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.flexath.themoviebookingapp.ui.adapters.movies.CinemaTimesMoviesCinemaAdapter
-import com.flexath.themoviebookingapp.ui.fragments.movies.MoviesCinemaFragmentDirections
+import com.flexath.themoviebookingapp.ui.delegates.CinemaListViewHolderDelegate
 import kotlinx.android.synthetic.main.view_holder_movies_cinema_cinemas_list.view.*
 
-class CinemasMoviesCinemaViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
+class CinemasMoviesCinemaViewHolder(itemView: View, private val delegate:CinemaListViewHolderDelegate) : RecyclerView.ViewHolder(itemView) {
 
     private var mCinemaTimesAdapter: CinemaTimesMoviesCinemaAdapter? = null
     private var isVisibleRecyclerView:Boolean = false
@@ -33,13 +32,12 @@ class CinemasMoviesCinemaViewHolder(private val itemView: View) : RecyclerView.V
 
     private fun setUpListeners() {
         itemView.tvSeeDetailsMoviesCinema.setOnClickListener {
-            val action = MoviesCinemaFragmentDirections.actionChooseCinemaToCinemaInfo()
-            it.findNavController().navigate(action)
+            delegate.onClickCinemaSeeDetails()
         }
     }
 
     private fun setUpCinemaTimesRecyclerView() {
-        mCinemaTimesAdapter = CinemaTimesMoviesCinemaAdapter()
+        mCinemaTimesAdapter = CinemaTimesMoviesCinemaAdapter(delegate)
         itemView.rvCinemaTimesMoviesCinema.adapter = mCinemaTimesAdapter
         itemView.rvCinemaTimesMoviesCinema.layoutManager = GridLayoutManager(itemView.context, 3, GridLayoutManager.VERTICAL, false)
     }

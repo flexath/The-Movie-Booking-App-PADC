@@ -4,12 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.flexath.themoviebookingapp.R
+import com.flexath.themoviebookingapp.ui.delegates.CinemaListViewHolderDelegate
 import com.flexath.themoviebookingapp.ui.viewholders.movies.CinemaTimesMoviesCinemaViewHolder
 
-class CinemaTimesMoviesCinemaAdapter : RecyclerView.Adapter<CinemaTimesMoviesCinemaViewHolder>() {
+class CinemaTimesMoviesCinemaAdapter(private val delegate: CinemaListViewHolderDelegate) : RecyclerView.Adapter<CinemaTimesMoviesCinemaViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CinemaTimesMoviesCinemaViewHolder {
         val view =  LayoutInflater.from(parent.context).inflate(R.layout.view_holder_movies_cinema_cinema_times_list,parent,false)
-        return CinemaTimesMoviesCinemaViewHolder(view)
+        return CinemaTimesMoviesCinemaViewHolder(view,delegate)
     }
 
     override fun onBindViewHolder(holder: CinemaTimesMoviesCinemaViewHolder, position: Int) {

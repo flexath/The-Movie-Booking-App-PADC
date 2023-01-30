@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/navigation_white" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvCityNameCinemaHome"
+        android:id="@+id/tvAppBarCityNameCinemaHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_small_smaller"
@@ -39,6 +39,7 @@
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnAppBarSearchCinemaHome"
             android:layout_width="@dimen/width_btn_back_movies_details"
             android:layout_height="@dimen/height_btn_back_movies_details"
             android:scaleType="centerCrop"
