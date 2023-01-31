@@ -104,4 +104,5 @@
     <string name="lbl_12pm">12pm</string>
     <string name="lbl_genres">Genres</string>
     <string name="lbl_month">Month</string>
+    <string name="lbl_search_the_movies">Search the movies</string>
 </resources>

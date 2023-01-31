@@ -40,7 +40,7 @@
             android:cursorVisible="true"
             android:backgroundTint="@color/colorPrimary"
             android:fontFamily="@font/inter"
-            android:hint="@string/hint_search_the_cinema"
+            android:hint="@string/lbl_search_the_movies"
             android:inputType="text"
             android:textColor="@color/white"
             android:textColorHint="#444444"
