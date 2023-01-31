@@ -39,6 +39,7 @@
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnSearchMoviesHome"
             android:layout_width="@dimen/width_btn_back_movies_details"
             android:layout_height="@dimen/height_btn_back_movies_details"
             android:scaleType="centerCrop"

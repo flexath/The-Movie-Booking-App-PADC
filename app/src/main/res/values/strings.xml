@@ -102,4 +102,6 @@
     <string name="lbl_show_times">Show Times</string>
     <string name="lbl_8am">8am</string>
     <string name="lbl_12pm">12pm</string>
+    <string name="lbl_genres">Genres</string>
+    <string name="lbl_month">Month</string>
 </resources>

@@ -5,18 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesHomeRecyclerAdapter
+import com.flexath.themoviebookingapp.ui.delegates.MoviesListViewHolderDelegate
 import kotlinx.android.synthetic.main.fragment_tab_layout_movies_home.*
 
-class TabLayoutMoviesHomeFragment : Fragment() {
+class TabLayoutMoviesHomeFragment(private val position:Int) : Fragment(),MoviesListViewHolderDelegate {
 
     private lateinit var mMoviesHomeAdapter: MoviesHomeRecyclerAdapter
-
-    companion object {
-        const val CINEMA_TIME_EXTRA_KEY: String = "TIME_KEY"
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,20 +28,18 @@ class TabLayoutMoviesHomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpMoviesHomeRecyclerView()
-
-    }
-
-    fun getMovieDateBundle() : Bundle? {
-        val bundle: Bundle? = arguments.takeIf {
-            it?.containsKey(CINEMA_TIME_EXTRA_KEY) ?: false
-        }
-        return bundle
     }
 
     private fun setUpMoviesHomeRecyclerView() {
-        mMoviesHomeAdapter = MoviesHomeRecyclerAdapter(this)
+        mMoviesHomeAdapter = MoviesHomeRecyclerAdapter(position,this)
         rvMoviesHome.adapter = mMoviesHomeAdapter
         rvMoviesHome.layoutManager = GridLayoutManager(requireContext(), 2)
         mMoviesHomeAdapter.notifyDataSetChanged()
+    }
+
+    override fun onTapMovie() {
+        val action = MoviesHomeFragmentDirections.actionMoviesHomeToMoviesDetailsHome()
+        action.argNowShowingOrComingSoon = position
+        findNavController().navigate(action)
     }
 }

@@ -50,7 +50,7 @@ class MoviesDetailsFragment : Fragment() {
     }
 
     private fun isNowShowingOrIsComingSoon(){
-        if(!args.argNowShowingOrComingSoon){                                    // For Now Showing
+        if(args.argNowShowingOrComingSoon == 0){                                    // For Now Showing
             rlReleasingDateMoviesDetails.visibility = View.GONE
             btnBookingButtonMoviesDetails.visibility = View.VISIBLE
         }else{                                                                  // For Coming Soon

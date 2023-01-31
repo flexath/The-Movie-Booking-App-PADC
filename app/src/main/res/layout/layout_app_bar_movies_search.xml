@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/colorPrimary"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/margin_medium_4_n"
+        android:layout_weight="5"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnAppBarBackMoviesSearch"
+            android:layout_width="@dimen/width_back_arrow_cinema"
+            android:layout_height="@dimen/height_back_arrow_cinema"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerCrop"
+            android:src="@drawable/back_arrow" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnAppBarSearchMoviesSearch"
+            android:layout_width="@dimen/width_btn_back_movies_details"
+            android:layout_height="@dimen/height_btn_back_movies_details"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/margin_medium_4_n"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_baseline_search_white_24dp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etCinemaNameMoviesSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/margin_14dp"
+            android:cursorVisible="true"
+            android:backgroundTint="@color/colorPrimary"
+            android:fontFamily="@font/inter"
+            android:hint="@string/hint_search_the_cinema"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="#444444"
+            android:textSize="@dimen/text_regular" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnAppBarFilterMoviesSearch"
+        android:layout_width="@dimen/width_filter_icon"
+        android:layout_height="@dimen/height_filter_icon"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/margin_medium_4_n"
+        android:layout_marginEnd="@dimen/margin_medium_4_n"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/icon_filter_accent" />
+
+</LinearLayout>

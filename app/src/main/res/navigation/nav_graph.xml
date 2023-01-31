@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_moviesHome_to_moviesDetailsHome"
             app:destination="@id/moviesDetailsHomeFragment" />
+        <action
+            android:id="@+id/action_moviesHome_to_moviesSearch"
+            app:destination="@id/moviesSearchFragment" />
 
     </fragment>
     <fragment
@@ -56,8 +59,8 @@
 
         <argument
             android:name="arg_now_showing_or_coming_soon"
-            app:argType="boolean"
-            android:defaultValue="false" />
+            app:argType="integer"
+            android:defaultValue="0" />
         <action
             android:id="@+id/action_moviesDetailsHome_to_chooseCinema"
             app:destination="@id/chooseCinemaFragment" />
@@ -142,5 +145,18 @@
         <action
             android:id="@+id/action_cinemaSearch_to_cinemaInfo"
             app:destination="@id/cinemaInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moviesSearchFragment"
+        android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesSearchFragment"
+        android:label="fragment_movies_search"
+        tools:layout="@layout/fragment_movies_search" >
+        <action
+            android:id="@+id/action_moviesSearch_to_moviesDetailsHome"
+            app:destination="@id/moviesDetailsHomeFragment" />
+        <argument
+            android:name="arg_tab_position"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 </navigation>

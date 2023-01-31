@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.fragments.movies.MoviesSearchFragment">
+
+    <include
+        android:id="@+id/appBarMoviesSearch"
+        layout="@layout/layout_app_bar_movies_search" />
+
+    <LinearLayout
+        android:id="@+id/llFilterButtonsMoviesSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appBarMoviesSearch"
+        android:layout_marginStart="@dimen/margin_medium_4_n"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin_45dp"
+            android:drawableEnd="@drawable/ic_down_arrow_black"
+            android:fontFamily="@font/inter"
+            android:text="@string/lbl_genres"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_regular"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="@dimen/margin_medium" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin_45dp"
+            android:layout_marginStart="@dimen/margin_10dp"
+            android:drawableEnd="@drawable/ic_down_arrow_black"
+            android:fontFamily="@font/inter"
+            android:text="@string/lbl_format"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_regular"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="@dimen/margin_medium" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFilterMonthMoviesSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin_45dp"
+            android:layout_marginStart="@dimen/margin_10dp"
+            android:drawableEnd="@drawable/ic_down_arrow_black"
+            android:fontFamily="@font/inter"
+            android:text="@string/lbl_month"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_regular"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="@dimen/margin_medium" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMoviesSearch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/margin_30dp"
+        android:layout_marginStart="@dimen/margin_medium_4_n"
+        android:layout_marginEnd="@dimen/margin_medium_4_n"
+        android:layout_below="@+id/llFilterButtonsMoviesSearch"
+        tools:listitem="@layout/view_holder_movies_home_movies_list"
+        android:layout_marginBottom="@dimen/margin_50dp"/>
+
+</RelativeLayout>

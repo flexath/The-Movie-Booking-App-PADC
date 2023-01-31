@@ -88,7 +88,8 @@
                 android:textSize="@dimen/text_regular"
                 android:layout_alignParentEnd="true"
                 android:textColor="@color/colorPrimaryLight"
-                android:text="@string/lbl_29500ks" />
+                android:text="@string/lbl_29500ks"
+                tools:ignore="RelativeOverlap" />
 
         </RelativeLayout>
 

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -25,7 +26,11 @@ class MoviesHomeFragment : Fragment() {
     private lateinit var mBannerHomeAdapter: BannerMoviesHomeAdapter
     private lateinit var mMoviesHomeAdapter: MoviesHomeViewPagerAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_movies_home, container, false)
     }
 
@@ -38,14 +43,24 @@ class MoviesHomeFragment : Fragment() {
         setUpViewPagerAdapter()     // For TabLayout Movies
     }
 
-    private fun setUpViewPagerAdapter(){
+    private fun setUpAppBarListeners() {
+        tvCityNameMoviesHome.text = (activity as AppCompatActivity).intent.getStringExtra(MainActivity.CITY_NAME_EXTRA)
+
+        btnSearchMoviesHome.setOnClickListener {
+            val action = MoviesHomeFragmentDirections.actionMoviesHomeToMoviesSearch()
+            action.argTabPosition = viewPagerTabLayoutMoviesHome.currentItem
+            it.findNavController().navigate(action)
+        }
+    }
+
+    private fun setUpViewPagerAdapter() {
         mMoviesHomeAdapter = MoviesHomeViewPagerAdapter(this)
         viewPagerTabLayoutMoviesHome.adapter = mMoviesHomeAdapter
 
-        TabLayoutMediator(tabLayoutMoviesHome,viewPagerTabLayoutMoviesHome){ tab,position ->
-            when(position){
+        TabLayoutMediator(tabLayoutMoviesHome, viewPagerTabLayoutMoviesHome) { tab, position ->
+            when (position) {
                 0 -> tab.text = "Now Showing"
-                else -> tab.text ="Coming Soon"
+                else -> tab.text = "Coming Soon"
             }
         }.attach()
     }
@@ -74,9 +89,5 @@ class MoviesHomeFragment : Fragment() {
             page.scaleY = (0.80f + r * 0.20f)
         }
         viewPagerBannerMoviesHome.setPageTransformer(compositePageTransformer)
-    }
-
-    private fun setUpAppBarListeners() {
-        tvCityNameMoviesHome.text = (activity as AppCompatActivity).intent.getStringExtra(MainActivity.CITY_NAME_EXTRA)
     }
 }
