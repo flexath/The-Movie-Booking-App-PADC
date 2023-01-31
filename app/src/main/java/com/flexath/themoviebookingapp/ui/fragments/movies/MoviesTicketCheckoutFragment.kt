@@ -16,6 +16,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_ticket_checkout.*
 import kotlinx.android.synthetic.main.fragment_movies_ticket_checkout.view.*
+import kotlinx.android.synthetic.main.layout_app_bar_movies_ticket_checkout.*
 import kotlinx.android.synthetic.main.layout_bottom_sheet_dialog_movies_checkout.*
 
 class MoviesTicketCheckoutFragment : Fragment() {
@@ -54,6 +55,8 @@ class MoviesTicketCheckoutFragment : Fragment() {
             rlTicketCancellationMoviesCheckout.visibility = View.VISIBLE
             btnContinueMoviesTicketCheckout.visibility = View.GONE
             btnTicketCancellationMoviesTicketCheckout.setImageResource(R.drawable.ticket_cancellation_policy_button)
+            val ticketDetailsTitle = "Ticket Details"
+            tvTicketTitleMoviesTicketCheckout.text = ticketDetailsTitle
 
             btnCancelButtonMoviesCancel.setOnClickListener {
                 Toast.makeText(requireContext(),"Ticket's cancelled",Toast.LENGTH_SHORT).show()
