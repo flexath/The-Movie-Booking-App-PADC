@@ -1,11 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="country_code">
-        <item>+95</item>
-        <item>+33</item>
-        <item>+49</item>
-        <item>+1</item>
-        <item>+74</item>
-        <item>+23</item>
+    <string-array name="Genres">
+        <item>Genres</item>
+        <item>Action</item>
+        <item>Adventure</item>
+        <item>Romantic</item>
+        <item>Thriller</item>
+        <item>Comedy</item>
+        <item>Musical</item>
     </string-array>
+
+    <string-array name="Month">
+        <item>Month</item>
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+    <string-array name="Facilities">
+        <item>Facilities</item>
+        <item>Parking</item>
+        <item>Online Food</item>
+        <item>Wheel Chair</item>
+        <item>Ticket Cancellation</item>
+    </string-array>
+
+    <string-array name="Format">
+        <item>Format</item>
+        <item>Format One</item>
+        <item>Format Two</item>
+        <item>Format Three</item>
+        <item>Format Four</item>
+    </string-array>
+
+    <array name="cinemaSearchPriceRangeSlider">
+        <item>7000</item>
+        <item>10000</item>
+    </array>
+
+    <array name="cinemaSearchClockRangeSlider">
+        <item>12</item>
+        <item>20</item>
+    </array>
 </resources>

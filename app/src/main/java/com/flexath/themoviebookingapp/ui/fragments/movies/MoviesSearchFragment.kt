@@ -54,5 +54,9 @@ class MoviesSearchFragment : Fragment(),MoviesListViewHolderDelegate {
         if(args.argTabPosition == 0){
             btnFilterMonthMoviesSearch.visibility = View.GONE
         }
+
+//        if(args.argTabPosition == 0){
+//            spinnerFilterMonthMoviesSearch.visibility = View.GONE
+//        }
     }
 }

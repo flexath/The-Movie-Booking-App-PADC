@@ -20,8 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/appBarCinemaSearch"
-            android:layout_marginTop="@dimen/margin_10dp"
             android:layout_marginStart="@dimen/margin_medium_4_n"
+            android:layout_marginTop="@dimen/margin_10dp"
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
@@ -39,9 +39,9 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/margin_45dp"
+                android:layout_marginStart="@dimen/margin_10dp"
                 android:drawableEnd="@drawable/ic_down_arrow_black"
                 android:fontFamily="@font/inter"
-                android:layout_marginStart="@dimen/margin_10dp"
                 android:text="@string/lbl_format"
                 android:textAllCaps="false"
                 android:textColor="@color/colorPrimary"
@@ -55,120 +55,128 @@
             android:id="@+id/tvPriceRangeLabelCinemaSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/inter_semibold"
             android:layout_below="@+id/llFilterButtonsCinemaSearch"
-            android:layout_marginTop="@dimen/margin_30dp"
             android:layout_marginStart="@dimen/margin_medium_4_n"
-            android:textSize="@dimen/text_regular"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/lbl_price_range"
             android:textColor="@color/white"
-            android:text="@string/lbl_price_range" />
+            android:textSize="@dimen/text_regular" />
 
         <RelativeLayout
             android:id="@+id/rlPriceRangeCinemaSearch"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/tvPriceRangeLabelCinemaSearch"
-            android:layout_marginTop="@dimen/margin_medium_3"
             android:layout_marginStart="@dimen/margin_25dp"
-            android:layout_marginEnd="@dimen/margin_25dp"
-            android:layout_height="wrap_content">
+            android:layout_marginTop="@dimen/margin_medium_3"
+            android:layout_marginEnd="@dimen/margin_25dp">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_medium"
-                android:textSize="@dimen/text_regular"
                 android:layout_alignParentStart="true"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/lbl_3500ks"
                 android:textColor="@color/colorPrimaryLight"
-                android:text="@string/lbl_3500ks" />
+                android:textSize="@dimen/text_regular" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_medium"
-                android:textSize="@dimen/text_regular"
                 android:layout_alignParentEnd="true"
-                android:textColor="@color/colorPrimaryLight"
+                android:fontFamily="@font/inter_medium"
                 android:text="@string/lbl_29500ks"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="@dimen/text_regular"
                 tools:ignore="RelativeOverlap" />
 
         </RelativeLayout>
 
-        <androidx.appcompat.widget.AppCompatSeekBar
-            android:id="@+id/seekBarPriceRangeCinemaSearch"
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/sliderPriceRangeCinemaSearch"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/rlPriceRangeCinemaSearch"
-            android:layout_marginTop="@dimen/margin_15dp"
             android:layout_marginStart="@dimen/margin_36dp"
-            android:progressBackgroundTint="@color/colorPrimaryLight"
-            android:progressTint="@color/colorAccent"
-            android:progress="10"
-            android:max="100"
-            android:layout_marginEnd="@dimen/margin_36dp" />
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:layout_marginEnd="@dimen/margin_36dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:valueFrom="3500"
+            android:valueTo="20500"
+            app:thumbColor="@color/colorAccent"
+            app:thumbRadius="@dimen/margin_medium"
+            app:thumbStrokeColor="@color/white"
+            app:trackColorActive="@color/colorAccent"
+            app:trackColorInactive="@color/colorPrimaryLight"
+            app:values="@array/cinemaSearchPriceRangeSlider" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvShowTimesLabelCinemaSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/inter_semibold"
-            android:layout_below="@+id/seekBarPriceRangeCinemaSearch"
-            android:layout_marginTop="@dimen/margin_30dp"
+            android:layout_below="@+id/sliderPriceRangeCinemaSearch"
             android:layout_marginStart="@dimen/margin_medium_4_n"
-            android:textSize="@dimen/text_regular"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/lbl_show_times"
             android:textColor="@color/white"
-            android:text="@string/lbl_show_times" />
+            android:textSize="@dimen/text_regular" />
 
         <RelativeLayout
             android:id="@+id/rlShowTimesCinemaSearch"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/tvShowTimesLabelCinemaSearch"
-            android:layout_marginTop="@dimen/margin_medium_3"
             android:layout_marginStart="@dimen/margin_25dp"
-            android:layout_marginEnd="@dimen/margin_25dp"
-            android:layout_height="wrap_content">
+            android:layout_marginTop="@dimen/margin_medium_3"
+            android:layout_marginEnd="@dimen/margin_25dp">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_medium"
-                android:textSize="@dimen/text_regular"
                 android:layout_alignParentStart="true"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/lbl_8am"
                 android:textColor="@color/colorPrimaryLight"
-                android:text="@string/lbl_8am" />
+                android:textSize="@dimen/text_regular" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_medium"
-                android:textSize="@dimen/text_regular"
                 android:layout_alignParentEnd="true"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/lbl_12pm"
                 android:textColor="@color/colorPrimaryLight"
-                android:text="@string/lbl_12pm" />
+                android:textSize="@dimen/text_regular" />
 
         </RelativeLayout>
 
-        <androidx.appcompat.widget.AppCompatSeekBar
-            android:id="@+id/seekBarShowTimesCinemaSearch"
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/sliderShowTimesCinemaSearch"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/rlShowTimesCinemaSearch"
-            android:layout_marginTop="@dimen/margin_15dp"
             android:layout_marginStart="@dimen/margin_36dp"
-            android:progressBackgroundTint="@color/colorPrimaryLight"
-            android:progressTint="@color/colorAccent"
-            android:progress="40"
-            android:max="100"
-            android:layout_marginEnd="@dimen/margin_36dp" />
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:layout_marginEnd="@dimen/margin_36dp"
+            android:valueFrom="0"
+            android:valueTo="23"
+            app:thumbColor="@color/colorAccent"
+            app:thumbRadius="@dimen/margin_medium"
+            app:trackColorActive="@color/colorAccent"
+            app:trackColorInactive="@color/colorPrimaryLight"
+            app:values="@array/cinemaSearchClockRangeSlider" />
 
         <include
             android:id="@+id/vpCinemaSearch"
+            layout="@layout/view_pod_cinema_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:layout_below="@+id/sliderShowTimesCinemaSearch"
             android:layout_marginTop="@dimen/margin_45dp"
             android:layout_marginBottom="@dimen/margin_medium_3"
-            android:layout_below="@+id/seekBarShowTimesCinemaSearch"
-            layout="@layout/view_pod_cinema_list"/>
+            android:visibility="gone" />
 
     </RelativeLayout>
 

@@ -59,18 +59,47 @@
             app:backgroundTint="@color/white"
             app:cornerRadius="@dimen/margin_medium" />
 
+        <!--        <androidx.appcompat.widget.AppCompatSpinner-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:entries="@array/Genres"-->
+        <!--            android:background="@drawable/spinner_background"-->
+        <!--            android:textAlignment="viewStart"-->
+        <!--            android:dropDownWidth="120dp"-->
+        <!--            android:theme="@style/Spinner" />-->
+        <!--        <androidx.appcompat.widget.AppCompatSpinner-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="@dimen/margin_10dp"-->
+        <!--            android:background="@drawable/spinner_background"-->
+        <!--            android:dropDownWidth="150dp"-->
+        <!--            android:entries="@array/Format"-->
+        <!--            android:spinnerMode="dropdown"-->
+        <!--            android:textAlignment="viewStart"-->
+        <!--            android:theme="@style/Spinner" />-->
+        <!--        <androidx.appcompat.widget.AppCompatSpinner-->
+        <!--            android:id="@+id/spinnerFilterMonthMoviesSearch"-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:background="@drawable/spinner_background"-->
+        <!--            android:dropDownWidth="120dp"-->
+        <!--            android:layout_marginStart="@dimen/margin_10dp"-->
+        <!--            android:entries="@array/Month"-->
+        <!--            android:textAlignment="viewStart"-->
+        <!--            android:theme="@style/Spinner" />-->
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMoviesSearch"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        android:layout_marginTop="@dimen/margin_30dp"
-        android:layout_marginStart="@dimen/margin_medium_4_n"
-        android:layout_marginEnd="@dimen/margin_medium_4_n"
         android:layout_below="@+id/llFilterButtonsMoviesSearch"
-        tools:listitem="@layout/view_holder_movies_home_movies_list"
-        android:layout_marginBottom="@dimen/margin_50dp"/>
+        android:layout_marginStart="@dimen/margin_medium_4_n"
+        android:layout_marginTop="@dimen/margin_30dp"
+        android:layout_marginEnd="@dimen/margin_medium_4_n"
+        android:layout_marginBottom="@dimen/margin_50dp"
+        android:visibility="gone"
+        tools:listitem="@layout/view_holder_movies_home_movies_list" />
 
 </RelativeLayout>
