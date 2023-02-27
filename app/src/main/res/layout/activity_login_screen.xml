@@ -11,14 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:paddingBottom="49dp">
+        android:paddingBottom="@dimen/margin_49dp">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/colLoginLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="48dp">
+            android:layout_marginTop="@dimen/margin_xxlarge">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivLoginLogo"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/colLoginLogo"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="@dimen/margin_40dp"
             android:fontFamily="@font/dm_sans"
             android:gravity="center"
             android:text="@string/lbl_verify_your_phone_number_login_screen"
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvVerifyPhoneNumberLabel"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/margin_10dp"
             android:fontFamily="@font/dm_sans"
             android:gravity="center"
             android:text="@string/lbl_verify_6_digit_txt_login_screen"
@@ -66,7 +66,7 @@
 
         <RelativeLayout
             android:id="@+id/rlCountryCode"
-            android:layout_width="347dp"
+            android:layout_width="@dimen/margin_347dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvSixDigitLabel"
             android:layout_centerHorizontal="true"
@@ -74,7 +74,7 @@
 
             <LinearLayout
                 android:id="@+id/linearLayoutCountryCode"
-                android:layout_width="76dp"
+                android:layout_width="@dimen/margin_76dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
@@ -90,7 +90,7 @@
                     android:textSize="@dimen/text_small" />
 
                 <com.hbb20.CountryCodePicker
-                    android:layout_width="76dp"
+                    android:layout_width="@dimen/width_country_code"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_medium"
                     android:gravity="center|start"
@@ -98,7 +98,7 @@
                     app:ccpDialog_showCloseIcon="true"
                     app:ccpDialog_textColor="@color/white"
                     app:ccp_arrowColor="@color/colorPrimaryLight"
-                    app:ccp_arrowSize="30dp"
+                    app:ccp_arrowSize="@dimen/margin_30dp"
                     app:ccp_autoDetectCountry="true"
                     app:ccp_contentColor="@color/white"
                     app:ccp_defaultNameCode="+95"
@@ -111,20 +111,7 @@
                     app:ccp_showNameCode="false"
                     app:ccp_showPhoneCode="true"
                     app:ccp_textGravity="LEFT"
-                    app:ccp_textSize="16sp" />
-
-                <!--            <androidx.appcompat.widget.AppCompatSpinner-->
-                <!--                android:id="@+id/spinnerCountryCode"-->
-                <!--                android:layout_width="wrap_content"-->
-                <!--                android:layout_height="wrap_content"-->
-                <!--                android:layout_marginStart="8dp"-->
-                <!--                android:layout_marginTop="2dp"-->
-                <!--                app:layout_constraintStart_toStartOf="parent"-->
-                <!--                app:layout_constraintTop_toBottomOf="@+id/tvCountryCode"-->
-                <!--                android:textAlignment="viewStart"-->
-                <!--                android:spinnerMode="dropdown"-->
-                <!--                style="@style/Widget.AppCompat.Spinner.Underlined"-->
-                <!--                android:entries="@array/country_code"/>-->
+                    app:ccp_textSize="@dimen/text_regular_2x" />
 
                 <View
                     android:layout_width="match_parent"
@@ -135,7 +122,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/etMobileNumber"
-                android:layout_width="251dp"
+                android:layout_width="@dimen/width_251dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
@@ -146,8 +133,8 @@
                 app:boxBackgroundColor="@color/colorPrimary"
                 app:boxStrokeColor="@color/white"
                 app:boxStrokeErrorColor="@color/colorPrimary"
-                app:boxStrokeWidth="1dp"
-                app:errorContentDescription="Aung Thiha"
+                app:boxStrokeWidth="@dimen/margin_1dp"
+                app:errorContentDescription="You type wrong number"
                 app:hintTextColor="@color/colorPrimary">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -157,14 +144,14 @@
                     android:inputType="phone"
                     android:textColor="@color/white"
                     android:textCursorDrawable="@color/white"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_regular_2x" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <View
                 android:id="@+id/outlineMobileNumber"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/margin_1dp"
                 android:layout_alignStart="@+id/etMobileNumber"
                 android:layout_alignParentBottom="true"
                 android:background="@color/white" />
@@ -173,13 +160,13 @@
 
         <RelativeLayout
             android:id="@+id/rlVerifyPhoneNumber"
-            android:layout_width="357dp"
-            android:layout_height="51dp"
+            android:layout_width="@dimen/width_357dp"
+            android:layout_height="@dimen/height_51dp"
             android:layout_below="@+id/rlCountryCode"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginTop="@dimen/margin_50dp"
+            android:layout_marginStart="@dimen/margin_30dp"
+            android:layout_marginEnd="@dimen/margin_30dp"
             android:background="@drawable/btn_verify_phone_number_rounded_corner"
             android:gravity="center">
 
@@ -189,7 +176,7 @@
                 android:text="@string/lbl_verify_your_phone_number_login_screen"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_regular_2x" />
 
         </RelativeLayout>
 
@@ -199,44 +186,44 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/rlVerifyPhoneNumber"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="@dimen/margin_25dp"
             android:fontFamily="@font/inter"
             android:text="@string/lbl_or"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="@dimen/text_regular_2x" />
 
         <RelativeLayout
             android:id="@+id/rlVerifyGoogleAccount"
-            android:layout_width="357dp"
-            android:layout_height="51dp"
+            android:layout_width="@dimen/width_357dp"
+            android:layout_height="@dimen/height_51dp"
             android:layout_below="@+id/tvOrLabel"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginTop="@dimen/margin_25dp"
+            android:layout_marginEnd="@dimen/margin_30dp"
             android:background="@drawable/btn_continue_with_google_rounded_corner"
             android:gravity="center_vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="13dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="13dp"
+                android:layout_width="@dimen/width_25dp"
+                android:layout_height="@dimen/height_25dp"
+                android:layout_marginStart="@dimen/margin_80dp"
+                android:layout_marginTop="@dimen/margin_13dp"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                android:layout_marginBottom="@dimen/margin_13dp"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/google_icon" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="115dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginStart="@dimen/margin_115dp"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginBottom="@dimen/margin_medium_2"
                 android:fontFamily="@font/inter"
                 android:text="@string/btn_continue_with_google_login_screen"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_regular_2x" />
 
         </RelativeLayout>
 
@@ -245,7 +232,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/rlVerifyGoogleAccount"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="94dp"
+            android:layout_marginTop="@dimen/margin_94dp"
             android:gravity="center"
             android:text="@string/by_clicking_login_screen"
             android:textColor="#4A4A4B"

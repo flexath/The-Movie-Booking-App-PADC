@@ -12,17 +12,17 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter"
         android:gravity="center"
-        android:paddingStart="23dp"
-        android:paddingTop="20dp"
-        android:paddingEnd="23dp"
-        android:paddingBottom="20dp"
+        android:paddingStart="@dimen/margin_23dp"
+        android:paddingTop="@dimen/margin_medium_3"
+        android:paddingEnd="@dimen/margin_23dp"
+        android:paddingBottom="@dimen/margin_medium_3"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_regular_2x"
         tools:text="Yangon" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/margin_1dp"
         android:layout_below="@+id/tvCityName"
         android:background="#3B3b3B"/>
 

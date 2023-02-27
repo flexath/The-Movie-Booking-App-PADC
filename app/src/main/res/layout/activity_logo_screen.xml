@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="275dp">
+        android:layout_marginTop="@dimen/margin_275dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivLogoScreenLogo"
@@ -39,7 +39,7 @@
         android:layout_height="@dimen/height_logo_txt"
         android:layout_below="@+id/colLogoScreenLogo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="@dimen/margin_15dp"
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="@dimen/margin_56dp"
         android:orientation="horizontal">
 
         <View

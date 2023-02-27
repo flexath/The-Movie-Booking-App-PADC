@@ -113,7 +113,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:fontFamily="@font/inter"
-                        android:text="Black Widow"
+                        tools:text="Black Widow"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -130,7 +130,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter"
                         android:gravity="bottom"
-                        android:text="7.1"
+                        tools:text="7.1"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_regular_2x"
                         android:textStyle="bold|italic" />
@@ -144,7 +144,7 @@
                     android:layout_below="@+id/llTitleMovieDetails"
                     android:layout_marginTop="@dimen/margin_17dp"
                     android:fontFamily="@font/inter"
-                    android:text="2D, 3D, 3D IMAX, 3D DBOX"
+                    tools:text="2D, 3D, 3D IMAX, 3D DBOX"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_regular"
                     android:textStyle="bold" />
@@ -161,7 +161,7 @@
                         android:backgroundTint="@color/colorAccent"
                         android:elevation="@dimen/margin_medium_2"
                         android:fontFamily="@font/inter"
-                        android:text="Action"
+                        tools:text="Action"
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/text_small" />
 
@@ -170,7 +170,7 @@
                         android:layout_height="@dimen/height_chip"
                         android:backgroundTint="@color/colorAccent"
                         android:fontFamily="@font/inter"
-                        android:text="Adventure"
+                        tools:text="Adventure"
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/text_small" />
 
@@ -179,7 +179,7 @@
                         android:layout_height="@dimen/height_chip"
                         android:backgroundTint="@color/colorAccent"
                         android:fontFamily="@font/inter"
-                        android:text="Drama"
+                        tools:text="Drama"
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/text_small" />
 
@@ -188,7 +188,7 @@
                         android:layout_height="@dimen/height_chip"
                         android:backgroundTint="@color/colorAccent"
                         android:fontFamily="@font/inter"
-                        android:text="Animation"
+                        tools:text="Animation"
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/text_small" />
 
@@ -237,7 +237,7 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="@dimen/margin_10dp"
                             android:fontFamily="@font/inter"
-                            android:text="U/A"
+                            tools:text="U/A"
                             android:textColor="@color/white"
                             android:textSize="@dimen/text_regular"
                             android:textStyle="bold" />
@@ -270,7 +270,7 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="@dimen/margin_10dp"
                             android:fontFamily="@font/inter"
-                            android:text="May 8th, 2022"
+                            tools:text="May 8th, 2022"
                             android:textColor="@color/white"
                             android:textSize="@dimen/text_regular"
                             android:textStyle="bold" />
@@ -302,7 +302,7 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="@dimen/margin_10dp"
                             android:fontFamily="@font/inter"
-                            android:text="2hr 15min"
+                            tools:text="2hr 15min"
                             android:textColor="@color/white"
                             android:textSize="@dimen/text_regular"
                             android:textStyle="bold" />
@@ -326,9 +326,10 @@
                         android:layout_marginStart="@dimen/margin_card_medium_2"
                         android:layout_marginTop="@dimen/margin_medium_3_n"
                         android:fontFamily="@font/inter_bold"
-                        android:text="Releasing in 5 Days"
+                        tools:text="Releasing in 5 Days"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/text_regular_2x" />
+                        android:textSize="@dimen/text_regular_2x"
+                        tools:ignore="RelativeOverlap" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvNotifyAsSoonAsMoviesDetailsLabel"
