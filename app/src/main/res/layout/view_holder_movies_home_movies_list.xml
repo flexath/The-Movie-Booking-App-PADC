@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
@@ -8,12 +9,13 @@
 
     <RelativeLayout
         android:id="@+id/rlDateMovieHome"
-        android:layout_width="33dp"
-        android:layout_height="33dp"
+        android:layout_width="35dp"
+        android:layout_height="@dimen/height_33dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="9dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="@dimen/margin_7dp"
+        android:layout_marginEnd="@dimen/padding_9dp"
+        android:gravity="center"
         android:background="@drawable/movie_date_movie_home_background"
         android:elevation="@dimen/margin_small">
 
@@ -21,12 +23,12 @@
             android:id="@+id/tvDateMovieHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_gravity="center"
-            android:textColor="@color/colorTabLayoutText"
-            android:text="10th AUG"
             android:fontFamily="@font/dm_sans"
-            android:textSize="11sp"/>
+            android:gravity="center"
+            tools:text="10th\nAUG"
+            android:textColor="@color/colorTabLayoutText"
+            android:textSize="@dimen/text_11sp" />
 
     </RelativeLayout>
 
@@ -41,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/blackwidow_poster" />
+            tools:src="@drawable/blackwidow_poster" />
 
         <View
             android:layout_width="match_parent"
@@ -50,49 +52,54 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvTitleMoviesHome"
-        android:layout_width="80dp"
+    <FrameLayout
+        android:id="@+id/rlTitleIMDBMoviesHome"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/mcPoster"
-        android:layout_marginStart="7dp"
         android:layout_marginTop="@dimen/margin_small"
-        android:fontFamily="@font/inter"
-        android:text="Black Widow"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_small"
-        app:fontFamily="@font/inter" />
+        android:layout_below="@+id/mcPoster">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivImdbLogoMovieHome"
-        android:layout_width="33dp"
-        android:layout_height="20dp"
-        android:layout_alignTop="@+id/tvTitleMoviesHome"
-        android:layout_alignBottom="@+id/tvTitleMoviesHome"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/margin_xlarge"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/imdb" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleMoviesHome"
+            android:layout_width="@dimen/width_title_movie"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="@dimen/margin_7dp"
+            android:fontFamily="@font/inter"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_small"
+            app:fontFamily="@font/inter"
+            tools:text="Black Widow" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvRatingMoviesHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/ivImdbLogoMovieHome"
-        android:layout_alignBottom="@+id/ivImdbLogoMovieHome"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/margin_card_medium_2"
-        android:fontFamily="@font/inter"
-        android:text="7.1"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_small"
-        android:textStyle="bold|italic"
-        app:fontFamily="@font/inter" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivImdbLogoMovieHome"
+            android:layout_width="@dimen/width_33dp"
+            android:layout_height="@dimen/height_imdb"
+            android:layout_gravity="end|top"
+            android:layout_marginEnd="@dimen/margin_34dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/imdb" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRatingMoviesHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|top"
+            android:paddingEnd="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:fontFamily="@font/inter"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_small"
+            android:textStyle="italic"
+            app:fontFamily="@font/inter_bold"
+            tools:text="7.1" />
+
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTitleMoviesHome"
+        android:layout_below="@+id/rlTitleIMDBMoviesHome"
         android:layout_marginStart="7dp"
         android:layout_marginTop="13dp"
         android:layout_marginBottom="13dp"
@@ -102,10 +109,10 @@
             android:id="@+id/tvCensorUAMovieHome"
             android:layout_width="21dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginEnd="@dimen/margin_medium"
             android:fontFamily="@font/inter"
             android:text="U/A"
-            android:layout_gravity="center_vertical"
             android:textColor="@color/white"
             android:textSize="@dimen/text_small"
             app:fontFamily="@font/inter" />

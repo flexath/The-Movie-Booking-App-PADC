@@ -39,6 +39,7 @@
                     android:layout_gravity="end"
                     android:layout_marginTop="@dimen/margin_card_medium_2"
                     android:layout_marginEnd="@dimen/margin_large"
+                    android:visibility="visible"
                     android:elevation="@dimen/margin_medium_3"
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/ic_baseline_share_white_24dp" />
@@ -47,6 +48,7 @@
                     android:id="@+id/btnPlayMoviesDetails"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="visible"
                     android:layout_gravity="center"
                     android:contentDescription="@string/lbl_play_button_fab"
                     android:src="@drawable/ic_baseline_play_arrow_white_22dp"
@@ -56,17 +58,30 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="189dp">
 
-                    <VideoView
-                        android:id="@+id/vvVideoMovieDetails"
-                        android:layout_width="wrap_content"
-                        android:layout_height="189dp"
+                    <!--                    <VideoView-->
+                    <!--                        android:id="@+id/vvVideoMovieDetails"-->
+                    <!--                        android:layout_width="wrap_content"-->
+                    <!--                        android:layout_height="189dp"-->
+                    <!--                        android:layout_alignParentStart="true"-->
+                    <!--                        android:layout_alignParentTop="true"-->
+                    <!--                        android:layout_alignParentEnd="true"-->
+                    <!--                        android:layout_alignParentBottom="true"-->
+                    <!--                        android:saveEnabled="true" />-->
+
+                    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                        android:id="@+id/ytPlayerMovieDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:saveEnabled="true" />
+                        app:autoPlay="true"
+                        app:enableAutomaticInitialization="false"
+                        app:handleNetworkEvents="true"
+                        app:videoId="zkWiTLKE0mg" />
 
                 </RelativeLayout>
 
@@ -87,7 +102,7 @@
                     android:layout_width="@dimen/width_detail_poster"
                     android:layout_height="@dimen/height_detail_poster"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/blackwidow_poster" />
+                    tools:srcCompat="@drawable/blackwidow_poster" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -103,37 +118,44 @@
                     android:id="@+id/llTitleMovieDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
                     android:layout_marginEnd="@dimen/margin_medium_3"
-                    android:orientation="horizontal">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="5">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvTitleMovieDetails"
-                        android:layout_width="@dimen/width_movie_title"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
+                        android:layout_gravity="start|top"
+                        android:layout_weight="3"
                         android:fontFamily="@font/inter"
-                        tools:text="Black Widow"
+                        android:gravity="top"
                         android:textColor="@color/white"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:text="Black Widow" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="@dimen/width_imdb_logo"
+                        android:layout_width="0dp"
                         android:layout_height="@dimen/height_imdb_logo"
-                        android:gravity="center_vertical"
+                        android:layout_gravity="top"
+                        android:layout_marginTop="-2dp"
+                        android:layout_weight="1"
                         app:srcCompat="@drawable/imdb" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvRatingMovieDetails"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter"
-                        android:gravity="bottom"
-                        tools:text="7.1"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginTop="@dimen/margin_small_smaller"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/inter_bold"
+                        android:gravity="center"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_regular_2x"
-                        android:textStyle="bold|italic" />
+                        tools:text="7.1" />
 
                 </LinearLayout>
 
@@ -144,7 +166,7 @@
                     android:layout_below="@+id/llTitleMovieDetails"
                     android:layout_marginTop="@dimen/margin_17dp"
                     android:fontFamily="@font/inter"
-                    tools:text="2D, 3D, 3D IMAX, 3D DBOX"
+                    android:text="2D, 3D, 3D IMAX, 3D DBOX"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_regular"
                     android:textStyle="bold" />
@@ -156,41 +178,55 @@
                     android:layout_marginTop="@dimen/margin_medium_3_n">
 
                     <com.google.android.material.chip.Chip
+                        android:id="@+id/chipGenreOne"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/height_chip"
                         android:backgroundTint="@color/colorAccent"
                         android:elevation="@dimen/margin_medium_2"
                         android:fontFamily="@font/inter"
-                        tools:text="Action"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/text_small" />
+                        android:textSize="@dimen/text_small"
+                        tools:text="Action" />
 
                     <com.google.android.material.chip.Chip
+                        android:id="@+id/chipGenreTwo"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/height_chip"
                         android:backgroundTint="@color/colorAccent"
                         android:fontFamily="@font/inter"
-                        tools:text="Adventure"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/text_small" />
+                        android:textSize="@dimen/text_small"
+                        tools:text="Adventure" />
 
                     <com.google.android.material.chip.Chip
+                        android:id="@+id/chipGenreThree"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/height_chip"
                         android:backgroundTint="@color/colorAccent"
                         android:fontFamily="@font/inter"
-                        tools:text="Drama"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/text_small" />
+                        android:textSize="@dimen/text_small"
+                        tools:text="Drama" />
 
                     <com.google.android.material.chip.Chip
+                        android:id="@+id/chipGenreFour"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/height_chip"
                         android:backgroundTint="@color/colorAccent"
                         android:fontFamily="@font/inter"
-                        tools:text="Animation"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/text_small" />
+                        android:textSize="@dimen/text_small"
+                        tools:text="Animation" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipGenreFive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/height_chip"
+                        android:backgroundTint="@color/colorAccent"
+                        android:fontFamily="@font/inter"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_small"
+                        tools:text="Animation" />
 
                 </com.google.android.material.chip.ChipGroup>
 
@@ -237,10 +273,10 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="@dimen/margin_10dp"
                             android:fontFamily="@font/inter"
-                            tools:text="U/A"
                             android:textColor="@color/white"
                             android:textSize="@dimen/text_regular"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:text="U/A" />
 
                     </LinearLayout>
 
@@ -270,10 +306,10 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="@dimen/margin_10dp"
                             android:fontFamily="@font/inter"
-                            tools:text="May 8th, 2022"
                             android:textColor="@color/white"
                             android:textSize="@dimen/text_regular"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            tools:text="May 8th, 2022" />
 
                     </LinearLayout>
 
@@ -302,10 +338,10 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="@dimen/margin_10dp"
                             android:fontFamily="@font/inter"
-                            tools:text="2hr 15min"
                             android:textColor="@color/white"
                             android:textSize="@dimen/text_regular"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            tools:text="2hr 15min" />
 
                     </LinearLayout>
 
@@ -326,10 +362,10 @@
                         android:layout_marginStart="@dimen/margin_card_medium_2"
                         android:layout_marginTop="@dimen/margin_medium_3_n"
                         android:fontFamily="@font/inter_bold"
-                        tools:text="Releasing in 5 Days"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_regular_2x"
-                        tools:ignore="RelativeOverlap" />
+                        tools:ignore="RelativeOverlap"
+                        tools:text="Releasing in 5 Days" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvNotifyAsSoonAsMoviesDetailsLabel"
@@ -344,6 +380,7 @@
                         android:textSize="@dimen/text_regular" />
 
                     <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSetNotificationMovieDetails"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tvNotifyAsSoonAsMoviesDetailsLabel"
@@ -389,7 +426,7 @@
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvDescriptionMoviesDetails"
+                android:id="@+id/tvOverviewMoviesDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/llViewsGroup"
@@ -398,15 +435,15 @@
                 android:layout_marginTop="@dimen/margin_10dp"
                 android:layout_marginEnd="@dimen/margin_17dp"
                 android:fontFamily="@font/inter"
-                android:text="@string/lbl_movie_description"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_regular" />
+                android:textSize="@dimen/text_regular"
+                tools:text="@string/lbl_movie_description" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvCastMoviesDetailsLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvDescriptionMoviesDetails"
+                android:layout_below="@+id/tvOverviewMoviesDetails"
                 android:layout_marginStart="@dimen/margin_17dp"
                 android:layout_marginTop="@dimen/margin_30dp"
                 android:fontFamily="@font/inter"

@@ -4,18 +4,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.flexath.themoviebookingapp.R
-import com.flexath.themoviebookingapp.ui.viewholders.movies.BannerHomeVIewHolder
-import kotlinx.android.synthetic.main.view_holder_movies_home_banner_list.view.*
+import com.flexath.themoviebookingapp.data.vos.movie.BannerVO
+import com.flexath.themoviebookingapp.ui.viewholders.movies.BannerHomeViewHolder
 
-class BannerMoviesHomeAdapter(private val bannerImageList:ArrayList<Int>) : RecyclerView.Adapter<BannerHomeVIewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerHomeVIewHolder {
+class BannerMoviesHomeAdapter(private val bannerImageList:List<BannerVO>) : RecyclerView.Adapter<BannerHomeViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerHomeViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.view_holder_movies_home_banner_list,parent,false)
-        return BannerHomeVIewHolder(view)
+        return BannerHomeViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: BannerHomeVIewHolder, position: Int) {
-        val image = bannerImageList[position]
-        holder.itemView.ivBannerImage.setImageResource(image)
+    override fun onBindViewHolder(holder: BannerHomeViewHolder, position: Int) {
+        val banner = bannerImageList[position]
+        holder.bindBannerData(banner)
     }
 
     override fun getItemCount(): Int {

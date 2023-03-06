@@ -1,5 +1,5 @@
 package com.flexath.themoviebookingapp.ui.delegates
 
 interface CitiesViewHolderDelegate {
-    fun onTapCities(position:Int)
+    fun onTapCities(city:String)
 }

@@ -90,6 +90,7 @@
                     android:textSize="@dimen/text_small" />
 
                 <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccpLogin"
                     android:layout_width="@dimen/width_country_code"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_medium"

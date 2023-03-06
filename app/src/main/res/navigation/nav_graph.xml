@@ -61,6 +61,10 @@
             android:name="arg_now_showing_or_coming_soon"
             app:argType="integer"
             android:defaultValue="0" />
+        <argument
+            android:name="arg_movie_id"
+            app:argType="integer"
+            android:defaultValue="0" />
         <action
             android:id="@+id/action_moviesDetailsHome_to_chooseCinema"
             app:destination="@id/chooseCinemaFragment" />

@@ -1,10 +1,12 @@
 package com.flexath.themoviebookingapp.ui.fragments.movies
 
+import android.annotation.SuppressLint
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -12,10 +14,12 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import com.flexath.themoviebookingapp.R
+import com.flexath.themoviebookingapp.data.model.CinemaModel
+import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
+import com.flexath.themoviebookingapp.data.vos.movie.BannerVO
 import com.flexath.themoviebookingapp.ui.activities.MainActivity
 import com.flexath.themoviebookingapp.ui.adapters.movies.BannerMoviesHomeAdapter
 import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesHomeViewPagerAdapter
-import com.flexath.themoviebookingapp.ui.dummy.MoviesData
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_home.*
@@ -25,6 +29,7 @@ class MoviesHomeFragment : Fragment() {
 
     private lateinit var mBannerHomeAdapter: BannerMoviesHomeAdapter
     private lateinit var mMoviesHomeAdapter: MoviesHomeViewPagerAdapter
+    private val mMovieModel:CinemaModel = CinemaModelImpl
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,6 +46,7 @@ class MoviesHomeFragment : Fragment() {
         setUpAppBarListeners()
         setUpBannerHome()           // For Banner Section of Home Screen
         setUpViewPagerAdapter()     // For TabLayout Movies
+
     }
 
     private fun setUpAppBarListeners() {
@@ -54,7 +60,7 @@ class MoviesHomeFragment : Fragment() {
     }
 
     private fun setUpViewPagerAdapter() {
-        mMoviesHomeAdapter = MoviesHomeViewPagerAdapter(this)
+        mMoviesHomeAdapter = MoviesHomeViewPagerAdapter(this,mMovieModel)
         viewPagerTabLayoutMoviesHome.adapter = mMoviesHomeAdapter
 
         TabLayoutMediator(tabLayoutMoviesHome, viewPagerTabLayoutMoviesHome) { tab, position ->
@@ -65,6 +71,34 @@ class MoviesHomeFragment : Fragment() {
         }.attach()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    private fun setUpBannerHome() {
+
+        mMovieModel.getBanners(
+            onSuccess = {
+                setUpBannerViewPagerPadding()
+                setUpBannerRecyclerView(it)
+                val compositePageTransformer = CompositePageTransformer()
+                compositePageTransformer.addTransformer(MarginPageTransformer((10 * Resources.getSystem().displayMetrics.density).toInt()))
+                compositePageTransformer.addTransformer { page, position ->
+                    val r = 1 - kotlin.math.abs(position)
+                    page.scaleY = (0.80f + r * 0.20f)
+                }
+                viewPagerBannerMoviesHome.setPageTransformer(compositePageTransformer)
+            },
+            onFailure = {
+                Toast.makeText(requireContext(),it,Toast.LENGTH_SHORT).show()
+            }
+        )
+    }
+
+    private fun setUpBannerRecyclerView(banners:List<BannerVO>) {
+        mBannerHomeAdapter = BannerMoviesHomeAdapter(banners)
+        viewPagerBannerMoviesHome.adapter = mBannerHomeAdapter
+        dotsIndicatorHome.attachTo(viewPagerBannerMoviesHome)
+        mBannerHomeAdapter.notifyDataSetChanged()
+    }
+
     private fun setUpBannerViewPagerPadding() {
         viewPagerBannerMoviesHome.apply {
             clipChildren = false  // No clipping the left and right items
@@ -73,21 +107,5 @@ class MoviesHomeFragment : Fragment() {
             (getChildAt(0) as RecyclerView).overScrollMode =
                 RecyclerView.OVER_SCROLL_NEVER // Remove the scroll effect
         }
-    }
-
-    private fun setUpBannerHome() {
-        setUpBannerViewPagerPadding()
-        mBannerHomeAdapter = BannerMoviesHomeAdapter(MoviesData().advertisementImages)
-        viewPagerBannerMoviesHome.adapter = mBannerHomeAdapter
-        dotsIndicatorHome.attachTo(viewPagerBannerMoviesHome)
-        mBannerHomeAdapter.notifyDataSetChanged()
-
-        val compositePageTransformer = CompositePageTransformer()
-        compositePageTransformer.addTransformer(MarginPageTransformer((10 * Resources.getSystem().displayMetrics.density).toInt()))
-        compositePageTransformer.addTransformer { page, position ->
-            val r = 1 - kotlin.math.abs(position)
-            page.scaleY = (0.80f + r * 0.20f)
-        }
-        viewPagerBannerMoviesHome.setPageTransformer(compositePageTransformer)
     }
 }

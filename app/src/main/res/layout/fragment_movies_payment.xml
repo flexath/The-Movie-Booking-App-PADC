@@ -79,58 +79,68 @@
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/text_18sp" />
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPaymentMovies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvPaymentTypeTitleProfilePayment"
             android:layout_marginStart="@dimen/margin_medium_4_n"
             android:layout_marginTop="@dimen/margin_medium_3"
-            android:layout_marginEnd="@dimen/margin_medium_4_n"
-            android:orientation="vertical">
+            tools:listitem="@layout/view_holder_movies_payment_list"
+            android:layout_marginEnd="@dimen/margin_medium_4_n"/>
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/btnUpiMethodProfilePayment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/button_upi"/>
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/tvPaymentTypeTitleProfilePayment"-->
+<!--            android:layout_marginStart="@dimen/margin_medium_4_n"-->
+<!--            android:layout_marginTop="@dimen/margin_medium_3"-->
+<!--            android:layout_marginEnd="@dimen/margin_medium_4_n"-->
+<!--            android:orientation="vertical">-->
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/btnGiftVoucherMethodProfilePayment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/button_gift_voucher"/>
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/btnUpiMethodProfilePayment"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:srcCompat="@drawable/button_upi"/>-->
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/btnQuickPayMethodProfilePayment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/button_quick_pay"/>
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/btnGiftVoucherMethodProfilePayment"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:srcCompat="@drawable/button_gift_voucher"/>-->
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/btnCreditMethodProfilePayment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/button_credit_card"/>
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/btnQuickPayMethodProfilePayment"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:srcCompat="@drawable/button_quick_pay"/>-->
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/btnRedeemMethodProfilePayment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/button_redeem"/>
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/btnCreditMethodProfilePayment"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:srcCompat="@drawable/button_credit_card"/>-->
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/btnMobileWalletMethodProfilePayment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/button_mobile_wallet"/>
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/btnRedeemMethodProfilePayment"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:srcCompat="@drawable/button_redeem"/>-->
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/btnNetBankingMethodProfilePayment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/button_net_banking"/>
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/btnMobileWalletMethodProfilePayment"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:srcCompat="@drawable/button_mobile_wallet"/>-->
 
-        </LinearLayout>
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/btnNetBankingMethodProfilePayment"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:srcCompat="@drawable/button_net_banking"/>-->
+
+<!--        </LinearLayout>-->
 
     </RelativeLayout>
 

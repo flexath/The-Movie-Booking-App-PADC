@@ -1,5 +1,6 @@
 package com.flexath.themoviebookingapp.ui.fragments.movies
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +15,6 @@ import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesHomeRecyclerAdapt
 import com.flexath.themoviebookingapp.ui.delegates.MoviesListViewHolderDelegate
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_search.*
-import kotlinx.android.synthetic.main.layout_app_bar_movies_search.*
 
 class MoviesSearchFragment : Fragment(),MoviesListViewHolderDelegate {
 
@@ -29,9 +29,11 @@ class MoviesSearchFragment : Fragment(),MoviesListViewHolderDelegate {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.INVISIBLE
 
+        setUpRecyclerView()
         setUpListeners()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setUpRecyclerView() {
         mMoviesAdapter = MoviesHomeRecyclerAdapter(args.argTabPosition,this)
         rvMoviesSearch.adapter = mMoviesAdapter
@@ -39,24 +41,38 @@ class MoviesSearchFragment : Fragment(),MoviesListViewHolderDelegate {
         mMoviesAdapter.notifyDataSetChanged()
     }
 
-    override fun onTapMovie() {
-        val action = MoviesSearchFragmentDirections.actionMoviesSearchToMoviesDetailsHome()
-        action.argNowShowingOrComingSoon = args.argTabPosition
-        findNavController().navigate(action)
-    }
-
     private fun setUpListeners() {
-        etCinemaNameMoviesSearch.setOnClickListener {
-            rvMoviesSearch.visibility = View.VISIBLE
-            setUpRecyclerView()
-        }
+//        searchViewMoviesHome.setOnQueryTextListener(object : OnQueryTextListener{
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                return false
+//            }
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                searchMovies(newText)
+//                return true
+//            }
+//
+//        })
 
         if(args.argTabPosition == 0){
             btnFilterMonthMoviesSearch.visibility = View.GONE
         }
 
-//        if(args.argTabPosition == 0){
-//            spinnerFilterMonthMoviesSearch.visibility = View.GONE
+    }
+
+//    private fun searchMovies(newText: String?) {
+//        val movieListAfterSearching = mutableListOf<MovieVO>()
+//        for(movie in movieListBeforeSearching) {
+//            if(newText?.let { movie.title?.contains(it) } == true) {
+//                movieListAfterSearching.add(movie)
+//            }
 //        }
+//        mMoviesAdapter.setNewMovieList(movieListAfterSearching)
+//    }
+
+    override fun onTapMovie(movieId: Int?) {
+        val action = MoviesSearchFragmentDirections.actionMoviesSearchToMoviesDetailsHome()
+        action.argNowShowingOrComingSoon = args.argTabPosition
+        findNavController().navigate(action)
     }
 }

@@ -63,8 +63,8 @@
     <dimen name="margin_10dp">10dp</dimen>
     <dimen name="margin_17dp">17dp</dimen>
     <dimen name="width_imdb_logo">44dp</dimen>
-    <dimen name="height_imdb_logo">28dp</dimen>
-    <dimen name="width_movie_title">130dp</dimen>
+    <dimen name="height_imdb_logo">30dp</dimen>
+    <dimen name="width_movie_title">110dp</dimen>
     <dimen name="height_chip">40dp</dimen>
     <dimen name="margin_34dp">34dp</dimen>
     <dimen name="padding_9dp">9dp</dimen>
@@ -179,5 +179,10 @@
     <dimen name="height_70dp">70dp</dimen>
     <dimen name="width_348dp">348dp</dimen>
     <dimen name="width_55dp">55dp</dimen>
+    <dimen name="height_imdb">20dp</dimen>
+    <dimen name="width_33dp">33dp</dimen>
+    <dimen name="width_title_movie">80dp</dimen>
+    <dimen name="text_11sp">12sp</dimen>
+    <dimen name="height_33dp">33dp</dimen>
 
 </resources>
