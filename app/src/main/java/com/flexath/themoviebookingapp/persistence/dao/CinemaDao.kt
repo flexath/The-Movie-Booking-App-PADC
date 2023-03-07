@@ -7,6 +7,7 @@ import androidx.room.Query
 import com.flexath.themoviebookingapp.data.vos.location.CitiesVO
 import com.flexath.themoviebookingapp.data.vos.movie.BannerVO
 import com.flexath.themoviebookingapp.data.vos.movie.MovieVO
+import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
 import com.flexath.themoviebookingapp.network.responses.OTPResponse
 
 @Dao
@@ -49,4 +50,11 @@ interface CinemaDao {
 
     @Query("SELECT * FROM movie_table WHERE id = :movieId")
     fun getMovieById(movieId:Int):MovieVO?
+
+    // Movie Cinema Screen
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertCinemaConfig(config: List<ConfigVO>)
+
+    @Query("SELECT * FROM config_table")
+    fun getCinemaConfig():List<ConfigVO>
 }

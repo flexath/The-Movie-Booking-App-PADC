@@ -3,6 +3,8 @@ package com.flexath.themoviebookingapp.network.dataagents
 import com.flexath.themoviebookingapp.data.vos.location.CitiesVO
 import com.flexath.themoviebookingapp.data.vos.movie.BannerVO
 import com.flexath.themoviebookingapp.data.vos.movie.MovieVO
+import com.flexath.themoviebookingapp.data.vos.movie.cinema.CinemaVO
+import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
 import com.flexath.themoviebookingapp.network.api.CinemaApi
 import com.flexath.themoviebookingapp.network.responses.*
 import com.flexath.themoviebookingapp.network.utils.BASE_URL
@@ -51,7 +53,7 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
                         val citiesList = response.body()?.data ?: listOf()
                         onSuccess(citiesList)
                     } else {
-                        onFailure("Don't make errors,Aung Thiha")
+                        onFailure("Cities response failed")
                     }
                 }
 
@@ -205,6 +207,55 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
                 }
 
                 override fun onFailure(call: Call<MovieDetailResponse>, t: Throwable) {
+                    onFailure(t.message ?: "")
+                }
+
+            })
+    }
+
+    override fun getCinemaTimeSlots(
+        authorization: String,
+        date: String,
+        onSuccess: (List<CinemaVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mMovieApi?.getCinemaTimeSlots(authorization,date)
+            ?.enqueue(object : Callback<CinemaListResponse>{
+                override fun onResponse(
+                    call: Call<CinemaListResponse>,
+                    response: Response<CinemaListResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val cinemaList = response.body()?.data ?: listOf()
+                        onSuccess(cinemaList)
+                    } else {
+                        onFailure("Don't make errors,Aung Thiha")
+                    }
+                }
+
+                override fun onFailure(call: Call<CinemaListResponse>, t: Throwable) {
+                    onFailure(t.message ?: "")
+                }
+
+            })
+    }
+
+    override fun getCinemaConfig(onSuccess: (List<ConfigVO>) -> Unit, onFailure: (String) -> Unit) {
+        mMovieApi?.getCinemaConfig()
+            ?.enqueue(object : Callback<ConfigListResponse> {
+                override fun onResponse(
+                    call: Call<ConfigListResponse>,
+                    response: Response<ConfigListResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val configList = response.body()?.data ?: listOf()
+                        onSuccess(configList)
+                    } else {
+                        onFailure("Cinema Config response failed")
+                    }
+                }
+
+                override fun onFailure(call: Call<ConfigListResponse>, t: Throwable) {
                     onFailure(t.message ?: "")
                 }
 

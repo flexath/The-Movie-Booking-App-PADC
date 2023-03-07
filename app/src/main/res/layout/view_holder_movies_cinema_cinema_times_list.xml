@@ -2,8 +2,9 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingStart="@dimen/margin_medium_3_n"
-    android:paddingEnd="@dimen/margin_medium_3_n"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingStart="@dimen/margin_medium_2"
+    android:paddingEnd="@dimen/margin_medium_2"
     android:paddingTop="@dimen/margin_10dp"
     android:paddingBottom="@dimen/margin_10dp"
     android:background="@color/colorPrimary"
@@ -18,12 +19,13 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvStartTimeMovieCinemaTimeslot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:layout_marginTop="@dimen/margin_medium"
-            android:text="6:30 AM"
+            tools:text="6:30 AM"
             android:textAppearance="@style/TextInterWhiteSemiBold14sp" />
 
         <androidx.appcompat.widget.AppCompatTextView

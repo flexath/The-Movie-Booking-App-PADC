@@ -36,6 +36,8 @@ class MoviesDetailsFragment : Fragment() {
     private var isTrailerVideoPlaying:Boolean = false
     private val args:MoviesDetailsFragmentArgs by navArgs()
 
+    private var movieId:Int = 0
+
     private var mMovieModel: CinemaModel = CinemaModelImpl
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -46,6 +48,8 @@ class MoviesDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.INVISIBLE
+
+        movieId = args.argMovieId
 
         setUpListeners()     // Button Listeners Methods
 
@@ -58,7 +62,7 @@ class MoviesDetailsFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun requestNewData() {
         mMovieModel.getMovieDetailsById(
-            args.argMovieId.toString(),
+            movieId.toString(),
             onSuccess = {
                 bindNewData(it)
             },
@@ -76,14 +80,14 @@ class MoviesDetailsFragment : Fragment() {
 
         tvTitleMovieDetails.text = movie.originalTitle ?: ""
         tvRatingMovieDetails.text = movie.formatVoteAverage()
-        bindGenre(movie)
+        tvReleasingDateMoviesDetails.text = movie.getMovieReleasingDayForNotification()
+        tvOverviewMoviesDetails.text = movie.overview  ?: ""
         tvDurationMovieDetails.text = movie.changeRunTimeMinToHour()
         tvReleaseDateMovieDetails.text = movie.changeReleaseDateFormat("details")
-        tvOverviewMoviesDetails.text = movie.overview  ?: ""
-        tvReleasingDateMoviesDetails.text = movie.getMovieReleasingDayForNotification()
         movie.casts?.let {
             setUpCastRecyclerView(it)               // For Casts
         }
+        bindGenre(movie)
 
 //        var youtubeKey = ""
 //        movie.videoList?.results?.forEach {

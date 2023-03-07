@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.widget.Toast
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.data.model.CinemaModel
 import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
@@ -31,10 +32,19 @@ class LogoScreenActivity : AppCompatActivity() {
     private fun getCitiesListFromRetrofit() {
         mMovieModel.insertCities(
             onSuccess = {
-                Log.i("Cities",it.toString())
+                Toast.makeText(this,"Cities Network call succeeded",Toast.LENGTH_SHORT).show()
             },
             onFailure = {
+                Toast.makeText(this,"Cities fail",Toast.LENGTH_SHORT).show()
+            }
+        )
 
+        mMovieModel.insertCinemaConfig(
+            onSuccess = {
+                Toast.makeText(this,"Config Network call succeeded",Toast.LENGTH_SHORT).show()
+            },
+            onFailure = {
+                Toast.makeText(this,"Config Fail",Toast.LENGTH_SHORT).show()
             }
         )
     }

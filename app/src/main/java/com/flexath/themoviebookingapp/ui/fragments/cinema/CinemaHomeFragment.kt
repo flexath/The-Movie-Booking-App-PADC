@@ -55,4 +55,8 @@ class CinemaHomeFragment : Fragment(),CinemaListViewHolderDelegate {
         val action = CinemaHomeFragmentDirections.actionCinemaHomeToMoviesSeat()
         findNavController().navigate(action)
     }
+
+    override fun onClickTimeSlot(latestTime:String) {
+
+    }
 }

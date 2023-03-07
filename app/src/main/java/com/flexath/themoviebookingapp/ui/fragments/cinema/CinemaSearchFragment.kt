@@ -51,5 +51,9 @@ class CinemaSearchFragment : Fragment(),CinemaListViewHolderDelegate {
         findNavController().navigate(action)
     }
 
+    override fun onClickTimeSlot(latestTime:String) {
+
+    }
+
 
 }

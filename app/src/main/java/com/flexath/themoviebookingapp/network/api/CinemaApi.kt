@@ -45,4 +45,14 @@ interface CinemaApi {
     fun getMovieDetailsById(
         @Path("movie_id") movieId:String
     ) : Call<MovieDetailResponse>
+
+    // Movie Cinema Screen
+    @GET(API_GET_CINEMA_TIMESLOTS)
+    fun getCinemaTimeSlots(
+        @Header(HEADER_AUTH) authorization:String,
+        @Query(PARAM_DATE) date:String
+    ) : Call<CinemaListResponse>
+
+    @GET(API_GET_CINEMA_CONFIG)
+    fun getCinemaConfig() : Call<ConfigListResponse>
 }
