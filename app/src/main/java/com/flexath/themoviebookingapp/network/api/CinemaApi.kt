@@ -55,4 +55,10 @@ interface CinemaApi {
 
     @GET(API_GET_CINEMA_CONFIG)
     fun getCinemaConfig() : Call<ConfigListResponse>
+
+    // Cinema Info Screen
+    @GET(API_GET_CINEMA_INFO)
+    fun getCinemaInfo(
+        @Query(PARAM_LATEST_TIME) latestTime:String = "2022-09-17 00:23:04"
+    ) : Call<CinemaInfoResponse>
 }

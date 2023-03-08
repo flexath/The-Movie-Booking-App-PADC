@@ -88,8 +88,9 @@ class MoviesCinemaFragment : Fragment(),CinemaListViewHolderDelegate {
         )
     }
 
-    override fun onClickCinemaSeeDetails() {
+    override fun onClickCinemaSeeDetails(cinemaId:Int) {
         val action = MoviesCinemaFragmentDirections.actionChooseCinemaToCinemaInfo()
+        action.argCinemaId = cinemaId
         findNavController().navigate(action)
     }
 

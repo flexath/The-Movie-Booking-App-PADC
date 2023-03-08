@@ -1,6 +1,9 @@
 package com.flexath.themoviebookingapp.ui.fragments.cinema
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.Gravity
@@ -14,18 +17,31 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.navArgs
 import com.flexath.themoviebookingapp.R
+import com.flexath.themoviebookingapp.data.model.CinemaModel
+import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
 import com.flexath.themoviebookingapp.ui.generaldata.CinemaInfoFactory
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import kotlinx.android.synthetic.main.fragment_cinema_info.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.net.URL
 import java.util.*
 
 class CinemaInfoFragment : Fragment() {
 
     private val safetyList = CinemaInfoFactory().safetyList
     private var isCinemaVideoPlaying:Boolean = false
+    private val mCinemaModel:CinemaModel = CinemaModelImpl
 
-    private lateinit var linearLayoutOuter:LinearLayout
+    private lateinit var outerLinearLayout: LinearLayout
+    private lateinit var facilityChipGroup:ChipGroup
     private lateinit var stack: Stack<String>
+    private val args:CinemaInfoFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_cinema_info, container, false)
@@ -34,33 +50,51 @@ class CinemaInfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        linearLayoutOuter = (activity as AppCompatActivity).findViewById(R.id.llOuterSafetyCinemaInfo)
+        outerLinearLayout = (activity as AppCompatActivity).findViewById(R.id.llOuterSafetyCinemaInfo)
+        facilityChipGroup = (activity as AppCompatActivity).findViewById(R.id.chipGroupFacilityCinemaInfo)
 
-        playCinemaVideo()
-        setSafetyLinearLayout()
+        bindCinemaInfoData()
     }
 
-    private fun playCinemaVideo() {
-        btnPlayCinemaInfo.setOnClickListener {
-            setUpVideoView()
-            if(!isCinemaVideoPlaying) {
-                btnPlayCinemaInfo.setImageResource(R.drawable.ic_baseline_pause_white_22dp)
-                vvVideoCinemaInfo.start()
-                isCinemaVideoPlaying = true
-            }else {
-                btnPlayCinemaInfo.setImageResource(R.drawable.ic_baseline_play_arrow_white_22dp)
-                vvVideoCinemaInfo.pause()
-                isCinemaVideoPlaying = false
+    private fun bindCinemaInfoData(){
+        mCinemaModel.getCinemaInfo(args.argCinemaId)?.also {
+            tvCinemaNameCinemaInfo.text = it.name
+            tvLocationCinemaInfo.text = it.address
+            it.promoVdoUrl?.let { url ->
+                playCinemaVideo(url)
+            }
+
+            it.safety?.forEach { safety ->
+                safetyList.add(safety)
+            }
+            setSafetyLinearLayout()
+
+            it.facilities?.forEach { facility ->
+                facilityChipGroup.addView(createDynamicChipButton(facility.title,facility.img))
             }
         }
     }
 
-    private fun setUpVideoView() {
+    private fun playCinemaVideo(urlString: String) {
+        setUpVideoView(urlString)
+        vvVideoCinemaInfo.start()
+        if(!isCinemaVideoPlaying) {
+//            btnPlayCinemaInfo.setImageResource(R.drawable.ic_baseline_pause_white_22dp)
+            vvVideoCinemaInfo.resume()
+            isCinemaVideoPlaying = true
+        }else {
+//            btnPlayCinemaInfo.setImageResource(R.drawable.ic_baseline_play_arrow_white_22dp)
+            vvVideoCinemaInfo.pause()
+            isCinemaVideoPlaying = false
+        }
+    }
+
+    private fun setUpVideoView(urlString:String) {
         val mediaController = MediaController(requireContext())
         mediaController.setAnchorView(vvVideoCinemaInfo)
 
-        val videoUri = Uri.parse("android.resource://com.flexath.themoviebookingapp/${R.raw.black_widow_trailer}")
-        vvVideoCinemaInfo.setMediaController(null)
+        val videoUri = Uri.parse(urlString)
+        vvVideoCinemaInfo.setMediaController(mediaController)
         vvVideoCinemaInfo.setVideoURI(videoUri)
         vvVideoCinemaInfo.requestFocus()
     }
@@ -76,9 +110,8 @@ class CinemaInfoFragment : Fragment() {
         }
 
         for(i in 0 until row) {
-            linearLayoutOuter.addView(setTextViewStyle())
+            outerLinearLayout.addView(setTextViewStyle())
         }
-
     }
 
     private fun setTextViewStyle() : LinearLayout {
@@ -109,6 +142,39 @@ class CinemaInfoFragment : Fragment() {
             linearLayoutInner.addView(textView)
         }
         return linearLayoutInner
+    }
+
+    private fun createDynamicChipButton(chipText:String?,imageUrl:String?) : Chip {
+        val chip = Chip(requireContext())
+        val layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        layoutParams.setMargins(0, 0, 15, 0)
+        chip.layoutParams = layoutParams
+        chip.gravity = Gravity.CENTER
+        chip.textSize = 14.0f
+        chip.typeface = ResourcesCompat.getFont(requireContext(), R.font.inter_medium)
+        chip.text = chipText
+        chip.setTextColor(Color.parseColor("#00FF6A"))
+        chip.setChipBackgroundColorResource(R.color.colorPrimary)
+
+        lifecycleScope.launch {
+            val bitmap = imageUrl?.let { downloadImage(it) }
+            val drawable = BitmapDrawable(resources, bitmap)
+            chip.chipIcon = drawable
+        }
+        return chip
+    }
+
+    private suspend fun downloadImage(url: String): Bitmap? = withContext(Dispatchers.IO) {
+        try {
+            val bitmap = BitmapFactory.decodeStream(URL(url).openConnection().getInputStream())
+            bitmap
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
     }
 
 }

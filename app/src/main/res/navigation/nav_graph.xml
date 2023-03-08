@@ -133,11 +133,18 @@
         android:name="com.flexath.themoviebookingapp.ui.activities.LoginScreenActivity"
         android:label="activity_login_screen"
         tools:layout="@layout/activity_login_screen" />
+
     <fragment
         android:id="@+id/cinemaInfoFragment"
         android:name="com.flexath.themoviebookingapp.ui.fragments.cinema.CinemaInfoFragment"
         android:label="fragment_cinema_info"
-        tools:layout="@layout/fragment_cinema_info" />
+        tools:layout="@layout/fragment_cinema_info">
+        <argument
+            android:name="arg_cinema_id"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+
     <fragment
         android:id="@+id/cinemaSearchFragment"
         android:name="com.flexath.themoviebookingapp.ui.fragments.cinema.CinemaSearchFragment"

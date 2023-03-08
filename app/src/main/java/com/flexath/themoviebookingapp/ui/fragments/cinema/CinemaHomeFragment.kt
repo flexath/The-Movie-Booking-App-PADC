@@ -46,7 +46,7 @@ class CinemaHomeFragment : Fragment(),CinemaListViewHolderDelegate {
         cinemaListViewPod.setUpMovieListViewPod(this)
     }
 
-    override fun onClickCinemaSeeDetails() {
+    override fun onClickCinemaSeeDetails(cinemaId: Int) {
         val action = CinemaHomeFragmentDirections.actionCinemaHomeToCinemaInfo()
         findNavController().navigate(action)
     }
@@ -56,7 +56,7 @@ class CinemaHomeFragment : Fragment(),CinemaListViewHolderDelegate {
         findNavController().navigate(action)
     }
 
-    override fun onClickTimeSlot(latestTime:String) {
+    override fun onClickTimeSlot(date:String) {
 
     }
 }

@@ -2,10 +2,7 @@ package com.flexath.themoviebookingapp.data.model
 
 import android.content.Context
 import com.flexath.themoviebookingapp.data.vos.location.CitiesVO
-import com.flexath.themoviebookingapp.data.vos.movie.BannerVO
-import com.flexath.themoviebookingapp.data.vos.movie.COMING_SOON_MOVIE
-import com.flexath.themoviebookingapp.data.vos.movie.MovieVO
-import com.flexath.themoviebookingapp.data.vos.movie.NOW_PLAYING_MOVIE
+import com.flexath.themoviebookingapp.data.vos.movie.*
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.CinemaVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
 import com.flexath.themoviebookingapp.network.dataagents.CinemaDataAgent
@@ -128,7 +125,10 @@ object CinemaModelImpl : CinemaModel {
         )
     }
 
-    override fun insertCinemaConfig(onSuccess: (List<ConfigVO>) -> Unit, onFailure: (String) -> Unit) {
+    override fun insertCinemaConfig(
+        onSuccess: (List<ConfigVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
         mMovieDataAgent.getCinemaConfig(onSuccess = {
             mCinemaDatabase?.getDao()?.insertCinemaConfig(it)
             onSuccess(it)
@@ -136,5 +136,17 @@ object CinemaModelImpl : CinemaModel {
     }
 
     override fun getCinemaConfig(): List<ConfigVO>? = mCinemaDatabase?.getDao()?.getCinemaConfig()
+
+    override fun insertCinemaInfo(
+        onSuccess: (List<CinemaInfoVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mMovieDataAgent.getCinemaInfo(onSuccess = {
+            mCinemaDatabase?.getDao()?.insertCinemaInfo(it)
+            onSuccess(it)
+        }, onFailure = onFailure)
+    }
+
+    override fun getCinemaInfo(cinemaId:Int) = mCinemaDatabase?.getDao()?.getCinemaInfo(cinemaId)
 
 }

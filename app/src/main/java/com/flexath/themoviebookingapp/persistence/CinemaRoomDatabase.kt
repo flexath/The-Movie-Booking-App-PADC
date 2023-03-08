@@ -6,13 +6,14 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.flexath.themoviebookingapp.data.vos.location.CitiesVO
 import com.flexath.themoviebookingapp.data.vos.movie.BannerVO
+import com.flexath.themoviebookingapp.data.vos.movie.CinemaInfoVO
 import com.flexath.themoviebookingapp.data.vos.movie.MovieVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
 import com.flexath.themoviebookingapp.network.responses.OTPResponse
 import com.flexath.themoviebookingapp.persistence.dao.CinemaDao
 
 @Database(entities = [CitiesVO::class,OTPResponse::class,
-    BannerVO::class,MovieVO::class,ConfigVO::class], version = 3 , exportSchema = false)
+    BannerVO::class,MovieVO::class,ConfigVO::class,CinemaInfoVO::class], version = 4 , exportSchema = false)
 abstract class CinemaRoomDatabase : RoomDatabase() {
 
     abstract fun getDao(): CinemaDao

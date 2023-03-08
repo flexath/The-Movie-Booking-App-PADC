@@ -28,6 +28,7 @@
                 android:layout_gravity="center"
                 android:contentDescription="@string/lbl_play_button_fab"
                 android:src="@drawable/ic_baseline_play_arrow_white_22dp"
+                android:visibility="gone"
                 app:backgroundTint="@color/colorPrimaryLight"
                 app:elevation="@dimen/margin_small" />
 
@@ -59,7 +60,7 @@
             android:layout_marginTop="@dimen/margin_25dp"
             android:layout_marginEnd="@dimen/margin_medium_4_n"
             android:fontFamily="@font/inter_semibold"
-            android:text="JCGV : Junction City"
+            tools:text="JCGV : Junction City"
             android:textColor="@color/white"
             android:textSize="@dimen/text_regular_2x" />
 
@@ -73,7 +74,7 @@
             android:layout_marginTop="@dimen/margin_15dp"
             android:layout_marginEnd="@dimen/margin_120dp"
             android:fontFamily="@font/inter_semibold"
-            android:text="Q5H3+JPP, Corner of, Bogyoke Lann, Yangon"
+            tools:text="Q5H3+JPP, Corner of, Bogyoke Lann, Yangon"
             android:textColor="@color/white"
             android:textSize="@dimen/text_18sp" />
 
@@ -100,101 +101,20 @@
             android:textColor="@color/white"
             android:textSize="@dimen/text_18sp" />
 
-        <LinearLayout
-            android:id="@+id/llFacilitiesOneCinemaInfo"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupFacilityCinemaInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvFacilitiesLabelCinemaInfo"
             android:layout_marginStart="@dimen/margin_medium_4_n"
             android:layout_marginTop="@dimen/margin_medium_2"
-            android:layout_marginEnd="@dimen/margin_medium_4_n"
-            android:orientation="horizontal">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="@dimen/width_icon_facilities"
-                android:layout_height="@dimen/height_icon_facilities"
-                android:layout_gravity="center_vertical"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/icon_parking_accent" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_card_medium"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/lbl_parking"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/text_regular" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="@dimen/width_icon_facilities"
-                android:layout_height="@dimen/height_icon_facilities"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/margin_15dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/icon_online_food_accent" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_card_medium"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/lbl_online_food"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/text_regular" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="@dimen/width_icon_facilities"
-                android:layout_height="@dimen/height_icon_facilities"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/margin_15dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/icon_wheel_chair_accent" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_card_medium"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/lbl_wheel_chair"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/text_regular" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llFacilitiesTwoCinemaInfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/llFacilitiesOneCinemaInfo"
-            android:layout_marginStart="@dimen/margin_medium_4_n"
-            android:layout_marginTop="@dimen/margin_medium_2"
-            android:layout_marginEnd="@dimen/margin_medium_4_n"
-            android:orientation="horizontal">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="@dimen/width_icon_facilities"
-                android:layout_height="@dimen/height_icon_facilities"
-                android:layout_gravity="center_vertical"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/icon_cancellation_accent" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_card_medium"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/lbl_ticket_cancellation"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/text_regular" />
-
-        </LinearLayout>
+            android:layout_marginEnd="@dimen/margin_medium_4_n"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvSafetyLabelCinemaInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llFacilitiesTwoCinemaInfo"
+            android:layout_below="@+id/chipGroupFacilityCinemaInfo"
             android:layout_alignParentStart="true"
             android:layout_marginStart="@dimen/margin_medium_4_n"
             android:layout_marginTop="@dimen/margin_40dp"

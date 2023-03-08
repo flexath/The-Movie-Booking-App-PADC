@@ -2,6 +2,7 @@ package com.flexath.themoviebookingapp.network.dataagents
 
 import com.flexath.themoviebookingapp.data.vos.location.CitiesVO
 import com.flexath.themoviebookingapp.data.vos.movie.BannerVO
+import com.flexath.themoviebookingapp.data.vos.movie.CinemaInfoVO
 import com.flexath.themoviebookingapp.data.vos.movie.MovieVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.CinemaVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
@@ -256,6 +257,31 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
                 }
 
                 override fun onFailure(call: Call<ConfigListResponse>, t: Throwable) {
+                    onFailure(t.message ?: "")
+                }
+
+            })
+    }
+
+    override fun getCinemaInfo(
+        onSuccess: (List<CinemaInfoVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mMovieApi?.getCinemaInfo()
+            ?.enqueue(object : Callback<CinemaInfoResponse> {
+                override fun onResponse(
+                    call: Call<CinemaInfoResponse>,
+                    response: Response<CinemaInfoResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val cinemaList = response.body()?.data ?: listOf()
+                        onSuccess(cinemaList)
+                    } else {
+                        onFailure("Don't make errors,Aung Thiha")
+                    }
+                }
+
+                override fun onFailure(call: Call<CinemaInfoResponse>, t: Throwable) {
                     onFailure(t.message ?: "")
                 }
 

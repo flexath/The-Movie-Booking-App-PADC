@@ -25,7 +25,7 @@ class LogoScreenActivity : AppCompatActivity() {
                 startActivity(it)
                 finish()
             }
-        },2000)
+        },3000)
 
     }
 
@@ -44,7 +44,17 @@ class LogoScreenActivity : AppCompatActivity() {
                 Toast.makeText(this,"Config Network call succeeded",Toast.LENGTH_SHORT).show()
             },
             onFailure = {
+                Log.i("ConfigATH",it)
                 Toast.makeText(this,"Config Fail",Toast.LENGTH_SHORT).show()
+            }
+        )
+
+        mMovieModel.insertCinemaInfo(
+            onSuccess = {
+                Toast.makeText(this,"Cinema Info call succeeded",Toast.LENGTH_SHORT).show()
+            },
+            onFailure = {
+                Toast.makeText(this,"Cinema Info Fail",Toast.LENGTH_SHORT).show()
             }
         )
     }

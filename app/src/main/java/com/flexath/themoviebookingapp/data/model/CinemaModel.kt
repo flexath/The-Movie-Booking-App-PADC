@@ -2,6 +2,7 @@ package com.flexath.themoviebookingapp.data.model
 
 import com.flexath.themoviebookingapp.data.vos.location.CitiesVO
 import com.flexath.themoviebookingapp.data.vos.movie.BannerVO
+import com.flexath.themoviebookingapp.data.vos.movie.CinemaInfoVO
 import com.flexath.themoviebookingapp.data.vos.movie.MovieVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.CinemaVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
@@ -72,4 +73,12 @@ interface CinemaModel {
     )
 
     fun getCinemaConfig():List<ConfigVO>?
+
+    // Cinema Info Screen
+    fun insertCinemaInfo(
+        onSuccess:(List<CinemaInfoVO>) -> Unit,
+        onFailure:(String) -> Unit
+    )
+
+    fun getCinemaInfo(cinemaId:Int):CinemaInfoVO?
 }

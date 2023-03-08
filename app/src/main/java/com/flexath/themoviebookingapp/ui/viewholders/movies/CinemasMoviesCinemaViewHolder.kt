@@ -35,7 +35,9 @@ class CinemasMoviesCinemaViewHolder(itemView: View, private val delegate:CinemaL
 
     private fun setUpListeners() {
         itemView.tvSeeDetailsMoviesCinema.setOnClickListener {
-            delegate.onClickCinemaSeeDetails()
+            mCinema?.cinemaId?.let { id ->
+                delegate.onClickCinemaSeeDetails(id)
+            }
         }
     }
 

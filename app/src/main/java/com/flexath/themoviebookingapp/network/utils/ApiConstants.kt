@@ -15,6 +15,7 @@ const val API_GET_COMING_SOON = "/api/v1/movies"
 const val API_GET_MOVIE_DETAILS = "/api/v1/movies"
 const val API_GET_CINEMA_TIMESLOTS = "/api/v2/cinema-day-timeslots"
 const val API_GET_CINEMA_CONFIG = "/api/v2/configurations"
+const val API_GET_CINEMA_INFO = "/api/v2/cinemas"
 
 // POST URLs
 const val API_POST_OTP = "/api/v2/get-otp"
@@ -23,6 +24,7 @@ const val API_POST_SIGN_IN_WITH_OTP = "/api/v2/check-otp"
 // PARAM QUERIES
 const val PARAM_STATUS = "status"
 const val PARAM_DATE = "date"
+const val PARAM_LATEST_TIME = "latest_time"
 
 // HEADERS
 const val HEADER_AUTH = "Authorization"
