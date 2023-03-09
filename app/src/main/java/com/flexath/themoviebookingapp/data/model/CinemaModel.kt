@@ -6,6 +6,7 @@ import com.flexath.themoviebookingapp.data.vos.movie.CinemaInfoVO
 import com.flexath.themoviebookingapp.data.vos.movie.MovieVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.CinemaVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
+import com.flexath.themoviebookingapp.data.vos.movie.SeatVO
 import com.flexath.themoviebookingapp.network.responses.OTPResponse
 
 interface CinemaModel {
@@ -33,7 +34,7 @@ interface CinemaModel {
         onFailure:(String) -> Unit
     )
 
-    fun getOtp():OTPResponse?
+    fun getOtp(code:Int):OTPResponse?
 
     // Movie Home Screen - Banner
     fun getBanners(
@@ -81,4 +82,13 @@ interface CinemaModel {
     )
 
     fun getCinemaInfo(cinemaId:Int):CinemaInfoVO?
+
+    // Movie Cinema Screen
+    fun getSeatPlan(
+        authorization:String,
+        dayTimeSlotId: Int,
+        bookingDate:String,
+        onSuccess:(List<List<SeatVO>>) -> Unit,
+        onFailure:(String) -> Unit
+    )
 }

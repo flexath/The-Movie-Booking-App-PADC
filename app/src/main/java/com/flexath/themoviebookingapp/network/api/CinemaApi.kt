@@ -1,6 +1,6 @@
 package com.flexath.themoviebookingapp.network.api
 
-import com.flexath.themoviebookingapp.data.vos.movie.MovieVO
+import com.flexath.themoviebookingapp.network.responses.SeatingPlanResponse
 import com.flexath.themoviebookingapp.network.responses.*
 import com.flexath.themoviebookingapp.network.utils.*
 import retrofit2.Call
@@ -61,4 +61,12 @@ interface CinemaApi {
     fun getCinemaInfo(
         @Query(PARAM_LATEST_TIME) latestTime:String = "2022-09-17 00:23:04"
     ) : Call<CinemaInfoResponse>
+
+    // Movie Seat Screen
+    @GET(API_GET_SEAT_PLAN)
+    fun getSeatPlan(
+        @Header(HEADER_AUTH) authorization:String,
+        @Query(PARAM_DAY_TIME_SLOT_ID) dayTimeSlot:Int,
+        @Query(PARAM_BOOKING_DATE) bookingDate:String
+    ) : Call<SeatingPlanResponse>
 }

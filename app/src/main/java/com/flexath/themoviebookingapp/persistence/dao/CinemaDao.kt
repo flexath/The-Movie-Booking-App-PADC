@@ -25,8 +25,8 @@ interface CinemaDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertSignInInformation(otpList: OTPResponse?)
 
-    @Query("SELECT * FROM otp_table")
-    fun getSignInInformation():OTPResponse
+    @Query("SELECT * FROM otp_table WHERE code = :code")
+    fun getSignInInformation(code:Int):OTPResponse
 
     // Movie Home Screen - Banner
     @Insert(onConflict = OnConflictStrategy.REPLACE)

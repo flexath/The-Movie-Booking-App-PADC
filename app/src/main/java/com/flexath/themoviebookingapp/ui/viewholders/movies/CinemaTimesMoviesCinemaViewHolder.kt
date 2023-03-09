@@ -20,6 +20,7 @@ class CinemaTimesMoviesCinemaViewHolder(
 
     private var isSelectedShowTime = false
     private var mCinemaModel: CinemaModel = CinemaModelImpl
+    private var mTimeslot:TimeslotVO? = null
 
     init {
         setUpOnClickListener()
@@ -41,12 +42,15 @@ class CinemaTimesMoviesCinemaViewHolder(
 
     private fun setUpOnLongClickListener() {
         itemView.setOnLongClickListener {
-            delegate.onClickCinemaTimes()
+            mTimeslot?.cinemaDayTimeslotId?.let { id ->
+                delegate.onClickCinemaTimes(id)
+            }
             true
         }
     }
 
     fun bindData(timeslot: TimeslotVO) {
+        mTimeslot = timeslot
         itemView.tvStartTimeMovieCinemaTimeslot.text = timeslot.start_time
     }
 }

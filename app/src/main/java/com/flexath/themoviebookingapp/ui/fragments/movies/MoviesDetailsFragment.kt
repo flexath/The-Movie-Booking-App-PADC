@@ -74,7 +74,7 @@ class MoviesDetailsFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun bindNewData(movie: MovieVO) {
-        Glide.with(requireContext())
+        Glide.with(requireActivity())
             .load("$IMG_BASE_URL${movie.posterPath}")
             .into(ivPosterMoviesDetail)
 

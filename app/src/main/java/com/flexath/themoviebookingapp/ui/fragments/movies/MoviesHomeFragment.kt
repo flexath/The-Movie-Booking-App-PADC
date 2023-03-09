@@ -100,7 +100,7 @@ class MoviesHomeFragment : Fragment() {
     }
 
     private fun setUpBannerViewPagerPadding() {
-        viewPagerBannerMoviesHome.apply {
+        viewPagerBannerMoviesHome?.apply {
             clipChildren = false  // No clipping the left and right items
             clipToPadding = false  // Show the viewpager in full width without clipping the padding
             offscreenPageLimit = 3  // Render the left and right items

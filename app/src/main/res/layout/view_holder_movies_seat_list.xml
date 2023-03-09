@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/seatList"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSeatCinemaSeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_1dp"
+        app:srcCompat="@drawable/chair_available" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSeatTypeCinemaSeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:fontFamily="@font/inter_medium"
+        android:textColor="@color/white"
+        tools:text="A"
+        android:textSize="@dimen/text_small"/>
+
+</FrameLayout>

@@ -46,7 +46,7 @@ class CinemaSearchFragment : Fragment(),CinemaListViewHolderDelegate {
         findNavController().navigate(action)
     }
 
-    override fun onClickCinemaTimes() {
+    override fun onClickCinemaTimes(dayTimeslotId:Int) {
         val action = CinemaSearchFragmentDirections.actionCinemaSearchToMoviesSeat()
         findNavController().navigate(action)
     }

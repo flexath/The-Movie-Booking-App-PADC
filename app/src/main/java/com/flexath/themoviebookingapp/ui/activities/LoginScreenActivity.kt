@@ -35,29 +35,29 @@ class LoginScreenActivity : AppCompatActivity() {
     private fun onClickVerifyPhoneNumberButton() {
         rlVerifyPhoneNumber.setOnClickListener {
 
-//            val mobileNumber = etMobileNumber.editText?.text.toString()
-//            mMobileNumberValidationChecker = MobileNumberValidationChecker(mobileNumber)
+            val mobileNumber = etMobileNumber.editText?.text.toString()
+            mMobileNumberValidationChecker = MobileNumberValidationChecker(mobileNumber)
 
-//            if(isValidatedMobileNumber()){
-//                etMobileNumber.error = null
-//                etMobileNumber.isErrorEnabled = false
-//                ccpLogin.registerCarrierNumberEditText(etMobileNumber?.editText)
-//                mMovieModel.sendOTP(
-//                    ccpLogin.fullNumber,
-//                    onSuccess = {
-//                        Toast.makeText(this, "${it.message}", Toast.LENGTH_SHORT).show()
-//                        startActivity(OtpScreenActivity.newIntentFromOtpScreen(this, ccpLogin.fullNumber))
-//                    },
-//                    onFailure = {
-//                        Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
-//                    }
-//                )
-//            }else{
-//                etMobileNumber.error = mMobileNumberValidationChecker.mobileNumberError
-//                outlineMobileNumber.visibility = View.INVISIBLE
-//            }
+            if(isValidatedMobileNumber()){
+                etMobileNumber.error = null
+                etMobileNumber.isErrorEnabled = false
+                ccpLogin.registerCarrierNumberEditText(etMobileNumber?.editText)
+                mMovieModel.sendOTP(
+                    ccpLogin.fullNumber,
+                    onSuccess = {
+                        Toast.makeText(this, "${it.message}", Toast.LENGTH_SHORT).show()
+                        startActivity(OtpScreenActivity.newIntentFromOtpScreen(this, ccpLogin.fullNumber))
+                    },
+                    onFailure = {
+                        Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+                    }
+                )
+            }else{
+                etMobileNumber.error = mMobileNumberValidationChecker.mobileNumberError
+                outlineMobileNumber.visibility = View.INVISIBLE
+            }
 
-            startActivity(OtpScreenActivity.newIntentFromOtpScreen(this, "959795448753"))
+//            startActivity(OtpScreenActivity.newIntentFromOtpScreen(this, "959795448753"))
         }
 
         rlVerifyGoogleAccount.setOnClickListener {

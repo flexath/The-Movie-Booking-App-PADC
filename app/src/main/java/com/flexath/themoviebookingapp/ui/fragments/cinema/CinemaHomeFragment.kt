@@ -51,7 +51,7 @@ class CinemaHomeFragment : Fragment(),CinemaListViewHolderDelegate {
         findNavController().navigate(action)
     }
 
-    override fun onClickCinemaTimes() {
+    override fun onClickCinemaTimes(dayTimeslotId:Int) {
         val action = CinemaHomeFragmentDirections.actionCinemaHomeToMoviesSeat()
         findNavController().navigate(action)
     }

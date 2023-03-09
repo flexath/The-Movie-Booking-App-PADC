@@ -5,6 +5,7 @@ import com.flexath.themoviebookingapp.data.vos.location.CitiesVO
 import com.flexath.themoviebookingapp.data.vos.movie.*
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.CinemaVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
+import com.flexath.themoviebookingapp.data.vos.movie.SeatVO
 import com.flexath.themoviebookingapp.network.dataagents.CinemaDataAgent
 import com.flexath.themoviebookingapp.network.dataagents.RetrofitDataAgentImpl
 import com.flexath.themoviebookingapp.network.responses.OTPResponse
@@ -25,6 +26,7 @@ object CinemaModelImpl : CinemaModel {
     ) {
         mMovieDataAgent.getCities(onSuccess = {
             mCinemaDatabase?.getDao()?.insertCites(it)
+            onSuccess(it)
         }, onFailure)
     }
 
@@ -54,7 +56,7 @@ object CinemaModelImpl : CinemaModel {
         )
     }
 
-    override fun getOtp() = mCinemaDatabase?.getDao()?.getSignInInformation()
+    override fun getOtp(code:Int) = mCinemaDatabase?.getDao()?.getSignInInformation(code)
 
     override fun getBanners(onSuccess: (List<BannerVO>) -> Unit, onFailure: (String) -> Unit) {
         onSuccess(mCinemaDatabase?.getDao()?.getBanners() ?: listOf())
@@ -148,5 +150,15 @@ object CinemaModelImpl : CinemaModel {
     }
 
     override fun getCinemaInfo(cinemaId:Int) = mCinemaDatabase?.getDao()?.getCinemaInfo(cinemaId)
+
+    override fun getSeatPlan(
+        authorization: String,
+        dayTimeSlotId: Int,
+        bookingDate: String,
+        onSuccess: (List<List<SeatVO>>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mMovieDataAgent.getSeatPlan(authorization,dayTimeSlotId,bookingDate,onSuccess,onFailure)
+    }
 
 }

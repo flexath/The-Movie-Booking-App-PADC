@@ -16,6 +16,7 @@ const val API_GET_MOVIE_DETAILS = "/api/v1/movies"
 const val API_GET_CINEMA_TIMESLOTS = "/api/v2/cinema-day-timeslots"
 const val API_GET_CINEMA_CONFIG = "/api/v2/configurations"
 const val API_GET_CINEMA_INFO = "/api/v2/cinemas"
+const val API_GET_SEAT_PLAN = "/api/v2/seat-plan"
 
 // POST URLs
 const val API_POST_OTP = "/api/v2/get-otp"
@@ -25,6 +26,8 @@ const val API_POST_SIGN_IN_WITH_OTP = "/api/v2/check-otp"
 const val PARAM_STATUS = "status"
 const val PARAM_DATE = "date"
 const val PARAM_LATEST_TIME = "latest_time"
+const val PARAM_DAY_TIME_SLOT_ID = "cinema_day_timeslot_id"
+const val PARAM_BOOKING_DATE = "booking_date"
 
 // HEADERS
 const val HEADER_AUTH = "Authorization"
