@@ -1,9 +1,11 @@
 package com.flexath.themoviebookingapp.ui.fragments.movies
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -11,9 +13,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
+import com.flexath.themoviebookingapp.data.model.CinemaModel
+import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
+import com.flexath.themoviebookingapp.data.vos.test.SnackCategoryVO
 import com.flexath.themoviebookingapp.ui.adapters.movies.BottomSheetDialogMoviesFoodAdapter
-import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesFoodRecyclerAdapter
-import com.flexath.themoviebookingapp.ui.generaldata.FoodFactory
+import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesSnackAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,13 +27,15 @@ import kotlinx.android.synthetic.main.layout_bottom_sheet_dialog_movies_food.*
 import kotlinx.android.synthetic.main.layout_button_movies_food.*
 
 
-class MoviesFoodFragment : Fragment() {
+class MoviesSnackFragment : Fragment() {
 
     //private lateinit var mMoviesFoodAdapter:MoviesFoodViewPagerAdapter
     private lateinit var mBottomSheetDialogAdapter: BottomSheetDialogMoviesFoodAdapter
-    private lateinit var mFoodAdapter: MoviesFoodRecyclerAdapter
+    private lateinit var mSnackAdapter: MoviesSnackAdapter
+    private val mCinemaModel:CinemaModel = CinemaModelImpl
 
-    private val foodList = FoodFactory()
+    private val mSnackCategoryTitleList:MutableList<String?> = mutableListOf("All")
+    private var mSnackCategoryList:List<SnackCategoryVO> = listOf()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_movies_food, container, false)
@@ -39,32 +45,68 @@ class MoviesFoodFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.INVISIBLE
 
-//        setUpFoodTabLayout()                // For Food Types Tab
+        setUpListeners()
+
         setUpFoodRecyclerView()
         setUpFoodTabLayoutListener()
-        setUpListeners()
+        requestData()
+    }
+
+    private fun requestData() {
+        mCinemaModel.getSnackCategory(
+            "Bearer ${mCinemaModel.getOtp(201)?.token}",
+            onSuccess = {
+                mSnackCategoryList = it
+                setUpSnackTabLayoutTitle(it)
+            },
+            onFailure = {
+                Toast.makeText(requireActivity(),"Snack Category Call fails",Toast.LENGTH_SHORT).show()
+            }
+        )
+    }
+
+    private fun requestSnackListData(categoryId:String) {
+        mCinemaModel.getSnackByCategory(
+            "Bearer ${mCinemaModel.getOtp(201)?.token}",
+            categoryId,
+            onSuccess = {
+                mSnackAdapter.bindSnackListData(it)
+            },
+            onFailure = {
+                Toast.makeText(requireActivity(),"Snack List Call fails",Toast.LENGTH_SHORT).show()
+            }
+        )
     }
 
     private fun setUpFoodRecyclerView() {
-        mFoodAdapter = MoviesFoodRecyclerAdapter()
-        rvFoodMoviesFood.adapter = mFoodAdapter
-        rvFoodMoviesFood.layoutManager = GridLayoutManager(requireContext(),2)
+        mSnackAdapter = MoviesSnackAdapter()
+        rSnackMoviesSnack.adapter = mSnackAdapter
+        rSnackMoviesSnack.layoutManager = GridLayoutManager(requireContext(),2)
     }
 
-    private fun setUpFoodTabLayoutTitle() {
-        foodList.foodTitleList.forEach {
-            tabLayoutMoviesFood.newTab().apply {
-                text = it
-                tabLayoutMoviesFood.addTab(this)
+    private fun setUpSnackTabLayoutTitle(snackCategoryList:List<SnackCategoryVO>) {
+        snackCategoryList.forEach {
+            mSnackCategoryTitleList.add(it.title)
+        }
+        mSnackCategoryTitleList.forEach { snackCategoryTitle ->
+            tabLayoutMoviesSnack.newTab().apply {
+                text = snackCategoryTitle
+                tabLayoutMoviesSnack.addTab(this)
             }
         }
     }
 
     private fun setUpFoodTabLayoutListener() {
-        setUpFoodTabLayoutTitle()
-        tabLayoutMoviesFood.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+
+        tabLayoutMoviesSnack.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                setUpFoodRecyclerView()
+                if(tab?.position == 0) {
+                    requestSnackListData("")
+                } else {
+                    mSnackCategoryList[tab?.position?.minus(1) ?: 0].id?.let {
+                        requestSnackListData(it.toString())
+                    }
+                }
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -81,13 +123,13 @@ class MoviesFoodFragment : Fragment() {
     private fun setUpListeners() {
         // Order Button for Check Out Screen
         btnFoodOrderPurchaseMoviesFood.setOnClickListener {
-            val action = MoviesFoodFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
+            val action = MoviesSnackFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
             action.argCheckoutOrCancel = "Checkout"
             it.findNavController().navigate(action)
         }
 
         btnSkipButtonMoviesFood.setOnClickListener {
-            val action = MoviesFoodFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
+            val action = MoviesSnackFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
             action.argCheckoutOrCancel = "Checkout"
             it.findNavController().navigate(action)
         }
@@ -95,6 +137,7 @@ class MoviesFoodFragment : Fragment() {
         setUpFoodBottomSheetDialog()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setUpFoodBottomSheetDialog() {
         btnDownArrowMoviesFood.setImageResource(R.drawable.ic_down_arrow_black)
         btnDownArrowMoviesFood.setOnClickListener {
@@ -116,7 +159,7 @@ class MoviesFoodFragment : Fragment() {
             bottomDialog.show()
 
             bottomDialog.btnFoodOrderPurchaseBottomDialogMoviesFood.setOnClickListener {
-                val action = MoviesFoodFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
+                val action = MoviesSnackFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
                 action.argCheckoutOrCancel = "Checkout"
                 findNavController().navigate(action)
                 bottomDialog.dismiss()

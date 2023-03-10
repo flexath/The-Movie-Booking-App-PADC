@@ -60,13 +60,38 @@
                     android:textColor="@color/colorPrimaryLight"
                     android:textSize="@dimen/text_regular_2x" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvSeatsMoviesSeat"
+                <com.otaliastudios.zoom.ZoomLayout
+                    android:id="@+id/zoomLayoutSeat"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_14dp"
-                    android:layout_below="@+id/tvSeatTypeTitleMoviesSeat"
-                    tools:listitem="@layout/view_holder_movies_seat_list" />
+                    android:layout_height="450dp"
+                    android:scrollbars="vertical|horizontal"
+                    app:transformation="centerInside"
+                    app:transformationGravity="auto"
+                    app:alignment="center"
+                    app:overScrollHorizontal="true"
+                    app:overScrollVertical="true"
+                    app:overPinchable="true"
+                    app:horizontalPanEnabled="true"
+                    app:verticalPanEnabled="true"
+                    app:zoomEnabled="true"
+                    app:flingEnabled="true"
+                    app:scrollEnabled="true"
+                    app:oneFingerScrollEnabled="true"
+                    app:twoFingersScrollEnabled="true"
+                    app:threeFingersScrollEnabled="true"
+                    app:maxZoomType="zoom"
+                    app:minZoomType="zoom"
+                    app:animationDuration="100"
+                    app:hasClickableChildren="false"
+                    android:layout_below="@+id/tvSeatTypeTitleMoviesSeat">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvSeatsMoviesSeat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/view_holder_movies_seat_list" />
+
+                </com.otaliastudios.zoom.ZoomLayout>
 
             </RelativeLayout>
 
@@ -181,11 +206,12 @@
                 app:srcCompat="@drawable/minus" />
 
             <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/seekbarSeat"
                 android:layout_width="@dimen/width_seek_bar"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:max="250"
-                android:progress="100"
+                android:max="100"
+                android:progress="0"
                 android:progressBackgroundTint="@color/colorPrimaryLight"
                 android:progressTint="@color/white" />
 

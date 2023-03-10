@@ -7,7 +7,7 @@
     tools:context=".ui.fragments.movies.TabLayoutMoviesFoodFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFoodMoviesFood"
+        android:id="@+id/rSnackMoviesSnack"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/margin_10dp"

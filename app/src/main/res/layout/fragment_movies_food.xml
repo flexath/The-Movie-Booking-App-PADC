@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".ui.fragments.movies.MoviesFoodFragment">
+    tools:context=".ui.fragments.movies.MoviesSnackFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             layout="@layout/layout_app_bar_movies_food" />
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayoutMoviesFood"
+            android:id="@+id/tabLayoutMoviesSnack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/appBarMoviesFood"
@@ -40,10 +40,10 @@
         <!--            android:layout_below="@+id/tabLayoutMoviesFood" />-->
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvFoodMoviesFood"
+            android:id="@+id/rSnackMoviesSnack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tabLayoutMoviesFood"
+            android:layout_below="@+id/tabLayoutMoviesSnack"
             android:padding="@dimen/margin_10dp"
             android:layout_marginBottom="@dimen/margin_130dp"
             tools:listitem="@layout/view_holder_movies_food_foods_list" />

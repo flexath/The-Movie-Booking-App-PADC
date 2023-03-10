@@ -7,6 +7,8 @@ import com.flexath.themoviebookingapp.data.vos.movie.MovieVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.CinemaVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
 import com.flexath.themoviebookingapp.data.vos.movie.SeatVO
+import com.flexath.themoviebookingapp.data.vos.test.SnackCategoryVO
+import com.flexath.themoviebookingapp.data.vos.test.SnackVO
 import com.flexath.themoviebookingapp.network.responses.OTPResponse
 
 interface CinemaDataAgent {
@@ -81,6 +83,20 @@ interface CinemaDataAgent {
         dayTimeSlotId:Int,
         bookingDate:String,
         onSuccess:(List<List<SeatVO>>) -> Unit,
+        onFailure:(String) -> Unit
+    )
+
+    // Movie Snack Screen
+    fun getSnackCategory(
+        authorization:String,
+        onSuccess:(List<SnackCategoryVO>) -> Unit,
+        onFailure:(String) -> Unit
+    )
+
+    fun getSnackByCategory(
+        authorization:String,
+        categoryId:String,
+        onSuccess:(List<SnackVO>) -> Unit,
         onFailure:(String) -> Unit
     )
 }

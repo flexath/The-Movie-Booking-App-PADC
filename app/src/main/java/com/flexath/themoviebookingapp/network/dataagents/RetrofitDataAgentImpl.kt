@@ -7,6 +7,8 @@ import com.flexath.themoviebookingapp.data.vos.movie.MovieVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.CinemaVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
 import com.flexath.themoviebookingapp.data.vos.movie.SeatVO
+import com.flexath.themoviebookingapp.data.vos.test.SnackCategoryVO
+import com.flexath.themoviebookingapp.data.vos.test.SnackVO
 import com.flexath.themoviebookingapp.network.responses.SeatingPlanResponse
 import com.flexath.themoviebookingapp.network.api.CinemaApi
 import com.flexath.themoviebookingapp.network.responses.*
@@ -312,6 +314,59 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
                 }
 
                 override fun onFailure(call: Call<SeatingPlanResponse>, t: Throwable) {
+                    onFailure(t.message ?: "")
+                }
+
+            })
+    }
+
+    override fun getSnackCategory(
+        authorization: String,
+        onSuccess: (List<SnackCategoryVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mCinemaApi?.getSnackCategory(authorization)
+            ?.enqueue(object : Callback<SnackCategoryResponse>{
+                override fun onResponse(
+                    call: Call<SnackCategoryResponse>,
+                    response: Response<SnackCategoryResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val snackCategoryList = response.body()?.data ?: listOf()
+                        onSuccess(snackCategoryList)
+                    } else {
+                        onFailure("Don't make errors,Aung Thiha")
+                    }
+                }
+
+                override fun onFailure(call: Call<SnackCategoryResponse>, t: Throwable) {
+                    onFailure(t.message ?: "")
+                }
+
+            })
+    }
+
+    override fun getSnackByCategory(
+        authorization: String,
+        categoryId: String,
+        onSuccess: (List<SnackVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mCinemaApi?.getSnackByCategory(authorization,categoryId)
+            ?.enqueue(object : Callback<SnackListResponse>{
+                override fun onResponse(
+                    call: Call<SnackListResponse>,
+                    response: Response<SnackListResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val snackList = response.body()?.data ?: listOf()
+                        onSuccess(snackList)
+                    } else {
+                        onFailure("Don't make errors,Aung Thiha")
+                    }
+                }
+
+                override fun onFailure(call: Call<SnackListResponse>, t: Throwable) {
                     onFailure(t.message ?: "")
                 }
 

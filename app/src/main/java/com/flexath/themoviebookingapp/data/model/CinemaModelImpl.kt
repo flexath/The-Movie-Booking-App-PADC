@@ -6,6 +6,8 @@ import com.flexath.themoviebookingapp.data.vos.movie.*
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.CinemaVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
 import com.flexath.themoviebookingapp.data.vos.movie.SeatVO
+import com.flexath.themoviebookingapp.data.vos.test.SnackCategoryVO
+import com.flexath.themoviebookingapp.data.vos.test.SnackVO
 import com.flexath.themoviebookingapp.network.dataagents.CinemaDataAgent
 import com.flexath.themoviebookingapp.network.dataagents.RetrofitDataAgentImpl
 import com.flexath.themoviebookingapp.network.responses.OTPResponse
@@ -159,6 +161,23 @@ object CinemaModelImpl : CinemaModel {
         onFailure: (String) -> Unit
     ) {
         mMovieDataAgent.getSeatPlan(authorization,dayTimeSlotId,bookingDate,onSuccess,onFailure)
+    }
+
+    override fun getSnackCategory(
+        authorization: String,
+        onSuccess: (List<SnackCategoryVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mMovieDataAgent.getSnackCategory(authorization,onSuccess,onFailure)
+    }
+
+    override fun getSnackByCategory(
+        authorization: String,
+        categoryId: String,
+        onSuccess: (List<SnackVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mMovieDataAgent.getSnackByCategory(authorization,categoryId,onSuccess,onFailure)
     }
 
 }

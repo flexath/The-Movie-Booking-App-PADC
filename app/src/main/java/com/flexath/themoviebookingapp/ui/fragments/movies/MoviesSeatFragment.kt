@@ -1,10 +1,12 @@
 package com.flexath.themoviebookingapp.ui.fragments.movies
 
 import android.annotation.SuppressLint
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -15,6 +17,7 @@ import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.data.model.CinemaModel
 import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
 import com.flexath.themoviebookingapp.ui.adapters.movies.SeatsMoviesSeatAdapter
+import com.otaliastudios.opengl.geometry.PointF
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_seat.*
 
@@ -81,6 +84,23 @@ class MoviesSeatFragment : Fragment() {
             val action = MoviesSeatFragmentDirections.actionMoviesSeatToMoviesFood()
             it.findNavController().navigate(action)
         }
+
+        seekbarSeat.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                val zoomLevel = (progress / 100f) * (zoomLayoutSeat.getMaxZoom() - zoomLayoutSeat.getMinZoom()) + zoomLayoutSeat.getMinZoom()
+                zoomLayoutSeat.zoomTo(zoomLevel, true)
+                zoomLayoutSeat.zoomBy(10F,true)
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                // No action needed
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                // No action needed
+            }
+        })
+
     }
 
 }

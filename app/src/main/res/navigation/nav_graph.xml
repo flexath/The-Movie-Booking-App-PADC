@@ -102,7 +102,7 @@
     </fragment>
     <fragment
         android:id="@+id/moviesFoodFragment"
-        android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesFoodFragment"
+        android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesSnackFragment"
         android:label="fragment_movies_food"
         tools:layout="@layout/fragment_movies_food" >
         <action

@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.flexath.themoviebookingapp.R
-import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesFoodRecyclerAdapter
+import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesSnackAdapter
 import kotlinx.android.synthetic.main.fragment_tab_layout_movies_food.*
 
 class TabLayoutMoviesFoodFragment(foodIndex:Int) : Fragment() {
 
-    private lateinit var mFoodAdapter:MoviesFoodRecyclerAdapter
+    private lateinit var mFoodAdapter:MoviesSnackAdapter
     private var foodType = foodIndex
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -26,9 +26,9 @@ class TabLayoutMoviesFoodFragment(foodIndex:Int) : Fragment() {
     }
 
     private fun setUpFoodRecyclerView() {
-        mFoodAdapter = MoviesFoodRecyclerAdapter()
-        rvFoodMoviesFood.adapter = mFoodAdapter
-        rvFoodMoviesFood.layoutManager = GridLayoutManager(requireContext(),2)
+        mFoodAdapter = MoviesSnackAdapter()
+        rSnackMoviesSnack.adapter = mFoodAdapter
+        rSnackMoviesSnack.layoutManager = GridLayoutManager(requireContext(),2)
     }
 
 }

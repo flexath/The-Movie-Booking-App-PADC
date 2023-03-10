@@ -69,4 +69,15 @@ interface CinemaApi {
         @Query(PARAM_DAY_TIME_SLOT_ID) dayTimeSlot:Int,
         @Query(PARAM_BOOKING_DATE) bookingDate:String
     ) : Call<SeatingPlanResponse>
+
+    @GET(API_GET_SNACK_CATEGORY)
+    fun getSnackCategory(
+        @Header(HEADER_AUTH) authorization:String
+    ) : Call<SnackCategoryResponse>
+
+    @GET(API_GET_SNACK)
+    fun getSnackByCategory(
+        @Header(HEADER_AUTH) authorization:String,
+        @Query(PARAM_SNACK_CATEGORY) categoryId:String
+    ) : Call<SnackListResponse>
 }
