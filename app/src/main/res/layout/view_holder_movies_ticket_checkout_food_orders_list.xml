@@ -3,16 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@android:color/transparent"
     android:orientation="horizontal"
     android:gravity="center_vertical"
     android:paddingBottom="@dimen/margin_medium_2"
-    android:weightSum="2">
+    android:weightSum="3">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:layout_marginStart="@dimen/margin_small"
         android:orientation="horizontal">
 
@@ -23,10 +24,20 @@
             app:srcCompat="@drawable/cross_icon"/>
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSnackNameTicket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/dm_sans_bold"
-            android:text="Potato Chips (Qt. 1)"
+            tools:text="Potato Chips"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="@dimen/text_regular"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSnackQuantityTicket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dm_sans_bold"
+            tools:text="(Qt. 1)"
             android:textColor="@color/colorPrimaryLight"
             android:textSize="@dimen/text_regular"/>
 
@@ -34,11 +45,12 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSnackPriceTicket"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_weight="1"
-        android:text="1000Ks"
+        tools:text="1000Ks"
         android:fontFamily="@font/dm_sans_bold"
         android:gravity="end"
         android:textColor="@color/colorPrimaryLight"

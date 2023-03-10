@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:paddingBottom="@dimen/margin_medium_3"
     tools:context=".ui.fragments.movies.MoviesTicketCheckoutFragment">
 
     <RelativeLayout
@@ -37,16 +38,17 @@
                 android:paddingStart="@dimen/margin_large"
                 android:paddingEnd="@dimen/margin_large">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvMovieNameTicket"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_small"
                     android:fontFamily="@font/dm_sans_bold"
-                    android:text="Black Widow"
+                    tools:text="Black Widow"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_18sp" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_small"
@@ -76,11 +78,12 @@
                 android:paddingEnd="@dimen/margin_large">
 
                 <TextView
+                    android:id="@+id/tvCinemaNameTicket"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_small"
                     android:fontFamily="@font/dm_sans"
-                    android:text="JCGV: Junction City"
+                    tools:text="JCGV: Junction City"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/text_18sp" />
 
@@ -120,6 +123,7 @@
                         app:srcCompat="@drawable/ic_baseline_calendar_month_accent_24dp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDateTicket"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -147,6 +151,7 @@
                         app:srcCompat="@drawable/ic_baseline_access_time_accent_24dp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTimeTicket"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -172,6 +177,7 @@
                         app:srcCompat="@drawable/ic_baseline_location_on_accent_24dp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvAddressTicket"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -196,7 +202,7 @@
                 android:paddingStart="@dimen/margin_large"
                 android:paddingEnd="@dimen/margin_large">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dm_sans_bold"
@@ -204,15 +210,16 @@
                     android:textColor="@color/colorGrey"
                     android:textSize="@dimen/text_regular" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvNumberOfTicket"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dm_sans_bold"
-                    android:text="2"
+                    tools:text="2"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/text_regular" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dm_sans_bold"
@@ -239,17 +246,19 @@
                     android:paddingEnd="@dimen/margin_large"
                     android:weightSum="2">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTicketNamesTicket"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/dm_sans_bold"
                         android:gravity="start"
-                        android:text="Gold-G8,G7"
+                        tools:text="Gold-G8,G7"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_regular_2x" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTicketTotalPrice"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -316,13 +325,14 @@
 
                         </LinearLayout>
 
-                        <TextView
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvSnackTotalPrice"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
                             android:fontFamily="@font/dm_sans_bold"
                             android:gravity="end"
-                            android:text="2000Ks"
+                            tools:text="2000Ks"
                             android:textColor="@color/white"
                             android:textSize="@dimen/text_regular_2x" />
 
@@ -454,6 +464,7 @@
                     android:textSize="@dimen/text_18sp" />
 
                 <TextView
+                    android:id="@+id/tvTotalMoney"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"

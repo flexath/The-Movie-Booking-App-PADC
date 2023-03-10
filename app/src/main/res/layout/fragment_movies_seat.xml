@@ -64,6 +64,7 @@
                     android:id="@+id/rvSeatsMoviesSeat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15dp"
                     android:layout_below="@+id/tvSeatTypeTitleMoviesSeat"
                     tools:listitem="@layout/view_holder_movies_seat_list" />
 
@@ -247,7 +248,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_bold"
-                    android:text="2 Tickets"
+                    tools:text="2 Tickets"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_ticket" />
 
@@ -256,7 +257,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_bold"
-                    android:text="17000KS"
+                    tools:text="17000KS"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/text_regular_3x" />
 

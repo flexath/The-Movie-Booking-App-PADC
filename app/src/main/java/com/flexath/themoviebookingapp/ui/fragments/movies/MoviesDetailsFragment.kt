@@ -37,6 +37,7 @@ class MoviesDetailsFragment : Fragment() {
     private val args:MoviesDetailsFragmentArgs by navArgs()
 
     private var movieId:Int = 0
+    private var mMovieName:String? = null
 
     private var mMovieModel: CinemaModel = CinemaModelImpl
 
@@ -64,6 +65,7 @@ class MoviesDetailsFragment : Fragment() {
         mMovieModel.getMovieDetailsById(
             movieId.toString(),
             onSuccess = {
+                mMovieName = it.originalTitle
                 bindNewData(it)
             },
             onFailure = {
@@ -162,6 +164,7 @@ class MoviesDetailsFragment : Fragment() {
 
         btnBookingButtonMoviesDetails.setOnClickListener {
             val action = MoviesDetailsFragmentDirections.actionMoviesDetailsHomeToChooseCinema()
+            action.argMovieName = mMovieName
             it.findNavController().navigate(action)
         }
 

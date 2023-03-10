@@ -42,9 +42,7 @@ class CinemaTimesMoviesCinemaViewHolder(
 
     private fun setUpOnLongClickListener() {
         itemView.setOnLongClickListener {
-            mTimeslot?.cinemaDayTimeslotId?.let { id ->
-                delegate.onClickCinemaTimes(id)
-            }
+            delegate.onClickCinemaTimes(mTimeslot?.cinemaDayTimeslotId ?: 0,mTimeslot?.start_time)
             true
         }
     }

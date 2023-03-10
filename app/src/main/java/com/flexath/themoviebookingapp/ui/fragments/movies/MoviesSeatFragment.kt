@@ -1,6 +1,7 @@
 package com.flexath.themoviebookingapp.ui.fragments.movies
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,8 @@ import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
 import com.flexath.themoviebookingapp.data.vos.movie.SeatVO
 import com.flexath.themoviebookingapp.ui.adapters.movies.SeatsMoviesSeatAdapter
 import com.flexath.themoviebookingapp.ui.delegates.SeatViewHolderDelegate
+import com.flexath.themoviebookingapp.ui.utils.CinemaData
+import com.flexath.themoviebookingapp.ui.utils.SeatData
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_seat.*
 
@@ -29,6 +32,11 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
     private var bookingDate: String? = null
 
     private var mSeatDoubleList: MutableLiveData<MutableList<MutableList<SeatVO>>> = MutableLiveData<MutableList<MutableList<SeatVO>>>()
+
+    // For Ticket
+    private var mmMovieName:String? = null
+    private var mmCinemaInfo:CinemaData? = null
+    private val mmSeatTicketList:MutableList<String> = mutableListOf()
 
     companion object {
         private val seatVO = SeatVO(null,null,null,null,"path",false)
@@ -45,8 +53,14 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.INVISIBLE
 
+        Log.i("CinemaSeat",args.argMovieName.toString())
+        Log.i("CinemaSeat",args.argCinemaInfo.toString())
+
         dayTimeSlotId = args.argDayTimeslotId
         bookingDate = args.argBookingDate
+
+        mmMovieName = args.argMovieName
+        mmCinemaInfo = args.argCinemaInfo
 
         setUpListeners()
 
@@ -101,10 +115,19 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
     }
 
     private fun setUpListeners() {
+        val ticketPrice = 4500L
         btnBuyButtonMoviesSeat.setOnClickListener {
             val action = MoviesSeatFragmentDirections.actionMoviesSeatToMoviesFood()
+            action.argMovieName = mmMovieName
+            action.argCinemaInfo = mmCinemaInfo
+
+            val seatInfo = SeatData(mmSeatTicketList.size,mmSeatTicketList,(mmSeatTicketList.size*ticketPrice))
+            action.argSeatInfo = seatInfo
             it.findNavController().navigate(action)
         }
+
+        tvNumberOfTicketsMoviesSeat.text = (mmSeatTicketList.size).toString()
+        tvTicketPriceMoviesSeat.text = ((mmSeatTicketList.size*ticketPrice).toString())
 
 //        seekbarSeat.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
 //            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -130,6 +153,7 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
                     if (seatVO.seatName == seatName) {
                         seatVO.isSelected = true
                         Toast.makeText(requireActivity(), seatVO.seatName, Toast.LENGTH_SHORT).show()
+                        mmSeatTicketList.add(seatVO.seatName)
                         break@outer
                     }
                 }

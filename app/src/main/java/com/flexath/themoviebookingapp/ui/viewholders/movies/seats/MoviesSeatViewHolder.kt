@@ -17,8 +17,6 @@ class MoviesSeatViewHolder(itemView: View,private val delegate: SeatViewHolderDe
         itemView.ivSeatCinemaSeat.setOnClickListener {
             delegate.onTapSeat(mSeatVO?.seatName ?: "")
         }
-
-        if(mSeatVO?.isSelected == true) itemView.ivSeatCinemaSeat.setImageResource(R.drawable.seat_selectedd)
     }
 
     fun bindSeatData(seatDoubleList: MutableList<MutableList<SeatVO>>,position: Int) {
@@ -28,6 +26,8 @@ class MoviesSeatViewHolder(itemView: View,private val delegate: SeatViewHolderDe
         val seat = seatDoubleList[row][column]
 
         mSeatVO = seat
+
+        if(mSeatVO?.isSelected == true) itemView.ivSeatCinemaSeat.setImageResource(R.drawable.seat_selectedd)
 
         when(seat.type) {
             "text" -> {

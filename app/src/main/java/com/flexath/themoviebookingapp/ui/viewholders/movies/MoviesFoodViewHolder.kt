@@ -9,7 +9,6 @@ import kotlinx.android.synthetic.main.view_holder_movies_food_foods_list.view.*
 
 class MoviesFoodViewHolder(itemView: View,private val delegate:SnackViewHolderDelegate) : RecyclerView.ViewHolder(itemView) {
 
-    private var count:Int = 0
     private var mSnackVO:SnackVO? = null
 
     init {

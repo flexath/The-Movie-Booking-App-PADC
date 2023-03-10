@@ -11,12 +11,14 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.data.model.CinemaModel
 import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
 import com.flexath.themoviebookingapp.ui.adapters.movies.DateCardMoviesCinemaAdapter
 import com.flexath.themoviebookingapp.ui.delegates.CinemaListViewHolderDelegate
+import com.flexath.themoviebookingapp.ui.utils.CinemaData
 import com.flexath.themoviebookingapp.ui.utils.TimeSlotUtil
 import com.flexath.themoviebookingapp.ui.viewpods.CinemaListViewPod
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,6 +32,13 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
     private lateinit var cinemaListViewPod: CinemaListViewPod
     private val mCinemaModel: CinemaModel = CinemaModelImpl
     private var mBookingDate:String? = null
+
+    private val args:MoviesCinemaFragmentArgs by navArgs()
+
+    // For Ticket
+    private var mMovieName:String? = null
+    private var mCinemaName:String? = null
+    private var mCinemaLocation:String? = null
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -46,6 +55,8 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.INVISIBLE
+
+        mMovieName = args.argMovieName
 
         setUpDateCardsRecyclerView()            // For Date Cards
         bindTimeSlotData()
@@ -94,15 +105,20 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
     }
 
     override fun onClickCinemaSeeDetails(cinemaId: Int) {
+
         val action = MoviesCinemaFragmentDirections.actionChooseCinemaToCinemaInfo()
         action.argCinemaId = cinemaId
         findNavController().navigate(action)
     }
 
-    override fun onClickCinemaTimes(dayTimeslotId:Int) {
+    override fun onClickCinemaTimes(dayTimeslotId:Int,cinemaTime:String?) {
         val action = MoviesCinemaFragmentDirections.actionChooseCinemaToMoviesSeat()
         action.argDayTimeslotId = dayTimeslotId
         action.argBookingDate = mBookingDate
+
+        action.argMovieName = mMovieName
+        val mCinemaInfo = CinemaData(mCinemaName,mBookingDate,cinemaTime,mCinemaLocation)
+        action.argCinemaInfo = mCinemaInfo
         findNavController().navigate(action)
     }
 
@@ -110,5 +126,18 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
         mBookingDate = date
         requestData(date)
         Toast.makeText(requireContext(), date, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun getCinemaName(cinemaName: String?) {
+        mCinemaName = cinemaName
+    }
+
+    override fun getCinemaId(cinemaId: Int?) {
+
+        cinemaId?.let { id ->
+            mCinemaModel.getCinemaInfo(id)?.also { cinemaInfo ->
+                mCinemaLocation = cinemaInfo.address
+            }
+        }
     }
 }
