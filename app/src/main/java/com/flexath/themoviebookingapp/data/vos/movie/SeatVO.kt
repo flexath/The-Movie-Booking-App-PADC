@@ -17,5 +17,7 @@ data class SeatVO(
     val symbol: String?,
 
     @SerializedName("type")
-    val type: String?
+    val type: String?,
+
+    var isSelected:Boolean = false
 )

@@ -2,12 +2,14 @@ package com.flexath.themoviebookingapp.ui.fragments.movies
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -16,8 +18,10 @@ import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.data.model.CinemaModel
 import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
 import com.flexath.themoviebookingapp.data.vos.test.SnackCategoryVO
+import com.flexath.themoviebookingapp.data.vos.test.SnackVO
 import com.flexath.themoviebookingapp.ui.adapters.movies.BottomSheetDialogMoviesFoodAdapter
 import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesSnackAdapter
+import com.flexath.themoviebookingapp.ui.delegates.SnackViewHolderDelegate
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,7 +31,7 @@ import kotlinx.android.synthetic.main.layout_bottom_sheet_dialog_movies_food.*
 import kotlinx.android.synthetic.main.layout_button_movies_food.*
 
 
-class MoviesSnackFragment : Fragment() {
+class MoviesSnackFragment : Fragment(),SnackViewHolderDelegate {
 
     //private lateinit var mMoviesFoodAdapter:MoviesFoodViewPagerAdapter
     private lateinit var mBottomSheetDialogAdapter: BottomSheetDialogMoviesFoodAdapter
@@ -36,6 +40,7 @@ class MoviesSnackFragment : Fragment() {
 
     private val mSnackCategoryTitleList:MutableList<String?> = mutableListOf("All")
     private var mSnackCategoryList:List<SnackCategoryVO> = listOf()
+    private var mSnackList:MutableLiveData<List<SnackVO>> = MutableLiveData<List<SnackVO>>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_movies_food, container, false)
@@ -70,6 +75,7 @@ class MoviesSnackFragment : Fragment() {
             "Bearer ${mCinemaModel.getOtp(201)?.token}",
             categoryId,
             onSuccess = {
+                mSnackList.value = it
                 mSnackAdapter.bindSnackListData(it)
             },
             onFailure = {
@@ -79,7 +85,7 @@ class MoviesSnackFragment : Fragment() {
     }
 
     private fun setUpFoodRecyclerView() {
-        mSnackAdapter = MoviesSnackAdapter()
+        mSnackAdapter = MoviesSnackAdapter(this)
         rSnackMoviesSnack.adapter = mSnackAdapter
         rSnackMoviesSnack.layoutManager = GridLayoutManager(requireContext(),2)
     }
@@ -100,6 +106,7 @@ class MoviesSnackFragment : Fragment() {
 
         tabLayoutMoviesSnack.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
+
                 if(tab?.position == 0) {
                     requestSnackListData("")
                 } else {
@@ -116,7 +123,6 @@ class MoviesSnackFragment : Fragment() {
             override fun onTabReselected(tab: TabLayout.Tab?) {
 
             }
-
         })
     }
 
@@ -171,16 +177,30 @@ class MoviesSnackFragment : Fragment() {
         }
     }
 
-//    private fun setUpFoodTabLayout() {
-//        mMoviesFoodAdapter = MoviesFoodViewPagerAdapter(this,foodList)
-//        viewPagerTabLayoutMoviesFood.adapter = mMoviesFoodAdapter
-//
-//        TabLayoutMediator(tabLayoutMoviesFood,viewPagerTabLayoutMoviesFood) { tab,position ->
-//            for(i in foodList.foodTitleList.indices) {
-//                if(position == i){
-//                    tab.text = foodList.foodTitleList[i]
-//                }
-//            }
-//        }.attach()
-//    }
+    override fun onTapPlusSnack(snackId: Int) {
+        mSnackList.observe(this) { snackList ->
+            snackList.forEach {
+                if (it.id == snackId) {
+                    it.quantity++
+                }
+            }
+            mSnackAdapter.bindSnackListData(snackList)
+        }
+    }
+
+    override fun onTapMinusSnack(snackId: Int) {
+        mSnackList.observe(this) { snackList ->
+            snackList.forEach {
+                if(it.id == snackId) {
+                    it.quantity--
+                    if(it.quantity <= 0) {
+                        it.quantity = 0
+                    }
+                }
+            }
+            mSnackAdapter.bindSnackListData(snackList)
+        }
+
+    }
+
 }

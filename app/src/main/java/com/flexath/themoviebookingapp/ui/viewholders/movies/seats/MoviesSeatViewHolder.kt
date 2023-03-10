@@ -5,17 +5,29 @@ import androidx.recyclerview.widget.RecyclerView
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.data.vos.movie.SeatVO
 import com.flexath.themoviebookingapp.ui.adapters.movies.SeatsMoviesSeatAdapter
+import com.flexath.themoviebookingapp.ui.delegates.SeatViewHolderDelegate
 import kotlinx.android.synthetic.main.view_holder_movies_seat_list.view.*
 
-class MoviesSeatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class MoviesSeatViewHolder(itemView: View,private val delegate: SeatViewHolderDelegate) : RecyclerView.ViewHolder(itemView) {
 
     private val numberOfColumn = 18
+    private var mSeatVO:SeatVO? = null
+
+    init {
+        itemView.ivSeatCinemaSeat.setOnClickListener {
+            delegate.onTapSeat(mSeatVO?.seatName ?: "")
+        }
+
+        if(mSeatVO?.isSelected == true) itemView.ivSeatCinemaSeat.setImageResource(R.drawable.seat_selectedd)
+    }
 
     fun bindSeatData(seatDoubleList: MutableList<MutableList<SeatVO>>,position: Int) {
 
         val row = position / numberOfColumn
         val column = position % numberOfColumn
         val seat = seatDoubleList[row][column]
+
+        mSeatVO = seat
 
         when(seat.type) {
             "text" -> {
@@ -35,7 +47,6 @@ class MoviesSeatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             "available" -> {
                 itemView.tvSeatTypeCinemaSeat.visibility = View.INVISIBLE
                 itemView.ivSeatCinemaSeat.visibility = View.VISIBLE
-                itemView.ivSeatCinemaSeat.setImageResource(R.drawable.chair_available)
             }
         }
     }

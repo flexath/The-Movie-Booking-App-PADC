@@ -296,7 +296,7 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
         authorization: String,
         dayTimeSlotId: Int,
         bookingDate: String,
-        onSuccess: (List<List<SeatVO>>) -> Unit,
+        onSuccess: (MutableList<MutableList<SeatVO>>) -> Unit,
         onFailure: (String) -> Unit
     ) {
         mCinemaApi?.getSeatPlan(authorization,dayTimeSlotId,bookingDate)
@@ -306,7 +306,7 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
                     response: Response<SeatingPlanResponse>
                 ) {
                     if (response.isSuccessful) {
-                        val seatList = response.body()?.data ?: listOf()
+                        val seatList = response.body()?.data ?: mutableListOf()
                         onSuccess(seatList)
                     } else {
                         onFailure("Don't make errors,Aung Thiha")

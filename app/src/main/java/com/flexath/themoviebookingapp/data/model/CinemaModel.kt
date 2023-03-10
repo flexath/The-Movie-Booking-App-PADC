@@ -90,7 +90,7 @@ interface CinemaModel {
         authorization:String,
         dayTimeSlotId: Int,
         bookingDate:String,
-        onSuccess:(List<List<SeatVO>>) -> Unit,
+        onSuccess:(MutableList<MutableList<SeatVO>>) -> Unit,
         onFailure:(String) -> Unit
     )
 

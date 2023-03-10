@@ -9,7 +9,7 @@ data class SeatingPlanResponse(
     val code: Int?,
 
     @SerializedName("data")
-    val data: List<List<SeatVO>>?,
+    val data: MutableList<MutableList<SeatVO>>?,
 
     @SerializedName("message")
     val message: String?

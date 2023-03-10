@@ -4,36 +4,42 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.flexath.themoviebookingapp.data.vos.test.SnackVO
+import com.flexath.themoviebookingapp.ui.delegates.SnackViewHolderDelegate
 import kotlinx.android.synthetic.main.view_holder_movies_food_foods_list.view.*
 
-class MoviesFoodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class MoviesFoodViewHolder(itemView: View,private val delegate:SnackViewHolderDelegate) : RecyclerView.ViewHolder(itemView) {
 
-    var count:Int = 0
+    private var count:Int = 0
     private var mSnackVO:SnackVO? = null
 
     init {
-        setUpAddButtonListener()
+        setUpAddButtonListeners()
     }
 
-    private fun setUpAddButtonListener() {
+    private fun setUpAddButtonListeners() {
         itemView.btnAddMoviesFood.setOnClickListener {
             itemView.btnAddMoviesFood.visibility = View.GONE
             itemView.llFoodAddMinusMoviesFood.visibility = View.VISIBLE
         }
 
         itemView.btnPlusMoviesFood.setOnClickListener {
-            count++
-            itemView.tvFoodCountMoviesFood.text = count.toString()
+            delegate.onTapPlusSnack(mSnackVO?.id ?: 0)
         }
 
         itemView.btnMinusMoviesFood.setOnClickListener {
-            count--
-            itemView.tvFoodCountMoviesFood.text = count.toString()
+            delegate.onTapMinusSnack(mSnackVO?.id ?: 0)
         }
+    }
 
-        itemView.setOnClickListener {
+    private fun setUpForSnackButtonVisibility() {
+        if(mSnackVO?.quantity!! <= 0) {
             itemView.btnAddMoviesFood.visibility = View.VISIBLE
             itemView.llFoodAddMinusMoviesFood.visibility = View.GONE
+            itemView.tvFoodCountMoviesFood.text = "0"
+        } else {
+            itemView.btnAddMoviesFood.visibility = View.GONE
+            itemView.llFoodAddMinusMoviesFood.visibility = View.VISIBLE
+            itemView.tvFoodCountMoviesFood.text = mSnackVO?.quantity.toString()
         }
     }
 
@@ -45,6 +51,6 @@ class MoviesFoodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         itemView.tvFoodNameMoviesFood.text = snack.name
         itemView.tvFoodPriceMoviesFood.text = snack.price.toString()
-
+        setUpForSnackButtonVisibility()
     }
 }
