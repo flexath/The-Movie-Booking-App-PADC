@@ -19,6 +19,7 @@ const val API_GET_CINEMA_INFO = "/api/v2/cinemas"
 const val API_GET_SEAT_PLAN = "/api/v2/seat-plan"
 const val API_GET_SNACK_CATEGORY = "/api/v2/snack-categories"
 const val API_GET_SNACK = "/api/v2/snacks"
+const val API_GET_PAYMENT = "/api/v2/payment-types"
 
 // POST URLs
 const val API_POST_OTP = "/api/v2/get-otp"

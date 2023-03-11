@@ -7,8 +7,9 @@ import com.flexath.themoviebookingapp.data.vos.movie.MovieVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.CinemaVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
 import com.flexath.themoviebookingapp.data.vos.movie.SeatVO
-import com.flexath.themoviebookingapp.data.vos.test.SnackCategoryVO
-import com.flexath.themoviebookingapp.data.vos.test.SnackVO
+import com.flexath.themoviebookingapp.data.vos.movie.SnackCategoryVO
+import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
+import com.flexath.themoviebookingapp.data.vos.test.PaymentVO
 import com.flexath.themoviebookingapp.network.responses.OTPResponse
 
 interface CinemaDataAgent {
@@ -97,6 +98,13 @@ interface CinemaDataAgent {
         authorization:String,
         categoryId:String,
         onSuccess:(List<SnackVO>) -> Unit,
+        onFailure:(String) -> Unit
+    )
+
+    // Movie Payment Screen
+    fun getPaymentTypes(
+        authorization:String,
+        onSuccess:(List<PaymentVO>) -> Unit,
         onFailure:(String) -> Unit
     )
 }

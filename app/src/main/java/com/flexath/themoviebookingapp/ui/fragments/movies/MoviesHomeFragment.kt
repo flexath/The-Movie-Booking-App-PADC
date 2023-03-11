@@ -50,7 +50,7 @@ class MoviesHomeFragment : Fragment() {
     }
 
     private fun setUpAppBarListeners() {
-        tvCityNameMoviesHome.text = (activity as AppCompatActivity).intent.getStringExtra(MainActivity.CITY_NAME_EXTRA)
+        tvCityNameMoviesHome.text = (activity as AppCompatActivity).intent.getStringExtra(MainActivity.CITY_NAME_EXTRA) ?: ""
 
         btnSearchMoviesHome.setOnClickListener {
             val action = MoviesHomeFragmentDirections.actionMoviesHomeToMoviesSearch()
@@ -94,7 +94,7 @@ class MoviesHomeFragment : Fragment() {
 
     private fun setUpBannerRecyclerView(banners:List<BannerVO>) {
         mBannerHomeAdapter = BannerMoviesHomeAdapter(banners)
-        viewPagerBannerMoviesHome.adapter = mBannerHomeAdapter
+        viewPagerBannerMoviesHome?.adapter = mBannerHomeAdapter
         dotsIndicatorHome.attachTo(viewPagerBannerMoviesHome)
         mBannerHomeAdapter.notifyDataSetChanged()
     }

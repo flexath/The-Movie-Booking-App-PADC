@@ -264,7 +264,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/dm_sans_bold"
                         android:gravity="end"
-                        android:text="20000Ks"
+                        tools:text="20000Ks"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_regular_2x" />
 
@@ -339,9 +339,11 @@
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvFoodOrderedListMoviesTicketCheckout"
+                        android:id="@+id/rvSnackTicketCheckout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/view_holder_movies_ticket_checkout_food_orders_list"
                         android:layout_marginTop="@dimen/margin_25dp"/>
 
                 </LinearLayout>

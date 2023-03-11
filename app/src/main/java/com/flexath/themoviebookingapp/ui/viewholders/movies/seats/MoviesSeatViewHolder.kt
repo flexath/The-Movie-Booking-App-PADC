@@ -12,10 +12,15 @@ class MoviesSeatViewHolder(itemView: View,private val delegate: SeatViewHolderDe
 
     private val numberOfColumn = 18
     private var mSeatVO:SeatVO? = null
+    private var isAvailable:Boolean = true
 
     init {
         itemView.ivSeatCinemaSeat.setOnClickListener {
-            delegate.onTapSeat(mSeatVO?.seatName ?: "")
+            if(mSeatVO?.isSelected == false) {
+                delegate.onTapSeat(mSeatVO?.seatName ?: "",mSeatVO?.isSelected)
+            } else {
+                delegate.onTapSeat(mSeatVO?.seatName ?: "",mSeatVO?.isSelected)
+            }
         }
     }
 
@@ -28,6 +33,7 @@ class MoviesSeatViewHolder(itemView: View,private val delegate: SeatViewHolderDe
         mSeatVO = seat
 
         if(mSeatVO?.isSelected == true) itemView.ivSeatCinemaSeat.setImageResource(R.drawable.seat_selectedd)
+        else itemView.ivSeatCinemaSeat.setImageResource(R.drawable.chair_available)
 
         when(seat.type) {
             "text" -> {

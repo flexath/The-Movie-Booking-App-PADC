@@ -5,11 +5,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.flexath.themoviebookingapp.persistence.typeconverters.TimeslotColorTypeConverter
+import com.flexath.themoviebookingapp.persistence.typeconverters.ValueAnyTypeConverter
 import com.google.gson.annotations.SerializedName
 
 @Entity("config_table")
 @TypeConverters(
-    TimeslotColorTypeConverter::class
+    ValueAnyTypeConverter::class
 )
 data class ConfigVO(
 
@@ -23,5 +24,5 @@ data class ConfigVO(
 
     @SerializedName("value")
     @ColumnInfo("value")
-    val value: List<TimeslotColorVO>?
+    val value: Any?
 )

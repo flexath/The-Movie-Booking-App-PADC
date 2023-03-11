@@ -1,16 +1,15 @@
 package com.flexath.themoviebookingapp.ui.viewholders.movies
 
+import android.graphics.Color
 import android.view.View
 import android.widget.Toast
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide.init
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.data.model.CinemaModel
 import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
+import com.flexath.themoviebookingapp.data.vos.movie.cinema.TimeslotColorVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.TimeslotVO
 import com.flexath.themoviebookingapp.ui.delegates.CinemaListViewHolderDelegate
-import com.flexath.themoviebookingapp.ui.fragments.movies.MoviesCinemaFragmentDirections
 import kotlinx.android.synthetic.main.view_holder_movies_cinema_cinema_times_list.view.*
 
 class CinemaTimesMoviesCinemaViewHolder(
@@ -25,7 +24,23 @@ class CinemaTimesMoviesCinemaViewHolder(
     init {
         setUpOnClickListener()
         setUpOnLongClickListener()
+//        setTimeSlotBackgroundColor()
     }
+
+//    private fun getConfigList() :List<TimeslotColorVO> {
+//        val config = mCinemaModel.getCinemaConfig("cinema_timeslot_status")
+//        return config?.value as List<TimeslotColorVO>
+//    }
+
+    //    private fun setTimeSlotBackgroundColor() {
+//        var timeSlotBackgroundColor:String? = ""
+//        for(configValue in getConfigList()) {
+//            if(configValue.id == mTimeslot?.status) {
+//                timeSlotBackgroundColor = configValue.color
+//            }
+//        }
+//        itemView.itemCinemaTimes.setBackgroundColor(Color.parseColor(timeSlotBackgroundColor))
+//    }
 
     private fun setUpOnClickListener() {
         itemView.setOnClickListener {

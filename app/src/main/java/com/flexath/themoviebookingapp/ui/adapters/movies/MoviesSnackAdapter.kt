@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.flexath.themoviebookingapp.R
-import com.flexath.themoviebookingapp.data.vos.test.SnackVO
+import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
 import com.flexath.themoviebookingapp.ui.delegates.SnackViewHolderDelegate
 import com.flexath.themoviebookingapp.ui.viewholders.movies.MoviesFoodViewHolder
 

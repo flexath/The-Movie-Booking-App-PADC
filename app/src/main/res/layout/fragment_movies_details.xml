@@ -352,6 +352,8 @@
                     android:layout_width="370dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    android:layout_marginEnd="@dimen/margin_10dp"
                     android:layout_marginTop="@dimen/margin_30dp"
                     android:background="@drawable/releasing_date_box_background">
 

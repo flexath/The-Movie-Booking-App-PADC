@@ -1,15 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/colorPrimary"
+    android:paddingBottom="@dimen/margin_10dp"
     android:layout_height="wrap_content">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivPaymentMovies"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/button_upi"/>
+        android:layout_height="@dimen/margin_50dp"
+        android:padding="@dimen/margin_10dp"
+        android:background="@drawable/payment_background">
 
-</LinearLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPaymentIcon"
+            android:layout_width="@dimen/margin_30dp"
+            android:layout_height="@dimen/margin_30dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="@dimen/margin_10dp"
+            tools:srcCompat="@drawable/icon_upi_payment"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPaymentType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dm_sans_bold"
+            android:textSize="@dimen/text_regular"
+            tools:text="UPI"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="@dimen/margin_50dp"
+            android:textColor="@color/white"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPaymentBackIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            tools:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_white_24dp"
+            android:layout_marginEnd="@dimen/margin_medium_3_n"/>
+
+    </FrameLayout>
+
+</RelativeLayout>

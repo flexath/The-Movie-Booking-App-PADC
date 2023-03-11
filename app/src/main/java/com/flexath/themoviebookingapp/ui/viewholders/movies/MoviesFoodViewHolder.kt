@@ -3,13 +3,13 @@ package com.flexath.themoviebookingapp.ui.viewholders.movies
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.flexath.themoviebookingapp.data.vos.test.SnackVO
+import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
 import com.flexath.themoviebookingapp.ui.delegates.SnackViewHolderDelegate
 import kotlinx.android.synthetic.main.view_holder_movies_food_foods_list.view.*
 
 class MoviesFoodViewHolder(itemView: View,private val delegate:SnackViewHolderDelegate) : RecyclerView.ViewHolder(itemView) {
 
-    private var mSnackVO:SnackVO? = null
+    private var mSnackVO: SnackVO? = null
 
     init {
         setUpAddButtonListeners()

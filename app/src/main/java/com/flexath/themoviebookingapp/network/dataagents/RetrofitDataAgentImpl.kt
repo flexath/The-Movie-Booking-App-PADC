@@ -7,8 +7,10 @@ import com.flexath.themoviebookingapp.data.vos.movie.MovieVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.CinemaVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
 import com.flexath.themoviebookingapp.data.vos.movie.SeatVO
-import com.flexath.themoviebookingapp.data.vos.test.SnackCategoryVO
-import com.flexath.themoviebookingapp.data.vos.test.SnackVO
+import com.flexath.themoviebookingapp.data.vos.movie.SnackCategoryVO
+import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
+import com.flexath.themoviebookingapp.data.vos.test.PaymentListResponse
+import com.flexath.themoviebookingapp.data.vos.test.PaymentVO
 import com.flexath.themoviebookingapp.network.responses.SeatingPlanResponse
 import com.flexath.themoviebookingapp.network.api.CinemaApi
 import com.flexath.themoviebookingapp.network.responses.*
@@ -367,6 +369,32 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
                 }
 
                 override fun onFailure(call: Call<SnackListResponse>, t: Throwable) {
+                    onFailure(t.message ?: "")
+                }
+
+            })
+    }
+
+    override fun getPaymentTypes(
+        authorization: String,
+        onSuccess: (List<PaymentVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mCinemaApi?.getPaymentTypes(authorization)
+            ?.enqueue(object : Callback<PaymentListResponse>{
+                override fun onResponse(
+                    call: Call<PaymentListResponse>,
+                    response: Response<PaymentListResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val paymentList = response.body()?.data ?: listOf()
+                        onSuccess(paymentList)
+                    } else {
+                        onFailure("Don't make errors,Aung Thiha")
+                    }
+                }
+
+                override fun onFailure(call: Call<PaymentListResponse>, t: Throwable) {
                     onFailure(t.message ?: "")
                 }
 

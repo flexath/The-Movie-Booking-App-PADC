@@ -75,21 +75,23 @@ class MoviesDetailsFragment : Fragment() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun bindNewData(movie: MovieVO) {
+    private fun bindNewData(movie: MovieVO?) {
         Glide.with(requireActivity())
-            .load("$IMG_BASE_URL${movie.posterPath}")
+            .load("$IMG_BASE_URL${movie?.posterPath}")
             .into(ivPosterMoviesDetail)
 
-        tvTitleMovieDetails.text = movie.originalTitle ?: ""
-        tvRatingMovieDetails.text = movie.formatVoteAverage()
-        tvReleasingDateMoviesDetails.text = movie.getMovieReleasingDayForNotification()
-        tvOverviewMoviesDetails.text = movie.overview  ?: ""
-        tvDurationMovieDetails.text = movie.changeRunTimeMinToHour()
-        tvReleaseDateMovieDetails.text = movie.changeReleaseDateFormat("details")
-        movie.casts?.let {
+        tvTitleMovieDetails.text = movie?.originalTitle ?: ""
+        tvRatingMovieDetails.text = movie?.formatVoteAverage()
+        tvReleasingDateMoviesDetails.text = movie?.getMovieReleasingDayForNotification()
+        tvOverviewMoviesDetails.text = movie?.overview  ?: ""
+        tvDurationMovieDetails.text = movie?.changeRunTimeMinToHour()
+        tvReleaseDateMovieDetails.text = movie?.changeReleaseDateFormat("details")
+        movie?.casts?.let {
             setUpCastRecyclerView(it)               // For Casts
         }
-        bindGenre(movie)
+        if (movie != null) {
+            bindGenre(movie)
+        }
 
 //        var youtubeKey = ""
 //        movie.videoList?.results?.forEach {

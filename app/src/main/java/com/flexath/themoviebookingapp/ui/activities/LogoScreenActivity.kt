@@ -12,25 +12,37 @@ import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
 
 class LogoScreenActivity : AppCompatActivity() {
 
-    private val mMovieModel:CinemaModel = CinemaModelImpl
+    private val mCinemaModel:CinemaModel = CinemaModelImpl
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_logo_screen)
 
-        getCitiesListFromRetrofit()
+        setUpNetworkCall()
 
         Handler(Looper.getMainLooper()).postDelayed({
-            LoginScreenActivity.newIntentFromLoginScreen(this).also {
-                startActivity(it)
-                finish()
+
+            if(mCinemaModel.getOtp(201)?.token?.isNotEmpty() == true) {
+                MainActivity.newIntentFromMainActivity(this,null).also {
+                    startActivity(it)
+                }
+            } else {
+                LoginScreenActivity.newIntentFromLoginScreen(this).also {
+                    startActivity(it)
+                    finish()
+                }
             }
         },3000)
 
     }
 
-    private fun getCitiesListFromRetrofit() {
-        mMovieModel.insertCities(
+    override fun onRestart() {
+        super.onRestart()
+        finish()
+    }
+
+    private fun setUpNetworkCall() {
+        mCinemaModel.insertCities(
             onSuccess = {
                 Toast.makeText(this,"Cities Network call succeeded",Toast.LENGTH_SHORT).show()
             },
@@ -39,7 +51,7 @@ class LogoScreenActivity : AppCompatActivity() {
             }
         )
 
-        mMovieModel.insertCinemaConfig(
+        mCinemaModel.insertCinemaConfig(
             onSuccess = {
                 Toast.makeText(this,"Config Network call succeeded",Toast.LENGTH_SHORT).show()
             },
@@ -49,7 +61,7 @@ class LogoScreenActivity : AppCompatActivity() {
             }
         )
 
-        mMovieModel.insertCinemaInfo(
+        mCinemaModel.insertCinemaInfo(
             onSuccess = {
                 Toast.makeText(this,"Cinema Info call succeeded",Toast.LENGTH_SHORT).show()
             },

@@ -1,6 +1,6 @@
 package com.flexath.themoviebookingapp.ui.utils
 
-import com.flexath.themoviebookingapp.data.vos.test.SnackVO
+import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
 
 data class Ticket(
     val movieName:String?,                          // Movie Detail Screen

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/food_confirm_background">
 
     <FrameLayout
@@ -25,7 +26,7 @@
             android:layout_gravity="end"
             android:background="@drawable/food_count_red_background"
             android:gravity="center"
-            android:text="1"
+            tools:text="1"
             android:textColor="@color/white"
             android:textSize="@dimen/text_smaller" />
 
@@ -49,11 +50,12 @@
         android:paddingBottom="@dimen/margin_15dp">
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSnackTotalPriceOnBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:fontFamily="@font/inter_bold"
-            android:text="2000KS"
+            tools:text="2000KS"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/text_regular_2x" />
 

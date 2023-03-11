@@ -56,8 +56,8 @@ interface CinemaDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertCinemaConfig(config: List<ConfigVO>)
 
-    @Query("SELECT * FROM config_table")
-    fun getCinemaConfig():List<ConfigVO>
+    @Query("SELECT * FROM config_table WHERE key = :key")
+    fun getCinemaConfig(key:String):ConfigVO
 
     // Cinema Info Screen
     @Insert(onConflict = OnConflictStrategy.REPLACE)

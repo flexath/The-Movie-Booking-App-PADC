@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     companion object{
         const val CITY_NAME_EXTRA = "CITY"
 
-        fun newIntentFromMainActivity(context: Context, message:String) : Intent {
+        fun newIntentFromMainActivity(context: Context, message:String?) : Intent {
             val intent = Intent(context,MainActivity::class.java)
             intent.putExtra(CITY_NAME_EXTRA,message)
             return intent

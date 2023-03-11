@@ -6,8 +6,9 @@ import com.flexath.themoviebookingapp.data.vos.movie.*
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.CinemaVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
 import com.flexath.themoviebookingapp.data.vos.movie.SeatVO
-import com.flexath.themoviebookingapp.data.vos.test.SnackCategoryVO
-import com.flexath.themoviebookingapp.data.vos.test.SnackVO
+import com.flexath.themoviebookingapp.data.vos.movie.SnackCategoryVO
+import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
+import com.flexath.themoviebookingapp.data.vos.test.PaymentVO
 import com.flexath.themoviebookingapp.network.dataagents.CinemaDataAgent
 import com.flexath.themoviebookingapp.network.dataagents.RetrofitDataAgentImpl
 import com.flexath.themoviebookingapp.network.responses.OTPResponse
@@ -139,7 +140,7 @@ object CinemaModelImpl : CinemaModel {
         }, onFailure = onFailure)
     }
 
-    override fun getCinemaConfig(): List<ConfigVO>? = mCinemaDatabase?.getDao()?.getCinemaConfig()
+    override fun getCinemaConfig(key:String) = mCinemaDatabase?.getDao()?.getCinemaConfig(key)
 
     override fun insertCinemaInfo(
         onSuccess: (List<CinemaInfoVO>) -> Unit,
@@ -178,6 +179,14 @@ object CinemaModelImpl : CinemaModel {
         onFailure: (String) -> Unit
     ) {
         mMovieDataAgent.getSnackByCategory(authorization,categoryId,onSuccess,onFailure)
+    }
+
+    override fun getPaymentTypes(
+        authorization: String,
+        onSuccess: (List<PaymentVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mMovieDataAgent.getPaymentTypes(authorization,onSuccess,onFailure)
     }
 
 }

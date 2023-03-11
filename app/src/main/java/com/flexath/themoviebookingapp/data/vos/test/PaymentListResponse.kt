@@ -1,15 +1,14 @@
-package com.flexath.themoviebookingapp.network.responses
+package com.flexath.themoviebookingapp.data.vos.test
 
-import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
 import com.google.gson.annotations.SerializedName
 
-data class SnackListResponse(
+data class PaymentListResponse(
 
     @SerializedName("code")
     val code: Int?,
 
     @SerializedName("data")
-    val data: List<SnackVO>?,
+    val data: List<PaymentVO>?,
 
     @SerializedName("message")
     val message: String?

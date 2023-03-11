@@ -30,13 +30,14 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
     private val args: MoviesSeatFragmentArgs by navArgs()
     private var dayTimeSlotId: Int = 0
     private var bookingDate: String? = null
+    private val ticketPrice = 4500L
 
     private var mSeatDoubleList: MutableLiveData<MutableList<MutableList<SeatVO>>> = MutableLiveData<MutableList<MutableList<SeatVO>>>()
 
     // For Ticket
     private var mmMovieName:String? = null
     private var mmCinemaInfo:CinemaData? = null
-    private val mmSeatTicketList:MutableList<String> = mutableListOf()
+    private lateinit var mmSeatTicketList:MutableList<String>
 
     companion object {
         private val seatVO = SeatVO(null,null,null,null,"path",false)
@@ -56,6 +57,8 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
         Log.i("CinemaSeat",args.argMovieName.toString())
         Log.i("CinemaSeat",args.argCinemaInfo.toString())
 
+        mmSeatTicketList = mutableListOf()
+
         dayTimeSlotId = args.argDayTimeslotId
         bookingDate = args.argBookingDate
 
@@ -68,16 +71,31 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
         requestData()
     }
 
+    override fun onResume() {
+        super.onResume()
+        getTicketTotalPriceAndNumber()
+    }
+
+    private fun getTicketTotalPriceAndNumber() {
+        val ticketNumber = "${mmSeatTicketList.size} Tickets"
+        val ticketTotalPrice = mmSeatTicketList.size*ticketPrice
+
+        tvNumberOfTicketsMoviesSeat.text = ticketNumber.toString()
+        tvTicketPriceMoviesSeat.text = ticketTotalPrice.toString()
+    }
+
     private fun requestData() {
         bookingDate?.let {
             mCinemaModel.getSeatPlan(
                 "Bearer ${mCinemaModel.getOtp(201)?.token}", dayTimeSlotId, it,
                 onSuccess = { seatDoubleList ->
-                    Toast.makeText(requireActivity(), "Seating Call succeeded - ${seatDoubleList.size}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireActivity(), "Seating Call succeeded", Toast.LENGTH_SHORT).show()
                     mSeatDoubleList.value = seatDoubleList
 
                     val seatList = addCinemaPath(seatDoubleList)
                     mSeatsAdapter.bindNewData(seatList)
+
+                    getTicketTotalPriceAndNumber()
                 },
                 onFailure = {
                     Toast.makeText(requireActivity(), "Seating Call fails", Toast.LENGTH_SHORT).show()
@@ -115,7 +133,7 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
     }
 
     private fun setUpListeners() {
-        val ticketPrice = 4500L
+
         btnBuyButtonMoviesSeat.setOnClickListener {
             val action = MoviesSeatFragmentDirections.actionMoviesSeatToMoviesFood()
             action.argMovieName = mmMovieName
@@ -126,8 +144,7 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
             it.findNavController().navigate(action)
         }
 
-        tvNumberOfTicketsMoviesSeat.text = (mmSeatTicketList.size).toString()
-        tvTicketPriceMoviesSeat.text = ((mmSeatTicketList.size*ticketPrice).toString())
+
 
 //        seekbarSeat.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
 //            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -146,19 +163,26 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
 //        })
     }
 
-    override fun onTapSeat(seatName: String) {
+    override fun onTapSeat(seatName: String,isAvailable:Boolean?) {
         mSeatDoubleList.observe(this) { seatDoubleList ->
             outer@ for (seatSingleList in seatDoubleList) {
                 for (seatVO in seatSingleList) {
                     if (seatVO.seatName == seatName) {
-                        seatVO.isSelected = true
-                        Toast.makeText(requireActivity(), seatVO.seatName, Toast.LENGTH_SHORT).show()
-                        mmSeatTicketList.add(seatVO.seatName)
+                        if(isAvailable == false) {
+                            seatVO.isSelected = true
+                            Toast.makeText(requireActivity(), "Selected ${seatVO.seatName}", Toast.LENGTH_SHORT).show()
+                            mmSeatTicketList.add(seatVO.seatName)
+                        } else {
+                            seatVO.isSelected = false
+                            Toast.makeText(requireActivity(), "Unselected ${seatVO.seatName}", Toast.LENGTH_SHORT).show()
+                            mmSeatTicketList.remove(seatVO.seatName)
+                        }
                         break@outer
                     }
                 }
             }
             mSeatsAdapter.bindNewData(seatDoubleList)
         }
+        getTicketTotalPriceAndNumber()
     }
 }

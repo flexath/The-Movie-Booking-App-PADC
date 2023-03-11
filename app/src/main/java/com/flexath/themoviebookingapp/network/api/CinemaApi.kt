@@ -1,5 +1,6 @@
 package com.flexath.themoviebookingapp.network.api
 
+import com.flexath.themoviebookingapp.data.vos.test.PaymentListResponse
 import com.flexath.themoviebookingapp.network.responses.SeatingPlanResponse
 import com.flexath.themoviebookingapp.network.responses.*
 import com.flexath.themoviebookingapp.network.utils.*
@@ -80,4 +81,9 @@ interface CinemaApi {
         @Header(HEADER_AUTH) authorization:String,
         @Query(PARAM_SNACK_CATEGORY) categoryId:String
     ) : Call<SnackListResponse>
+
+    @GET(API_GET_PAYMENT)
+    fun getPaymentTypes(
+        @Header(HEADER_AUTH) authorization:String
+    ) : Call<PaymentListResponse>
 }

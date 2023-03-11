@@ -1,4 +1,4 @@
-package com.flexath.themoviebookingapp.data.vos.test
+package com.flexath.themoviebookingapp.data.vos.movie
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,5 +1,6 @@
 package com.flexath.themoviebookingapp.ui.fragments.movies
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,8 +13,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
-import com.flexath.themoviebookingapp.data.vos.test.SnackVO
-import com.flexath.themoviebookingapp.ui.adapters.movies.OrderedFoodMoviesTicketCheckoutAdapter
+import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
+import com.flexath.themoviebookingapp.ui.adapters.movies.SnackTicketCheckoutAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_ticket_checkout.*
@@ -22,7 +23,7 @@ import kotlinx.android.synthetic.main.layout_bottom_sheet_dialog_movies_checkout
 
 class MoviesTicketCheckoutFragment : Fragment() {
 
-    private lateinit var mOrderedFoodAdapter: OrderedFoodMoviesTicketCheckoutAdapter
+    private lateinit var mOrderedFoodAdapter: SnackTicketCheckoutAdapter
     private var isVisibleRecyclerView: Boolean = true
 
     private val args: MoviesTicketCheckoutFragmentArgs by navArgs()
@@ -33,10 +34,10 @@ class MoviesTicketCheckoutFragment : Fragment() {
     private var mTicketTime: String? = null
     private var mCinemaAddress: String? = null
     private var mNumberOfTicket: Int? = null
-    private var mTicketTotalPrice: Long? = null
-    private var mSnackTotalPrice: Long? = null
+    private var mTicketTotalPrice: Long? = 0L
+    private var mSnackTotalPrice: Long = 0L
     private var mTicketList: MutableList<String> = mutableListOf()
-    private var mSnackList: List<SnackVO> = listOf()
+    private lateinit var mSnackList: List<SnackVO>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,6 +52,7 @@ class MoviesTicketCheckoutFragment : Fragment() {
         (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.INVISIBLE
 
         Log.i("CinemaCheckout", args.argTicket.toString())
+        Log.i("CinemaCheckoutSnack", args.argTicket?.snackList.toString())
 
         mMovieName = args.argTicket?.movieName
         mCinemaName = args.argTicket?.cinemaInfo?.cinemaName
@@ -59,16 +61,16 @@ class MoviesTicketCheckoutFragment : Fragment() {
         mCinemaAddress = args.argTicket?.cinemaInfo?.address
         mNumberOfTicket = args.argTicket?.seatInfo?.numberOfTicket
         mTicketTotalPrice = args.argTicket?.seatInfo?.ticketTotalPrice
-        mSnackTotalPrice = args.argTicket?.snackTotalPrice
-
-        mSnackList = args.argTicket?.snackList ?: listOf()
+        mSnackTotalPrice = args.argTicket?.snackTotalPrice ?: 0
         mTicketList = args.argTicket?.seatInfo?.ticketList ?: mutableListOf()
 
-        setUpOrderedFoodListRecyclerView()              // For Ordered Food List
-        hasItemInRecyclerView()                         // For visibility of Order Food List
+        mSnackList = args.argTicket?.snackList ?: listOf()
+
+        setUpOrderedFoodListRecyclerView()
 
         setUpListeners()
         bindTicketData()
+        hasItemInRecyclerView()
     }
 
     private fun bindTicketData() {
@@ -78,26 +80,43 @@ class MoviesTicketCheckoutFragment : Fragment() {
         tvTimeTicket.text = mTicketTime
         tvAddressTicket.text = mCinemaAddress
         tvNumberOfTicket.text = mNumberOfTicket.toString()
-        tvTicketTotalPrice.text = mTicketTotalPrice.toString()
         tvSnackTotalPrice.text = mSnackTotalPrice.toString()
+
+        val ticketTotalPrice = "${mTicketTotalPrice}Ks"
+        tvTicketTotalPrice.text = ticketTotalPrice
 
         tvTicketNamesTicket.text = getTicketList()
 
-        val totalMoney = "${(mTicketTotalPrice!! + mSnackTotalPrice!! + 500)}Ks"
+        val totalMoney = "${((mTicketTotalPrice?.plus(mSnackTotalPrice) ?: 0) + 500)}Ks"
         tvTotalMoney.text = totalMoney
+
+        mOrderedFoodAdapter.bindNewData(setUpSnackList())
+    }
+
+    private fun setUpSnackList() : MutableList<SnackVO> {
+        val snackList = mutableListOf<SnackVO>()
+        for(snack in mSnackList) {
+            if(snack.quantity > 0) {
+                snackList.add(snack)
+            }
+        }
+        return snackList
     }
 
     private fun getTicketList() : String {
         var ticket = ""
-        mTicketList.forEach {
-            ticket += "$it,"
+        if(mTicketList.isNotEmpty()) {
+            mTicketList.forEach {
+                ticket += "$it,"
+            }
+            ticket = StringBuilder(ticket).also {
+                it.deleteCharAt(it.lastIndex)
+            }.toString()
         }
-        ticket = StringBuilder(ticket).also {
-            it.deleteCharAt(it.lastIndex)
-        }.toString()
         return ticket
     }
 
+    @SuppressLint("InflateParams")
     private fun setUpListeners() {
 
         if (args.argCheckoutOrCancel == "Checkout") {
@@ -146,11 +165,11 @@ class MoviesTicketCheckoutFragment : Fragment() {
             llFoodMoviesTicketCheckout.visibility = View.VISIBLE
             btnFoodAndBeverageMoviesTicketCheckout.setOnClickListener {
                 if (isVisibleRecyclerView) {
-                    rvFoodOrderedListMoviesTicketCheckout.visibility = View.GONE
+                    rvSnackTicketCheckout.visibility = View.GONE
                     btnFoodAndBeverageMoviesTicketCheckout.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_white_24dp)
                     isVisibleRecyclerView = false
                 } else {
-                    rvFoodOrderedListMoviesTicketCheckout.visibility = View.VISIBLE
+                    rvSnackTicketCheckout.visibility = View.VISIBLE
                     btnFoodAndBeverageMoviesTicketCheckout.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_white_24dp)
                     isVisibleRecyclerView = true
                 }
@@ -158,10 +177,11 @@ class MoviesTicketCheckoutFragment : Fragment() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setUpOrderedFoodListRecyclerView() {
-        mOrderedFoodAdapter = OrderedFoodMoviesTicketCheckoutAdapter()
-        rvFoodOrderedListMoviesTicketCheckout.adapter = mOrderedFoodAdapter
-        rvFoodOrderedListMoviesTicketCheckout.layoutManager = LinearLayoutManager(requireContext())
-        mOrderedFoodAdapter.bindNewData(mSnackList)
+        mOrderedFoodAdapter = SnackTicketCheckoutAdapter()
+        rvSnackTicketCheckout.adapter = mOrderedFoodAdapter
+        rvSnackTicketCheckout.layoutManager = LinearLayoutManager(requireActivity())
+        mOrderedFoodAdapter.notifyDataSetChanged()
     }
 }

@@ -1,6 +1,6 @@
 package com.flexath.themoviebookingapp.network.responses
 
-import com.flexath.themoviebookingapp.data.vos.test.SnackCategoryVO
+import com.flexath.themoviebookingapp.data.vos.movie.SnackCategoryVO
 import com.google.gson.annotations.SerializedName
 
 data class SnackCategoryResponse(
