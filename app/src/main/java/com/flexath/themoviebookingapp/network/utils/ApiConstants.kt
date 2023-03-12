@@ -24,6 +24,8 @@ const val API_GET_PAYMENT = "/api/v2/payment-types"
 // POST URLs
 const val API_POST_OTP = "/api/v2/get-otp"
 const val API_POST_SIGN_IN_WITH_OTP = "/api/v2/check-otp"
+const val API_POST_CHECK_OUT = "/api/v2/checkout"
+const val API_POST_LOG_OUT = "/api/v1/logout"
 
 // PARAM QUERIES
 const val PARAM_STATUS = "status"

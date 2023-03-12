@@ -80,6 +80,11 @@
             app:argType="string"
             app:nullable="true"
             android:defaultValue="@null" />
+        <argument
+            android:name="arg_movie_id"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
         <action
             android:id="@+id/action_chooseCinema_to_moviesSeat"
             app:destination="@id/moviesSeatFragment" />
@@ -110,6 +115,11 @@
             app:nullable="true"
             android:defaultValue="@null" />
         <argument
+            android:name="arg_movie_id"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
             android:name="arg_cinema_info"
             app:nullable="true"
             app:argType="com.flexath.themoviebookingapp.ui.utils.CinemaData"
@@ -125,6 +135,11 @@
             app:destination="@id/moviesTicketCheckoutFragment" />
         <argument
             android:name="arg_movie_name"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="arg_movie_id"
             app:argType="string"
             app:nullable="true"
             android:defaultValue="@null" />
@@ -157,12 +172,30 @@
             app:nullable="true"
             app:argType="com.flexath.themoviebookingapp.ui.utils.Ticket"
             android:defaultValue="@null" />
+        <argument
+            android:name="arg_checkout_body_snack_checkout"
+            app:nullable="true"
+            app:argType="com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBodySnackList"
+            android:defaultValue="@null" />
     </fragment>
+
     <fragment
         android:id="@+id/moviesTicketConfirmationFragment"
         android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesTicketConfirmationFragment"
         android:label="fragment_movies_ticket_confirmation"
-        tools:layout="@layout/fragment_movies_ticket_confirmation" />
+        tools:layout="@layout/fragment_movies_ticket_confirmation" >
+        <argument
+            android:name="arg_checkout_ticket"
+            app:nullable="true"
+            app:argType="com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutVO"
+            android:defaultValue="@null" />
+        <argument
+            android:name="arg_address"
+            app:nullable="true"
+            app:argType="string"
+            android:defaultValue="@null" />
+    </fragment>
+
     <fragment
         android:id="@+id/moviesPaymentFragment"
         android:name="com.flexath.themoviebookingapp.ui.fragments.movies.MoviesPaymentFragment"
@@ -171,6 +204,16 @@
         <action
             android:id="@+id/action_profilePayment_to_moviesTicketConfirmation"
             app:destination="@id/moviesTicketConfirmationFragment" />
+        <argument
+            android:name="arg_ticket_checkout"
+            app:nullable="true"
+            app:argType="com.flexath.themoviebookingapp.ui.utils.Ticket"
+            android:defaultValue="@null" />
+        <argument
+            android:name="arg_checkout_body_snack_payment"
+            app:nullable="true"
+            app:argType="com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBodySnackList"
+            android:defaultValue="@null" />
     </fragment>
     <activity
         android:id="@+id/loginScreenActivity"

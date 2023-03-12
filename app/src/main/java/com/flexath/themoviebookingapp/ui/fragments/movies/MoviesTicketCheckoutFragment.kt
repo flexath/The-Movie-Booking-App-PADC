@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
 import com.flexath.themoviebookingapp.ui.adapters.movies.SnackTicketCheckoutAdapter
+import com.flexath.themoviebookingapp.ui.utils.Ticket
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_ticket_checkout.*
@@ -26,8 +27,6 @@ class MoviesTicketCheckoutFragment : Fragment() {
     private lateinit var mOrderedFoodAdapter: SnackTicketCheckoutAdapter
     private var isVisibleRecyclerView: Boolean = true
 
-    private val args: MoviesTicketCheckoutFragmentArgs by navArgs()
-
     private var mMovieName: String? = null
     private var mCinemaName: String? = null
     private var mTicketDate: String? = null
@@ -38,6 +37,8 @@ class MoviesTicketCheckoutFragment : Fragment() {
     private var mSnackTotalPrice: Long = 0L
     private var mTicketList: MutableList<String> = mutableListOf()
     private lateinit var mSnackList: List<SnackVO>
+
+    private val args: MoviesTicketCheckoutFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,7 +53,6 @@ class MoviesTicketCheckoutFragment : Fragment() {
         (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.INVISIBLE
 
         Log.i("CinemaCheckout", args.argTicket.toString())
-        Log.i("CinemaCheckoutSnack", args.argTicket?.snackList.toString())
 
         mMovieName = args.argTicket?.movieName
         mCinemaName = args.argTicket?.cinemaInfo?.cinemaName
@@ -63,7 +63,6 @@ class MoviesTicketCheckoutFragment : Fragment() {
         mTicketTotalPrice = args.argTicket?.seatInfo?.ticketTotalPrice
         mSnackTotalPrice = args.argTicket?.snackTotalPrice ?: 0
         mTicketList = args.argTicket?.seatInfo?.ticketList ?: mutableListOf()
-
         mSnackList = args.argTicket?.snackList ?: listOf()
 
         setUpOrderedFoodListRecyclerView()
@@ -125,8 +124,9 @@ class MoviesTicketCheckoutFragment : Fragment() {
             btnTicketCancellationMoviesTicketCheckout.setImageResource(R.drawable.ticket_cancellation_button_policy)
 
             btnContinueMoviesTicketCheckout.setOnClickListener {
-                val action =
-                    MoviesTicketCheckoutFragmentDirections.actionMoviesTicketCheckoutToProfilePayment()
+                val action = MoviesTicketCheckoutFragmentDirections.actionMoviesTicketCheckoutToProfilePayment()
+                action.argTicketCheckout = args.argTicket
+                action.argCheckoutBodySnackPayment = args.argCheckoutBodySnackCheckout
                 it.findNavController().navigate(action)
             }
         } else {

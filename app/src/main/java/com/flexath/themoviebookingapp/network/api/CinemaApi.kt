@@ -1,6 +1,8 @@
 package com.flexath.themoviebookingapp.network.api
 
-import com.flexath.themoviebookingapp.data.vos.test.PaymentListResponse
+import com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBody
+import com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutResponse
+import com.flexath.themoviebookingapp.network.responses.PaymentListResponse
 import com.flexath.themoviebookingapp.network.responses.SeatingPlanResponse
 import com.flexath.themoviebookingapp.network.responses.*
 import com.flexath.themoviebookingapp.network.utils.*
@@ -86,4 +88,15 @@ interface CinemaApi {
     fun getPaymentTypes(
         @Header(HEADER_AUTH) authorization:String
     ) : Call<PaymentListResponse>
+
+    @POST(API_POST_CHECK_OUT)
+    fun getTicketCheckout(
+        @Header(HEADER_AUTH) authorization:String,
+        @Body ticketCheckout:CheckoutBody
+    ) : Call<TicketCheckoutResponse>
+
+    @POST(API_POST_LOG_OUT)
+    fun logout(
+        @Header(HEADER_AUTH) authorization:String
+    ) : Call<LogoutResponse>
 }

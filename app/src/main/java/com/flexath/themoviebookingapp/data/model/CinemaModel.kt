@@ -9,8 +9,10 @@ import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
 import com.flexath.themoviebookingapp.data.vos.movie.SeatVO
 import com.flexath.themoviebookingapp.data.vos.movie.SnackCategoryVO
 import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
-import com.flexath.themoviebookingapp.data.vos.movie.cinema.TimeslotColorVO
-import com.flexath.themoviebookingapp.data.vos.test.PaymentVO
+import com.flexath.themoviebookingapp.data.vos.movie.PaymentVO
+import com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBody
+import com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutVO
+import com.flexath.themoviebookingapp.network.responses.LogoutResponse
 import com.flexath.themoviebookingapp.network.responses.OTPResponse
 
 interface CinemaModel {
@@ -64,6 +66,10 @@ interface CinemaModel {
         onFailure:(String) -> Unit
     )
 
+    fun getMovieByIdForTicket(
+        movieId:String
+    ):MovieVO?
+
     // Movie Cinema Screen
     fun getCinemaTimeSlots(
         authorization:String,
@@ -114,6 +120,21 @@ interface CinemaModel {
     fun getPaymentTypes(
         authorization:String,
         onSuccess:(List<PaymentVO>) -> Unit,
+        onFailure:(String) -> Unit
+    )
+
+    // Movie Confirmation Screen but it called in Payment Screen
+    fun getTicketCheckout(
+        authorization:String,
+        ticketCheckout: CheckoutBody,
+        onSuccess:(TicketCheckoutVO) -> Unit,
+        onFailure:(String) -> Unit
+    )
+
+    // Profile Tab Screen - Logout
+    fun logout(
+        authorization:String,
+        onSuccess:(LogoutResponse) -> Unit,
         onFailure:(String) -> Unit
     )
 }

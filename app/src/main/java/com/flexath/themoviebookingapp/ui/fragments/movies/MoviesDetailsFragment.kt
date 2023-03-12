@@ -167,6 +167,7 @@ class MoviesDetailsFragment : Fragment() {
         btnBookingButtonMoviesDetails.setOnClickListener {
             val action = MoviesDetailsFragmentDirections.actionMoviesDetailsHomeToChooseCinema()
             action.argMovieName = mMovieName
+            action.argMovieId = movieId.toString()
             it.findNavController().navigate(action)
         }
 

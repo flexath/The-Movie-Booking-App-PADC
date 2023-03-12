@@ -8,9 +8,12 @@ import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
 import com.flexath.themoviebookingapp.data.vos.movie.SeatVO
 import com.flexath.themoviebookingapp.data.vos.movie.SnackCategoryVO
 import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
-import com.flexath.themoviebookingapp.data.vos.test.PaymentVO
+import com.flexath.themoviebookingapp.data.vos.movie.PaymentVO
+import com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBody
+import com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutVO
 import com.flexath.themoviebookingapp.network.dataagents.CinemaDataAgent
 import com.flexath.themoviebookingapp.network.dataagents.RetrofitDataAgentImpl
+import com.flexath.themoviebookingapp.network.responses.LogoutResponse
 import com.flexath.themoviebookingapp.network.responses.OTPResponse
 import com.flexath.themoviebookingapp.persistence.CinemaRoomDatabase
 
@@ -18,6 +21,7 @@ object CinemaModelImpl : CinemaModel {
 
     private val mMovieDataAgent: CinemaDataAgent = RetrofitDataAgentImpl
     private var mCinemaDatabase: CinemaRoomDatabase? = null
+    private var mMovie:MovieVO? = null
 
     fun initCinemaDatabase(context: Context) {
         mCinemaDatabase = CinemaRoomDatabase.getDBInstance(context)
@@ -109,12 +113,15 @@ object CinemaModelImpl : CinemaModel {
         }
 
         mMovieDataAgent.getMovieDetailsById(movieId, onSuccess = { movie ->
+            mMovie = movie
             val db = mCinemaDatabase?.getDao()?.getMovieById(movieId = movieId.toInt())
             movie.type = db?.type
             mCinemaDatabase?.getDao()?.insertSingleMovie(movie)
             onSuccess(movie)
         }, onFailure = onFailure)
     }
+
+    override fun getMovieByIdForTicket(movieId: String) = mMovie
 
     override fun getCinemaTimeSlots(
         authorization: String,
@@ -187,6 +194,23 @@ object CinemaModelImpl : CinemaModel {
         onFailure: (String) -> Unit
     ) {
         mMovieDataAgent.getPaymentTypes(authorization,onSuccess,onFailure)
+    }
+
+    override fun getTicketCheckout(
+        authorization: String,
+        ticketCheckout: CheckoutBody,
+        onSuccess: (TicketCheckoutVO) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mMovieDataAgent.getTicketCheckout(authorization,ticketCheckout,onSuccess,onFailure)
+    }
+
+    override fun logout(
+        authorization: String,
+        onSuccess: (LogoutResponse) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mMovieDataAgent.logout(authorization,onSuccess,onFailure)
     }
 
 }

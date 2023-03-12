@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:paddingStart="@dimen/margin_medium_4_n"
     android:paddingEnd="@dimen/margin_medium_4_n"
     android:paddingBottom="@dimen/margin_30dp"
@@ -29,10 +30,11 @@
                 app:cardElevation="@dimen/margin_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivMoviePosterConfirmation"
                     android:layout_width="@dimen/width_poster"
                     android:layout_height="@dimen/height_poster"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/blackwidow_poster" />
+                    tools:src="@drawable/blackwidow_poster" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -47,33 +49,44 @@
                     android:id="@+id/llMovieTitleMoviesTicketConfirmation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:weightSum="3"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvMovieTitleConfirmation"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="2"
                         android:layout_marginEnd="@dimen/margin_small"
                         android:fontFamily="@font/dm_sans_bold"
-                        android:text="Black Widow"
+                        tools:text="Black Widow"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_18sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/margin_small"
-                        android:fontFamily="@font/dm_sans"
-                        android:text="(3D)"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_regular_2x" />
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/dm_sans"
-                        android:text="(U/A)"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_regular_2x" />
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/margin_small"
+                            android:fontFamily="@font/dm_sans"
+                            android:text="(3D)"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_regular_2x" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/dm_sans"
+                            android:text="(U/A)"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_regular_2x" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -85,7 +98,7 @@
                     android:layout_marginTop="@dimen/margin_10dp"
                     android:layout_marginEnd="@dimen/margin_small"
                     android:fontFamily="@font/dm_sans"
-                    android:text="JCGV: Junction City"
+                    tools:text="JCGV: Junction City"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/text_18sp" />
 
@@ -97,7 +110,7 @@
                     android:layout_marginTop="@dimen/margin_medium_2"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans_bold"
@@ -105,15 +118,16 @@
                         android:textColor="@color/colorGrey"
                         android:textSize="@dimen/text_regular" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvNumberOfTicketConfirmation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans_bold"
-                        android:text="2"
+                        tools:text="2"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/text_regular" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans_bold"
@@ -131,16 +145,17 @@
                     android:layout_marginTop="@dimen/margin_10dp"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTicketNamesConfirmation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans_bold"
                         android:gravity="start"
-                        android:text="Gold-G8,G7"
+                        tools:text="Gold-G8,G7"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_regular_2x" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans"
@@ -194,7 +209,8 @@
             android:paddingStart="@dimen/margin_large"
             android:paddingEnd="@dimen/margin_large"
             android:paddingBottom="@dimen/margin_36dp"
-            android:weightSum="3">
+            android:weightSum="3"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -210,13 +226,14 @@
                     app:srcCompat="@drawable/ic_baseline_calendar_month_accent_24dp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDateConfirmation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/margin_10dp"
                     android:fontFamily="@font/dm_sans"
                     android:gravity="center"
-                    android:text="Sat,28 Jan,2022"
+                    tools:text="Sat,28 Jan,2022"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_regular" />
 
@@ -237,13 +254,14 @@
                     app:srcCompat="@drawable/ic_baseline_access_time_accent_24dp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTimeConfirmation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/margin_10dp"
                     android:fontFamily="@font/dm_sans"
                     android:gravity="center"
-                    android:text="3:30PM"
+                    tools:text="3:30PM"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_regular" />
 
@@ -262,13 +280,14 @@
                     app:srcCompat="@drawable/ic_baseline_location_on_accent_24dp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvAddressConfirmation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/margin_10dp"
                     android:fontFamily="@font/dm_sans"
                     android:gravity="center"
-                    android:text="Q5H3+JPP, Corner of, Bogyoke Lann, Yangon"
+                    tools:text="Q5H3+JPP, Corner of, Bogyoke Lann, Yangon"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_regular" />
 

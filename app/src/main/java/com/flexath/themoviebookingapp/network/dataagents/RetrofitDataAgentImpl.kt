@@ -9,8 +9,11 @@ import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
 import com.flexath.themoviebookingapp.data.vos.movie.SeatVO
 import com.flexath.themoviebookingapp.data.vos.movie.SnackCategoryVO
 import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
-import com.flexath.themoviebookingapp.data.vos.test.PaymentListResponse
-import com.flexath.themoviebookingapp.data.vos.test.PaymentVO
+import com.flexath.themoviebookingapp.network.responses.PaymentListResponse
+import com.flexath.themoviebookingapp.data.vos.movie.PaymentVO
+import com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBody
+import com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutResponse
+import com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutVO
 import com.flexath.themoviebookingapp.network.responses.SeatingPlanResponse
 import com.flexath.themoviebookingapp.network.api.CinemaApi
 import com.flexath.themoviebookingapp.network.responses.*
@@ -101,7 +104,7 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
         onSuccess: (OTPResponse) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mCinemaApi?.signInWithPhoneNumber(phone,otp)
+        mCinemaApi?.signInWithPhoneNumber(phone, otp)
             ?.enqueue(object : Callback<OTPResponse> {
                 override fun onResponse(call: Call<OTPResponse>, response: Response<OTPResponse>) {
                     if (response.isSuccessful) {
@@ -226,8 +229,8 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
         onSuccess: (List<CinemaVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mCinemaApi?.getCinemaTimeSlots(authorization,date)
-            ?.enqueue(object : Callback<CinemaListResponse>{
+        mCinemaApi?.getCinemaTimeSlots(authorization, date)
+            ?.enqueue(object : Callback<CinemaListResponse> {
                 override fun onResponse(
                     call: Call<CinemaListResponse>,
                     response: Response<CinemaListResponse>
@@ -236,7 +239,7 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
                         val cinemaList = response.body()?.data ?: listOf()
                         onSuccess(cinemaList)
                     } else {
-                        onFailure("Don't make errors,Aung Thiha")
+                        onFailure("Timeslot response error")
                     }
                 }
 
@@ -301,8 +304,8 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
         onSuccess: (MutableList<MutableList<SeatVO>>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mCinemaApi?.getSeatPlan(authorization,dayTimeSlotId,bookingDate)
-            ?.enqueue(object : Callback<SeatingPlanResponse>{
+        mCinemaApi?.getSeatPlan(authorization, dayTimeSlotId, bookingDate)
+            ?.enqueue(object : Callback<SeatingPlanResponse> {
                 override fun onResponse(
                     call: Call<SeatingPlanResponse>,
                     response: Response<SeatingPlanResponse>
@@ -328,7 +331,7 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
         onFailure: (String) -> Unit
     ) {
         mCinemaApi?.getSnackCategory(authorization)
-            ?.enqueue(object : Callback<SnackCategoryResponse>{
+            ?.enqueue(object : Callback<SnackCategoryResponse> {
                 override fun onResponse(
                     call: Call<SnackCategoryResponse>,
                     response: Response<SnackCategoryResponse>
@@ -354,8 +357,8 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
         onSuccess: (List<SnackVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mCinemaApi?.getSnackByCategory(authorization,categoryId)
-            ?.enqueue(object : Callback<SnackListResponse>{
+        mCinemaApi?.getSnackByCategory(authorization, categoryId)
+            ?.enqueue(object : Callback<SnackListResponse> {
                 override fun onResponse(
                     call: Call<SnackListResponse>,
                     response: Response<SnackListResponse>
@@ -381,7 +384,7 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
         onFailure: (String) -> Unit
     ) {
         mCinemaApi?.getPaymentTypes(authorization)
-            ?.enqueue(object : Callback<PaymentListResponse>{
+            ?.enqueue(object : Callback<PaymentListResponse> {
                 override fun onResponse(
                     call: Call<PaymentListResponse>,
                     response: Response<PaymentListResponse>
@@ -395,6 +398,62 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
                 }
 
                 override fun onFailure(call: Call<PaymentListResponse>, t: Throwable) {
+                    onFailure(t.message ?: "")
+                }
+
+            })
+    }
+
+    override fun getTicketCheckout(
+        authorization: String,
+        ticketCheckout: CheckoutBody,
+        onSuccess: (TicketCheckoutVO) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mCinemaApi?.getTicketCheckout(authorization, ticketCheckout)
+            ?.enqueue(object : Callback<TicketCheckoutResponse> {
+                override fun onResponse(
+                    call: Call<TicketCheckoutResponse>,
+                    response: Response<TicketCheckoutResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val ticket = response.body()?.data
+                        if (ticket != null) {
+                            onSuccess(ticket)
+                        }
+                    } else {
+                        onFailure("Don't make errors,Aung Thiha")
+                    }
+                }
+
+                override fun onFailure(call: Call<TicketCheckoutResponse>, t: Throwable) {
+                    onFailure(t.message ?: "")
+                }
+
+            })
+    }
+
+    override fun logout(
+        authorization: String,
+        onSuccess: (LogoutResponse) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mCinemaApi?.logout(authorization)
+            ?.enqueue(object : Callback<LogoutResponse> {
+                override fun onResponse(
+                    call: Call<LogoutResponse>,
+                    response: Response<LogoutResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        response.body()?.let {
+                            onSuccess(it)
+                        }
+                    } else {
+                        onFailure("Don't make errors,Aung Thiha")
+                    }
+                }
+
+                override fun onFailure(call: Call<LogoutResponse>, t: Throwable) {
                     onFailure(t.message ?: "")
                 }
 

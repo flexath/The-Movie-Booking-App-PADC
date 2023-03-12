@@ -37,6 +37,7 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
 
     // For Ticket
     private var mMovieName:String? = null
+    private var mMovieId:String? = null
     private var mCinemaName:String? = null
     private var mCinemaLocation:String? = null
 
@@ -57,6 +58,7 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
         (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.INVISIBLE
 
         mMovieName = args.argMovieName
+        mMovieId = args.argMovieId
 
         setUpDateCardsRecyclerView()            // For Date Cards
         bindTimeSlotData()
@@ -117,7 +119,8 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
         action.argBookingDate = mBookingDate
 
         action.argMovieName = mMovieName
-        val mCinemaInfo = CinemaData(mCinemaName,mBookingDate,cinemaTime,mCinemaLocation)
+        action.argMovieId = mMovieId
+        val mCinemaInfo = CinemaData(mCinemaName,mBookingDate,cinemaTime,mCinemaLocation,dayTimeslotId)
         action.argCinemaInfo = mCinemaInfo
         findNavController().navigate(action)
     }

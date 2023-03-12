@@ -1,5 +1,6 @@
-package com.flexath.themoviebookingapp.data.vos.test
+package com.flexath.themoviebookingapp.network.responses
 
+import com.flexath.themoviebookingapp.data.vos.movie.PaymentVO
 import com.google.gson.annotations.SerializedName
 
 data class PaymentListResponse(

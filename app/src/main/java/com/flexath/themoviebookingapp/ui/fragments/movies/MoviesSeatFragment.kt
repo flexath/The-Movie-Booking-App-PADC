@@ -36,6 +36,7 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
 
     // For Ticket
     private var mmMovieName:String? = null
+    private var mmMovieId:String? = null
     private var mmCinemaInfo:CinemaData? = null
     private lateinit var mmSeatTicketList:MutableList<String>
 
@@ -63,6 +64,7 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
         bookingDate = args.argBookingDate
 
         mmMovieName = args.argMovieName
+        mmMovieId = args.argMovieId
         mmCinemaInfo = args.argCinemaInfo
 
         setUpListeners()
@@ -137,6 +139,7 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
         btnBuyButtonMoviesSeat.setOnClickListener {
             val action = MoviesSeatFragmentDirections.actionMoviesSeatToMoviesFood()
             action.argMovieName = mmMovieName
+            action.argMovieId = mmMovieId
             action.argCinemaInfo = mmCinemaInfo
 
             val seatInfo = SeatData(mmSeatTicketList.size,mmSeatTicketList,(mmSeatTicketList.size*ticketPrice))

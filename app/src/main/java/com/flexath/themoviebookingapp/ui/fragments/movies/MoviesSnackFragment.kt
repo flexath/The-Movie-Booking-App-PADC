@@ -20,6 +20,8 @@ import com.flexath.themoviebookingapp.data.model.CinemaModel
 import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
 import com.flexath.themoviebookingapp.data.vos.movie.SnackCategoryVO
 import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
+import com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBodySnack
+import com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBodySnackList
 import com.flexath.themoviebookingapp.ui.adapters.movies.BottomSheetDialogMoviesFoodAdapter
 import com.flexath.themoviebookingapp.ui.adapters.movies.MoviesSnackAdapter
 import com.flexath.themoviebookingapp.ui.delegates.SnackViewHolderDelegate
@@ -43,12 +45,13 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
 
     private var mSnackCategoryTitleList: MutableList<String?>? = null
     private var mSnackCategoryList: MutableList<SnackCategoryVO>? = null
-    private var mSnackList: MutableLiveData<List<SnackVO>>? = MutableLiveData<List<SnackVO>>()
+    private var mSnackList: MutableLiveData<MutableList<SnackVO>>? = MutableLiveData<MutableList<SnackVO>>()
 
     private val args: MoviesSnackFragmentArgs by navArgs()
 
     // For Ticket
     private var mMovieName: String? = null
+    private var mMovieId: String? = null
     private var mCinemaInfo: CinemaData? = null
     private var mSeatInfo: SeatData? = null
 
@@ -65,6 +68,7 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
         Log.i("CinemaSnack", args.argSeatInfo.toString())
 
         mMovieName = args.argMovieName
+        mMovieId = args.argMovieId
         mCinemaInfo = args.argCinemaInfo
         mSeatInfo = args.argSeatInfo
 
@@ -108,7 +112,7 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
             "Bearer ${mCinemaModel.getOtp(201)?.token}",
             categoryId,
             onSuccess = {
-                mSnackList?.value = it
+                mSnackList?.value = it as MutableList<SnackVO>
                 mSnackAdapter.bindSnackListData(it)
 
                 setUpSnackPriceAndQuantity()
@@ -144,7 +148,7 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
     }
 
     private fun createTicket(): Ticket {
-        return Ticket(mMovieName, mCinemaInfo, mSeatInfo, getSnackTotalPrice(), mSnackList?.value)
+        return Ticket(mMovieId,mMovieName, mCinemaInfo, mSeatInfo, getSnackTotalPrice(), mSnackList?.value)
     }
 
     private fun getSnackTotalPrice() :Long {
@@ -157,12 +161,21 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
         return snackTotalPrice
     }
 
+    private fun getCheckoutBodySnackList(snackList:MutableList<SnackVO>) : CheckoutBodySnackList {
+        val checkoutSnackList = mutableListOf<CheckoutBodySnack>()
+        for(snack in snackList) {
+            checkoutSnackList.add(CheckoutBodySnack(snack.id,snack.quantity))
+        }
+        return CheckoutBodySnackList(checkoutSnackList)
+    }
+
     private fun setUpListeners() {
         // Order Button for Check Out Screen
         btnFoodOrderPurchaseMoviesFood.setOnClickListener {
             val action = MoviesSnackFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
             action.argCheckoutOrCancel = "Checkout"
             action.argTicket = createTicket()
+            action.argCheckoutBodySnackCheckout = getCheckoutBodySnackList(mSnackList?.value ?: mutableListOf())
             it.findNavController().navigate(action)
         }
 
@@ -170,6 +183,7 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
             val action = MoviesSnackFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
             action.argCheckoutOrCancel = "Checkout"
             action.argTicket = createTicket()
+            action.argCheckoutBodySnackCheckout = getCheckoutBodySnackList(mSnackList?.value ?: mutableListOf())
             it.findNavController().navigate(action)
         }
 
@@ -203,6 +217,7 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
                 val action = MoviesSnackFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
                 action.argCheckoutOrCancel = "Checkout"
                 action.argTicket = createTicket()
+                action.argCheckoutBodySnackCheckout = getCheckoutBodySnackList(mSnackList?.value ?: mutableListOf())
                 findNavController().navigate(action)
                 bottomDialog.dismiss()
             }

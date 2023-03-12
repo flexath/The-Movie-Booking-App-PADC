@@ -31,8 +31,8 @@ class CinemaTimesMoviesCinemaViewHolder(
 //        val config = mCinemaModel.getCinemaConfig("cinema_timeslot_status")
 //        return config?.value as List<TimeslotColorVO>
 //    }
-
-    //    private fun setTimeSlotBackgroundColor() {
+//
+//        private fun setTimeSlotBackgroundColor() {
 //        var timeSlotBackgroundColor:String? = ""
 //        for(configValue in getConfigList()) {
 //            if(configValue.id == mTimeslot?.status) {

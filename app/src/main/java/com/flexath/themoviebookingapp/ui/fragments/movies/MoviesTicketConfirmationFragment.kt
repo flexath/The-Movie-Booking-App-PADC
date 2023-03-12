@@ -3,6 +3,7 @@ package com.flexath.themoviebookingapp.ui.fragments.movies
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +14,21 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.flexath.themoviebookingapp.R
+import com.flexath.themoviebookingapp.data.model.CinemaModel
+import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
+import com.flexath.themoviebookingapp.network.utils.BASE_URL
+import com.flexath.themoviebookingapp.network.utils.IMG_BASE_URL
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_ticket_confirmation.*
+import kotlinx.android.synthetic.main.layout_ticket_confirmation_details.*
 
 class MoviesTicketConfirmationFragment : Fragment() {
+
+    private val args:MoviesTicketConfirmationFragmentArgs by navArgs()
+    private val mCinemaModel:CinemaModel = CinemaModelImpl
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_movies_ticket_confirmation, container, false)
@@ -28,6 +39,30 @@ class MoviesTicketConfirmationFragment : Fragment() {
         (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.INVISIBLE
 
         setUpListeners()
+        bindData()
+    }
+
+    private fun bindData() {
+        Log.i("TicketConfirm",args.argCheckoutTicket.toString())
+
+        tvCinemaNameMoviesConfirmation.text = args.argCheckoutTicket?.bookingNo ?: ""
+        tvNumberOfTicketConfirmation.text = args.argCheckoutTicket?.totalSeat.toString()
+        tvTicketNamesConfirmation.text = args.argCheckoutTicket?.seat ?: ""
+        tvDateConfirmation.text = args.argCheckoutTicket?.bookingDate ?: ""
+        tvTimeConfirmation.text = args.argCheckoutTicket?.timeslot?.start_time ?: ""
+        tvAddressConfirmation.text = args.argAddress ?: ""
+
+        val movie = mCinemaModel.getMovieByIdForTicket(args.argCheckoutTicket?.movieId.toString())
+        tvMovieTitleConfirmation.text = movie?.originalTitle ?: ""
+
+        Glide.with(requireActivity())
+            .load("$IMG_BASE_URL${movie?.posterPath}")
+            .into(ivMoviePosterConfirmation)
+
+        Glide.with(requireActivity())
+            .load("$BASE_URL/${args.argCheckoutTicket?.qrCode}")
+            .into(ivQRCodeMoviesTicketConfirmation)
+
     }
 
     private fun setUpListeners() {
@@ -45,20 +80,3 @@ class MoviesTicketConfirmationFragment : Fragment() {
         }
     }
 }
-
-
-//val activity = (activity as AppCompatActivity)
-//
-//val fragmentManager = activity.supportFragmentManager
-//val fragments = fragmentManager.fragments
-
-//            val moviesHome = MoviesHomeFragment()
-//            val fragmentTransaction = fragmentManager.beginTransaction()
-//            fragmentTransaction.add(R.id.fragmentContainerView, moviesHome)
-//            fragmentTransaction.commit()
-//
-//            for (f in fragments) {
-//                if (f != moviesHome) {
-//                    fragmentManager.beginTransaction().remove(f).commit()
-//                }
-//            }
