@@ -12,6 +12,7 @@ import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
 import com.flexath.themoviebookingapp.data.vos.movie.PaymentVO
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBody
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutVO
+import com.flexath.themoviebookingapp.data.vos.test.VideoVO
 import com.flexath.themoviebookingapp.network.responses.LogoutResponse
 import com.flexath.themoviebookingapp.network.responses.OTPResponse
 
@@ -59,6 +60,12 @@ interface CinemaDataAgent {
     fun getMovieDetailsById(
         movieId:String,
         onSuccess:(MovieVO) -> Unit,
+        onFailure:(String) -> Unit
+    )
+
+    fun getMovieTrailerById(
+        movieId:String,
+        onSuccess:(List<VideoVO>) -> Unit,
         onFailure:(String) -> Unit
     )
 

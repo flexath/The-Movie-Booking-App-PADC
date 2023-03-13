@@ -21,6 +21,10 @@ const val API_GET_SNACK_CATEGORY = "/api/v2/snack-categories"
 const val API_GET_SNACK = "/api/v2/snacks"
 const val API_GET_PAYMENT = "/api/v2/payment-types"
 
+// For Trailer Video
+const val BASE_URL_TMDB = "https://api.themoviedb.org"
+const val API_GET_VIDEO = "/3/movie"
+
 // POST URLs
 const val API_POST_OTP = "/api/v2/get-otp"
 const val API_POST_SIGN_IN_WITH_OTP = "/api/v2/check-otp"

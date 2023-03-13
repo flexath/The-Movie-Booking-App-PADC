@@ -1,5 +1,6 @@
 package com.flexath.themoviebookingapp.ui.viewpods
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.FrameLayout
@@ -30,6 +31,7 @@ class CinemaListViewPod @JvmOverloads constructor(
         mCinemaListAdapter.setData(cinemaList)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setUpCinemaListRecyclerView() {
         mCinemaListAdapter = CinemasMoviesCinemaAdapter(mDelegate)
         rvCinemaListViewPod.adapter = mCinemaListAdapter

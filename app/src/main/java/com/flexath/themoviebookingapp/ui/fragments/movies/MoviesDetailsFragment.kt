@@ -1,7 +1,10 @@
 package com.flexath.themoviebookingapp.ui.fragments.movies
 
+import android.media.session.PlaybackState
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +29,12 @@ import com.flexath.themoviebookingapp.network.utils.IMG_BASE_URL
 
 import com.flexath.themoviebookingapp.service.NotificationWorkManager
 import com.flexath.themoviebookingapp.ui.adapters.movies.CastMoviesDetailsAdapter
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerCallback
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.options.IFramePlayerOptions
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_details.*
 
@@ -93,13 +102,76 @@ class MoviesDetailsFragment : Fragment() {
             bindGenre(movie)
         }
 
-//        var youtubeKey = ""
-//        movie.videoList?.results?.forEach {
-//            if(it.site == "YouTube" && it.type == "Trailer" && it.name == "Official Trailer" && it.official == true) {
-//                youtubeKey = it.key.toString()
+        requestVideoURL(movie?.id.toString())
+    }
+
+    private fun requestVideoURL(movieId:String) {
+
+
+        mMovieModel.getMovieTrailerById(
+            movieId,
+            onSuccess = {
+                Toast.makeText(requireContext(),"Video call succeeded",Toast.LENGTH_SHORT).show()
+                var youtubeKey = ""
+                for(video in it){
+                    if(video.site == "YouTube" && video.type == "Trailer" && video.official == true) {
+                        youtubeKey = video.key.toString()
+                        break
+                    }
+                }
+                setUpYoutubePlayer(youtubeKey)
+            },
+            onFailure = {
+                Toast.makeText(requireContext(),"Video call fails",Toast.LENGTH_SHORT).show()
+            }
+        )
+    }
+
+    private fun setUpYoutubePlayer(youtubeKey:String) {
+        viewLifecycleOwner.lifecycle.addObserver(ytPlayerMovieDetails)
+//        ytPlayerMovieDetails.getYouTubePlayerWhenReady(object: YouTubePlayerCallback {
+//            override fun onYouTubePlayer(youTubePlayer: YouTubePlayer) {
+//                youTubePlayer.cueVideo(youtubeKey,0.0f)
+//                //playOrPauseTrailer(youTubePlayer,youtubeKey)
 //            }
-//        }
-//        setUpYoutubePlayer(youtubeKey)
+//        })
+
+        // For Non-Controls
+        val listener: YouTubePlayerListener = object : AbstractYouTubePlayerListener() {
+            override fun onReady(youTubePlayer: YouTubePlayer) {
+                youTubePlayer.cueVideo(youtubeKey,0.0f)
+//                playOrPauseTrailer(youTubePlayer)
+
+                ytPlayerMovieDetails.setOnClickListener {
+                    if(!isTrailerVideoPlaying) {
+                        youTubePlayer.play()
+                        isTrailerVideoPlaying = true
+                    }else{
+                        youTubePlayer.pause()
+                        isTrailerVideoPlaying = false
+                    }
+                }
+            }
+        }
+
+        val options: IFramePlayerOptions = IFramePlayerOptions.Builder().controls(0).build()
+        ytPlayerMovieDetails.initialize(listener, options)      // initialize the player
+    }
+
+    private fun playOrPauseTrailer(youtubePlayer:YouTubePlayer){
+        btnPlayMoviesDetails.setOnClickListener {
+            if(!isTrailerVideoPlaying){
+                //btnPlayMoviesDetails.setImageResource(R.drawable.ic_baseline_pause_white_22dp)
+                youtubePlayer.play()
+                isTrailerVideoPlaying = true
+                btnPlayMoviesDetails.visibility = View.GONE
+            }else{
+                btnPlayMoviesDetails.visibility = View.VISIBLE
+                btnPlayMoviesDetails.setImageResource(R.drawable.ic_baseline_play_arrow_white_22dp)
+                youtubePlayer.pause()
+                isTrailerVideoPlaying = false
+            }
+        }
     }
 
     private fun getNotificationForReleaseDate() {
@@ -161,6 +233,7 @@ class MoviesDetailsFragment : Fragment() {
 
     private fun setUpListeners(){
         btnBackMoviesDetails.setOnClickListener {
+            ytPlayerMovieDetails.release()
             it.findNavController().popBackStack()
         }
 
@@ -185,43 +258,6 @@ class MoviesDetailsFragment : Fragment() {
             btnBookingButtonMoviesDetails.visibility = View.GONE
         }
     }
-
-//    private fun setUpYoutubePlayer(youtubeKey:String) {
-//        viewLifecycleOwner.lifecycle.addObserver(ytPlayerMovieDetails)
-//
-//        val listener: YouTubePlayerListener = object : AbstractYouTubePlayerListener() {
-//            override fun onReady(youTubePlayer: YouTubePlayer) {
-//                youTubePlayer.cueVideo(youtubeKey,0.0f)
-//                playOrPauseTrailer(youTubePlayer)
-//            }
-//        }
-//
-//        val options: IFramePlayerOptions = IFramePlayerOptions.Builder().controls(0).build()
-//        ytPlayerMovieDetails.initialize(listener, options)      // initialize the player
-//
-////        ytPlayerMovieDetails.getYouTubePlayerWhenReady(object: YouTubePlayerCallback {
-////            override fun onYouTubePlayer(youTubePlayer: YouTubePlayer) {
-////                youTubePlayer.cueVideo(youtubeKey,0.0f)
-////                //playOrPauseTrailer(youTubePlayer,youtubeKey)
-////            }
-////        })
-//    }
-
-//    private fun playOrPauseTrailer(youtubePlayer:YouTubePlayer){
-//        btnPlayMoviesDetails.setOnClickListener {
-//            if(!isTrailerVideoPlaying){
-//                //btnPlayMoviesDetails.setImageResource(R.drawable.ic_baseline_pause_white_22dp)
-//                youtubePlayer.play()
-//                isTrailerVideoPlaying = true
-//                btnPlayMoviesDetails.visibility = View.GONE
-//            }else{
-//                btnPlayMoviesDetails.visibility = View.VISIBLE
-//                btnPlayMoviesDetails.setImageResource(R.drawable.ic_baseline_play_arrow_white_22dp)
-//                youtubePlayer.pause()
-//                isTrailerVideoPlaying = false
-//            }
-//        }
-//    }
 //
 //    private fun setUpMovieTrailerVideo(){
 //        val mediaController = MediaController(requireContext())

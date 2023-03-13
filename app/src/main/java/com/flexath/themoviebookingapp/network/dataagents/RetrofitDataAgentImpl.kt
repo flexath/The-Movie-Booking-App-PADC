@@ -14,22 +14,23 @@ import com.flexath.themoviebookingapp.data.vos.movie.PaymentVO
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBody
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutResponse
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutVO
+import com.flexath.themoviebookingapp.data.vos.test.VideoResponse
+import com.flexath.themoviebookingapp.data.vos.test.VideoVO
 import com.flexath.themoviebookingapp.network.responses.SeatingPlanResponse
 import com.flexath.themoviebookingapp.network.api.CinemaApi
 import com.flexath.themoviebookingapp.network.responses.*
 import com.flexath.themoviebookingapp.network.utils.BASE_URL
+import com.flexath.themoviebookingapp.network.utils.BASE_URL_TMDB
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
+import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object RetrofitDataAgentImpl : CinemaDataAgent {
 
     private var mCinemaApi: CinemaApi? = null
+    private var mCinemaApiTwo: CinemaApi? = null
 
     init {
 
@@ -49,7 +50,14 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
             .client(okHttpClient)
             .build()
 
+        val retrofitTwo = Retrofit.Builder()
+            .baseUrl(BASE_URL_TMDB)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .build()
+
         mCinemaApi = retrofit.create(CinemaApi::class.java)
+        mCinemaApiTwo = retrofitTwo.create(CinemaApi::class.java)
     }
 
     override fun getCities(onSuccess: (List<CitiesVO>) -> Unit, onFailure: (String) -> Unit) {
@@ -217,6 +225,32 @@ object RetrofitDataAgentImpl : CinemaDataAgent {
                 }
 
                 override fun onFailure(call: Call<MovieDetailResponse>, t: Throwable) {
+                    onFailure(t.message ?: "")
+                }
+
+            })
+    }
+
+    override fun getMovieTrailerById(
+        movieId: String,
+        onSuccess: (List<VideoVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mCinemaApiTwo?.getMovieTrailerById(movieId)
+            ?.enqueue(object : Callback<VideoResponse> {
+                override fun onResponse(
+                    call: Call<VideoResponse>,
+                    response: Response<VideoResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val videoList = response.body()?.results ?: listOf()
+                        onSuccess(videoList)
+                    } else {
+                        onFailure("Don't make errors,Aung Thiha")
+                    }
+                }
+
+                override fun onFailure(call: Call<VideoResponse>, t: Throwable) {
                     onFailure(t.message ?: "")
                 }
 

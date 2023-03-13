@@ -2,6 +2,7 @@ package com.flexath.themoviebookingapp.network.api
 
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBody
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutResponse
+import com.flexath.themoviebookingapp.data.vos.test.VideoResponse
 import com.flexath.themoviebookingapp.network.responses.PaymentListResponse
 import com.flexath.themoviebookingapp.network.responses.SeatingPlanResponse
 import com.flexath.themoviebookingapp.network.responses.*
@@ -48,6 +49,13 @@ interface CinemaApi {
     fun getMovieDetailsById(
         @Path("movie_id") movieId:String
     ) : Call<MovieDetailResponse>
+
+    // Movie Detail Screen
+    @GET("$API_GET_VIDEO/{movie_id}/videos")
+    fun getMovieTrailerById(
+        @Path("movie_id") movieId:String,
+        @Query("api_key") apiKey:String = API_KEY,
+    ) : Call<VideoResponse>
 
     // Movie Cinema Screen
     @GET(API_GET_CINEMA_TIMESLOTS)
@@ -99,4 +107,5 @@ interface CinemaApi {
     fun logout(
         @Header(HEADER_AUTH) authorization:String
     ) : Call<LogoutResponse>
+
 }

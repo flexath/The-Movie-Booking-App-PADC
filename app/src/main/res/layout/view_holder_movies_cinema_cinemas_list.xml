@@ -98,7 +98,7 @@
         android:layout_marginTop="@dimen/margin_10dp"
         android:layout_marginStart="@dimen/margin_small_smaller"
         android:layout_marginEnd="@dimen/margin_small_smaller"
-        android:visibility="visible"
+        android:visibility="gone"
         tools:itemCount="3"
         tools:listitem="@layout/view_holder_movies_cinema_cinema_times_list" />
 

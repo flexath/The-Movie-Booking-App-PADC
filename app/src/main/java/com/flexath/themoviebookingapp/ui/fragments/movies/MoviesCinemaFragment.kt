@@ -2,7 +2,6 @@ package com.flexath.themoviebookingapp.ui.fragments.movies
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.data.model.CinemaModel
 import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
+import com.flexath.themoviebookingapp.data.vos.movie.cinema.CinemaVO
 import com.flexath.themoviebookingapp.ui.adapters.movies.DateCardMoviesCinemaAdapter
 import com.flexath.themoviebookingapp.ui.delegates.CinemaListViewHolderDelegate
 import com.flexath.themoviebookingapp.ui.utils.CinemaData
@@ -32,6 +32,7 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
     private lateinit var cinemaListViewPod: CinemaListViewPod
     private val mCinemaModel: CinemaModel = CinemaModelImpl
     private var mBookingDate:String? = null
+    private var mCinemaList:List<CinemaVO> = listOf()
 
     private val args:MoviesCinemaFragmentArgs by navArgs()
 
@@ -60,12 +61,10 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
         mMovieName = args.argMovieName
         mMovieId = args.argMovieId
 
-        setUpDateCardsRecyclerView()            // For Date Cards
+        setUpDateCardsRecyclerView()
         bindTimeSlotData()
 
         setUpViewPod()
-
-        Log.i("DateTimeSlot", timeSlotUtil.dateListTimeSLot.toString())
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -77,6 +76,7 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun bindTimeSlotData() {
         mDateCardsAdapter.bindTimeSlotData(timeSlotUtil.dateList)
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -93,15 +93,15 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
     }
 
     private fun requestData(date: String) {
-        Log.i("AungThiha", date)
         mCinemaModel.getCinemaTimeSlots(
             "Bearer ${mCinemaModel.getOtp(201)?.token}",
             date,
             onSuccess = {
+                mCinemaList = it
                 cinemaListViewPod.setNewData(it)
             },
             onFailure = {
-                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "This function", Toast.LENGTH_SHORT).show()
             }
         )
     }
@@ -142,5 +142,12 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
                 mCinemaLocation = cinemaInfo.address
             }
         }
+    }
+
+    override fun onClickCinema(cinemaId: Int) {
+        mCinemaList.forEach {
+            it.isClicked = it.cinemaId == cinemaId
+        }
+        cinemaListViewPod.setNewData(mCinemaList)
     }
 }

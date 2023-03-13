@@ -63,5 +63,9 @@ class CinemaSearchFragment : Fragment(),CinemaListViewHolderDelegate {
 
     }
 
+    override fun onClickCinema(cinemaId: Int) {
+
+    }
+
 
 }

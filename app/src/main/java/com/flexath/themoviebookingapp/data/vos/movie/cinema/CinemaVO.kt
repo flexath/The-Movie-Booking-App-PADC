@@ -11,5 +11,7 @@ data class CinemaVO(
     val cinemaId: Int?,
 
     @SerializedName("timeslots")
-    val timeslots: List<TimeslotVO>?
+    val timeslots: List<TimeslotVO>?,
+
+    var isClicked:Boolean = false
 )

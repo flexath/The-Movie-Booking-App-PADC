@@ -39,7 +39,7 @@
                     android:layout_gravity="end"
                     android:layout_marginTop="@dimen/margin_card_medium_2"
                     android:layout_marginEnd="@dimen/margin_large"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:elevation="@dimen/margin_medium_3"
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/ic_baseline_share_white_24dp" />
@@ -48,7 +48,7 @@
                     android:id="@+id/btnPlayMoviesDetails"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="visible"
+                    android:visibility="invisible"
                     android:layout_gravity="center"
                     android:contentDescription="@string/lbl_play_button_fab"
                     android:src="@drawable/ic_baseline_play_arrow_white_22dp"

@@ -15,16 +15,14 @@ class CinemasMoviesCinemaViewHolder(
 ) : RecyclerView.ViewHolder(itemView) {
 
     private var mCinemaTimesAdapter: CinemaTimesMoviesCinemaAdapter? = null
-    private var isVisibleRecyclerView: Boolean = false
     private var mCinema: CinemaVO? = null
 
     init {
         itemView.setOnClickListener {
-            if (isVisibleRecyclerView) {
+            if (mCinema?.isClicked == false) {
                 itemView.rvCinemaTimesMoviesCinema.visibility = View.GONE
                 itemView.llLongPressMoviesCinema.visibility = View.GONE
                 mCinemaTimesAdapter = null
-                isVisibleRecyclerView = false
             } else {
                 itemView.rvCinemaTimesMoviesCinema.visibility = View.VISIBLE
                 itemView.llLongPressMoviesCinema.visibility = View.VISIBLE
@@ -32,7 +30,6 @@ class CinemasMoviesCinemaViewHolder(
                 requestTimeSlotData()
                 delegate.getCinemaName(mCinema?.cinema)
                 delegate.getCinemaId(mCinema?.cinemaId)
-                isVisibleRecyclerView = true
             }
         }
 

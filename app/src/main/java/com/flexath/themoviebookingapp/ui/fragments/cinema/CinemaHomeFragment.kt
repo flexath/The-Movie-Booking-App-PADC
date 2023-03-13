@@ -67,4 +67,8 @@ class CinemaHomeFragment : Fragment(),CinemaListViewHolderDelegate {
     override fun getCinemaId(cinemaId: Int?) {
 
     }
+
+    override fun onClickCinema(cinemaId: Int) {
+
+    }
 }
