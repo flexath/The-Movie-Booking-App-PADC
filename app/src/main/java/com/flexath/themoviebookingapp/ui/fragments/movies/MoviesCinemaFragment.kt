@@ -146,7 +146,11 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
 
     override fun onClickCinema(cinemaId: Int) {
         mCinemaList.forEach {
-            it.isClicked = it.cinemaId == cinemaId
+            if(cinemaId == it.cinemaId) {
+                it.isClicked = true
+            } else {
+                it.isClicked = false
+            }
         }
         cinemaListViewPod.setNewData(mCinemaList)
     }

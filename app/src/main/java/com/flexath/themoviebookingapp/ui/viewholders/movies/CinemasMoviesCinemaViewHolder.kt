@@ -19,18 +19,7 @@ class CinemasMoviesCinemaViewHolder(
 
     init {
         itemView.setOnClickListener {
-            if (mCinema?.isClicked == false) {
-                itemView.rvCinemaTimesMoviesCinema.visibility = View.GONE
-                itemView.llLongPressMoviesCinema.visibility = View.GONE
-                mCinemaTimesAdapter = null
-            } else {
-                itemView.rvCinemaTimesMoviesCinema.visibility = View.VISIBLE
-                itemView.llLongPressMoviesCinema.visibility = View.VISIBLE
-                setUpCinemaTimesRecyclerView()
-                requestTimeSlotData()
-                delegate.getCinemaName(mCinema?.cinema)
-                delegate.getCinemaId(mCinema?.cinemaId)
-            }
+            delegate.onClickCinema(mCinema?.cinemaId ?: 0)
         }
 
         setUpListeners()
@@ -57,5 +46,18 @@ class CinemasMoviesCinemaViewHolder(
     fun bindData(cinema: CinemaVO) {
         mCinema = cinema
         itemView.tvCinemaNameMoviesCinema.text = cinema.cinema
+
+        if (mCinema?.isClicked == false) {
+            itemView.rvCinemaTimesMoviesCinema.visibility = View.GONE
+            itemView.llLongPressMoviesCinema.visibility = View.GONE
+            mCinemaTimesAdapter = null
+        } else {
+            itemView.rvCinemaTimesMoviesCinema.visibility = View.VISIBLE
+            itemView.llLongPressMoviesCinema.visibility = View.VISIBLE
+            setUpCinemaTimesRecyclerView()
+            requestTimeSlotData()
+            delegate.getCinemaName(mCinema?.cinema)
+            delegate.getCinemaId(mCinema?.cinemaId)
+        }
     }
 }
