@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.data.model.CinemaModel
 import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
+import com.flexath.themoviebookingapp.data.vos.ticket.TicketInformation
 import com.flexath.themoviebookingapp.network.utils.BASE_URL
 import com.flexath.themoviebookingapp.network.utils.IMG_BASE_URL
 import kotlinx.android.synthetic.main.activity_main.*
@@ -63,6 +64,7 @@ class MoviesTicketConfirmationFragment : Fragment() {
             .load("$BASE_URL/${args.argCheckoutTicket?.qrCode}")
             .into(ivQRCodeMoviesTicketConfirmation)
 
+        mCinemaModel.insertTicket(TicketInformation(args.argCheckoutTicket,args.argAddress,movie?.originalTitle,movie?.posterPath))
     }
 
     private fun setUpListeners() {

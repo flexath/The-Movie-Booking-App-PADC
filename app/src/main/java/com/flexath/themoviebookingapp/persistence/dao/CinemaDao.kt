@@ -1,15 +1,13 @@
 package com.flexath.themoviebookingapp.persistence.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.flexath.themoviebookingapp.data.vos.location.CitiesVO
 import com.flexath.themoviebookingapp.data.vos.movie.BannerVO
 import com.flexath.themoviebookingapp.data.vos.movie.CinemaInfoVO
 import com.flexath.themoviebookingapp.data.vos.movie.MovieVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
 import com.flexath.themoviebookingapp.network.responses.OTPResponse
+import com.flexath.themoviebookingapp.data.vos.ticket.TicketInformation
 
 @Dao
 interface CinemaDao {
@@ -65,4 +63,48 @@ interface CinemaDao {
 
     @Query("SELECT * FROM cinema_info_table WHERE id = :cinemaId")
     fun getCinemaInfo(cinemaId:Int):CinemaInfoVO?
+
+    @Transaction
+    @Query("DELETE FROM cities_table")
+    fun deleteAllFromCitiesVO()
+
+    @Transaction
+    @Query("DELETE FROM otp_table")
+    fun deleteAllFromOTP()
+
+    @Transaction
+    @Query("DELETE FROM banners_table")
+    fun deleteAllFromBannerVO()
+
+    @Transaction
+    @Query("DELETE FROM movie_table")
+    fun deleteAllFromMovieVO()
+
+    @Transaction
+    @Query("DELETE FROM config_table")
+    fun deleteAllFromConfigVO()
+
+    @Transaction
+    @Query("DELETE FROM cinema_info_table")
+    fun deleteAllFromCinemaInfoVO()
+
+    @Transaction
+    fun deleteAllEntities(){
+        deleteAllFromCitiesVO()
+        deleteAllFromOTP()
+        deleteAllFromBannerVO()
+        deleteAllFromMovieVO()
+        deleteAllFromConfigVO()
+        deleteAllFromCinemaInfoVO()
+    }
+
+    // Ticket Home
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertTicket(ticket: TicketInformation)
+
+    @Query("SELECT * FROM ticket_table")
+    fun getAllTickets():List<TicketInformation>
+
+    @Query("DELETE FROM ticket_table WHERE id = :ticketId")
+    fun deleteTicket(ticketId:Int)
 }

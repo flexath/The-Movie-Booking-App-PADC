@@ -107,4 +107,5 @@
     <string name="lbl_search_the_movies">Search the movies</string>
     <string name="cities_lbl">Cities</string>
     <string name="normal_4500ks_lbl">Normal (4500ks)</string>
+    <string name="done_lbl">DONE</string>
 </resources>

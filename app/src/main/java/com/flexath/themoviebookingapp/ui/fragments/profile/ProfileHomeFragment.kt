@@ -35,7 +35,7 @@ class ProfileHomeFragment : Fragment() {
     private fun setUpListeners() {
         btnLogOutProfileHome.setOnClickListener {
 
-            val dialog = MaterialAlertDialogBuilder(requireContext())
+            val dialog = MaterialAlertDialogBuilder(requireActivity(),R.style.RoundedAlertDialog)
                 .setTitle("Log Out ?")
                 .setMessage("Are you sure to log out ?")
                 .setCancelable(false)
@@ -44,6 +44,7 @@ class ProfileHomeFragment : Fragment() {
                         "Bearer ${mCinemaModel.getOtp(201)?.token}",
                         onSuccess = {
                             Toast.makeText(requireActivity(),"Logout call succeeded",Toast.LENGTH_SHORT).show()
+                            mCinemaModel.deleteAllEntities()
                             (activity as MainActivity).finish()
                         },
                         onFailure = {
@@ -51,7 +52,7 @@ class ProfileHomeFragment : Fragment() {
                         }
                     )
                 }
-                .setNegativeButton("No") { dialog, which -> dialog?.dismiss() }
+                .setNegativeButton("Cancel") { dialog, which -> dialog?.dismiss() }
                 .create()
             dialog.show()
         }

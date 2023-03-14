@@ -11,7 +11,8 @@ class SnackTicketCheckoutViewHolder(itemView: View) : RecyclerView.ViewHolder(it
         itemView.tvSnackNameTicket.text = snack.name
 
         val snackQuantity = "(Qt.${snack.quantity})"
+        val snackPrice = "${(snack.price?.times(snack.quantity))}Ks"
         itemView.tvSnackQuantityTicket.text = snackQuantity
-        itemView.tvSnackPriceTicket.text = (snack.price?.times(snack.quantity)).toString()
+        itemView.tvSnackPriceTicket.text = snackPrice
     }
 }

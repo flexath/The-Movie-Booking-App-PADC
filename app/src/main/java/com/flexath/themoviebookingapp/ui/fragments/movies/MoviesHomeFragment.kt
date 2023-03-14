@@ -73,10 +73,9 @@ class MoviesHomeFragment : Fragment() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun setUpBannerHome() {
-
+        setUpBannerViewPagerPadding()
         mMovieModel.getBanners(
             onSuccess = {
-                setUpBannerViewPagerPadding()
                 setUpBannerRecyclerView(it)
                 val compositePageTransformer = CompositePageTransformer()
                 compositePageTransformer.addTransformer(MarginPageTransformer((10 * Resources.getSystem().displayMetrics.density).toInt()))
@@ -95,7 +94,7 @@ class MoviesHomeFragment : Fragment() {
     private fun setUpBannerRecyclerView(banners:List<BannerVO>) {
         mBannerHomeAdapter = BannerMoviesHomeAdapter(banners)
         viewPagerBannerMoviesHome?.adapter = mBannerHomeAdapter
-        dotsIndicatorHome.attachTo(viewPagerBannerMoviesHome)
+        dotsIndicatorHome?.attachTo(viewPagerBannerMoviesHome!!)
         mBannerHomeAdapter.notifyDataSetChanged()
     }
 

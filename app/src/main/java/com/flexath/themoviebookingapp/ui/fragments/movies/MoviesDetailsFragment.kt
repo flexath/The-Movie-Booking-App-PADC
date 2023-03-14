@@ -78,7 +78,7 @@ class MoviesDetailsFragment : Fragment() {
                 bindNewData(it)
             },
             onFailure = {
-                Toast.makeText(requireContext(),it,Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(),it,Toast.LENGTH_SHORT).show()
             }
         )
     }
@@ -111,7 +111,7 @@ class MoviesDetailsFragment : Fragment() {
         mMovieModel.getMovieTrailerById(
             movieId,
             onSuccess = {
-                Toast.makeText(requireContext(),"Video call succeeded",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(),"Video call succeeded",Toast.LENGTH_SHORT).show()
                 var youtubeKey = ""
                 for(video in it){
                     if(video.site == "YouTube" && video.type == "Trailer" && video.official == true) {
@@ -122,7 +122,7 @@ class MoviesDetailsFragment : Fragment() {
                 setUpYoutubePlayer(youtubeKey)
             },
             onFailure = {
-                Toast.makeText(requireContext(),"Video call fails",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(),"Video call fails",Toast.LENGTH_SHORT).show()
             }
         )
     }
@@ -190,7 +190,7 @@ class MoviesDetailsFragment : Fragment() {
 //            .setConstraints(constraints)
 //            .build()
 
-        WorkManager.getInstance(requireContext()).enqueue(workRequest)
+        WorkManager.getInstance(requireActivity()).enqueue(workRequest)
     }
 
     private fun bindGenre(movie: MovieVO) {
@@ -260,7 +260,7 @@ class MoviesDetailsFragment : Fragment() {
     }
 //
 //    private fun setUpMovieTrailerVideo(){
-//        val mediaController = MediaController(requireContext())
+//        val mediaController = MediaController(requireActivity())
 //        mediaController.setAnchorView(vvVideoMovieDetails)
 //
 //        val videoUri = Uri.parse("android.resource://com.flexath.themoviebookingapp/${R.raw.black_widow_trailer}")
@@ -272,7 +272,7 @@ class MoviesDetailsFragment : Fragment() {
     private fun setUpCastRecyclerView(casts:List<CastVO>) {
         mCastAdapter = CastMoviesDetailsAdapter()
         rvCastMoviesDetails.adapter = mCastAdapter
-        rvCastMoviesDetails.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        rvCastMoviesDetails.layoutManager = LinearLayoutManager(requireActivity(),LinearLayoutManager.HORIZONTAL,false)
         mCastAdapter.bindCastData(casts)
         mCastAdapter.notifyDataSetChanged()
     }

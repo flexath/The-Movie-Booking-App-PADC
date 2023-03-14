@@ -11,7 +11,8 @@ import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
 import com.flexath.themoviebookingapp.data.vos.movie.PaymentVO
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBody
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutVO
-import com.flexath.themoviebookingapp.data.vos.test.VideoVO
+import com.flexath.themoviebookingapp.data.vos.movie.VideoVO
+import com.flexath.themoviebookingapp.data.vos.ticket.TicketInformation
 import com.flexath.themoviebookingapp.network.dataagents.CinemaDataAgent
 import com.flexath.themoviebookingapp.network.dataagents.RetrofitDataAgentImpl
 import com.flexath.themoviebookingapp.network.responses.LogoutResponse
@@ -220,6 +221,20 @@ object CinemaModelImpl : CinemaModel {
         onFailure: (String) -> Unit
     ) {
         mMovieDataAgent.logout(authorization,onSuccess,onFailure)
+    }
+
+    override fun deleteAllEntities() {
+        mCinemaDatabase?.getDao()?.deleteAllEntities()
+    }
+
+    override fun insertTicket(ticket: TicketInformation) {
+        mCinemaDatabase?.getDao()?.insertTicket(ticket)
+    }
+
+    override fun getAllTickets(): List<TicketInformation>? = mCinemaDatabase?.getDao()?.getAllTickets()
+
+    override fun deleteTicket(ticketId:Int) {
+        mCinemaDatabase?.getDao()?.deleteTicket(ticketId)
     }
 
 }

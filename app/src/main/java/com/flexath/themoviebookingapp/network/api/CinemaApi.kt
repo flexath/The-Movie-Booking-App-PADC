@@ -2,7 +2,7 @@ package com.flexath.themoviebookingapp.network.api
 
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBody
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutResponse
-import com.flexath.themoviebookingapp.data.vos.test.VideoResponse
+import com.flexath.themoviebookingapp.data.vos.movie.VideoResponse
 import com.flexath.themoviebookingapp.network.responses.PaymentListResponse
 import com.flexath.themoviebookingapp.network.responses.SeatingPlanResponse
 import com.flexath.themoviebookingapp.network.responses.*

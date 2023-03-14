@@ -2,6 +2,7 @@ package com.flexath.themoviebookingapp.ui.fragments.movies
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -60,6 +61,9 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
 
         mMovieName = args.argMovieName
         mMovieId = args.argMovieId
+
+        Log.i("Timeslot",timeSlotUtil.dateList.toString())
+        Log.i("Timeslot",timeSlotUtil.dateListTimeSLot.toString())
 
         setUpDateCardsRecyclerView()
         bindTimeSlotData()
@@ -125,6 +129,7 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
         findNavController().navigate(action)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onClickTimeSlot(date: String) {
         mBookingDate = date
         requestData(date)
@@ -136,7 +141,6 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
     }
 
     override fun getCinemaId(cinemaId: Int?) {
-
         cinemaId?.let { id ->
             mCinemaModel.getCinemaInfo(id)?.also { cinemaInfo ->
                 mCinemaLocation = cinemaInfo.address
@@ -146,11 +150,7 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
 
     override fun onClickCinema(cinemaId: Int) {
         mCinemaList.forEach {
-            if(cinemaId == it.cinemaId) {
-                it.isClicked = true
-            } else {
-                it.isClicked = false
-            }
+            it.isClicked = cinemaId == it.cinemaId
         }
         cinemaListViewPod.setNewData(mCinemaList)
     }

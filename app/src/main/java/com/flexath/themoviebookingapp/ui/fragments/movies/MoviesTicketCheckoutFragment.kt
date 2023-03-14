@@ -10,13 +10,18 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.flexath.themoviebookingapp.R
+import com.flexath.themoviebookingapp.data.model.CinemaModel
+import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
 import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
+import com.flexath.themoviebookingapp.ui.activities.MainActivity
 import com.flexath.themoviebookingapp.ui.adapters.movies.SnackTicketCheckoutAdapter
 import com.flexath.themoviebookingapp.ui.utils.Ticket
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_ticket_checkout.*
 import kotlinx.android.synthetic.main.layout_app_bar_movies_ticket_checkout.*
@@ -26,6 +31,7 @@ class MoviesTicketCheckoutFragment : Fragment() {
 
     private lateinit var mOrderedFoodAdapter: SnackTicketCheckoutAdapter
     private var isVisibleRecyclerView: Boolean = true
+    private val mCinemaModel:CinemaModel = CinemaModelImpl
 
     private var mMovieName: String? = null
     private var mCinemaName: String? = null
@@ -68,7 +74,6 @@ class MoviesTicketCheckoutFragment : Fragment() {
         setUpOrderedFoodListRecyclerView()
 
         setUpListeners()
-        bindTicketData()
         hasItemInRecyclerView()
     }
 
@@ -90,6 +95,31 @@ class MoviesTicketCheckoutFragment : Fragment() {
         tvTotalMoney.text = totalMoney
 
         mOrderedFoodAdapter.bindNewData(setUpSnackList())
+    }
+
+    private fun bindTicketCancellationData() {
+        tvMovieNameTicket.text = args.argCheckoutTicketCancel?.movieName ?: ""
+        tvCinemaNameTicket.text = args.argCheckoutTicketCancel?.ticketCheckout?.bookingNo ?: ""
+        tvDateTicket.text = args.argCheckoutTicketCancel?.ticketCheckout?.bookingDate ?: ""
+        tvTimeTicket.text = args.argCheckoutTicketCancel?.ticketCheckout?.timeslot?.start_time ?: ""
+        tvAddressTicket.text = args.argCheckoutTicketCancel?.address ?: ""
+        tvNumberOfTicket.text = args.argCheckoutTicketCancel?.ticketCheckout?.totalSeat.toString()
+        tvTicketNamesTicket.text = args.argCheckoutTicketCancel?.ticketCheckout?.seat
+        tvSnackTotalPrice.text = getSnackTotalPriceForCancellation()
+
+        val ticketTotalPrice = args.argCheckoutTicketCancel?.ticketCheckout?.totalSeat?.times(4500) ?: 0
+        tvTicketTotalPrice.text = ticketTotalPrice.toString()
+
+        val totalMoney = ticketTotalPrice + getSnackTotalPriceForCancellation().toInt() + 500
+        tvTotalMoney.text = totalMoney.toString()
+    }
+
+    private fun getSnackTotalPriceForCancellation() :String {
+        var snackTotalPrice:Int = 0
+        args.argCheckoutTicketCancel?.ticketCheckout?.snacks?.forEach {
+            snackTotalPrice += it.totalPrice ?: 0
+        }
+        return snackTotalPrice.toString()
     }
 
     private fun setUpSnackList() : MutableList<SnackVO> {
@@ -119,6 +149,8 @@ class MoviesTicketCheckoutFragment : Fragment() {
     private fun setUpListeners() {
 
         if (args.argCheckoutOrCancel == "Checkout") {
+
+            bindTicketData()
             rlTicketCancellationMoviesCheckout.visibility = View.GONE
             btnContinueMoviesTicketCheckout.visibility = View.VISIBLE
             btnTicketCancellationMoviesTicketCheckout.setImageResource(R.drawable.ticket_cancellation_button_policy)
@@ -130,6 +162,7 @@ class MoviesTicketCheckoutFragment : Fragment() {
                 it.findNavController().navigate(action)
             }
         } else {
+            bindTicketCancellationData()
             rlTicketCancellationMoviesCheckout.visibility = View.VISIBLE
             btnContinueMoviesTicketCheckout.visibility = View.GONE
             btnTicketCancellationMoviesTicketCheckout.setImageResource(R.drawable.ticket_cancellation_policy_button)
@@ -137,7 +170,7 @@ class MoviesTicketCheckoutFragment : Fragment() {
             tvTicketTitleMoviesTicketCheckout.text = ticketDetailsTitle
 
             btnCancelButtonMoviesCancel.setOnClickListener {
-                Toast.makeText(requireContext(), "Ticket's cancelled", Toast.LENGTH_SHORT).show()
+                ticketCancelDialog()
             }
         }
 
@@ -156,6 +189,21 @@ class MoviesTicketCheckoutFragment : Fragment() {
                 bottomDialog.dismiss()
             }
         }
+    }
+
+    private fun ticketCancelDialog() {
+        val dialog = MaterialAlertDialogBuilder(requireContext(),R.style.RoundedAlertDialog)
+            .setTitle("Ticket Cancellation !")
+            .setMessage("Are you sure to cancel ?")
+            .setCancelable(true)
+            .setPositiveButton("Yes") { dialog, which ->
+                Toast.makeText(requireContext(), "Ticket's cancelled", Toast.LENGTH_SHORT).show()
+                mCinemaModel.deleteTicket(args.argCheckoutTicketCancel?.id ?: 0)
+                findNavController().popBackStack()
+            }
+            .setNegativeButton("Cancel") { dialog, which -> dialog?.dismiss() }
+            .create()
+        dialog.show()
     }
 
     private fun hasItemInRecyclerView() {

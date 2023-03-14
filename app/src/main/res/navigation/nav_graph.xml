@@ -177,6 +177,15 @@
             app:nullable="true"
             app:argType="com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBodySnackList"
             android:defaultValue="@null" />
+        <argument
+            android:name="arg_ticket_id"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="arg_checkout_ticket_cancel"
+            app:nullable="true"
+            app:argType="com.flexath.themoviebookingapp.data.vos.ticket.TicketInformation"
+            android:defaultValue="@null" />
     </fragment>
 
     <fragment

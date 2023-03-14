@@ -1,7 +1,6 @@
 package com.flexath.themoviebookingapp.ui.adapters.movies
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -36,7 +35,7 @@ class DateCardMoviesCinemaAdapter(private val dateListTimeSlot: MutableList<Stri
         holder.itemView.dateCardTimeSlot.setOnClickListener {
             // Reset the background color of the previously selected item
             val previousPosition = selectedPosition
-            selectedPosition = holder.adapterPosition
+            selectedPosition = holder.absoluteAdapterPosition
             notifyItemChanged(previousPosition)
 
             delegate.onClickTimeSlot(dateListTimeSlot[selectedPosition])

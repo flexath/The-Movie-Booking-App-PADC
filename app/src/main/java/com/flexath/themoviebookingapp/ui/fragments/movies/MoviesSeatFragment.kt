@@ -91,7 +91,6 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
             mCinemaModel.getSeatPlan(
                 "Bearer ${mCinemaModel.getOtp(201)?.token}", dayTimeSlotId, it,
                 onSuccess = { seatDoubleList ->
-                    Toast.makeText(requireActivity(), "Seating Call succeeded", Toast.LENGTH_SHORT).show()
                     mSeatDoubleList.value = seatDoubleList
 
                     val seatList = addCinemaPath(seatDoubleList)

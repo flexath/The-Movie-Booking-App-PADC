@@ -12,9 +12,11 @@ import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
 import com.flexath.themoviebookingapp.data.vos.movie.PaymentVO
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBody
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutVO
-import com.flexath.themoviebookingapp.data.vos.test.VideoVO
+import com.flexath.themoviebookingapp.data.vos.movie.VideoVO
+import com.flexath.themoviebookingapp.data.vos.ticket.TicketInformation
 import com.flexath.themoviebookingapp.network.responses.LogoutResponse
 import com.flexath.themoviebookingapp.network.responses.OTPResponse
+import com.flexath.themoviebookingapp.ui.utils.Ticket
 
 interface CinemaModel {
 
@@ -144,4 +146,12 @@ interface CinemaModel {
         onSuccess:(LogoutResponse) -> Unit,
         onFailure:(String) -> Unit
     )
+    fun deleteAllEntities()
+
+    // Ticket Tab Screen
+    fun insertTicket(ticket:TicketInformation)
+
+    fun getAllTickets():List<TicketInformation>?
+
+    fun deleteTicket(ticketId:Int)
 }

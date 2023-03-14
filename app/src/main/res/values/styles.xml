@@ -2,10 +2,12 @@
 <resources>
 
     <style name="RoundedAlertDialog" parent="ThemeOverlay.MaterialComponents.Dialog">
-        <item name="colorSurface">@android:color/darker_gray</item>
         <item name="shapeAppearanceOverlay">@style/DialogRoundedCorner</item>
         <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogCustomTitle</item>
-        <item name="buttonBarPositiveButtonStyle">@style/AlertDialogCustomPositiveButton</item>
+        <item name="buttonBarPositiveButtonStyle">@style/AlertDialogCustomButtons</item>
+        <item name="buttonBarNegativeButtonStyle">@style/AlertDialogCustomButtons</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/AlertDialogCustomBodyText</item>
+
     </style>
 
     <style name="DialogRoundedCorner">
@@ -14,17 +16,22 @@
     </style>
 
     <style name="AlertDialogCustomTitle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/colorAlertDialogText</item>
-        <item name="android:textStyle">bold</item>
-        <item name="fontFamily">@font/dm_sans</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="fontFamily">@font/dm_sans_bold</item>
     </style>
 
-    <style name="AlertDialogCustomPositiveButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+    <style name="AlertDialogCustomBodyText" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="fontFamily">@font/dm_sans_bold</item>
+    </style>
+
+    <style name="AlertDialogCustomButtons" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">@color/colorAlertDialogText</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="fontFamily">@font/dm_sans</item>
+        <item name="fontFamily">@font/dm_sans_bold</item>
+        <item name="android:paddingBottom">@dimen/margin_small</item>
     </style>
 
     <style name="Spinner" parent="Widget.AppCompat.DropDownItem.Spinner">

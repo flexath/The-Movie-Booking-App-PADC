@@ -14,8 +14,8 @@ import com.flexath.themoviebookingapp.data.vos.movie.PaymentVO
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.CheckoutBody
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutResponse
 import com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutVO
-import com.flexath.themoviebookingapp.data.vos.test.VideoResponse
-import com.flexath.themoviebookingapp.data.vos.test.VideoVO
+import com.flexath.themoviebookingapp.data.vos.movie.VideoResponse
+import com.flexath.themoviebookingapp.data.vos.movie.VideoVO
 import com.flexath.themoviebookingapp.network.responses.SeatingPlanResponse
 import com.flexath.themoviebookingapp.network.api.CinemaApi
 import com.flexath.themoviebookingapp.network.responses.*

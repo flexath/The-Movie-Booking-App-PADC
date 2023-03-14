@@ -232,6 +232,7 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
         mSnackAdapter = MoviesSnackAdapter(this)
         rSnackMoviesSnack.adapter = mSnackAdapter
         rSnackMoviesSnack.layoutManager = GridLayoutManager(requireContext(), 2)
+        mSnackAdapter.notifyDataSetChanged()
     }
 
     private fun setUpSnackPriceAndQuantity() {

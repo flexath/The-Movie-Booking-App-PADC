@@ -9,11 +9,13 @@ import com.flexath.themoviebookingapp.data.vos.movie.BannerVO
 import com.flexath.themoviebookingapp.data.vos.movie.CinemaInfoVO
 import com.flexath.themoviebookingapp.data.vos.movie.MovieVO
 import com.flexath.themoviebookingapp.data.vos.movie.cinema.ConfigVO
+import com.flexath.themoviebookingapp.data.vos.ticket.TicketInformation
 import com.flexath.themoviebookingapp.network.responses.OTPResponse
 import com.flexath.themoviebookingapp.persistence.dao.CinemaDao
 
 @Database(entities = [CitiesVO::class,OTPResponse::class,
-    BannerVO::class,MovieVO::class,ConfigVO::class,CinemaInfoVO::class], version = 4 , exportSchema = false)
+    BannerVO::class,MovieVO::class,ConfigVO::class,CinemaInfoVO::class
+                     ,TicketInformation::class], version = 5 , exportSchema = false)
 abstract class CinemaRoomDatabase : RoomDatabase() {
 
     abstract fun getDao(): CinemaDao

@@ -42,7 +42,7 @@
                 android:layout_height="93dp"
                 android:layout_below="@+id/llDetailsMoviesTicketConfirmation"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/margin_45dp"
+                android:layout_marginTop="@dimen/margin_30dp"
                 tools:src="@drawable/qr_code" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -89,14 +89,14 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/llQRCodeMoviesTicketConfirmation"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/margin_50dp"
+                android:layout_marginTop="@dimen/margin_30dp"
                 android:backgroundTint="@color/colorAccent"
                 android:fontFamily="@font/inter_semibold"
                 android:paddingStart="60dp"
                 android:paddingTop="12dp"
                 android:paddingEnd="60dp"
                 android:paddingBottom="12dp"
-                android:text="DONE"
+                android:text="@string/done_lbl"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/text_regular_3x"
