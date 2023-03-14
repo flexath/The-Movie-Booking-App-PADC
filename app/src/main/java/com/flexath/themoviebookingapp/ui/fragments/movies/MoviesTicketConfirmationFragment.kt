@@ -64,6 +64,15 @@ class MoviesTicketConfirmationFragment : Fragment() {
             .load("$BASE_URL/${args.argCheckoutTicket?.qrCode}")
             .into(ivQRCodeMoviesTicketConfirmation)
 
+        val snackList = args.argCheckoutTicket?.snacks?.size
+        val snackLister = args.argCheckoutTicket?.snacks
+        Log.i("Xinner",snackList.toString())
+        snackLister?.get(0)?.let { Log.i("Xinner", it.toString()) }
+        snackLister?.get(1)?.let { Log.i("Xinner", it.toString()) }
+        snackLister?.get(2)?.let { Log.i("Xinner", it.toString()) }
+        snackLister?.get(3)?.let { Log.i("Xinner", it.toString()) }
+        snackLister?.get(4)?.let { Log.i("Xinner", it.toString()) }
+
         mCinemaModel.insertTicket(TicketInformation(args.argCheckoutTicket,args.argAddress,movie?.originalTitle,movie?.posterPath))
     }
 
@@ -71,7 +80,7 @@ class MoviesTicketConfirmationFragment : Fragment() {
         Handler(Looper.getMainLooper()).postDelayed(Runnable {
             ivBookingSuccessMoviesTicketConfirmation?.visibility = View.INVISIBLE
             if(ivBookingSuccessMoviesTicketConfirmation != null) {
-                Toast.makeText(requireContext(),"Done!",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(),"Done!",Toast.LENGTH_SHORT).show()
             }
         },3000)
 

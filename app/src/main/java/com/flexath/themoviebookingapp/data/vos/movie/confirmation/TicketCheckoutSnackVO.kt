@@ -26,5 +26,5 @@ data class TicketCheckoutSnackVO(
     val totalPrice: Int?,
 
     @SerializedName("quantity")
-    val quantityForConfirmation: Int?
+    val quantity: Int?
 )

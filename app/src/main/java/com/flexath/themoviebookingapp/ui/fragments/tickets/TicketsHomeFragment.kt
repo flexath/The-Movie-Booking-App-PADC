@@ -40,7 +40,6 @@ class TicketsHomeFragment : Fragment() {
         mTicketAdapter = TicketDetailsTicketHomeAdapter()
         rvTicketHome.adapter = mTicketAdapter
         rvTicketHome.layoutManager = LinearLayoutManager(requireActivity())
-        rvTicketHome.setHasFixedSize(true)
         mTicketAdapter.notifyDataSetChanged()
     }
 }

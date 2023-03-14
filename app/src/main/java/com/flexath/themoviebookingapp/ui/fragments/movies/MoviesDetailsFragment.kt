@@ -1,10 +1,7 @@
 package com.flexath.themoviebookingapp.ui.fragments.movies
 
-import android.media.session.PlaybackState
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,13 +23,10 @@ import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
 import com.flexath.themoviebookingapp.data.vos.movie.CastVO
 import com.flexath.themoviebookingapp.data.vos.movie.MovieVO
 import com.flexath.themoviebookingapp.network.utils.IMG_BASE_URL
-
 import com.flexath.themoviebookingapp.service.NotificationWorkManager
 import com.flexath.themoviebookingapp.ui.adapters.movies.CastMoviesDetailsAdapter
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerCallback
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.options.IFramePlayerOptions
 import kotlinx.android.synthetic.main.activity_main.*
@@ -128,7 +122,7 @@ class MoviesDetailsFragment : Fragment() {
     }
 
     private fun setUpYoutubePlayer(youtubeKey:String) {
-        viewLifecycleOwner.lifecycle.addObserver(ytPlayerMovieDetails)
+//        viewLifecycleOwner.lifecycle.addObserver(ytPlayerMovieDetails)
 //        ytPlayerMovieDetails.getYouTubePlayerWhenReady(object: YouTubePlayerCallback {
 //            override fun onYouTubePlayer(youTubePlayer: YouTubePlayer) {
 //                youTubePlayer.cueVideo(youtubeKey,0.0f)
@@ -153,9 +147,13 @@ class MoviesDetailsFragment : Fragment() {
                 }
             }
         }
-
         val options: IFramePlayerOptions = IFramePlayerOptions.Builder().controls(0).build()
         ytPlayerMovieDetails.initialize(listener, options)      // initialize the player
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        ytPlayerMovieDetails.release()
     }
 
     private fun playOrPauseTrailer(youtubePlayer:YouTubePlayer){

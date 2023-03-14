@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -17,6 +18,7 @@ import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.data.model.CinemaModel
 import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
 import com.flexath.themoviebookingapp.data.vos.movie.SnackVO
+import com.flexath.themoviebookingapp.data.vos.movie.confirmation.TicketCheckoutSnackVO
 import com.flexath.themoviebookingapp.ui.activities.MainActivity
 import com.flexath.themoviebookingapp.ui.adapters.movies.SnackTicketCheckoutAdapter
 import com.flexath.themoviebookingapp.ui.utils.Ticket
@@ -72,7 +74,6 @@ class MoviesTicketCheckoutFragment : Fragment() {
         mSnackList = args.argTicket?.snackList ?: listOf()
 
         setUpOrderedFoodListRecyclerView()
-
         setUpListeners()
         hasItemInRecyclerView()
     }
@@ -94,7 +95,7 @@ class MoviesTicketCheckoutFragment : Fragment() {
         val totalMoney = "${((mTicketTotalPrice?.plus(mSnackTotalPrice) ?: 0) + 500)}Ks"
         tvTotalMoney.text = totalMoney
 
-        mOrderedFoodAdapter.bindNewData(setUpSnackList())
+        mOrderedFoodAdapter.bindNewData(setUpSnackList(),"Checkout")
     }
 
     private fun bindTicketCancellationData() {
@@ -105,13 +106,30 @@ class MoviesTicketCheckoutFragment : Fragment() {
         tvAddressTicket.text = args.argCheckoutTicketCancel?.address ?: ""
         tvNumberOfTicket.text = args.argCheckoutTicketCancel?.ticketCheckout?.totalSeat.toString()
         tvTicketNamesTicket.text = args.argCheckoutTicketCancel?.ticketCheckout?.seat
-        tvSnackTotalPrice.text = getSnackTotalPriceForCancellation()
+
+        val snackTotalPrice = getSnackTotalPriceForCancellation() + "Ks"
+        tvSnackTotalPrice.text = snackTotalPrice
 
         val ticketTotalPrice = args.argCheckoutTicketCancel?.ticketCheckout?.totalSeat?.times(4500) ?: 0
-        tvTicketTotalPrice.text = ticketTotalPrice.toString()
+        val ticketTotalPriceStr = "${ticketTotalPrice}Ks"
+        tvTicketTotalPrice.text = ticketTotalPriceStr
 
         val totalMoney = ticketTotalPrice + getSnackTotalPriceForCancellation().toInt() + 500
-        tvTotalMoney.text = totalMoney.toString()
+        val totalMoneyStr = "${totalMoney}Ks"
+        tvTotalMoney.text = totalMoneyStr
+
+        val refundAmount = "${totalMoney/2}Ks"
+        tvRefundAmountMoviesCancel.text = refundAmount
+
+        val snackList = args.argCheckoutTicketCancel?.ticketCheckout?.snacks ?: listOf()
+        val newSnackList = mutableListOf<TicketCheckoutSnackVO>()
+        snackList.forEach {
+            if(it.quantity != 0) {
+                newSnackList.add(it)
+            }
+        }
+        mOrderedFoodAdapter.bindNewDataForCancellation(newSnackList,"Cancel")
+
     }
 
     private fun getSnackTotalPriceForCancellation() :String {
@@ -151,6 +169,7 @@ class MoviesTicketCheckoutFragment : Fragment() {
         if (args.argCheckoutOrCancel == "Checkout") {
 
             bindTicketData()
+
             rlTicketCancellationMoviesCheckout.visibility = View.GONE
             btnContinueMoviesTicketCheckout.visibility = View.VISIBLE
             btnTicketCancellationMoviesTicketCheckout.setImageResource(R.drawable.ticket_cancellation_button_policy)
@@ -163,6 +182,7 @@ class MoviesTicketCheckoutFragment : Fragment() {
             }
         } else {
             bindTicketCancellationData()
+
             rlTicketCancellationMoviesCheckout.visibility = View.VISIBLE
             btnContinueMoviesTicketCheckout.visibility = View.GONE
             btnTicketCancellationMoviesTicketCheckout.setImageResource(R.drawable.ticket_cancellation_policy_button)
