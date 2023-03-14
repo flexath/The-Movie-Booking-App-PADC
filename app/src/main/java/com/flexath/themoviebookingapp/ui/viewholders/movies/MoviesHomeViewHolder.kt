@@ -20,7 +20,6 @@ class MoviesHomeViewHolder(itemView: View,private val delegate:MoviesListViewHol
         this.itemView.setOnClickListener {
             delegate.onTapMovie(mMovie?.id)
         }
-
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

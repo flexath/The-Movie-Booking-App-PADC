@@ -37,14 +37,12 @@ class MoviesHomeRecyclerAdapter(private val tabPosition: Int, private val delega
     }
 
     override fun getItemCount(): Int {
-        return 10
+        return mMovieList.size
     }
 
     @SuppressLint("NotifyDataSetChanged")
     fun bindNewData(movieList: List<MovieVO>) {
         mMovieList = movieList
-        Log.i("NowPlayingATH",mMovieList.toString())
         notifyDataSetChanged()
     }
-
 }

@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.data.model.CinemaModel
@@ -26,6 +27,7 @@ import com.flexath.themoviebookingapp.ui.generaldata.CinemaInfoFactory
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import kotlinx.android.synthetic.main.fragment_cinema_info.*
+import kotlinx.android.synthetic.main.layout_app_bar_cinema_info.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -54,6 +56,15 @@ class CinemaInfoFragment : Fragment() {
         facilityChipGroup = (activity as AppCompatActivity).findViewById(R.id.chipGroupFacilityCinemaInfo)
 
         bindCinemaInfoData()
+        setUpListeners()
+    }
+
+    private fun setUpListeners() {
+        btnBackCinemaInfo.setOnClickListener {
+            vvVideoCinemaInfo.stopPlayback()
+            vvVideoCinemaInfo.pause()
+            findNavController().popBackStack()
+        }
     }
 
     private fun bindCinemaInfoData(){

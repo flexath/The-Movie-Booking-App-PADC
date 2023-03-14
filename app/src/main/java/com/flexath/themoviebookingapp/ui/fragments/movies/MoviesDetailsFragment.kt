@@ -101,7 +101,6 @@ class MoviesDetailsFragment : Fragment() {
 
     private fun requestVideoURL(movieId:String) {
 
-
         mMovieModel.getMovieTrailerById(
             movieId,
             onSuccess = {

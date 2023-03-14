@@ -5,14 +5,14 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.flexath.themoviebookingapp.data.model.CinemaModel
 import com.flexath.themoviebookingapp.ui.fragments.movies.TabLayoutMoviesHomeFragment
 
-class MoviesHomeViewPagerAdapter(fragment:Fragment,private val movieModel: CinemaModel) : FragmentStateAdapter(fragment) {
+class MoviesHomeViewPagerAdapter(private val fragment:Fragment,private val movieModel: CinemaModel) : FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int {
         return 2
     }
 
     override fun createFragment(position: Int): Fragment {
-        return TabLayoutMoviesHomeFragment(position,movieModel)
+        return TabLayoutMoviesHomeFragment(position,movieModel,fragment)
     }
 
 }
