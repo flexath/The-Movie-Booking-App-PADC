@@ -16,10 +16,22 @@ class CinemasMoviesCinemaViewHolder(
 
     private var mCinemaTimesAdapter: CinemaTimesMoviesCinemaAdapter? = null
     private var mCinema: CinemaVO? = null
+    private var isVisibleTimeslots:Boolean = false
 
     init {
         itemView.setOnClickListener {
-            delegate.onClickCinema(mCinema?.cinemaId ?: 0)
+
+            if(!isVisibleTimeslots) {
+                delegate.onClickCinema(mCinema?.cinemaId ?: 0)
+                itemView.rvCinemaTimesMoviesCinema.visibility = View.VISIBLE
+                itemView.llLongPressMoviesCinema.visibility = View.VISIBLE
+                isVisibleTimeslots = true
+            } else {
+                itemView.rvCinemaTimesMoviesCinema.visibility = View.GONE
+                itemView.llLongPressMoviesCinema.visibility = View.GONE
+                isVisibleTimeslots = false
+            }
+
         }
 
         setUpListeners()

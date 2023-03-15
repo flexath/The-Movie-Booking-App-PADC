@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -24,6 +25,7 @@ import com.flexath.themoviebookingapp.ui.utils.TimeSlotUtil
 import com.flexath.themoviebookingapp.ui.viewpods.CinemaListViewPod
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movies_cinema.*
+import kotlinx.android.synthetic.main.layout_app_bar_movies_cinema.*
 
 class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
 
@@ -69,12 +71,49 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
         bindTimeSlotData()
 
         setUpViewPod()
+        setUpListeners()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onDestroy() {
         super.onDestroy()
         timeSlotUtil.clearDateList()
+    }
+
+    private fun setUpListeners() {
+        btnSearchMoviesCinema.setOnClickListener {
+            llLocationMoviesCinema.visibility = View.GONE
+            btnSearchMoviesCinema.visibility = View.GONE
+            searchViewMoviesCinema.visibility = View.VISIBLE
+
+            searchViewMoviesCinema.setOnQueryTextListener(object : OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    searchCinema(newText)
+                    return true
+                }
+
+            })
+        }
+
+        btnFilterMoviesCinema.setOnClickListener {
+            llLocationMoviesCinema.visibility = View.VISIBLE
+            btnSearchMoviesCinema.visibility = View.VISIBLE
+            searchViewMoviesCinema.visibility = View.GONE
+        }
+    }
+
+    private fun searchCinema(newText: String?) {
+        val newCinemaList = mutableListOf<CinemaVO>()
+        for(cinema in mCinemaList) {
+            if(cinema.cinema?.contains(newText!!) == true) {
+                newCinemaList.add(cinema)
+            }
+        }
+        cinemaListViewPod.setNewData(newCinemaList)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

@@ -33,7 +33,6 @@ class DateCardMoviesCinemaAdapter(private val dateListTimeSlot: MutableList<Stri
         }
 
         holder.itemView.dateCardTimeSlot.setOnClickListener {
-            // Reset the background color of the previously selected item
             val previousPosition = selectedPosition
             selectedPosition = holder.absoluteAdapterPosition
             notifyItemChanged(previousPosition)
