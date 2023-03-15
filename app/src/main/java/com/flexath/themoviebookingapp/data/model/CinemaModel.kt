@@ -125,6 +125,8 @@ interface CinemaModel {
         onFailure:(String) -> Unit
     )
 
+    fun getSnackList():MutableList<SnackVO>
+
     // Movie Payment Screen
     fun getPaymentTypes(
         authorization:String,

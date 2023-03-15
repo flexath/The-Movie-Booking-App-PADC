@@ -36,7 +36,6 @@ import kotlinx.android.synthetic.main.layout_app_bar_movies_food.*
 import kotlinx.android.synthetic.main.layout_bottom_sheet_dialog_movies_food.*
 import kotlinx.android.synthetic.main.layout_button_movies_food.*
 
-
 class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
 
     private lateinit var mBottomSheetDialogAdapter: BottomSheetDialogMoviesFoodAdapter
@@ -55,7 +54,11 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
     private var mCinemaInfo: CinemaData? = null
     private var mSeatInfo: SeatData? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_movies_food, container, false)
     }
 
@@ -90,13 +93,14 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
                 setUpSnackTabLayoutTitle(it)
             },
             onFailure = {
-                Toast.makeText(requireActivity(), "Snack Category Call fails", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(), "Snack Category Call fails", Toast.LENGTH_SHORT)
+                    .show()
             }
         )
     }
 
     private fun setUpSnackTabLayoutTitle(snackCategoryList: List<SnackCategoryVO>) {
-        for(categoryList in snackCategoryList) {
+        for (categoryList in snackCategoryList) {
             mSnackCategoryTitleList?.add(categoryList.title)
         }
         mSnackCategoryTitleList?.forEach { snackCategoryTitle ->
@@ -114,8 +118,6 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
             onSuccess = {
                 mSnackList?.value = it as MutableList<SnackVO>
                 mSnackAdapter.bindSnackListData(it)
-
-                setUpSnackPriceAndQuantity()
             },
             onFailure = {
                 Toast.makeText(requireActivity(), "Snack Call fails", Toast.LENGTH_SHORT).show()
@@ -127,7 +129,6 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
 
         tabLayoutMoviesSnack.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-
                 if (tab?.position == 0) {
                     requestSnackListData("")
                 } else {
@@ -148,43 +149,54 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
     }
 
     private fun createTicket(): Ticket {
-        return Ticket(mMovieId,mMovieName, mCinemaInfo, mSeatInfo, getSnackTotalPrice(), mSnackList?.value)
+        return Ticket(mMovieId, mMovieName, mCinemaInfo, mSeatInfo, getSnackTotalPrice(),mSnackList?.value)
     }
 
-    private fun getSnackTotalPrice() :Long {
+    private fun getSnackTotalPrice(): Long {
         var snackTotalPrice = 0L
-        mSnackList?.observe(viewLifecycleOwner) { snackList ->
-            snackList.forEach {
-                snackTotalPrice += it.price?.times(it.quantity) ?: 0
-            }
+
+        mSnackList?.value?.forEach {
+            snackTotalPrice += it.price?.times(it.quantity) ?: 0
         }
+
         return snackTotalPrice
     }
 
-    private fun getCheckoutBodySnackList(snackList:MutableList<SnackVO>) : CheckoutBodySnackList {
+    private fun getCheckoutBodySnackList(snackList: MutableList<SnackVO>): CheckoutBodySnackList {
         val checkoutSnackList = mutableListOf<CheckoutBodySnack>()
-        for(snack in snackList) {
-            checkoutSnackList.add(CheckoutBodySnack(snack.id,snack.quantity))
+        for (snack in snackList) {
+            checkoutSnackList.add(CheckoutBodySnack(snack.id, snack.quantity))
         }
         return CheckoutBodySnackList(checkoutSnackList)
+    }
+
+    private fun navigateToNextScreen() {
+        mCinemaModel.getSnackByCategory(
+            "Bearer ${mCinemaModel.getOtp(201)?.token}",
+            "",
+            onSuccess = { snack ->
+                mSnackList?.value = snack as MutableList
+                val action = MoviesSnackFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
+                action.argCheckoutOrCancel = "Checkout"
+                action.argTicket = createTicket()
+                action.argCheckoutBodySnackCheckout =
+                    getCheckoutBodySnackList(mSnackList?.value ?: mutableListOf())
+                findNavController().navigate(action)
+            },
+            onFailure = {
+                Toast.makeText(requireActivity(), "Snack Call fails", Toast.LENGTH_SHORT).show()
+            }
+        )
     }
 
     private fun setUpListeners() {
         // Order Button for Check Out Screen
         btnFoodOrderPurchaseMoviesFood.setOnClickListener {
-            val action = MoviesSnackFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
-            action.argCheckoutOrCancel = "Checkout"
-            action.argTicket = createTicket()
-            action.argCheckoutBodySnackCheckout = getCheckoutBodySnackList(mSnackList?.value ?: mutableListOf())
-            it.findNavController().navigate(action)
+            navigateToNextScreen()
         }
 
         btnSkipButtonMoviesFood.setOnClickListener {
-            val action = MoviesSnackFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
-            action.argCheckoutOrCancel = "Checkout"
-            action.argTicket = createTicket()
-            action.argCheckoutBodySnackCheckout = getCheckoutBodySnackList(mSnackList?.value ?: mutableListOf())
-            it.findNavController().navigate(action)
+            navigateToNextScreen()
         }
 
         setUpFoodBottomSheetDialog()
@@ -214,11 +226,7 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
             bottomDialog.show()
 
             bottomDialog.btnFoodOrderPurchaseBottomDialogMoviesFood.setOnClickListener {
-                val action = MoviesSnackFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
-                action.argCheckoutOrCancel = "Checkout"
-                action.argTicket = createTicket()
-                action.argCheckoutBodySnackCheckout = getCheckoutBodySnackList(mSnackList?.value ?: mutableListOf())
-                findNavController().navigate(action)
+                navigateToNextScreen()
                 bottomDialog.dismiss()
             }
 
@@ -260,7 +268,6 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
             mSnackAdapter.bindSnackListData(snackList)
         }
         setUpSnackPriceAndQuantity()
-        Log.i("SnackList",mSnackList.toString())
     }
 
     override fun onTapMinusSnack(snackId: Int) {
@@ -276,7 +283,6 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
             mSnackAdapter.bindSnackListData(snackList)
         }
         setUpSnackPriceAndQuantity()
-        Log.i("SnackList",mSnackList.toString())
     }
 
 }

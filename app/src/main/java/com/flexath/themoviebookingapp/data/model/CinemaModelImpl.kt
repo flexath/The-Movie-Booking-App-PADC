@@ -23,7 +23,8 @@ object CinemaModelImpl : CinemaModel {
 
     private val mMovieDataAgent: CinemaDataAgent = RetrofitDataAgentImpl
     private var mCinemaDatabase: CinemaRoomDatabase? = null
-    private var mMovie:MovieVO? = null
+    private var mMovie: MovieVO? = null
+    private var snackList: MutableList<SnackVO> = mutableListOf()
 
     fun initCinemaDatabase(context: Context) {
         mCinemaDatabase = CinemaRoomDatabase.getDBInstance(context)
@@ -65,7 +66,7 @@ object CinemaModelImpl : CinemaModel {
         )
     }
 
-    override fun getOtp(code:Int) = mCinemaDatabase?.getDao()?.getSignInInformation(code)
+    override fun getOtp(code: Int) = mCinemaDatabase?.getDao()?.getSignInInformation(code)
 
     override fun getBanners(onSuccess: (List<BannerVO>) -> Unit, onFailure: (String) -> Unit) {
         onSuccess(mCinemaDatabase?.getDao()?.getBanners() ?: listOf())
@@ -128,7 +129,7 @@ object CinemaModelImpl : CinemaModel {
         onSuccess: (List<VideoVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mMovieDataAgent.getMovieTrailerById(movieId,onSuccess,onFailure)
+        mMovieDataAgent.getMovieTrailerById(movieId, onSuccess, onFailure)
     }
 
     override fun getMovieByIdForTicket(movieId: String) = mMovie
@@ -157,7 +158,7 @@ object CinemaModelImpl : CinemaModel {
         }, onFailure = onFailure)
     }
 
-    override fun getCinemaConfig(key:String) = mCinemaDatabase?.getDao()?.getCinemaConfig(key)
+    override fun getCinemaConfig(key: String) = mCinemaDatabase?.getDao()?.getCinemaConfig(key)
 
     override fun insertCinemaInfo(
         onSuccess: (List<CinemaInfoVO>) -> Unit,
@@ -169,7 +170,7 @@ object CinemaModelImpl : CinemaModel {
         }, onFailure = onFailure)
     }
 
-    override fun getCinemaInfo(cinemaId:Int) = mCinemaDatabase?.getDao()?.getCinemaInfo(cinemaId)
+    override fun getCinemaInfo(cinemaId: Int) = mCinemaDatabase?.getDao()?.getCinemaInfo(cinemaId)
 
     override fun getSeatPlan(
         authorization: String,
@@ -178,7 +179,7 @@ object CinemaModelImpl : CinemaModel {
         onSuccess: (MutableList<MutableList<SeatVO>>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mMovieDataAgent.getSeatPlan(authorization,dayTimeSlotId,bookingDate,onSuccess,onFailure)
+        mMovieDataAgent.getSeatPlan(authorization, dayTimeSlotId, bookingDate, onSuccess, onFailure)
     }
 
     override fun getSnackCategory(
@@ -186,7 +187,7 @@ object CinemaModelImpl : CinemaModel {
         onSuccess: (List<SnackCategoryVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mMovieDataAgent.getSnackCategory(authorization,onSuccess,onFailure)
+        mMovieDataAgent.getSnackCategory(authorization, onSuccess, onFailure)
     }
 
     override fun getSnackByCategory(
@@ -195,15 +196,20 @@ object CinemaModelImpl : CinemaModel {
         onSuccess: (List<SnackVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mMovieDataAgent.getSnackByCategory(authorization,categoryId,onSuccess,onFailure)
+        mMovieDataAgent.getSnackByCategory(authorization, categoryId, onSuccess = {
+            snackList = it as MutableList
+            onSuccess(it)
+        }, onFailure)
     }
+
+    override fun getSnackList(): MutableList<SnackVO> = snackList
 
     override fun getPaymentTypes(
         authorization: String,
         onSuccess: (List<PaymentVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mMovieDataAgent.getPaymentTypes(authorization,onSuccess,onFailure)
+        mMovieDataAgent.getPaymentTypes(authorization, onSuccess, onFailure)
     }
 
     override fun getTicketCheckout(
@@ -212,7 +218,7 @@ object CinemaModelImpl : CinemaModel {
         onSuccess: (TicketCheckoutVO) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mMovieDataAgent.getTicketCheckout(authorization,ticketCheckout,onSuccess,onFailure)
+        mMovieDataAgent.getTicketCheckout(authorization, ticketCheckout, onSuccess, onFailure)
     }
 
     override fun logout(
@@ -220,7 +226,7 @@ object CinemaModelImpl : CinemaModel {
         onSuccess: (LogoutResponse) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mMovieDataAgent.logout(authorization,onSuccess,onFailure)
+        mMovieDataAgent.logout(authorization, onSuccess, onFailure)
     }
 
     override fun deleteAllEntities() {
@@ -231,9 +237,10 @@ object CinemaModelImpl : CinemaModel {
         mCinemaDatabase?.getDao()?.insertTicket(ticket)
     }
 
-    override fun getAllTickets(): List<TicketInformation>? = mCinemaDatabase?.getDao()?.getAllTickets()
+    override fun getAllTickets(): List<TicketInformation>? =
+        mCinemaDatabase?.getDao()?.getAllTickets()
 
-    override fun deleteTicket(ticketId:Int) {
+    override fun deleteTicket(ticketId: Int) {
         mCinemaDatabase?.getDao()?.deleteTicket(ticketId)
     }
 
