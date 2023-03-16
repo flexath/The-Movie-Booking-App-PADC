@@ -1,6 +1,8 @@
 package com.flexath.themoviebookingapp.ui.fragments.movies
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.SharedPreferences
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -30,6 +32,7 @@ class MoviesHomeFragment : Fragment() {
     private lateinit var mBannerHomeAdapter: BannerMoviesHomeAdapter
     private lateinit var mMoviesHomeAdapter: MoviesHomeViewPagerAdapter
     private val mMovieModel:CinemaModel = CinemaModelImpl
+    private lateinit var sharedPref:SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,21 +45,30 @@ class MoviesHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.VISIBLE
+        sharedPref = (activity as AppCompatActivity).getSharedPreferences("CITY_PREF", Context.MODE_PRIVATE)
+
+        if(tvCityNameMoviesHome.text.isEmpty()) {
+            tvCityNameMoviesHome.text = (activity as AppCompatActivity).intent.getStringExtra(MainActivity.CITY_NAME_EXTRA) ?: ""
+        }
 
         setUpAppBarListeners()
-        setUpBannerHome()           // For Banner Section of Home Screen
-        setUpViewPagerAdapter()     // For TabLayout Movies
-
+        setUpBannerHome()
+        setUpViewPagerAdapter()
     }
 
     private fun setUpAppBarListeners() {
-        tvCityNameMoviesHome.text = (activity as AppCompatActivity).intent.getStringExtra(MainActivity.CITY_NAME_EXTRA) ?: ""
+        tvCityNameMoviesHome.text = sharedPref.getString("CITY","Yangon")
+    }
 
-//        btnSearchMoviesHome.setOnClickListener {
-//            val action = MoviesHomeFragmentDirections.actionMoviesHomeToMoviesSearch()
-//            action.argTabPosition = viewPagerTabLayoutMoviesHome.currentItem
-//            it.findNavController().navigate(action)
-//        }
+    override fun onDestroy() {
+        super.onDestroy()
+        val city = (activity as AppCompatActivity).intent.getStringExtra(MainActivity.CITY_NAME_EXTRA) ?: ""
+        val editor = sharedPref.edit()
+
+        editor?.apply {
+            putString("CITY",city)
+            apply()
+        }
     }
 
     private fun setUpViewPagerAdapter() {

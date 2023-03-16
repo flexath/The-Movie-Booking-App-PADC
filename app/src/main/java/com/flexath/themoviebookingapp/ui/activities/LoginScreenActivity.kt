@@ -56,8 +56,6 @@ class LoginScreenActivity : AppCompatActivity() {
                 etMobileNumber.error = mMobileNumberValidationChecker.mobileNumberError
                 outlineMobileNumber.visibility = View.INVISIBLE
             }
-
-//            startActivity(OtpScreenActivity.newIntentFromOtpScreen(this, "959795448753"))
         }
 
         rlVerifyGoogleAccount.setOnClickListener {

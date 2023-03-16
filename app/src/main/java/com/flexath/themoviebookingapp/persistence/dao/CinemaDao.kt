@@ -89,6 +89,10 @@ interface CinemaDao {
     fun deleteAllFromCinemaInfoVO()
 
     @Transaction
+    @Query("DELETE FROM ticket_table")
+    fun deleteAllFromTicketInformation()
+
+    @Transaction
     fun deleteAllEntities(){
         deleteAllFromCitiesVO()
         deleteAllFromOTP()
@@ -96,6 +100,7 @@ interface CinemaDao {
         deleteAllFromMovieVO()
         deleteAllFromConfigVO()
         deleteAllFromCinemaInfoVO()
+        deleteAllFromTicketInformation()
     }
 
     // Ticket Home
