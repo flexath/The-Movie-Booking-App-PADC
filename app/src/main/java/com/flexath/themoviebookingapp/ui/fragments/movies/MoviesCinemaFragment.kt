@@ -64,9 +64,6 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
         mMovieName = args.argMovieName
         mMovieId = args.argMovieId
 
-        Log.i("Timeslot",timeSlotUtil.dateList.toString())
-        Log.i("Timeslot",timeSlotUtil.dateListTimeSLot.toString())
-
         setUpDateCardsRecyclerView()
         bindTimeSlotData()
 
@@ -81,6 +78,9 @@ class MoviesCinemaFragment : Fragment(), CinemaListViewHolderDelegate {
     }
 
     private fun setUpListeners() {
+
+        tvCityNameExtraHomeCinema.text = args.argCityName
+
         btnSearchMoviesCinema.setOnClickListener {
             llLocationMoviesCinema.visibility = View.GONE
             btnSearchMoviesCinema.visibility = View.GONE

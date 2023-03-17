@@ -116,6 +116,7 @@ class TabLayoutMoviesHomeFragment(private var position:Int,private val mMovieMod
     override fun onTapMovie(movieId: Int?) {
         val action = MoviesHomeFragmentDirections.actionMoviesHomeToMoviesDetailsHome()
         action.argNowShowingOrComingSoon = position
+        action.argCityName = fragment.tvCityNameMoviesHome.text.toString()
         movieId?.let {
             action.argMovieId = it
         }

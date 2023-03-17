@@ -238,6 +238,7 @@ class MoviesDetailsFragment : Fragment() {
             val action = MoviesDetailsFragmentDirections.actionMoviesDetailsHomeToChooseCinema()
             action.argMovieName = mMovieName
             action.argMovieId = movieId.toString()
+            action.argCityName = args.argCityName
             it.findNavController().navigate(action)
         }
 

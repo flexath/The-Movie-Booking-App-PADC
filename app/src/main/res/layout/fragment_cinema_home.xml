@@ -20,6 +20,7 @@
         android:background="@color/colorSeatBackground"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
+        android:visibility="gone"
         android:paddingTop="@dimen/margin_card_medium_2"
         android:paddingBottom="@dimen/margin_card_medium_2">
 

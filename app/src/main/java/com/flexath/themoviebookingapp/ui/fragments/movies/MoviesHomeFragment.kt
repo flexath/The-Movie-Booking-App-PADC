@@ -60,8 +60,6 @@ class MoviesHomeFragment : Fragment() {
         val city = (activity as AppCompatActivity).intent.getStringExtra(MainActivity.CITY_NAME_EXTRA)
         tvCityNameMoviesHome.text = city
 
-        Log.i("CityATH",city.toString())
-
         if(city == null) {
             val citySharedPref = sharedPref.getString("city", "")
             tvCityNameMoviesHome.text = citySharedPref
@@ -70,13 +68,6 @@ class MoviesHomeFragment : Fragment() {
             editor?.putString("city", city)
             editor?.apply()
         }
-
-        Log.i("City",sharedPref.getString("city", "ATH").toString())
-    }
-
-    override fun onDestroy() {
-
-        super.onDestroy()
     }
 
     private fun setUpViewPagerAdapter() {
