@@ -1,5 +1,6 @@
 package com.flexath.themoviebookingapp.ui.fragments.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.flexath.themoviebookingapp.R
 import com.flexath.themoviebookingapp.data.model.CinemaModel
 import com.flexath.themoviebookingapp.data.model.CinemaModelImpl
+import com.flexath.themoviebookingapp.ui.activities.LoginScreenActivity
 import com.flexath.themoviebookingapp.ui.activities.MainActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.fragment_profile_home.*
@@ -46,6 +48,10 @@ class ProfileHomeFragment : Fragment() {
                             Toast.makeText(requireActivity(),"Logout call succeeded",Toast.LENGTH_SHORT).show()
                             mCinemaModel.deleteAllEntities()
                             (activity as MainActivity).finish()
+
+                            Intent(requireActivity(),LoginScreenActivity::class.java).also {
+                                startActivity(it)
+                            }
                         },
                         onFailure = {
                             Toast.makeText(requireActivity(),"Logout call fails",Toast.LENGTH_SHORT).show()

@@ -5,11 +5,13 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -31,8 +33,8 @@ class MoviesHomeFragment : Fragment() {
 
     private lateinit var mBannerHomeAdapter: BannerMoviesHomeAdapter
     private lateinit var mMoviesHomeAdapter: MoviesHomeViewPagerAdapter
-    private val mMovieModel:CinemaModel = CinemaModelImpl
-    private lateinit var sharedPref:SharedPreferences
+    private val mMovieModel: CinemaModel = CinemaModelImpl
+    private lateinit var sharedPref: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,11 +47,8 @@ class MoviesHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.VISIBLE
-        sharedPref = (activity as AppCompatActivity).getSharedPreferences("CITY_PREF", Context.MODE_PRIVATE)
 
-        if(tvCityNameMoviesHome.text.isEmpty()) {
-            tvCityNameMoviesHome.text = (activity as AppCompatActivity).intent.getStringExtra(MainActivity.CITY_NAME_EXTRA) ?: ""
-        }
+        sharedPref = activity?.getSharedPreferences("CITY_PREF", Context.MODE_PRIVATE)!!
 
         setUpAppBarListeners()
         setUpBannerHome()
@@ -57,22 +56,31 @@ class MoviesHomeFragment : Fragment() {
     }
 
     private fun setUpAppBarListeners() {
-        tvCityNameMoviesHome.text = sharedPref.getString("CITY","Yangon")
+
+        val city = (activity as AppCompatActivity).intent.getStringExtra(MainActivity.CITY_NAME_EXTRA)
+        tvCityNameMoviesHome.text = city
+
+        Log.i("CityATH",city.toString())
+
+        if(city == null) {
+            val citySharedPref = sharedPref.getString("city", "")
+            tvCityNameMoviesHome.text = citySharedPref
+        } else {
+            val editor = sharedPref.edit()
+            editor?.putString("city", city)
+            editor?.apply()
+        }
+
+        Log.i("City",sharedPref.getString("city", "ATH").toString())
     }
 
     override fun onDestroy() {
-        super.onDestroy()
-        val city = (activity as AppCompatActivity).intent.getStringExtra(MainActivity.CITY_NAME_EXTRA) ?: ""
-        val editor = sharedPref.edit()
 
-        editor?.apply {
-            putString("CITY",city)
-            apply()
-        }
+        super.onDestroy()
     }
 
     private fun setUpViewPagerAdapter() {
-        mMoviesHomeAdapter = MoviesHomeViewPagerAdapter(this,mMovieModel)
+        mMoviesHomeAdapter = MoviesHomeViewPagerAdapter(this, mMovieModel)
         viewPagerTabLayoutMoviesHome.adapter = mMoviesHomeAdapter
 
         TabLayoutMediator(tabLayoutMoviesHome, viewPagerTabLayoutMoviesHome) { tab, position ->
@@ -98,13 +106,13 @@ class MoviesHomeFragment : Fragment() {
                 viewPagerBannerMoviesHome.setPageTransformer(compositePageTransformer)
             },
             onFailure = {
-                Toast.makeText(requireContext(),it,Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
             }
         )
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun setUpBannerRecyclerView(banners:List<BannerVO>) {
+    private fun setUpBannerRecyclerView(banners: List<BannerVO>) {
         mBannerHomeAdapter = BannerMoviesHomeAdapter(banners)
         viewPagerBannerMoviesHome?.adapter = mBannerHomeAdapter
         dotsIndicatorHome?.attachTo(viewPagerBannerMoviesHome!!)

@@ -47,6 +47,7 @@ class LoginScreenActivity : AppCompatActivity() {
                     onSuccess = {
                         Toast.makeText(this, "${it.message}", Toast.LENGTH_SHORT).show()
                         startActivity(OtpScreenActivity.newIntentFromOtpScreen(this, ccpLogin.fullNumber))
+                        finish()
                     },
                     onFailure = {
                         Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
