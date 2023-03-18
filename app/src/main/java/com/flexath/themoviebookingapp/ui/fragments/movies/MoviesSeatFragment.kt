@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -37,7 +38,7 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
     // For Ticket
     private var mmMovieName:String? = null
     private var mmMovieId:String? = null
-    private var mmCinemaInfo:CinemaData? = null
+    private var mmCinemaInfo: CinemaData? = null
     private lateinit var mmSeatTicketList:MutableList<String>
 
     companion object {
@@ -146,23 +147,20 @@ class MoviesSeatFragment : Fragment(), SeatViewHolderDelegate {
             it.findNavController().navigate(action)
         }
 
+        seekbarSeat.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                val zoomLevel = (progress / 100f) * (zoomLayoutSeat.getMaxZoom() - zoomLayoutSeat.getMinZoom()) + zoomLayoutSeat.getMinZoom()
+                zoomLayoutSeat.zoomTo(zoomLevel, false)
+            }
 
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
 
-//        seekbarSeat.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-//            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-//                val zoomLevel = (progress / 100f) * (zoomLayoutSeat.getMaxZoom() - zoomLayoutSeat.getMinZoom()) + zoomLayoutSeat.getMinZoom()
-//                zoomLayoutSeat.zoomTo(zoomLevel, true)
-//                zoomLayoutSeat.zoomBy(10F,true)
-//            }
-//
-//            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-//                // No action needed
-//            }
-//
-//            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-//                // No action needed
-//            }
-//        })
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+
+            }
+        })
     }
 
     override fun onTapSeat(seatName: String,isAvailable:Boolean?) {
