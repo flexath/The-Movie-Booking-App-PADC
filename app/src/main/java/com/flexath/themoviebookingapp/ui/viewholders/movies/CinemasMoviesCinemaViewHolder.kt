@@ -20,16 +20,13 @@ class CinemasMoviesCinemaViewHolder(
 
     init {
         itemView.setOnClickListener {
-
-            if(!isVisibleTimeslots) {
+            if(mCinema?.isClicked == false) {
                 delegate.onClickCinema(mCinema?.cinemaId ?: 0)
                 itemView.rvCinemaTimesMoviesCinema.visibility = View.VISIBLE
                 itemView.llLongPressMoviesCinema.visibility = View.VISIBLE
-                isVisibleTimeslots = true
             } else {
                 itemView.rvCinemaTimesMoviesCinema.visibility = View.GONE
                 itemView.llLongPressMoviesCinema.visibility = View.GONE
-                isVisibleTimeslots = false
             }
 
         }

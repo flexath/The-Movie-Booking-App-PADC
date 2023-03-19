@@ -95,9 +95,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/llCinemaStuffs"
-        android:layout_marginTop="@dimen/margin_10dp"
-        android:layout_marginStart="@dimen/margin_small_smaller"
-        android:layout_marginEnd="@dimen/margin_small_smaller"
+        android:layout_margin="@dimen/margin_14dp"
         android:visibility="gone"
         tools:itemCount="3"
         tools:listitem="@layout/view_holder_movies_cinema_cinema_times_list" />
