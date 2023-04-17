@@ -213,6 +213,11 @@
             app:nullable="true"
             app:argType="string"
             android:defaultValue="@null" />
+        <argument
+            android:name="arg_ticket_checkout"
+            app:nullable="true"
+            app:argType="com.flexath.themoviebookingapp.ui.utils.Ticket"
+            android:defaultValue="@null" />
     </fragment>
 
     <fragment

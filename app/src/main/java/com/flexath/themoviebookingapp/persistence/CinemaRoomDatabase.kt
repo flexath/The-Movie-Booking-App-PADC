@@ -15,7 +15,7 @@ import com.flexath.themoviebookingapp.persistence.dao.CinemaDao
 
 @Database(entities = [CitiesVO::class,OTPResponse::class,
     BannerVO::class,MovieVO::class,ConfigVO::class,CinemaInfoVO::class
-                     ,TicketInformation::class], version = 1 , exportSchema = false)
+                     ,TicketInformation::class], version = 2 , exportSchema = false)
 abstract class CinemaRoomDatabase : RoomDatabase() {
 
     abstract fun getDao(): CinemaDao

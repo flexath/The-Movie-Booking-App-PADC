@@ -44,7 +44,7 @@ class LogoScreenActivity : AppCompatActivity() {
     private fun setUpNetworkCall() {
         mCinemaModel.insertCities(
             onSuccess = {
-                Toast.makeText(this,"Cities Network call succeeded",Toast.LENGTH_SHORT).show()
+
             },
             onFailure = {
                 Toast.makeText(this,"Cities fail",Toast.LENGTH_SHORT).show()
@@ -53,7 +53,7 @@ class LogoScreenActivity : AppCompatActivity() {
 
         mCinemaModel.insertCinemaConfig(
             onSuccess = {
-                Toast.makeText(this,"Config Network call succeeded",Toast.LENGTH_SHORT).show()
+
             },
             onFailure = {
                 Log.i("ConfigATH",it)
@@ -63,7 +63,7 @@ class LogoScreenActivity : AppCompatActivity() {
 
         mCinemaModel.insertCinemaInfo(
             onSuccess = {
-                Toast.makeText(this,"Cinema Info call succeeded",Toast.LENGTH_SHORT).show()
+
             },
             onFailure = {
                 Toast.makeText(this,"Cinema Info Fail",Toast.LENGTH_SHORT).show()

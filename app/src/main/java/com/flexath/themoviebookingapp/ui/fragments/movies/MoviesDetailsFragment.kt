@@ -104,7 +104,6 @@ class MoviesDetailsFragment : Fragment() {
         mMovieModel.getMovieTrailerById(
             movieId,
             onSuccess = {
-                Toast.makeText(requireActivity(),"Video call succeeded",Toast.LENGTH_SHORT).show()
                 var youtubeKey = ""
                 for(video in it){
                     if(video.site == "YouTube" && video.type == "Trailer" && video.official == true) {

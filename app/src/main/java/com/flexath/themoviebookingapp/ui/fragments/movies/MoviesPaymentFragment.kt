@@ -35,6 +35,10 @@ class MoviesPaymentFragment : Fragment(),PaymentViewHolderDelegate {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).bottomNvgViewHome.visibility = View.INVISIBLE
 
+        Log.i("Ticketering",args.argTicketCheckout.toString())
+        Log.i("TicketeringSnack",args.argTicketCheckout?.snackList.toString())
+        Log.i("TicketeringSnackSize",args.argTicketCheckout?.snackList?.size.toString())
+
         setUpPaymentRecyclerVIew()
         requestData()
     }
@@ -83,14 +87,13 @@ class MoviesPaymentFragment : Fragment(),PaymentViewHolderDelegate {
     }
 
     override fun onTapPayment(paymentId: Int) {
-        Log.i("CheckoutBody",getTicketCheckoutBody(paymentId).toString())
         mCinemaModel.getTicketCheckout(
             "Bearer ${mCinemaModel.getOtp(201)?.token}",
             getTicketCheckoutBody(paymentId),
             onSuccess = {
-                Toast.makeText(requireActivity(),"Checkout call succeeded",Toast.LENGTH_SHORT).show()
                 val action = MoviesPaymentFragmentDirections.actionProfilePaymentToMoviesTicketConfirmation()
                 action.argCheckoutTicket = it
+                action.argTicketCheckout = args.argTicketCheckout
                 action.argAddress = args.argTicketCheckout?.cinemaInfo?.address
                 findNavController().navigate(action)
             },

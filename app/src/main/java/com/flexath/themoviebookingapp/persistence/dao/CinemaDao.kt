@@ -94,7 +94,7 @@ interface CinemaDao {
 
     @Transaction
     fun deleteAllEntities(){
-        deleteAllFromCitiesVO()
+//        deleteAllFromCitiesVO()
         deleteAllFromOTP()
         deleteAllFromBannerVO()
         deleteAllFromMovieVO()

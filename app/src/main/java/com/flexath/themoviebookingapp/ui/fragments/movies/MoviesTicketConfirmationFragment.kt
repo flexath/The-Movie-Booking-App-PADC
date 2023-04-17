@@ -67,13 +67,10 @@ class MoviesTicketConfirmationFragment : Fragment() {
         val snackList = args.argCheckoutTicket?.snacks?.size
         val snackLister = args.argCheckoutTicket?.snacks
         Log.i("Xinner",snackList.toString())
-        snackLister?.get(0)?.let { Log.i("Xinner", it.toString()) }
-        snackLister?.get(1)?.let { Log.i("Xinner", it.toString()) }
-        snackLister?.get(2)?.let { Log.i("Xinner", it.toString()) }
-        snackLister?.get(3)?.let { Log.i("Xinner", it.toString()) }
-        snackLister?.get(4)?.let { Log.i("Xinner", it.toString()) }
+        Log.i("Xinner",snackLister.toString())
+        Log.i("XinnerSize",args.argTicketCheckout?.snackList?.size.toString())
 
-        mCinemaModel.insertTicket(TicketInformation(args.argCheckoutTicket,args.argAddress,movie?.originalTitle,movie?.posterPath))
+        mCinemaModel.insertTicket(TicketInformation(args.argCheckoutTicket,args.argTicketCheckout?.snackList,args.argAddress,movie?.originalTitle,movie?.posterPath))
     }
 
     private fun setUpListeners() {

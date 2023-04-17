@@ -179,8 +179,7 @@ class MoviesSnackFragment : Fragment(), SnackViewHolderDelegate {
                 val action = MoviesSnackFragmentDirections.actionMoviesFoodToMoviesTicketCheckout()
                 action.argCheckoutOrCancel = "Checkout"
                 action.argTicket = createTicket()
-                action.argCheckoutBodySnackCheckout =
-                    getCheckoutBodySnackList(mSnackList?.value ?: mutableListOf())
+                action.argCheckoutBodySnackCheckout = getCheckoutBodySnackList(mSnackList?.value ?: mutableListOf())
                 findNavController().navigate(action)
             },
             onFailure = {
